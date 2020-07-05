@@ -11,4 +11,10 @@ class TopController extends Controller
     {
         return view('login');
     }
+
+    // login処理実行
+    public function loginExec()
+    {
+        
+    }
 }

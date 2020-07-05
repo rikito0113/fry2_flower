@@ -7,7 +7,7 @@
 </head>
 <body>
     <form action="/loginExec" method="POST">
-            player_id : <input type="text" name="player_id" size="40" placeholder="player_idを入力してください"> <br>
+        player_id : <input type="text" name="player_id" size="40" placeholder="player_idを入力してください"> <br>
         <input type="submit" value="Login">
     </form>
 </body>

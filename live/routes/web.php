@@ -13,4 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',         'TopController@login');
+Route::get('/',                            'TopController@login');
+Route::get('/loginExec',                   'TopController@loginExec');
