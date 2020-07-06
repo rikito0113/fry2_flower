@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -6,9 +6,9 @@
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <title>flower girls</title>
 </head>
-<body>
+<body> -->
     @include('header')
     トップ〜〜〜
     @include('footer')
-</body>
-</html>
+<!-- </body>
+</html> -->
