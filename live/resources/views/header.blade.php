@@ -1,17 +1,17 @@
 <div class="flower-header" >
     <div class="header-child">
-        TOP
+        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
     </div>
     <div class="header-child">
-        girl
+        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
     </div>
     <div class="header-child">
-        gacha&shop
+        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
     </div>
     <div class="header-child">
-        プレゼント
+        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
     </div>
     <div class="header-child">
-        ＋
+        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
     </div>
 </div>
