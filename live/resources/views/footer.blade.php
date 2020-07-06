@@ -1,3 +1,3 @@
-<div class="footer" style="bachground-color:red">
+<div class="footer" style="background-color:red">
     私はフッターだ
 </div>
