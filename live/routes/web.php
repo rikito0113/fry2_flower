@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',                            'TopController@login');
 Route::post('/loginExec',                  'TopController@loginExec');
-Route::resource('/my',                          'MyController');
+Route::get('/my',                          'MyController@my');
