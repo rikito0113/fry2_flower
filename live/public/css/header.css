@@ -6,9 +6,11 @@
 
 .header-child
 {
+    width:20%;
+    height:0;
+    padding-bottom: 100%;
     text-align: center;
     float:left;
-
     border: solid 8px red;
     box-sizing: border-box;
     font-weight: bold;
