@@ -20,7 +20,7 @@ class TopController extends Controller
     // login処理実行
     public function loginExec(Request $request)
     {
-        $player = Player::where('player_id', $request->player_id)->first;
+        $player = Player::where('player_id', $request->player_id)->first();
         if ($player) {
             // index
             return redirect()->route('my.my');
