@@ -6,7 +6,8 @@
     <title>flower girls</title>
 </head>
 <body>
-
+    @include('header')
     トップ〜〜〜
+    @include('footer')
 </body>
 </html>
