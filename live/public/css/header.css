@@ -7,12 +7,9 @@
 .header-child
 {
     width:20%;
-    height:0;
-    padding-bottom: 100%;
-    word-break: break-all;
-    text-align: center;
+    height:auto;
     float:left;
-    border: solid 1px red;
+    /* border: solid 1px red;
     box-sizing: border-box;
-    font-weight: bold;
+    font-weight: bold; */
 }

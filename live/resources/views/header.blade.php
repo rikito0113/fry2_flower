@@ -1,17 +1,7 @@
 <div class="flower-header" >
-    <div class="header-child">
-        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
-    </div>
-    <div class="header-child">
-        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
-    </div>
-    <div class="header-child">
-        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
-    </div>
-    <div class="header-child">
-        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
-    </div>
-    <div class="header-child">
-        <img src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
-    </div>
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="ロゴ">
 </div>
