@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class PresentController extends Controller
 {
     // My page
-    public function my()
+    public function index()
     {
         return view('present.index');
     }
