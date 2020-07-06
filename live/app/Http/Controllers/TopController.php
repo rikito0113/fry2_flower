@@ -23,9 +23,15 @@ class TopController extends Controller
         $player = Player::where('player_id', $request->player_id)->first;
         if ($player) {
             // index
+            return redirect()->route('my.my');
         } else {
-            // 登録
-
+            // player登録
+            $newPlayer = new Player;
+            $newPlayer->player_id = $request->player_id;
+            $newPlayer->pf_player_id = $request->pf_player_id;
+            $newPlayer->name = $request->name;
+            $newPlayer->save();
+            return redirect()->route('my.my');
         }
     }
 }
