@@ -45,7 +45,7 @@ class TopController extends Controller
         $playerInfo = Player::where('pf_player_id', $request->pf_player_id)->first();
         if ($playerInfo) {
             // playerInfoをwithにできる
-            return view('my.my');
+            return redirect()->route('my.my');
         }
         // player登録
         $instance = new Player;
@@ -54,6 +54,6 @@ class TopController extends Controller
             'name'           => $request->name
         ]);
 
-        return view('my.my');
+        return redirect()->route('my.my');
     }
 }
