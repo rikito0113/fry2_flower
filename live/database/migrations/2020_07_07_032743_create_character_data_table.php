@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlayerTable extends Migration
+class CreateCharacterDataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreatePlayerTable extends Migration
      */
     public function up()
     {
-        Schema::create('player', function (Blueprint $table) {
-            $table->increments('player_id');
-            $table->integer('pf_player_id');
-            $table->string('name', 30);
-            $table->integer('owned_char_id')->nullable()->default("");
+        Schema::create('character_data', function (Blueprint $table) {
+            $table->increments('char_id');
+            $table->string('char_name');
+            $table->string('subject');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreatePlayerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('player');
+        Schema::dropIfExists('character_data');
     }
 }
