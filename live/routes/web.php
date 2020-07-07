@@ -13,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',                            'TopController@login');
+Route::get('/',                            'TopController@login')->name('register');
 Route::post('/loginExec',                  'TopController@loginExec');
+Route::get('/register',                    'TopController@register');
+Route::post('/register',                   'TopController@registerExec');
 Route::get('my/my',                        'MyController@my')->name('my.my');
 Route::get('Present/index',                'PresentController@index')->name('present.index');
 Route::get('Girl/index',                   'GirlController@index')->name('girl.index');

@@ -15,10 +15,17 @@ class PlayerTableSeeder extends Seeder
     {
         DB::table('player')->insert([
             [
-                'player_id'         => 853842,
                 'pf_player_id'      => 1,
-                'name'              => '853842',
-            ]
+                'name'              => 'rikito',
+            ],
+            [
+                'pf_player_id'      => 2,
+                'name'              => 'ayato',
+            ],
+            [
+                'pf_player_id'      => 3,
+                'name'              => 'makoto',
+            ],
         ]);
     }
 }
