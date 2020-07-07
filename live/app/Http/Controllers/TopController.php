@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\CharacterData;
+use App\OwnedCharacterData;
 use App\Player;
 
 use Illuminate\Http\Request;
@@ -56,8 +57,8 @@ class TopController extends Controller
         ]);
 
         // player毎のcharDataを作成
-        $charInfo = CharacterData::latest()->get();
-        foreach ($charInfo as $key => $girl) {
+        $ownedcharInfo = OwnedCharacterData::latest()->get();
+        foreach ($ownedcharInfo as $key => $girl) {
             // charの数だけ生成
             $charObject = new CharacterData;
             $charObject->create([
