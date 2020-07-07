@@ -8,5 +8,7 @@ class CharacterData extends Model
 {
     protected $table = 'character_data';
 
-    protected $fillable = ['char_id', 'char_name', 'subject'];
+    protected $fillable = ['char_name', 'subject'];
+
+    protected $primaryKey = 'char_id';
 }

@@ -14,7 +14,7 @@ class CreateOwnedCharacterDataTable extends Migration
     public function up()
     {
         Schema::create('owned_character_data', function (Blueprint $table) {
-            $table->increments('owned_char_id')->primary();
+            $table->increments('owned_char_id');
             $table->integer('player_id');
             $table->integer('char_id');
             $table->integer('level')->default(1);
