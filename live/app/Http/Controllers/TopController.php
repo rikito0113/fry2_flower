@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\CharacterData;
 use App\Player;
 
 use Illuminate\Http\Request;
@@ -54,6 +55,19 @@ class TopController extends Controller
             'name'           => $request->name
         ]);
 
-        return redirect()->route('my.my');
+        // player毎のcharDataを作成
+        $charInfo = CharacterData::latest()->get();
+        foreach ($charInfo as $key => $girl) {
+            // charの数だけ生成
+            $charObject = new CharacterData;
+            $charObject->create([
+                'player_id'     => $playerInfo->player_id,
+                'char_id'       => $girl->char_id,
+            ]);
+        }
+
+        return redirect(route('girl_select', [
+            'playerId' => $playerInfo->player_id,
+        ]));
     }
 }

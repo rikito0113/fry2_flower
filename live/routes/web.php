@@ -20,3 +20,5 @@ Route::post('/registerExec',               'TopController@registerExec');
 Route::get('my/my',                        'MyController@my')->name('my.my');
 Route::get('Present/index',                'PresentController@index')->name('present.index');
 Route::get('Girl/index',                   'GirlController@index')->name('girl.index');
+Route::get('/girl_select/{playerId}',      'GirlController@girlSelect')->name('girl_select');
+Route::get('/girl_select/{playerId}/{charId}', 'GirlController@girlSelectExec');
