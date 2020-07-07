@@ -55,6 +55,8 @@ class TopController extends Controller
             'pf_player_id'   => $request->pf_player_id,
             'name'           => $request->name
         ]);
+        // createの返り値はauto incrementは入らない
+        $playerInfo = Player::where('pf_player_id', $request->pf_player_id)->first();
 
         // player毎のcharDataを作成
         $ownedcharInfo = OwnedCharacterData::latest()->get();
