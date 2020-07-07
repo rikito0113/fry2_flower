@@ -48,8 +48,8 @@ class TopCore
         self::updateHash($playerInfo->player_id);
 
         // player毎のcharDataを作成
-        $ownedcharInfo = OwnedCharacterData::latest()->get();
-        foreach ($ownedcharInfo as $key => $girl) {
+        $allCharInfo = CharacterData::latest()->get();
+        foreach ($allCharInfo as $key => $girl) {
             // charの数だけ生成
             $charObject = new CharacterData;
             $charObject->create([
