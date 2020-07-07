@@ -11,14 +11,14 @@
         <a href="{{ action('MyController@my') }}">
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="TOP">
         </a>
-
+        <a href="{{ action('GirlController@index') }}">
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="girl">
-
+        </a>
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="gacha&shop">
 
         <a href="{{ action('PresentController@index') }}">
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="present">
         </a>
-        
+
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="+">
     </div>

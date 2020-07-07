@@ -17,3 +17,4 @@ Route::get('/',                            'TopController@login');
 Route::post('/loginExec',                  'TopController@loginExec');
 Route::get('my/my',                        'MyController@my')->name('my.my');
 Route::get('Present/index',                'PresentController@index')->name('present.index');
+Route::get('Girl/index',                   'GirlController@index')->name('girl.index');
