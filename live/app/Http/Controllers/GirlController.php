@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// モデルの呼び出し
 use App\CharacterData;
 use App\OwnedCharacterData;
 use App\Player;
 
+// ライブラリの呼び出し
+use App\Library\GirlCore;
+
+use Illuminate\Http\Request;
+
 class GirlController extends Controller
 {
+
     // My page
     public function index()
     {
@@ -16,26 +22,17 @@ class GirlController extends Controller
     }
 
     // 登録時のgirl選択
-    public function girlSelect($playerId)
+    public function girlSelect()
     {
         $charInfo = CharacterData::latest()->get();
-        return view('girl_select')->with('char_info', $charInfo)->with('player_id', $playerId);
+        return view('girl_select')->with('char_info', $charInfo);
     }
 
     // girl選択実行処理
-    public function girlSelectExec($playerId, $charId)
+    public function girlSelectExec($charId)
     {
-        // ここのwhereはsessionに変えてもいいかもしれない。
-        $ownedCharInfo = OwnedCharacterData::where('char_id', $charId)->where('player_id', $playerId)->first();
-        $playerInfo = Player::where('player_id', $playerId)->first();
+        $playerInfo = GirlCore::girlSelect($this->_playerId, $charId);
 
-        // playerDataを変更
-        if ($ownedCharInfo) {
-            $playerInfo->owned_char_id = $ownedCharInfo->owned_char_id;
-            $playerInfo->save();
-        }
-
-        // ここのrouteを連想配列にしてもいい気がする
         return view('my')->with('player_info', $playerInfo);
     }
 }
