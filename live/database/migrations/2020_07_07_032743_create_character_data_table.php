@@ -14,7 +14,7 @@ class CreateCharacterDataTable extends Migration
     public function up()
     {
         Schema::create('character_data', function (Blueprint $table) {
-            $table->increments('char_id');
+            $table->increments('char_id')->primary();
             $table->string('char_name');
             $table->string('subject');
             $table->timestamps();
