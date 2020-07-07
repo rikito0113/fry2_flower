@@ -51,7 +51,7 @@ class TopCore
         $allCharInfo = CharacterData::latest()->get();
         foreach ($allCharInfo as $key => $girl) {
             // charの数だけ生成
-            $charObject = new CharacterData;
+            $charObject = new OwnedCharacterData;
             $charObject->create([
                 'player_id'     => $playerInfo->player_id,
                 'char_id'       => $girl->char_id,
