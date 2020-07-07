@@ -27,11 +27,10 @@ class GirlController extends Controller
     {
         // ここのwhereはsessionに変えてもいいかもしれない。
         $ownedCharInfo = OwnedCharacterData::where('char_id', $charId)->where('player_id', $playerId)->first();
+        $playerInfo = Player::where('player_id', $playerId)->first();
 
         // playerDataを変更
         if ($ownedCharInfo) {
-            // ここのwhereはsessionに変えてもいいかもしれない。
-            $playerInfo = Player::where('player_id', $playerId)->first();
             $playerInfo->owned_char_id = $ownedCharInfo->owned_char_id;
             $playerInfo->save();
         }
