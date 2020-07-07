@@ -18,6 +18,7 @@ class CreatePlayerTable extends Migration
             $table->integer('pf_player_id');
             $table->string('name', 30);
             $table->integer('owned_char_id')->nullable()->default(0);
+            $table->string('hash')->nullable();
             $table->timestamps();
         });
     }

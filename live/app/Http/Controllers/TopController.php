@@ -6,6 +6,7 @@ use App\OwnedCharacterData;
 use App\Player;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class TopController extends Controller
 {
@@ -25,6 +26,7 @@ class TopController extends Controller
         $playerInfo = Player::where('pf_player_id', $request->pf_player_id)->first();
         if ($playerInfo) {
             // index
+            $this->updateHash($playerInfo->player_id);
             return redirect()->route('my.my');
         }
 
@@ -57,6 +59,7 @@ class TopController extends Controller
         ]);
         // createの返り値はauto incrementは入らない
         $playerInfo = Player::where('pf_player_id', $request->pf_player_id)->first();
+        $this->updateHash($playerInfo->player_id);
 
         // player毎のcharDataを作成
         $ownedcharInfo = OwnedCharacterData::latest()->get();
@@ -72,5 +75,35 @@ class TopController extends Controller
         return redirect(route('girl_select', [
             'playerId' => $playerInfo->player_id,
         ]));
+    }
+
+    // ハッシュ値のupdate
+    public function updateHash($playerId)
+    {
+        $hash = Hash::make($playerId);
+        $player = Player::where('player_id', $playerId)->first();
+        $player->hash = $hash;
+        $player->save();
+
+        // ハッシュ値をsessionに保管
+        session(['hash' => $hash]);
+    }
+
+    // ハッシュ値の比較をしplayerを返す
+    // @return array or bool
+    public function getPlayerByHash()
+    {
+        // ハッシュ値を保持している時
+        if (session()->has('hash')) {
+            $hash = session('hash');
+            $AllPlayer = Player::latest()->get();
+            foreach ($AllPlayer as &$player) {
+                if (Hash::check($hash, $player->hash)) {
+                    return $player;
+                }
+            }
+        }
+
+        return false;
     }
 }
