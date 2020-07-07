@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',                            'TopController@login');
 Route::post('/loginExec',                  'TopController@loginExec')->name('top.loginExec');
 Route::get('/register',                    'TopController@register')->name('register');
-Route::post('/register',                   'TopController@registerExec');
+Route::post('/registerExec',               'TopController@registerExec');
 Route::get('my/my',                        'MyController@my')->name('my.my');
 Route::get('Present/index',                'PresentController@index')->name('present.index');
 Route::get('Girl/index',                   'GirlController@index')->name('girl.index');
