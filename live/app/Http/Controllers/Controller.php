@@ -24,13 +24,13 @@ class Controller extends BaseController
             $AllPlayer = Player::latest()->get();
             foreach ($AllPlayer as &$player) {
                 if (Hash::check($hash, $player->player_id)) {
-                    $_playerId = $player->player_id;
+                    $this->_playerId = $player->player_id;
                 }
             }
         }
 
         // もしplayerIdが取れなかった場合はloginへ
-        if (!$_playerId) {
+        if (!$this->_playerId) {
             session()->flush();
             return redirect()->route('login');
         }
