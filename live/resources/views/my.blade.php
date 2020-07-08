@@ -8,7 +8,10 @@
 </head>
 <body> -->
     @include('header')
-    トップ〜〜〜
+    トップ〜〜〜<br>
+    <p>
+    player_id ::: {{$test_1}}
+    </p>
     @include('footer')
 <!-- </body>
 </html> -->

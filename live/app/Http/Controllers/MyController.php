@@ -12,6 +12,11 @@ class MyController extends Controller
     // My page
     public function my()
     {
-        return view('my');
+        if ($this->_playerId) {
+            $test = $this->_playerId;
+        } else {
+            $test = 100000;
+        }
+        return view('my')->with('test_1', $test);
     }
 }
