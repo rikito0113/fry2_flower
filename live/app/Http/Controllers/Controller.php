@@ -14,7 +14,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected $_playerId = false;
+    protected $_playerId;
 
     public function init()
     {
