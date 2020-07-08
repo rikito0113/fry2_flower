@@ -32,7 +32,7 @@ class Controller extends BaseController
         // もしplayerIdが取れなかった場合はloginへ
         if (!$this->_playerId) {
             session()->flush();
-            return redirect()->route('login');
+            return redirect()->route('/');
         }
     }
 }
