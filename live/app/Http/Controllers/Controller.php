@@ -16,9 +16,9 @@ class Controller extends BaseController
 
     protected $_playerId;
 
-    public function init()
+    public function __construct()
     {
-        // // ハッシュ値を保持している時
+        // ハッシュ値を保持している時
         // if (session()->has('hash')) {
         //     $hash = session('hash');
         //     $AllPlayer = Player::latest()->get();
