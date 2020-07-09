@@ -16,7 +16,6 @@ class CreateCharacterImgTable extends Migration
         Schema::create('character_img', function (Blueprint $table) {
             $table->increments('img_id');
             $table->string('name');
-            $table->string('which_item');
             $table->enum(
                 'which_item',
                 ['avatar', 'background']
