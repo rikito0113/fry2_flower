@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 // ライブラリの呼び出し
-use App\Library\PlayerCore;
+// use App\Library\PlayerCore;
+
+// モデルの呼び出し
+use App\OwnedCharacterData;
 
 use Illuminate\Http\Request;
 
@@ -17,6 +20,10 @@ class MyController extends Controller
         } else {
             $test = 100000;
         }
-        return view('my')->with('test_1', $test);
+
+        // playerのgirl情報
+        $allOwnedCharInfo = OwnedCharacterData::where('player_id', $this->_playerId)->get();
+
+        return view('my')->with('test_1', $test)->with('owned_char_info', $allOwnedCharInfo);
     }
 }

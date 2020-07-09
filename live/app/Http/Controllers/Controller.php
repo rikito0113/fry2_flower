@@ -21,18 +21,12 @@ class Controller extends BaseController
         // ハッシュ値を保持している時
         if (session()->has('hash')) {
             $hash = session('hash');
-            $AllPlayer = Player::latest()->get();
-            foreach ($AllPlayer as &$player) {
-                if (Hash::check($hash, $player->player_id)) {
-                    $this->_playerId = $player->player_id;
-                }
-            }
+            $player = Player::where('hash', $hash)->first();
+            $this->_playerId = $player->player_id;
         }
 
         // もしplayerIdが取れなかった場合はloginへ
-        if (!$this->_playerId) {
+        if (!$this->_playerId)
             session()->flush();
-            return redirect()->route('top.login');
-        }
     }
 }

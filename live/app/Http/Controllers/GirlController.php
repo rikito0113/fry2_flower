@@ -33,6 +33,6 @@ class GirlController extends Controller
     {
         $playerInfo = GirlCore::girlSelect($this->_playerId, $charId);
 
-        return view('my')->with('player_info', $playerInfo);
+        return redirect()->route('my.my');
     }
 }
