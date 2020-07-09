@@ -12,7 +12,7 @@ class CharacterImgTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('character_data')->insert([
+        DB::table('character_img')->insert([
             [
                 'name'              => '齋藤飛鳥(制服)',
                 'which_item'        => 'background',
