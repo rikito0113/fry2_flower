@@ -15,8 +15,14 @@ class TopCore
     public static function login($PFPlayerId)
     {
         $playerInfo = Player::where('pf_player_id', $PFPlayerId)->first();
-        self::updateHash($playerInfo->player_id);
-        return $playerInfo;
+
+        // playerがない場合はfalse
+        if (!$playerInfo)
+            return false;
+        else {
+            self::updateHash($playerInfo->player_id);
+            return $playerInfo;
+        }
     }
 
     // ハッシュ値をupdate
