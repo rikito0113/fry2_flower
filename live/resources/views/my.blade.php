@@ -13,17 +13,19 @@
     <div style="text-align:center;">
 
         {{-- イベント情報 スライダー表示 --}}
-        <div style="background-color: black; color: white text-align:center;">イベント情報</div>
-
+        <div style="color: white; background-color: black; text-align:center;">イベント情報</div>
+        <div height="20%" style="text-align: center">
+            スライダーを表示する!!!!
+        </div>
 
         <br><br>
 
         {{-- girl表示 --}}
-        @foreach ($char_info as $index => $char)
+        @foreach ($owned_char_info as $index => $char)
             <span width="20%">
-                <a href="/girl_select/{{ $char->char_id }}"><img src="{{ asset('/images/character/{{ $char->char_id }}.jpg') }}" alt="girl" width="19%"></a>
+                <img src="{{ asset('/images/character/'.$char->char_id.'.jpg') }}" alt="girl" width="19%">
             </span>
-            @if ($index == 3)
+            @if ($index == 2)
                 <br>
             @endif
         @endforeach

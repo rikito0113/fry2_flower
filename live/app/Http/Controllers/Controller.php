@@ -26,7 +26,7 @@ class Controller extends BaseController
         }
 
         // もしplayerIdが取れなかった場合はloginへ
-        if (!$this->_playerId)
-            session()->flush();
+        // if (!$this->_playerId)
+        //     session()->flush();
     }
 }
