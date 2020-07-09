@@ -18,7 +18,8 @@ class GirlController extends Controller
     // My page
     public function index()
     {
-        return view('girl.index');
+        $charInfo = CharacterData::latest()->get();
+        return view('girl.index')->with('char_info', $charInfo);
     }
 
     // 登録時のgirl選択
