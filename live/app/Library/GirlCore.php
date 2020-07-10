@@ -6,6 +6,8 @@ namespace App\Library;
 use App\CharacterData;
 use App\OwnedCharacterData;
 use App\Player;
+use App\SetImg;
+use App\CharacterImg;
 
 class GirlCore
 {
@@ -19,5 +21,23 @@ class GirlCore
         $playerInfo->save();
 
         return $playerInfo;
+    }
+
+    /**
+     * girl情報をロードする
+     *
+     * @param int $ownedCharId
+     * @return array $ownedCharInfo
+     *
+     */
+    public static function girlLoad($ownedCharId)
+    {
+        $ownedChar = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
+        $setImgInfo = SetImg::where('owned_char_id', $ownedCharId)->first();
+        $setImgInfo['img_name'] = CharacterImg::where('img_id', $setImgInfo->background_img)->first()->name;
+
+        $ownedCharInfo = array_merge($ownedChar, $setImgInfo);
+
+        return $ownedCharInfo;
     }
 }

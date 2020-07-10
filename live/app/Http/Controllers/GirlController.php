@@ -18,11 +18,17 @@ class GirlController extends Controller
     // My page
     public function index()
     {
+        // 全てのgirl情報
         $charInfo = CharacterData::latest()->get();
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        // 選択中のgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
+
         return view('girl.index')
-            ->with('char_info', $charInfo)
-            ->with('player_info', $playerInfo);
+            ->with('char_info',         $charInfo)
+            ->whith('owned_char_info',  $ownedCharInfo)
+            ->with('player_info',       $playerInfo);
     }
 
     // 登録時のgirl選択

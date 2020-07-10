@@ -10,6 +10,9 @@ use App\CharacterImg;
 use App\OwnedCharacterImg;
 use App\SetImg;
 
+// ライブラリの呼び出し
+use App\Library\GirlCore;
+
 use Illuminate\Support\Facades\Hash;
 
 class TopCore
@@ -88,5 +91,7 @@ class TopCore
             ]);
         }
 
+        // defaultのowned_char_idをupdate のちにconstant.phpとか制御
+        GirlCore::girlSelect($playerInfo->player_id, 1);
     }
 }

@@ -53,7 +53,7 @@ class TopController extends Controller
         } else {
             // 会員登録
             TopCore::register($request);
-            return redirect()->route('girl_select');
+            return redirect()->route('my.my');
         }
     }
 }
