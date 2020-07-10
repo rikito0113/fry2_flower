@@ -6,6 +6,9 @@ namespace App\Library;
 use App\CharacterData;
 use App\OwnedCharacterData;
 use App\Player;
+use App\CharacterImg;
+use App\OwnedCharacterImg;
+use App\SetImg;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -57,11 +60,33 @@ class TopCore
         $allCharInfo = CharacterData::latest()->get();
         foreach ($allCharInfo as $key => $girl) {
             // charの数だけ生成
-            $charObject = new OwnedCharacterData;
-            $charObject->create([
+            $charInstance = new OwnedCharacterData;
+            $charInstance->create([
                 'player_id'     => $playerInfo->player_id,
                 'char_id'       => $girl->char_id,
             ]);
+            $charInstance = OwnedCharacterData::where('player_id', $playerInfo->player_id)->where('char_id', $girl->char_id)->first();
+
+            // ここでchar_imgからデフォルトを取得し、owned_character_imgを登録 girls×row
+            $defaultImg = CharacterImg::where('char_id', $girl->char_id)->orderBy('img_id', 'asc')->first();
+            $imgInstance = new OwnedCharacterImg;
+            $imgInstance->create([
+                'owned_char_id' => $charInstance->owned_char_id,
+                'player_id'     => $playerInfo->player_id,
+                'img_id'        => $defaultImg->img_id,
+                'num'           => 1,
+                'which_item'    => $defaultImg->which_item,
+            ]);
+
+            // 同じくset_imgも登録
+            $setImgInstance = new SetImg;
+            $setImgInstance->create([
+                'owned_char_id' => $charInstance->owned_char_id,
+                'char_id'       => $girl->char_id,
+                'background_img'=> $defaultImg->img_id,
+                'avatar_imd'    => null,
+            ]);
         }
+
     }
 }

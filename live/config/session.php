@@ -31,9 +31,12 @@ return [
     |
     */
 
-    'lifetime' => env('SESSION_LIFETIME', 120),
+    // 10080は１週間アクセスがないと確率で削除
+    // http://shirangana.omaww.net/laravel52/laravelでexpire_on_closeをtr
 
-    'expire_on_close' => false,
+    'lifetime' => env('SESSION_LIFETIME', 10080),
+
+    'expire_on_close' => true,
 
     /*
     |--------------------------------------------------------------------------
