@@ -33,10 +33,16 @@ class GirlCore
     public static function girlLoad($ownedCharId)
     {
         $ownedChar = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
+
+        // img_infoの中身
         $setImgInfo = SetImg::where('owned_char_id', $ownedCharId)->first();
         $setImgInfo['img_name'] = CharacterImg::where('img_id', $setImgInfo->background_img)->first()->name;
 
-        $ownedCharInfo = array_merge($ownedChar, $setImgInfo);
+        $ownedCharInfo = $ownedChar;
+        $ownedCharInfo['char_name'] = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
+        $ownedCharInfo['background_img'] = $setImgInfo->background_img;
+        $ownedCharInfo['img_name'] = $setImgInfo->img_name;
+
 
         return $ownedCharInfo;
     }

@@ -27,7 +27,7 @@ class GirlController extends Controller
 
         return view('girl.index')
             ->with('char_info',         $charInfo)
-            ->whith('owned_char_info',  $ownedCharInfo)
+            ->with('owned_char_info',  $ownedCharInfo)
             ->with('player_info',       $playerInfo);
     }
 
