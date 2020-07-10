@@ -17,7 +17,7 @@ class CreateSetImgTable extends Migration
             $table->integer('owned_char_id');
             $table->integer('char_id');
             $table->integer('background_img');
-            $table->integer('avatar_img');
+            $table->integer('avatar_img')->nullable();
             $table->timestamps();
         });
     }
