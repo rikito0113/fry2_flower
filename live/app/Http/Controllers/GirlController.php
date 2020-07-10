@@ -19,7 +19,7 @@ class GirlController extends Controller
     public function index()
     {
         $charInfo = CharacterData::latest()->get();
-        $playerInfo = Player::where('player_id', $playerId)->first();
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
         return view('girl.index')
             ->with('char_info', $charInfo)
             ->with('player_info', $playerInfo);
