@@ -19,7 +19,10 @@ class GirlController extends Controller
     public function index()
     {
         $charInfo = CharacterData::latest()->get();
-        return view('girl.index')->with('char_info', $charInfo);
+        $playerInfo = Player::where('player_id', $playerId)->first();
+        return view('girl.index')
+            ->with('char_info', $charInfo)
+            ->with('player_info', $playerInfo);
     }
 
     // 登録時のgirl選択
@@ -34,6 +37,6 @@ class GirlController extends Controller
     {
         $playerInfo = GirlCore::girlSelect($this->_playerId, $charId);
 
-        return redirect()->route('my.my');
+        return redirect()->route('girl.index');
     }
 }
