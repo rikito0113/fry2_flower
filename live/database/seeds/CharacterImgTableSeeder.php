@@ -43,6 +43,26 @@ class CharacterImgTableSeeder extends Seeder
                 'name'              => '松村沙友理(制服)',
                 'which_item'        => 'background',
             ],
+            [
+                'char_id'           => 1,
+                'name'              => '齋藤飛鳥(私服)',
+                'which_item'        => 'background',
+            ],
+            [
+                'char_id'           => 3,
+                'name'              => '西野七瀬(衣装)',
+                'which_item'        => 'background',
+            ],
+            [
+                'char_id'           => 4,
+                'name'              => '橋本奈々未(私服2)',
+                'which_item'        => 'background',
+            ],
+            [
+                'char_id'           => 5,
+                'name'              => '生田絵梨花(アップ)',
+                'which_item'        => 'background',
+            ],
         ]);
     }
 }
