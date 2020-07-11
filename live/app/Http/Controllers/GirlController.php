@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\CharacterData;
 use App\OwnedCharacterData;
 use App\Player;
+use App\OwnedCharacterImg;
+
 
 // ライブラリの呼び出し
 use App\Library\GirlCore;
@@ -25,9 +27,13 @@ class GirlController extends Controller
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
 
+        // 所持中のimg情報
+        $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
+
         return view('girl.index')
             ->with('char_info',         $charInfo)
-            ->with('owned_char_info',  $ownedCharInfo)
+            ->with('owned_char_info',   $ownedCharInfo)
+            ->with('owned_char_img',    $ownedCharImg)
             ->with('player_info',       $playerInfo);
     }
 
@@ -42,6 +48,19 @@ class GirlController extends Controller
     public function girlSelectExec($charId)
     {
         $playerInfo = GirlCore::girlSelect($this->_playerId, $charId);
+
+        return redirect()->route('girl.index');
+    }
+
+    // set_img実行処理
+    public function setImgExec($imgId)
+    {
+        $setImgInfo = GirlCore::setImg($this->_playerId, $imgId);
+
+        // エラー用
+        // if ($setImgInfo) {
+        //     # code...
+        // }
 
         return redirect()->route('girl.index');
     }

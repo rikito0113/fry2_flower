@@ -8,6 +8,19 @@
     {{$owned_char_info->img_name}}<br>
 </div>
 
+{{-- 着替え --}}
+@foreach ($owned_char_img as $index => $img)
+    <span>
+        <a href="/setImgExec/{{ $img->img_id }}">
+            <img src="{{ asset('/images/character/'.$img->img_id.'.jpg') }}" alt="">
+        </a>
+    </span>
+
+    @if ($index % 4 == 3)
+        <br>
+    @endif
+@endforeach
+
 <br><br>
 
 <div style="text-align:center;">

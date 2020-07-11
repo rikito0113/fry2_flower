@@ -22,3 +22,4 @@ Route::get('Present/index',                'PresentController@index')->name('pre
 Route::get('Girl/index',                   'GirlController@index')->name('girl.index');
 Route::get('/girl_select',                 'GirlController@girlSelect')->name('girl_select');
 Route::get('/girl_select/{charId}',        'GirlController@girlSelectExec');
+Route::get('/setImg/{imgId}',              'GirlController@setImgExec');

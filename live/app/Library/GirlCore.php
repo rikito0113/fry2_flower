@@ -8,6 +8,7 @@ use App\OwnedCharacterData;
 use App\Player;
 use App\SetImg;
 use App\CharacterImg;
+use App\OwnedCharacterImg;
 
 class GirlCore
 {
@@ -45,5 +46,32 @@ class GirlCore
 
 
         return $ownedCharInfo;
+    }
+
+    /**
+     * set_imgを更新する
+     *
+     * @param int $playerId
+     * @param int $imgId
+     * @return array $setImgInfo
+     *
+     */
+    public static function setImg($playerId, $imgId)
+    {
+        $playerInfo = Player::where('player_id', $playerId)->first();
+        $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->where('img_id', $imgId)->first();
+
+        // エラー回避
+        if (!$ownedCharImg || $ownedCharImg->num <= 0) return false;
+
+        $setImgInfo = SetImg::where('owned_char_id', $playerInfo->owned_char_id)->first();
+        if ($ownedCharImg->which_item == 'background') {
+            $setImgInfo->background_img = $ownedCharImg->img_id;
+        } else {
+            $setImgInfo->avatar_img = $ownedCharImg->img_id;
+        }
+        $setImgInfo->save();
+
+        return $setImgInfo;
     }
 }

@@ -18,7 +18,10 @@ class CreateOwnedCharacterImgTable extends Migration
             $table->integer('player_id');
             $table->integer('img_id');
             $table->integer('num')->default(0);
-            $table->string('which_item');
+            $table->enum(
+                'which_item',
+                ['avatar', 'background']
+            );
             $table->timestamps();
         });
     }
