@@ -23,9 +23,9 @@
         {{-- girl表示 --}}
         @foreach ($owned_char_info as $index => $char)
             <span width="20%">
-                <img src="{{ asset('/images/character/'.$char->char_id.'.jpg') }}" alt="girl" width="19%">
+                <img src="{{ asset('/images/character/'.$char->background_img.'.jpg') }}" alt="girl" width="19%">
             </span>
-            @if ($index == 2)
+            @if ($index % 3 == 0)
                 <br>
             @endif
         @endforeach

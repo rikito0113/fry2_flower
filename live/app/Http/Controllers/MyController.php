@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 // ライブラリの呼び出し
-// use App\Library\PlayerCore;
+use App\Library\GirlCore;
 
 // モデルの呼び出し
 use App\OwnedCharacterData;
@@ -22,7 +22,11 @@ class MyController extends Controller
         }
 
         // playerのgirl情報
-        $allOwnedCharInfo = OwnedCharacterData::where('player_id', $this->_playerId)->get();
+        $allOwnedCharId = OwnedCharacterData::where('player_id', $this->_playerId)->get();
+        $allOwnedCharInfo = array();
+        foreach ($allOwnedCharId as $key => $ownedCharId) {
+            $allOwnedCharInfo[$ownedCharId->owned_char_id] = GirlCore::girlLoad($ownedCharId->owned_char_id);
+        }
 
         return view('my')->with('test_1', $test)->with('owned_char_info', $allOwnedCharInfo);
     }
