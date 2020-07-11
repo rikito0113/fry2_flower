@@ -11,8 +11,8 @@
 {{-- 着替え --}}
 @foreach ($owned_char_img as $index => $img)
     <span>
-        <a href="/setImgExec/{{ $img->img_id }}">
-            <img src="{{ asset('/images/character/'.$img->img_id.'.jpg') }}" alt="">
+        <a href="/setImg/{{ $img->img_id }}">
+            <img src="{{ asset('/images/character/'.$img->img_id.'.jpg') }}" alt="" width="20%">
         </a>
     </span>
 
