@@ -5,9 +5,9 @@
 <div class="girl-img" style="text-align:center;">
     Lv.{{$owned_char_info->level}}<br>
     <div class="girl-img">
-        <img src="{{ asset('/images/character/'.$owned_char_info->background_img.'.png') }}" alt="background"><br>
+        <img src="{{ asset('/images/character/'.$owned_char_info->background_img.'.png') }}" alt="background" width="60%"><br>
         <div class="avatar">
-            <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar"><br>
+            <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="50%"><br>
         </div>
     </div>
     {{$owned_char_info->img_name}}<br>

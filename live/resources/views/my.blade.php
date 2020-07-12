@@ -24,9 +24,9 @@
         @foreach ($owned_char_info as $index => $char)
             <span width="20%">
                 <div class="girl-img">
-                    <img src="{{ asset('/images/character/'.$owned_char_info->background_img.'.png') }}" alt="background"><br>
+                    <img src="{{ asset('/images/character/'.$char->background_img.'.png') }}" alt="background" width=""><br>
                     <div class="avatar">
-                        <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar"><br>
+                        <img src="{{ asset('/images/character/'.$char->avatar_img.'.png') }}" alt="avatar"><br>
                     </div>
                 </div>
             </span>
