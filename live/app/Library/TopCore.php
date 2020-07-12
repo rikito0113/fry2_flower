@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Hash;
 
 class TopCore
 {
+    // デフォルトの背景id
+    const DEFAULT_BACKGOUND_ID = 11;
+
     // ログイン
     public static function login($PFPlayerId)
     {
@@ -86,8 +89,8 @@ class TopCore
             $setImgInstance->create([
                 'owned_char_id' => $charInstance->owned_char_id,
                 'char_id'       => $girl->char_id,
-                'background_img'=> null,
-                'avatar_imd'    => $defaultImg->img_id,
+                'background_img'=> self::DEFAULT_BACKGOUND_ID,
+                'avatar_img'    => $defaultImg->img_id,
             ]);
         }
 

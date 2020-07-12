@@ -40,9 +40,10 @@ class GirlCore
         $setImgInfo['img_name'] = CharacterImg::where('img_id', $setImgInfo->avatar_img)->first()->name;
 
         $ownedCharInfo = $ownedChar;
-        $ownedCharInfo['char_name'] = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
-        $ownedCharInfo['background_img'] = $setImgInfo->avatar_img;
-        $ownedCharInfo['img_name'] = $setImgInfo->img_name;
+        $ownedCharInfo['char_name']         = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
+        $ownedCharInfo['avatar_img']        = $setImgInfo->avatar_img;
+        $ownedCharInfo['background_img']    = $setImgInfo->background_img;
+        $ownedCharInfo['img_name']          = $setImgInfo->img_name;
 
 
         return $ownedCharInfo;

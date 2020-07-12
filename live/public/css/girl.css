@@ -1,0 +1,10 @@
+/* girlの組み合わせ画像用のcss */
+
+.girl-img {
+    position: relative;
+}
+.avatar {
+    position: absolute;
+    top: 80%;
+    left: 55%;
+}

@@ -2,9 +2,14 @@
 
 {{-- ガール情報 includeしてきてもいいかもしれない --}}
 <div style="color: white; background-color: black; text-align:center;">女性キャラクタ:{{ $owned_char_info->char_name }}</div>
-<div style="text-align:center;">
+<div class="girl-img" style="text-align:center;">
     Lv.{{$owned_char_info->level}}<br>
-    <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="girl" width="60%"><br>
+    <div class="girl-img">
+        <img src="{{ asset('/images/character/'.$owned_char_info->background_img.'.png') }}" alt="background"><br>
+        <div class="avatar">
+            <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar"><br>
+        </div>
+    </div>
     {{$owned_char_info->img_name}}<br>
 </div>
 

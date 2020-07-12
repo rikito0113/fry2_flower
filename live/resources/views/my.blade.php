@@ -23,7 +23,12 @@
         {{-- girl表示 --}}
         @foreach ($owned_char_info as $index => $char)
             <span width="20%">
-                <img src="{{ asset('/images/character/'.$char->avatar_img.'.png') }}" alt="girl" width="19%">
+                <div class="girl-img">
+                    <img src="{{ asset('/images/character/'.$owned_char_info->background_img.'.png') }}" alt="background"><br>
+                    <div class="avatar">
+                        <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar"><br>
+                    </div>
+                </div>
             </span>
             @if ($index % 3 == 0)
                 <br>
