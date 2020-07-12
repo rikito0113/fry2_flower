@@ -86,8 +86,8 @@ class TopCore
             $setImgInstance->create([
                 'owned_char_id' => $charInstance->owned_char_id,
                 'char_id'       => $girl->char_id,
-                'background_img'=> $defaultImg->img_id,
-                'avatar_imd'    => null,
+                'background_img'=> null,
+                'avatar_imd'    => $defaultImg->img_id,
             ]);
         }
 
