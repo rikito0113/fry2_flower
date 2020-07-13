@@ -24,16 +24,17 @@ Route::get('/girl_select',                 'GirlController@girlSelect')->name('g
 Route::get('/girl_select/{charId}',        'GirlController@girlSelectExec');
 Route::get('/setImg/{imgId}',              'GirlController@setImgExec');
 
-Route::prefix('admin')->group(function () {
+
+
+
+
+
+// 以下、管理画面用
+Route::get('login',  'AdminController@login')->name('admin.login');
+Route::post('login', 'AdminController@loginExec');
+
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     // function内は '/admin/~~'になる
-    // 上に指定したrouteの方が採用されるため、sessionが必要なのは37行目以降となる。
-
-    Route::get('login',  'AdminController@login')->name('admin.login');
-    Route::post('login', 'AdminController@loginExec');
-
-    if (!session()->has('admin_id')) {
-        redirect()->route('admin.login');
-    }
 
     Route::get('index', 'AdminController@index')->name('admin.index');
 });
