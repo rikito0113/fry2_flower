@@ -8,7 +8,7 @@
 <body>
 
 <div style="text-align: center">
-    <form action="/admin/loginExec">
+    <form action="/admin/loginExec" method="POST">
         @csrf
         <input type="text" name="id" size="40" placeholder="id">
         <input type="password" name="password" size="40" placeholder="password">
