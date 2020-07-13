@@ -21,5 +21,14 @@
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="present">
         </a>
 
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="+">
+        <button type="button" onclick="appearTag()"><img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="+"></button>
+
+        <!-- <div>
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="戻る">
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="思い出">
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="育成">
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="イベント">
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="プロフィール">
+            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="新着情報">
+        </div> -->
     </div>
