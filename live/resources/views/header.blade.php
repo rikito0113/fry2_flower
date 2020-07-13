@@ -24,6 +24,7 @@
 
         <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="+" onclick="appearTag()">
 
+        <img class="other-header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="戻る">
         <!-- <div>
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="戻る">
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="思い出">

@@ -13,3 +13,14 @@
     box-sizing: border-box;
     font-weight: bold; */
 }
+
+.other-header-child
+{
+    width:20%;
+    height:auto;
+    position: absolute;
+    border: solid 1px red;
+    box-sizing: border-box;
+    right:0px;
+    top:0px;
+}
