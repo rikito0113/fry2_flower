@@ -30,8 +30,8 @@ Route::get('/setImg/{imgId}',              'GirlController@setImgExec');
 
 
 // 以下、管理画面用
-Route::get('login',  'AdminController@login')->name('admin.login');
-Route::post('login', 'AdminController@loginExec');
+Route::get('/admin/login',  'AdminController@login')->name('admin.login');
+Route::post('/admin/loginExec', 'AdminController@loginExec');
 
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     // function内は '/admin/~~'になる
