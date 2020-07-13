@@ -24,13 +24,10 @@
 
         <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="+" onclick="appearTag()">
 
-        <img class="other-header-child" id="back" src="{{ asset('/images/kaonashi.JPG') }}" alt="戻る" onclick="appearTag()">
-        <!-- <div>
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="戻る">
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="思い出">
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="育成">
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="イベント">
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="プロフィール">
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="新着情報">
-        </div> -->
+        <img class="other-header-child1" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="戻る" onclick="appearTag()">
+        <img class="other-header-child2" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="思い出">
+        <img class="other-header-child3" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="育成">
+        <img class="other-header-child4" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="イベント">
+        <img class="other-header-child5" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="プロフィール">
+        <img class="other-header-child6" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="新着情報">
     </div>

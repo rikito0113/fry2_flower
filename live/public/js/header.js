@@ -1,11 +1,14 @@
 var appearTag = function () {
-  const back = document.getElementById("back");
+  var tags = document.getElementByName("tag");
 
-	if(back.style.display=="block"){
-		// noneで非表示
-		back.style.display ="none";
-	}else{
-		// blockで表示
-		back.style.display ="block";
-	}
+  for(let tag of tags)
+  {
+    if(tag.style.display=="block"){
+      // noneで非表示
+      tag.style.display ="none";
+    }else{
+      // blockで表示
+      tag.style.display ="block";
+    }
+  }
 }
