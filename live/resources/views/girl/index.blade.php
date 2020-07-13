@@ -17,7 +17,7 @@
 @foreach ($owned_char_img as $index => $img)
     <span>
         <a href="/setImg/{{ $img->img_id }}">
-            <div class="girl-img" style="text-align:center;">
+            <div style="text-align:center;">
                 <div class="girl-img" style="width: 10%">
                     <img src="{{ asset('/images/character/11.png') }}" alt="background" width="100%"><br>
                     <div class="avatar">
