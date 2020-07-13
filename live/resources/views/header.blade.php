@@ -22,7 +22,7 @@
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="present">
         </a>
 
-        <button type="button" onclick="appearTag()"><img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="+"></button>
+        <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="+" onclick="appearTag()">
 
         <!-- <div>
             <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="戻る">
