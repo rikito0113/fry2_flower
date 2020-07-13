@@ -1,2 +1,2 @@
 require('./bootstrap');
-require('./header')
+require('../../public/js/header')
