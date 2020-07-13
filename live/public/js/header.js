@@ -1,5 +1,5 @@
 var appearTag = function () {
-  var tags = document.getElementByName("tag");
+  var tags = document.getElementsByName("tag");
 
   for(let tag of tags)
   {

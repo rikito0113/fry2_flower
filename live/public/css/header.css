@@ -24,6 +24,7 @@
     right:8px;
     top:8px;
     display: none;
+    z-index: 10;
 }
 
 .other-header-child2
@@ -36,6 +37,7 @@
     right:8px;
     top:83px;
     display: none;
+    z-index: 10;
 }
 
 .other-header-child3
@@ -48,6 +50,7 @@
     right:8px;
     top:158px;
     display: none;
+    z-index: 10;
 }
 
 .other-header-child4
@@ -60,6 +63,7 @@
     right:8px;
     top:233px;
     display: none;
+    z-index: 10;
 }
 
 .other-header-child5
@@ -72,6 +76,7 @@
     right:8px;
     top:308px;
     display: none;
+    z-index: 10;
 }
 
 .other-header-child6
@@ -84,4 +89,5 @@
     right:8px;
     top:383px;
     display: none;
+    z-index: 10;
 }
