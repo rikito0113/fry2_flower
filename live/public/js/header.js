@@ -1,5 +1,3 @@
-document.getElementById("back").style.display ="none";
-
 var appearTag = function () {
   const back = document.getElementById("back");
 
