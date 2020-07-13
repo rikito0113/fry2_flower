@@ -1,3 +1,13 @@
+document.getElementById("back").style.display ="none";
+
 var appearTag = function () {
-    console.log("Hello world!");
-  }
+  const back = document.getElementById("back");
+
+	if(back.style.display=="block"){
+		// noneで非表示
+		back.style.display ="none";
+	}else{
+		// blockで表示
+		back.style.display ="block";
+	}
+}
