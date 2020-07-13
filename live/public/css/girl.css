@@ -2,6 +2,7 @@
 
 .girl-img {
     position: relative;
+    display: inline-block;
 }
 .avatar {
     position: absolute;

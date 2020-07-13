@@ -23,10 +23,10 @@
         {{-- girl表示 --}}
         @foreach ($owned_char_info as $index => $char)
             <span width="20%">
-                <div class="girl-img">
-                    <img src="{{ asset('/images/character/'.$char->background_img.'.png') }}" alt="background" width=""><br>
+                <div class="girl-img" style="width:20%;">
+                    <img src="{{ asset('/images/character/'.$char->background_img.'.png') }}" alt="background" width="100%"><br>
                     <div class="avatar">
-                        <img src="{{ asset('/images/character/'.$char->avatar_img.'.png') }}" alt="avatar"><br>
+                        <img src="{{ asset('/images/character/'.$char->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
                     </div>
                 </div>
             </span>
