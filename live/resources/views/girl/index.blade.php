@@ -22,8 +22,7 @@
                 <div class="avatar">
                     <img src="{{ asset('/images/character/'.$img->img_id.'.png') }}" alt="avatar" width="100%"><br>
                 </div>
-            </div><br>
-            {{$owned_char_info->img_name}}<br>
+            </div>
         </a>
     </span>
 
