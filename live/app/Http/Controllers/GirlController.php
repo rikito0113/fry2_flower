@@ -12,6 +12,7 @@ use App\PlayerChatLog;
 
 // ライブラリの呼び出し
 use App\Library\GirlCore;
+use App\Library\PlayerChatCore;
 
 use Illuminate\Http\Request;
 
@@ -83,15 +84,10 @@ class GirlController extends Controller
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
 
-        $chatInstance = new PlayerChatLog;
-        $chatInstance->create([
-            'player_id'           => $this->_playerId,
-            'content'             => 'あああ',
-            'char_id'             => 1,
-            'char_avatar_id'      => 1,
-            'char_background_id'  => 1,
-            'is_player'           => 0,
-        ]);
+        $sendResult = PlayerChatCore::playerSend($this->_playerId, $request->char_id, $request->content, $ownedCharInfo);
+        if (!$sendResult) {
+            // こけてる
+        }
 
         // プレイヤーの送った情報をinsert
         return view('girl.main-chat')
