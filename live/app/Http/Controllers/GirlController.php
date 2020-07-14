@@ -73,7 +73,11 @@ class GirlController extends Controller
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
 
+        // チャットログの取得
+        $chatLog = PlayerChatCore::getChatLog($this->_playerId, $charId, $ownedCharInfo);
+
         return view('girl.main-chat')
+            ->with('chat_log',          $chatLog)
             ->with('owned_char_info',   $ownedCharInfo)
             ->with('player_info',       $playerInfo);
     }
