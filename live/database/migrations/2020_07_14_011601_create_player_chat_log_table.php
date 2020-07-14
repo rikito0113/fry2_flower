@@ -14,7 +14,7 @@ class CreatePlayerChatLogTable extends Migration
     public function up()
     {
         Schema::create('player_chat_log', function (Blueprint $table) {
-            $table->integer('player_chat_log_id');  // primary_id
+            $table->increments('player_chat_log_id');  // primary_id
             $table->integer('player_id');
             $table->mediumText('content');          // chatの内容
             $table->integer('char_id');             // キャラID
