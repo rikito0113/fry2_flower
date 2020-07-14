@@ -94,8 +94,6 @@ class GirlController extends Controller
         }
 
         // プレイヤーの送った情報をinsert
-        return view('girl.main-chat')
-            ->with('owned_char_info',   $ownedCharInfo)
-            ->with('player_info',       $playerInfo);
+        return redirect()->route('girl.mainChat');
     }
 }
