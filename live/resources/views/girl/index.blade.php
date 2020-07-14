@@ -33,7 +33,7 @@
 
 <br><br>
 
-<a href="/mainChat/{{ $owned_char_info->char_id }}">
+<a href="/Girl/mainChat/{{ $owned_char_info->char_id }}">
 花嫁修行リンクどーーーーん！！！！
 </a>
 

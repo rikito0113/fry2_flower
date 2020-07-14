@@ -76,7 +76,7 @@ class GirlController extends Controller
             ->with('player_info',       $playerInfo);
     }
 
-    public function mainChatSend(Request $request)
+    public function mainChatSend($charId)
     {
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
         // 選択中のgirl情報
