@@ -20,7 +20,7 @@ class PlayerChatCore
 {
     public static function playerSend($playerId, $charId, $content, $ownedCharInfo)
     {
-        if (!$playerId || !$charId || !$content || $ownedCharInfo) {
+        if (!$playerId || !$charId || !$content || !$ownedCharInfo) {
             return false;
         }
         $chatInstance = new PlayerChatLog;
