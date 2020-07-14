@@ -25,6 +25,7 @@ Route::POST('Girl/mainChatSend',           'GirlController@mainChatSend')->name(
 Route::get('/girl_select',                 'GirlController@girlSelect')->name('girl_select');
 Route::get('/girl_select/{charId}',        'GirlController@girlSelectExec');
 Route::get('/setImg/{imgId}',              'GirlController@setImgExec');
+Route::get('Profile/profile',              'ProfileController@profile')->name('profile.profile');
 
 
 

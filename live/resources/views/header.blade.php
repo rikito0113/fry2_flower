@@ -28,6 +28,8 @@
         <img class="other-header-child2" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="思い出">
         <img class="other-header-child3" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="育成">
         <img class="other-header-child4" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="イベント">
-        <img class="other-header-child5" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="プロフィール">
+        <a href="{{ action('ProfileController@profile') }}">
+            <img class="other-header-child5" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="プロフィール">
+        </a>
         <img class="other-header-child6" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="新着情報">
     </div>
