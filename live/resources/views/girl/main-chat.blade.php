@@ -5,7 +5,7 @@
 
 @foreach ($chat_log as $item)
     <span>
-        ：{{ $item.content }}<br>
+        ：{{ $item->content }}<br>
     </span>
 @endforeach
 
