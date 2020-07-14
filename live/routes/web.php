@@ -20,6 +20,7 @@ Route::post('/registerExec',               'TopController@registerExec');
 Route::get('my/my',                        'MyController@my')->name('my.my');
 Route::get('Present/index',                'PresentController@index')->name('present.index');
 Route::get('Girl/index',                   'GirlController@index')->name('girl.index');
+Route::get('Girl/mainChat',                'GirlController@mainChat')->name('girl.mainChat');
 Route::get('/girl_select',                 'GirlController@girlSelect')->name('girl_select');
 Route::get('/girl_select/{charId}',        'GirlController@girlSelectExec');
 Route::get('/setImg/{imgId}',              'GirlController@setImgExec');
