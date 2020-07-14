@@ -94,6 +94,6 @@ class GirlController extends Controller
         }
 
         // プレイヤーの送った情報をinsert
-        return redirect()->route('girl.mainChat');
+        return redirect()->route('girl.mainChat/'.$request->char_id);
     }
 }
