@@ -72,7 +72,9 @@ class GirlController extends Controller
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
-
+        if (!$charId) {
+            $charId = $ownedCharInfo['char_id'];
+        }
         // チャットログの取得
         $chatLog = PlayerChatCore::getChatLog($this->_playerId, $charId, $ownedCharInfo);
 
@@ -94,6 +96,6 @@ class GirlController extends Controller
         }
 
         // プレイヤーの送った情報をinsert
-        return redirect()->route('girl.mainChat/'.$request->char_id);
+        return redirect()->route('girl.mainChat');
     }
 }
