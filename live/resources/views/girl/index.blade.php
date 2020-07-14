@@ -33,6 +33,10 @@
 
 <br><br>
 
+<a href="/mainChat/{{ $owned_char_info->char_id }}">
+花嫁修行リンクどーーーーん！！！！
+</a>
+
 <div style="text-align:center;">
     ガール🆔：{{ $player_info->owned_char_id }}
     @foreach ($char_info as $char)

@@ -64,4 +64,26 @@ class GirlController extends Controller
 
         return redirect()->route('girl.index');
     }
+
+    public function mainChat($charId)
+    {
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+        // 選択中のgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
+
+        return view('girl.main-chat')
+            ->with('owned_char_info',   $ownedCharInfo)
+            ->with('player_info',       $playerInfo);
+    }
+
+    public function mainChatSend(Request $request)
+    {
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+        // 選択中のgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
+        // プレイヤーの送った情報をinsert
+        return view('girl.main-chat')
+            ->with('owned_char_info',   $ownedCharInfo)
+            ->with('player_info',       $playerInfo);
+    }
 }
