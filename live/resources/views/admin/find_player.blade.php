@@ -65,7 +65,7 @@
                             <span style="font-size: small;">
                                 {{$row->created_at}}
                             </span>
-                            <div class="chat-text-right">
+                            <div class="chat-text-left">
                                 <p class="chat-text">
                                     {{$row->content}}
                                 </p>
