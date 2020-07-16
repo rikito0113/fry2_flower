@@ -1,0 +1,16 @@
+/*
+*    admin用のcss
+*    class="side"とclass="main"は全てのファイルに必要
+*/
+
+
+.side {
+    display: inline-block;
+    width: 20%;
+}
+
+.main {
+    display: inline-block;
+    width: 80%;
+}
+

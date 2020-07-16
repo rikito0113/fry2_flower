@@ -38,4 +38,28 @@ class AdminController extends Controller
     {
         return view('admin.index');
     }
+
+    // 未返信の会話
+    public function sholdReply(Request $request)
+    {
+        return view('admin.shold_reply');
+    }
+
+    // プレイヤー検索
+    public function findPlayer(Request $request)
+    {
+        return view('admin.find_player');
+    }
+
+    // アイテム検索
+    public function findItem(Request $request)
+    {
+        return view('admin.find_item');
+    }
+
+    // ガール検索
+    public function findGirl(Request $request)
+    {
+        return view('admin.find_girl');
+    }
 }
