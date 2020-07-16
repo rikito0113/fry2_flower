@@ -48,7 +48,25 @@ class AdminController extends Controller
     // プレイヤー検索
     public function findPlayer(Request $request)
     {
-        return view('admin.find_player');
+        $getPlayer = false;
+
+        if ($request->find_player) {
+            $getPlayer = AdminCore::getPlayer($request);
+        }
+
+        return view('admin.find_player')->with('get_players', $getPlayer);
+    }
+
+    // プレイヤー詳細
+    public function playerDetail($playerId)
+    {
+        if (isset($playerId)) {
+            $playerInfo = AdminCore::getPlayerDetail($playerId);
+
+            return view('admin.find_player')->with('player_info', $playerInfo);
+        } else {
+            return view('admin.find_player');
+        }
     }
 
     // アイテム検索

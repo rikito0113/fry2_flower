@@ -4,6 +4,9 @@ namespace App\Library;
 
 // モデルの呼び出し
 use App\AdminUser;
+use App\Player;
+use App\PlayerChatLog;
+use App\CharacterData;
 
 class AdminCore {
     // ログイン
@@ -19,5 +22,53 @@ class AdminCore {
             session(['admin_id' => $request->id]);
             return $adminUser;
         }
+    }
+
+    /**
+     * 管理画面からplayerを取得する
+     *
+     * @param Request $request
+     * @return array $playerInfo
+     *
+     */
+    public static function getPlayer($request)
+    {
+        $playerInfo = array();
+
+
+        if ($request->player_id)
+            $playerInfo[0] = Player::where('player_id', $request->player_id)->first();
+        elseif ($request->pf_player_id)
+            $playerInfo[0] = Player::where('pf_player_id', $request->pf_player_id)->first();
+        elseif ($request->name)
+            $playerInfo[0] = Player::where('name', $request->name)->get();
+        else
+            $playerInfo = Player::oldest()->get();
+
+
+        return $playerInfo;
+    }
+
+    /**
+     * 管理画面からplayerを取得する
+     *
+     * @param int $playerId
+     * @return array $playerInfo
+     *
+     */
+    public static function getPlayerDetail($playerId)
+    {
+        $playerInfo = Player::where('player_id', $playerId)->first();
+
+        // 下記のクエリ、件数が多くなれば ->chunk() 関数を使うといいかもしれない
+        $chars = PlayerChatLog::where('player_id', $playerId)->orderBy('char_id', 'desc')->orderBy('player_chat_log_id', 'desc')->groupBy('char_id')->get();
+
+        foreach ($chars as $key => $char) {
+            $charName = CharacterData::where('char_id', $char->char_id)->first()->char_name;
+            $playerInfo[$charName] = PlayerChatLog::where('player_id', $playerId)->where('char_id', $char->char_id)->orderBy('player_chat_log_id', 'desc')->get();
+        }
+
+
+        return $playerInfo;
     }
 }
