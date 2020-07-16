@@ -7,7 +7,7 @@ use App\AdminUser;
 
 // ライブラリの呼び出し
 use App\Library\AdminCore;
-
+use App\Player;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -61,9 +61,12 @@ class AdminController extends Controller
     public function playerDetail($playerId)
     {
         if (isset($playerId)) {
-            $playerInfo = AdminCore::getPlayerDetail($playerId);
+            $playerInfo = Player::where('player_id', $playerId);
+            $chatInfo = AdminCore::getPlayerDetail($playerId);
 
-            return view('admin.find_player')->with('player_info', $playerInfo);
+            return view('admin.find_player')
+                ->with('player_info', $playerInfo)
+                ->with('chat_info', $chatInfo);
         } else {
             return view('admin.find_player');
         }

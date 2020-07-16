@@ -53,22 +53,22 @@ class AdminCore {
      * 管理画面からplayerを取得する
      *
      * @param int $playerId
-     * @return array $playerInfo
+     * @return array $chatInfo
      *
      */
     public static function getPlayerDetail($playerId)
     {
-        $playerInfo = Player::where('player_id', $playerId)->first();
+        $chatInfo = array();
 
         // 下記のクエリ、件数が多くなれば ->chunk() 関数を使うといいかもしれない
-        $chars = PlayerChatLog::where('player_id', $playerId)->orderBy('char_id', 'desc')->orderBy('player_chat_log_id', 'desc')->groupBy('char_id')->get();
+        $charIds = PlayerChatLog::where('player_id', $playerId)->groupBy('char_id')->pluck('char_id');
 
-        foreach ($chars as $key => $char) {
-            $charName = CharacterData::where('char_id', $char->char_id)->first()->char_name;
-            $playerInfo[$charName] = PlayerChatLog::where('player_id', $playerId)->where('char_id', $char->char_id)->orderBy('player_chat_log_id', 'desc')->get();
+        foreach ($charIds as $charId) {
+            $charName = CharacterData::where('char_id', $charId)->first()->char_name;
+            $chatInfo[$charName] = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('player_chat_log_id', 'desc')->get();
         }
 
 
-        return $playerInfo;
+        return $chatInfo;
     }
 }

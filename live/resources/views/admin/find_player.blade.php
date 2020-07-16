@@ -47,8 +47,8 @@
         PF別プレイヤーID : {{$player_info->pf_player_id}}<br>
         プレイヤー名 : {{$player_info->name}}<br><br>
 
-        @if (isset($player_info->all_chats))
-            @foreach ($player_info->all_chats as $char_name => $chats)
+        @if (isset($chat_info))
+            @foreach ($chat_info as $char_name => $chats)
                 {{$char_name}}<br><br>
                 @foreach ($chats as $row)
                     {{$row->content}}<br>
