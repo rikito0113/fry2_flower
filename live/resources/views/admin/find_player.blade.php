@@ -49,11 +49,21 @@
 
         @if (isset($chat_info))
             @foreach ($chat_info as $char_name => $chats)
-                {{$char_name}}<br><br>
-                @foreach ($chats as $row)
-                    {{$row->content}}<br>
-                    {{$row->created_at}}<br><br>
-                @endforeach
+                <div style="text-align: left">
+                    <span style="color: red">
+                        {{$char_name}}
+                    </span>
+                    <br>
+                    @foreach ($chats as $row)
+                        <table width="100%">
+                            <tr>
+                                <td width="50%">{{$row->content}}</td>
+                                <td style="text-align: right">{{$row->created_at}}</td>
+                            </tr>
+                        </table>
+                    @endforeach
+                </div>
+                <br><br><br>
             @endforeach
         @endif
     @endif
