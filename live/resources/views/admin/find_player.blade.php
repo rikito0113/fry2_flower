@@ -11,7 +11,7 @@
 @include('admin.side')
 
 <div class="main">
-    <form action="/admin/shold_reply">
+    <form action="/admin/find_player" method="POST">
         @csrf
         <input type="text" name="player_id" size="40" placeholder="playerId">
         <input type="text" name="pf_player_id" size="40" placeholder="PFlayerId">
@@ -19,13 +19,13 @@
         <input type="hidden" name="find_player" value="1">
         <input type="submit" value="検索">
     </form><br>
-    ※空白検索で全プレイヤーが検索できます(未実装)
+    ※空白検索で全プレイヤーが検索できます
 
     <br><br>
 
-    @if ($get_players)
+    @if (isset($get_players))
         @foreach ($get_players as $player)
-            <table border="5" bordercolor="red">
+            <table border="5" bordercolor="red" width="60%">
                 <tr>
                     <td>プレイヤーID</td>
                     <td><a href="/admin/player_detail/{{ $player->player_id }}">{{$player->player_id}}</a></td>
@@ -42,13 +42,13 @@
         @endforeach
     @endif
 
-    @if ($player_info)
+    @if (isset($player_info))
         プレイヤーID : {{$player->player_id}}<br>
         PF別プレイヤーID : {{$player->pf_player_id}}<br>
         プレイヤー名 : {{$player->name}}<br><br>
 
-        @if ($all_chats)
-            @foreach ($all_chats as $chats)
+        @if (isset($player_info->all_chats))
+            @foreach ($player_info->all_chats as $chats)
                 {{$chats->char_name}}<br><br>
                 @foreach ($chats as $row)
                     {{$row->content}}<br>

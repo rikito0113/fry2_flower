@@ -39,14 +39,15 @@ Route::post('/admin/loginExec', 'AdminController@loginExec');
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     // function内は '/admin/~~'になる
 
-    Route::get('index',                     'AdminController@index')->name('admin.index');
-    Route::post('shold_reply',              'AdminController@sholdReply');
-    Route::post('find_player',              'AdminController@findPlayer');
-    Route::post('find_item',                'AdminController@findItem');
-    Route::post('find_girl',                'AdminController@findGirl');
+    Route::get('index',                                     'AdminController@index')->name('admin.index');
+    Route::post('shold_reply',                              'AdminController@sholdReply');
+    Route::post('find_player',                              'AdminController@findPlayer');
+    Route::post('find_item',                                'AdminController@findItem');
+    Route::post('find_girl',                                'AdminController@findGirl');
+    Route::post('find_player/player_detail/{playerId}',     'AdminController@playerDetail');
 
-    Route::view('shold_reply',              'admin.shold_reply')->name('admin.sholdReply');
-    Route::view('find_player',              'admin.find_player')->name('admin.findPlayer');
-    Route::view('find_item',                'admin.find_item')->name('admin.findItem');
-    Route::view('find_girl',                'admin.find_girl')->name('admin.findGirl');
+    Route::view('shold_reply',                              'admin.shold_reply')->name('admin.sholdReply');
+    Route::view('find_player',                              'admin.find_player')->name('admin.findPlayer');
+    Route::view('find_item',                                'admin.find_item')->name('admin.findItem');
+    Route::view('find_girl',                                'admin.find_girl')->name('admin.findGirl');
 });
