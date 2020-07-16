@@ -23,7 +23,7 @@
 }
 
 /* 右からの吹き出しテキスト */
-.kaiwa-text-left {
+.chat-text-left {
     position: relative;
     margin-right: 80px;
     padding: 10px;
@@ -42,7 +42,7 @@ p.chat-text {
     border: 10px solid transparent;
     top: 15px;
     right: -20px;
-  }
+}
 .chat-text-left:after {
     position: absolute;
     content: '';
