@@ -6,6 +6,7 @@ namespace App\Library;
 use App\AdminUser;
 use App\Player;
 use App\PlayerChatLog;
+use App\CharacterData;
 
 class AdminCore {
     // ログイン
@@ -60,7 +61,12 @@ class AdminCore {
         $playerInfo = Player::where('player_id', $playerId)->first();
 
         // 下記のクエリ、件数が多くなれば ->chunk() 関数を使うといいかもしれない
-        $playerInfo['all_chats'] = PlayerChatLog::where('player_id', $playerId)->orderBy('char_id', 'desc')->orderBy('created_at', 'desc');
+        $chars = PlayerChatLog::where('player_id', $playerId)->orderBy('char_id', 'desc')->orderBy('player_chat_log_id', 'desc')->groupBy('char_id')->get();
+
+        foreach ($chars as $key => $char) {
+            $charName = CharacterData::where('char_id', $char->char_id)->first()->char_name;
+            $playerInfo[$charName] = PlayerChatLog::where('player_id', $playerId)->where('char_id', $char->char_id)->orderBy('player_chat_log_id', 'desc')->get();
+        }
 
 
         return $playerInfo;

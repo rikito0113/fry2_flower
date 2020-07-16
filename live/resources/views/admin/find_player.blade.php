@@ -43,13 +43,13 @@
     @endif
 
     @if (isset($player_info))
-        プレイヤーID : {{$player->player_id}}<br>
-        PF別プレイヤーID : {{$player->pf_player_id}}<br>
-        プレイヤー名 : {{$player->name}}<br><br>
+        プレイヤーID : {{$player_info->player_id}}<br>
+        PF別プレイヤーID : {{$player_info->pf_player_id}}<br>
+        プレイヤー名 : {{$player_info->name}}<br><br>
 
         @if (isset($player_info->all_chats))
-            @foreach ($player_info->all_chats as $chats)
-                {{$chats->char_name}}<br><br>
+            @foreach ($player_info->all_chats as $char_name => $chats)
+                {{$char_name}}<br><br>
                 @foreach ($chats as $row)
                     {{$row->content}}<br>
                     {{$row->created_at}}<br><br>
