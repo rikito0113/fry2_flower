@@ -12,7 +12,7 @@
 
 <div class="main">
     <div style="text-align: center">
-        私は管理画面だ。
+        私は管理画面の未返信だ。
     </div>
 </div>
 

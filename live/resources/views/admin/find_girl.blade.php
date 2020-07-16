@@ -12,7 +12,7 @@
 
 <div class="main">
     <div style="text-align: center">
-        私は管理画面だ。
+        私は管理画面のガール検索だ。
     </div>
 </div>
 
