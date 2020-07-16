@@ -44,7 +44,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::post('find_player',                              'AdminController@findPlayer');
     Route::post('find_item',                                'AdminController@findItem');
     Route::post('find_girl',                                'AdminController@findGirl');
-    Route::post('find_player/player_detail/{playerId}',     'AdminController@playerDetail');
+    Route::post('player_detail/{playerId}',                 'AdminController@playerDetail');
 
     Route::view('shold_reply',                              'admin.shold_reply')->name('admin.sholdReply');
     Route::view('find_player',                              'admin.find_player')->name('admin.findPlayer');
