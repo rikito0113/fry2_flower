@@ -14,7 +14,7 @@
     <form action="/admin/find_player" method="POST">
         @csrf
         <input type="text" name="player_id" size="40" placeholder="playerId">
-        <input type="text" name="pf_player_id" size="40" placeholder="PFlayerId">
+        <input type="text" name="pf_player_id" size="40" placeholder="PFPlayerId">
         <input type="text" name="name" size="40" placeholder="プレイヤー名">
         <input type="hidden" name="find_player" value="1">
         <input type="submit" value="検索">
@@ -55,12 +55,22 @@
                     </span>
                     <br>
                     @foreach ($chats as $row)
-                        <table width="100%">
+                        {{-- <table width="100%">
                             <tr>
                                 <td width="50%">{{$row->content}}</td>
                                 <td style="text-align: right">{{$row->created_at}}</td>
                             </tr>
-                        </table>
+                        </table> --}}
+                        <div class="chat">
+                            <span style="font-size: small;">
+                                {{$row->created_at}}
+                            </span>
+                            <div class="chat-text-right">
+                                <p class="chat-text">
+                                    {{$row->content}}
+                                </p>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
                 <br><br><br>
