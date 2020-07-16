@@ -18,7 +18,7 @@
         <input type="text" name="name" size="40" placeholder="プレイヤー名">
         <input type="hidden" name="find_player" value="1">
         <input type="submit" value="検索">
-    </form><br>
+    </form>
     ※空白検索で全プレイヤーが検索できます
 
     <br><br>
@@ -45,26 +45,23 @@
     @if (isset($player_info))
         プレイヤーID : {{$player_info->player_id}}<br>
         PF別プレイヤーID : {{$player_info->pf_player_id}}<br>
-        プレイヤー名 : {{$player_info->name}}<br><br>
+        プレイヤー名 : {{$player_info->name}}
+
+        <br><br>
 
         @if (isset($chat_info))
             @foreach ($chat_info as $char_name => $chats)
-                <div style="text-align: left">
+                <div>
                     <span style="color: red">
                         {{$char_name}}
                     </span>
                     <br>
                     @foreach ($chats as $row)
-                        {{-- <table width="100%">
-                            <tr>
-                                <td width="50%">{{$row->content}}</td>
-                                <td style="text-align: right">{{$row->created_at}}</td>
-                            </tr>
-                        </table> --}}
                         <div class="chat">
-                            <span style="font-size: small;">
+                            <span style="font-size: small; float: right;">
                                 {{$row->created_at}}
                             </span>
+                            <br>
                             <div class="chat-text-left">
                                 <p class="chat-text">
                                     {{$row->content}}
