@@ -22,8 +22,18 @@
     margin-bottom: 25px;
 }
 
-/* 右からの吹き出しテキスト */
+/* 左からの吹き出しテキスト */
 .chat-text-left {
+    position: relative;
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    background: #eee;
+    margin-right: 12%;
+    float: left;
+}
+/* 右からの吹き出しテキスト */
+.chat-text-right {
     position: relative;
     margin-right: 5px;
     padding: 10px;
@@ -35,15 +45,32 @@
 p.chat-text {
     margin: 0;
 }
-/* 右の三角形を作る */
+
+/* 左の三角形を作る */
 .chat-text-left:before {
+    position: absolute;
+    content: '';
+    border: 8px solid transparent;
+    top: 15px;
+    left: -20px;
+}
+.chat-text-right:after {
+    position: absolute;
+    content: '';
+    border: 10px solid transparent;
+    border-right: 10px solid #eee;
+    top: 15px;
+    left: -19px;
+}
+/* 右の三角形を作る */
+.chat-text-right:before {
     position: absolute;
     content: '';
     border: 10px solid transparent;
     top: 15px;
     right: -20px;
 }
-.chat-text-left:after {
+.chat-text-right:after {
     position: absolute;
     content: '';
     border: 8px solid transparent;

@@ -71,7 +71,7 @@ class AdminCore {
             $adminChat  = AdminChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('admin_chat_log_id', 'asc')->get();
             $chats      = array();
             if (isset($adminChat))
-                $chats = $playerChat + $adminChat;
+                $chats = [...$playerChat, ...$adminChat];       // このエラーはPHP7.4以降は通るエラー。
             else
                 $chats = $playerChat;
 
@@ -100,6 +100,12 @@ class AdminCore {
                 $result[$key-1] = $row;
                 $result[$key]   = $chats[$key-1];
             }
+
+            // is_playerでsideを指定
+            if ($result[$key]['is_player'])
+                $result[$key]['side'] = 'left';
+            else
+                $result[$key]['side'] = 'right';
         }
 
         return $result;
