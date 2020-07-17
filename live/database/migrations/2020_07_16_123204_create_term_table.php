@@ -14,7 +14,7 @@ class CreateTermTable extends Migration
     public function up()
     {
         Schema::create('term', function (Blueprint $table) {
-            $table->increment('term_id');
+            $table->increments('term_id');
             $table->string('term_name',30);
             $table->date('term_start');
             $table->date('term_end');
