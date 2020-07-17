@@ -77,7 +77,7 @@ class PlayerChatCore
             $chats = $adminChat;
 
         // 時間降順
-        $logs = AdminCore::getSortByDate($chats);
+        $logs = AdminCore::getSortByDate($chats, true);
 
         return $logs;
 
