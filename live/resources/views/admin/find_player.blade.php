@@ -58,11 +58,11 @@
                     <br>
                     @foreach ($chats as $row)
                         <div class="chat">
-                            <span style="font-size: small; float: {{$side}};">
+                            <span style="font-size: small; float: {{$row->side}};">
                                 {{$row->created_at}}
                             </span>
                             <br>
-                            <div class="chat-text-{{$side}}">
+                            <div class="chat-text-{{$row->side}}">
                                 <p class="chat-text">
                                     {{$row->content}}
                                 </p>
