@@ -65,7 +65,7 @@ class AdminController extends Controller
     {
         if (isset($playerId)) {
             $playerInfo = Player::where('player_id', $playerId)->first();
-            $chatInfo = AdminCore::playerChat($playerId);
+            $chatInfo = AdminCore::getChatByPlayer($playerId);
 
             return view('admin.find_player')
                 ->with('player_info', $playerInfo)

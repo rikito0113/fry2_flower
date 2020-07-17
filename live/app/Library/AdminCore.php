@@ -10,6 +10,7 @@ use App\CharacterData;
 use App\AdminChatLog;
 
 class AdminCore {
+
     // ログイン
     public static function login($request)
     {
@@ -51,13 +52,13 @@ class AdminCore {
     }
 
     /**
-     * 管理画面からplayerを取得する
+     * 管理画面からchatを取得する
      *
      * @param int $playerId
      * @return array $chatInfo
      *
      */
-    public static function playerChat($playerId)
+    public static function getChatByPlayer($playerId)
     {
         $chatInfo = array();
 
@@ -65,13 +66,45 @@ class AdminCore {
         $charIds = PlayerChatLog::where('player_id', $playerId)->groupBy('char_id')->pluck('char_id');
 
         foreach ($charIds as $charId) {
-            $charName = CharacterData::where('char_id', $charId)->first()->char_name;
-            $chatInfo[$charName] = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('player_chat_log_id', 'desc')->get();
+            $charName   = CharacterData::where('char_id', $charId)->first()->char_name;
+            $playerChat = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('player_chat_log_id', 'asc')->get();
+            $adminChat  = AdminChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('admin_chat_log_id', 'asc')->get();
+            $chats      = array();
+            if (isset($adminChat))
+                $chats = $playerChat + $adminChat;
+            else
+                $chats = $playerChat;
+
+            $chatInfo[$charName] = self::getSortByDate($chats);
         }
 
 
         return $chatInfo;
     }
+
+    /**
+     * chatをcreated_atで昇順にする
+     *
+     * @param array $chats
+     * @return array $result
+     *
+     */
+    public static function getSortByDate($chats)
+    {
+        $result = null;
+
+        foreach ($chats as $key => $row) {
+            if ($key == 0 || strtotime($chats[$key-1]['created_at']) < strtotime($row['created_at']))
+                $result[$key]   = $row;
+            else{
+                $result[$key-1] = $row;
+                $result[$key]   = $chats[$key-1];
+            }
+        }
+
+        return $result;
+    }
+
 
     /**
      * 管理画面からchatをinsertする
