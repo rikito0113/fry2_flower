@@ -86,12 +86,23 @@ class AdminCore {
      * chatをcreated_atで昇順にする
      *
      * @param array $chats
+     * @param bool $isPlayerView
      * @return array $result
      *
      */
-    public static function getSortByDate($chats)
+    public static function getSortByDate($chats, $isPlayerView = false)
     {
         $result = null;
+
+        $side1 = null;
+        $side2 = null;
+        if ($isPlayerView) {
+            $side1 = 'right';
+            $side2 = 'left';
+        } else {
+            $side1 = 'left';
+            $side2 = 'right';
+        }
 
         foreach ($chats as $key => $row) {
             if ($key == 0 || strtotime($chats[$key-1]['created_at']) < strtotime($row['created_at']))
@@ -103,15 +114,15 @@ class AdminCore {
 
             // is_playerでsideを指定
             if ($result[$key]['is_player'])
-                $result[$key]['side'] = 'left';
+                $result[$key]['side'] = $side1;
             else
-                $result[$key]['side'] = 'right';
+                $result[$key]['side'] = $side2;
 
             if ($key != 0) {
                 if ($result[$key-1]['is_player'])
-                $result[$key-1]['side'] = 'left';
+                $result[$key-1]['side'] = $side1;
             else
-                $result[$key-1]['side'] = 'right';
+                $result[$key-1]['side'] = $side2;
             }
         }
 
