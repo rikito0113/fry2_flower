@@ -10,9 +10,11 @@ use App\CharacterImg;
 use App\OwnedCharacterImg;
 use App\SetImg;
 use App\PlayerChatLog;
+use App\AdminChatLog;
 
 
 // ライブラリの呼び出し
+use App\Library\AdminCore;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -35,7 +37,7 @@ class PlayerChatCore
         return true;
     }
 
-    public static function getChatLog($playerId, $charId, $ownedCharInfo)
+    public static function getChatLogBrGirl($playerId, $charId, $ownedCharInfo)
     {
         if (!$playerId || !$ownedCharInfo) {
             return false;
@@ -60,14 +62,22 @@ class PlayerChatCore
         }
 
         // playerのログ
-        $logs = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->whereBetween('created_at', [$startDate,$endDate])->get();
+        // $logs = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->whereBetween('created_at', [$startDate,$endDate])->get();
+        $playerChats = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('player_chat_log_id', 'asc')->get();
 
         // 管理者のログ
-        $adminLog = array();
+        $adminChat = AdminChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('admin_chat_log_id', 'asc')->get();
 
         // fetch
+        if (isset($adminChat) && isset($playerChats))
+            $chats = [...$playerChats, ...$adminChat];       // このエラーはPHP7.4以降は通るエラー。
+        elseif(!isset($adminChat) && isset($playerChats))
+            $chats = $playerChats;
+        else
+            $chats = $adminChat;
 
         // 時間降順
+        $logs = AdminCore::getSortByDate($chats);
 
         return $logs;
 
