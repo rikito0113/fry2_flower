@@ -69,6 +69,13 @@
                             </div>
                         </div>
                     @endforeach
+                    <form action="/admin/main_chat" method="POST">
+                        @csrf
+                        <input type="text" name="content" placeholder="メッセージを入力">
+                        <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
+                        <input type="hidden" name="char_name" value="{{ $char_name }}">
+                        <input type="submit" value="送信">
+                    </form>
                 </div>
                 <br><br><br>
             @endforeach

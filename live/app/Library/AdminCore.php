@@ -7,6 +7,7 @@ use App\AdminUser;
 use App\Player;
 use App\PlayerChatLog;
 use App\CharacterData;
+use App\AdminChatLog;
 
 class AdminCore {
     // ログイン
@@ -56,7 +57,7 @@ class AdminCore {
      * @return array $chatInfo
      *
      */
-    public static function getPlayerDetail($playerId)
+    public static function playerChat($playerId)
     {
         $chatInfo = array();
 
@@ -70,5 +71,33 @@ class AdminCore {
 
 
         return $chatInfo;
+    }
+
+    /**
+     * 管理画面からchatをinsertする
+     *
+     * @param int $playerId
+     * @param int $adminId
+     * @param int $charId
+     * @param string $content
+     * @return bool
+     *
+     */
+    public static function adminMainSend($playerId, $adminId, $charId, $content)
+    {
+        $playerId   = (int)$playerId;
+        $adminId    = (int)$adminId;
+        $charId     = (int)$charId;
+
+        $chatInstance = new AdminChatLog;
+        $chatInstance->create([
+            'player_id'           => $playerId,
+            'admin_id'            => $adminId,
+            'content'             => $content,
+            'char_id'             => $charId,
+            'is_player'           => false,
+        ]);
+
+        return true;
     }
 }

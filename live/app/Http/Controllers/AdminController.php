@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 // モデルの呼び出し
 use App\AdminUser;
+use App\Player;
+use App\CharacterData;
 
 // ライブラリの呼び出し
 use App\Library\AdminCore;
-use App\Player;
+
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+
     // login
     public function login()
     {
@@ -62,7 +65,7 @@ class AdminController extends Controller
     {
         if (isset($playerId)) {
             $playerInfo = Player::where('player_id', $playerId)->first();
-            $chatInfo = AdminCore::getPlayerDetail($playerId);
+            $chatInfo = AdminCore::playerChat($playerId);
 
             return view('admin.find_player')
                 ->with('player_info', $playerInfo)
@@ -70,6 +73,23 @@ class AdminController extends Controller
         } else {
             return view('admin.find_player');
         }
+    }
+
+    // プレイヤー検索からの返信
+    public function mainChat(Request $request)
+    {
+        if (isset($request->content)) {
+            $char = CharacterData::where('char_name', $request->char_name)->first();
+            $sendResult = AdminCore::adminMainSend(
+                $request->player_id,
+                session('admin_id'),
+                $char->char_id,
+                $request->content
+            );
+
+            return redirect()->route('admin.player_detail', ['playerId' => $request->player_id]);
+        }
+        return redirect()->route('admin.index');
     }
 
     // アイテム検索
