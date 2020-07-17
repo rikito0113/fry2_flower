@@ -106,6 +106,11 @@ class AdminCore {
                 $result[$key]['side'] = 'left';
             else
                 $result[$key]['side'] = 'right';
+
+            if ($result[$key-1]['is_player'])
+                $result[$key-1]['side'] = 'left';
+            else
+                $result[$key-1]['side'] = 'right';
         }
 
         return $result;
