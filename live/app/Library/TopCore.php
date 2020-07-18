@@ -97,7 +97,7 @@ class TopCore
         }
 
         // 1つ目の称号を付与
-        $ownedTitleInstance = new OwendTitle;
+        $ownedTitleInstance = new OwnedTitle;
         $ownedTitleInstance->create([
             'player_id' => $playerInfo->player_id,
             'title_id'  => 1,
