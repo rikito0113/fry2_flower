@@ -57,7 +57,7 @@ class GirlCore
         {
             // 点数情報がない場合
             $girlScoreInstance = new GirlTermScore;
-            $gitlScoreInstance->create([
+            $girlScoreInstance->create([
                 'owned_char_id' => $ownedCharId,
                 'term_id'       => $term->term_id,
             ]);
