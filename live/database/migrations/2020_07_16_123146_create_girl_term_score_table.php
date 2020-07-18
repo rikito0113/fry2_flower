@@ -18,6 +18,7 @@ class CreateGirlTermScoreTable extends Migration
             $table->integer('owned_char_id');
             $table->integer('score');
             $table->integer('term_id');
+            $table->timestamps();                   // create&update
         });
     }
 

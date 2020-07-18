@@ -169,7 +169,7 @@ class AdminCore {
     public static function adminRegisterTitleExec($titleText)
     {
         $titleInstance = new TItle;
-        $chatInstance->create([
+        $titleInstance->create([
             'title_text'             => $titleText,
         ]);
 

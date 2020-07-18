@@ -21,14 +21,16 @@
 
     <br>
 
-    <table>
-        <th>title_id</th>
-        <th>title_text</th>
-        @foreach ($titles as $title)
-            <td>{{ $title->title_id }}</td>
-            <td>{{ $title->title_text }}</td>
-        @endforeach
-    </table>
+    @if (isset($titles))
+        <table>
+            <th>title_id</th>
+            <th>title_text</th>
+            @foreach ($titles as $title)
+                <td>{{ $title->title_id }}</td>
+                <td>{{ $title->title_text }}</td>
+            @endforeach
+        </table>
+    @endif
 </div>
 
 </body>

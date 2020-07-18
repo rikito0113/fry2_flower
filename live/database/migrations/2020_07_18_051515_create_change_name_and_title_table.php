@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOwnedTitleTable extends Migration
+class CreateChangeNameAndTitleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateOwnedTitleTable extends Migration
      */
     public function up()
     {
-        Schema::create('owned_title', function (Blueprint $table) {
+        Schema::create('change_name_and_title', function (Blueprint $table) {
+            $table->id();
             $table->integer('player_id');
-            $table->integer('title_id');
-            $table->timestamps();                   // create&update
+            $table->tinyInteger('change_type');  // 1: name, 2: title
+            $table->date('change_date');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ class CreateOwnedTitleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('owned_title');
+        Schema::dropIfExists('change_name_and_title');
     }
 }

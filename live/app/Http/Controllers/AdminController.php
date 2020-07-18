@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\AdminUser;
 use App\Player;
 use App\CharacterData;
+use App\Title;
 
 // ライブラリの呼び出し
 use App\Library\AdminCore;

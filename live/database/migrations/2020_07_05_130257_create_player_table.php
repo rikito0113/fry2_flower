@@ -17,7 +17,7 @@ class CreatePlayerTable extends Migration
             $table->increments('player_id');
             $table->integer('pf_player_id');
             $table->string('name', 30);
-            $table->integer('title_id')->default(0);
+            $table->integer('title_id')->default(1);
             $table->integer('study_point')->default(0);
             $table->integer('owned_char_id')->nullable()->default(0);
             $table->string('hash')->nullable();

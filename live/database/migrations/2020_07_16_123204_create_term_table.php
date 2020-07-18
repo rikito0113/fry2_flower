@@ -18,6 +18,7 @@ class CreateTermTable extends Migration
             $table->string('term_name',30);
             $table->date('term_start');
             $table->date('term_end');
+            $table->timestamps();                   // create&update
         });
     }
 

@@ -17,6 +17,7 @@ class CreateGirlTermSubjectTable extends Migration
             $table->integer('char_id');
             $table->integer('subject_id');
             $table->integer('term_id');
+            $table->timestamps();                   // create&update
         });
     }
 
