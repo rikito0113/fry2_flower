@@ -108,15 +108,22 @@ class AdminController extends Controller
     // 称号登録 
     public function registerTitle(Request $request)
     {
-        if (isset($request->content)) {
-            $titleInstance = new Title;
-            $registerResult = AdminCore::adminRegisterTitleExec(
-                $request->content
-            );
-        }
 
         $titles = Title::all();
 
         return view('admin.register_title')->with('titles', $titles);
+    }
+
+    // 称号登録実行
+    public function registerTitleExec(Request $request)
+    {
+        if (isset($request->content)) {
+            $titleInstance = new Title;
+            $registerResult = AdminCore::adminRegisterTitle(
+                $request->content
+            );
+        }
+
+        return redirect()->route('admin.register_title');;
     }
 }
