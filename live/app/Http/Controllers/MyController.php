@@ -8,6 +8,7 @@ use App\Library\GirlCore;
 // モデルの呼び出し
 use App\OwnedCharacterData;
 
+
 use Illuminate\Http\Request;
 
 class MyController extends Controller
@@ -27,6 +28,9 @@ class MyController extends Controller
         foreach ($allOwnedCharId as $key => $ownedCharId) {
             $allOwnedCharInfo[$ownedCharId->owned_char_id] = GirlCore::girlLoad($ownedCharId->owned_char_id);
         }
+
+        // girl_term_scoreでキャラの点数情報があるか確認なければ作成
+        
 
         return view('my')->with('test_1', $test)->with('owned_char_info', $allOwnedCharInfo);
     }

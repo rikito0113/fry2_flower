@@ -9,6 +9,10 @@ use App\Player;
 use App\SetImg;
 use App\CharacterImg;
 use App\OwnedCharacterImg;
+use App\Term;
+use App\Subject;
+use App\GirlTermSubject;
+use App\GirlTermScore;
 
 class GirlCore
 {
@@ -45,6 +49,20 @@ class GirlCore
         $ownedCharInfo['background_img']    = $setImgInfo->background_img;
         $ownedCharInfo['img_name']          = $setImgInfo->img_name;
 
+        // 現在のtermを取得
+        $term = Term::where('term_start', '>=', date("Y-m-d"))->where('term_end', '<=', date("Y-m-d"))->firsr();
+        // girl_term_scoreデータを取得
+        $myGirlScoreInfo = GirlTermScore::where('owned_char_id', $ownedCharId)->where('term_id', $term->term_id)->first();
+        if(!$myGirlScoreInfo)
+        {
+            // 点数情報がない場合
+            $girlScoreInstance = new GirlTermScore;
+            $gitlScoreInstance->create([
+                'owned_char_id' => $ownedCharId,
+                'term_id'       => $term->term_id,
+            ]);
+            $myGirlScoreInfo = GirlTermScore::where('owned_char_id', $ownedCharId)->where('term_id', $term->term_id)->first();
+        }
 
         return $ownedCharInfo;
     }
@@ -75,4 +93,5 @@ class GirlCore
 
         return $setImgInfo;
     }
+
 }

@@ -16,7 +16,6 @@ class CreateCharacterDataTable extends Migration
         Schema::create('character_data', function (Blueprint $table) {
             $table->increments('char_id');
             $table->string('char_name');
-            $table->string('subject');
             $table->timestamps();
         });
     }

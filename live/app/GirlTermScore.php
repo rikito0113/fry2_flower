@@ -8,7 +8,7 @@ class GirlTermScore extends Model
 {
     protected $table = 'girl_term_score';
 
-    protected $fillable = ['player_id' ,'owned_char_id', 'score', 'term_id' ];
+    protected $fillable = ['owned_char_id', 'score', 'term_id' ];
 
-    protected $primaryKey = ['player_id', 'owned_char_id','term_id'];
+    protected $primaryKey = ['owned_char_id','term_id'];
 }

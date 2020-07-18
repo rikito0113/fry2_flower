@@ -11,4 +11,6 @@ class Term extends Model
     protected $fillable = ['term_id', 'term_name' ,'term_start', 'term_end' ];
 
     protected $primaryKey = 'term_id';
+
+    // protected $dateFormat = 'Y-m-d';
 }

@@ -9,6 +9,7 @@ use App\Player;
 use App\CharacterImg;
 use App\OwnedCharacterImg;
 use App\SetImg;
+use App\OwnedTitle;
 
 // ライブラリの呼び出し
 use App\Library\GirlCore;
@@ -92,7 +93,15 @@ class TopCore
                 'background_img'=> self::DEFAULT_BACKGOUND_ID,
                 'avatar_img'    => $defaultImg->img_id,
             ]);
+
         }
+
+        // 1つ目の称号を付与
+        $ownedTitleInstance = new OwendTitle;
+        $ownedTitleInstance->create([
+            'player_id' => $playerInfo->player_id,
+            'title_id'  => 1,
+        ]);
 
         // defaultのowned_char_idをupdate のちにconstant.phpとか制御
         GirlCore::girlSelect($playerInfo->player_id, 1);

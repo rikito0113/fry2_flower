@@ -24,10 +24,13 @@ class ProfileController extends Controller
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
-        $title = Title::where('title_id', $playerInfo->title_id)->first();
+        $title = Title::where('title_id', $playerInfo->title_id)->select('title_text')->first();
 
+        $ownedTitles = OwnedTitle::where('player_id', $this->_playerId)->get();
         
-        
-        return view('profile.profile')->with('player_info', $playerInfo);
+        return view('profile.profile')
+            ->with('player_info',  $playerInfo)
+            ->with('owned_titles', $ownedTitles)
+            ->with('title',        $title);
     }
 }
