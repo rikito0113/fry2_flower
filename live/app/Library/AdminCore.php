@@ -166,7 +166,7 @@ class AdminCore {
      * @return bool
      *
      */
-    public static function adminRegisterTitleExec($titleText)
+    public static function adminRegisterTitle($titleText)
     {
         $titleInstance = new TItle;
         $titleInstance->create([
