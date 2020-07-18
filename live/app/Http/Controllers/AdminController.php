@@ -106,7 +106,7 @@ class AdminController extends Controller
     }
 
     // 称号登録 
-    public function registerTitle(Request $request)
+    public function registerTitle()
     {
 
         $titles = Title::all();

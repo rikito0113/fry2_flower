@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Player;
+use App\Title;
+use App\OwnedTitle;
+use App\ChangeNameAndTitle;
 
 use Illuminate\Http\Request;
 
@@ -20,6 +23,8 @@ class ProfileController extends Controller
 
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        $title = Title::where('title_id', $playerInfo->title_id)->first();
 
 
         return view('profile.profile')->with('player_info', $playerInfo);
