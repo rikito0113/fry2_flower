@@ -8,6 +8,7 @@ use App\Player;
 use App\PlayerChatLog;
 use App\CharacterData;
 use App\AdminChatLog;
+use App\Title;
 
 class AdminCore {
 
@@ -157,4 +158,22 @@ class AdminCore {
 
         return true;
     }
+
+    /**
+     * 管理画面からtitleを登録する
+     *
+     * @param string $titleText
+     * @return bool
+     *
+     */
+    public static function adminRegisterTitleExec($titleText)
+    {
+        $titleInstance = new TItle;
+        $chatInstance->create([
+            'title_text'             => $titleText,
+        ]);
+
+        return true;
+    }
+
 }

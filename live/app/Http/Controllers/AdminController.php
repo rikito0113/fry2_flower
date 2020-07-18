@@ -103,4 +103,19 @@ class AdminController extends Controller
     {
         return view('admin.find_girl');
     }
+
+    // 称号登録 
+    public function registerTitle(Request $request)
+    {
+        if (isset($request->content)) {
+            $titleInstance = new Title;
+            $registerResult = AdminCore::adminRegisterTitleExec(
+                $request->content
+            );
+        }
+
+        $titles = Title::all();
+
+        return view('admin.register_title')->with('titles', $titles);
+    }
 }

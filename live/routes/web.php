@@ -44,6 +44,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::post('find_player',                              'AdminController@findPlayer');
     Route::post('find_item',                                'AdminController@findItem');
     Route::post('find_girl',                                'AdminController@findGirl');
+    Route::post('register_title',                           'AdminController@registerTitle');
     Route::get('player_detail/{playerId}',                  'AdminController@playerDetail')->name('admin.player_detail');
     Route::post('main_chat',                                'AdminController@mainChat');
 
@@ -51,4 +52,5 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::view('find_player',                              'admin.find_player')->name('admin.findPlayer');
     Route::view('find_item',                                'admin.find_item')->name('admin.findItem');
     Route::view('find_girl',                                'admin.find_girl')->name('admin.findGirl');
+    Route::view('register_title',                           'admin.register_title')->name('admin.registerTitle');
 });
