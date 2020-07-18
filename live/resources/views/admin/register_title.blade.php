@@ -11,7 +11,7 @@
 @include('admin.side')
 
 <div class="main">
-    <div style="text-align: center">
+    <div style="text-align: center; align:center;">
         <form action="/admin/register_title" method="POST">
             @csrf
             <input type="text" name="content" placeholder="新しい称号を入力">
@@ -23,11 +23,15 @@
 
     @if (isset($titles))
         <table>
-            <th>title_id</th>
-            <th>title_text</th>
+            <tr>
+                <th>title_id</th>
+                <th>title_text</th>
+            </tr>
             @foreach ($titles as $title)
-                <td>{{ $title->title_id }}</td>
-                <td>{{ $title->title_text }}</td>
+                <tr>
+                    <td>{{ $title->title_id }}</td>
+                    <td>{{ $title->title_text }}</td>
+                </tr>
             @endforeach
         </table>
     @endif
