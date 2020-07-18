@@ -45,7 +45,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::post('find_item',                                'AdminController@findItem');
     Route::post('find_girl',                                'AdminController@findGirl');
     Route::post('register_title_exec',                      'AdminController@registerTitleExec');
-    Route::get('register_title',                            'AdminController@registerTitle');
+    Route::get('register_title',                            'AdminController@registerTitle')->name('admin.register_title');
     Route::get('player_detail/{playerId}',                  'AdminController@playerDetail')->name('admin.player_detail');
     Route::post('main_chat',                                'AdminController@mainChat');
 
