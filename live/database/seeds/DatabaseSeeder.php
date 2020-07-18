@@ -13,5 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(CharacterDataTableSeeder::class);
         $this->call(CharacterImgTableSeeder::class);
+        $this->call(GirlTermSubjectTableSeeder::class);
+        $this->call(SubjectTableSeeder::class);
+        $this->call(TermTableSeeder::class);
+        $this->call(TitleTableSeeder::class);
     }
 }
