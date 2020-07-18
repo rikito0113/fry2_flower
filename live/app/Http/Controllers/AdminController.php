@@ -124,6 +124,6 @@ class AdminController extends Controller
             );
         }
 
-        return redirect()->route('admin.registerTitle');
+        return redirect()->route('admin.register_title');
     }
 }
