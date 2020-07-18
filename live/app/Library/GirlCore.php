@@ -50,7 +50,7 @@ class GirlCore
         $ownedCharInfo['img_name']          = $setImgInfo->img_name;
 
         // 現在のtermを取得
-        $term = Term::where('term_start', '>=', date("Y-m-d"))->where('term_end', '<=', date("Y-m-d"))->firsr();
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
         // girl_term_scoreデータを取得
         $myGirlScoreInfo = GirlTermScore::where('owned_char_id', $ownedCharId)->where('term_id', $term->term_id)->first();
         if(!$myGirlScoreInfo)
