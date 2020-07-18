@@ -53,5 +53,4 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::view('find_player',                              'admin.find_player')->name('admin.findPlayer');
     Route::view('find_item',                                'admin.find_item')->name('admin.findItem');
     Route::view('find_girl',                                'admin.find_girl')->name('admin.findGirl');
-    Route::view('register_title',                           'admin.register_title')->name('admin.registerTitle');
 });

@@ -12,6 +12,6 @@
         <a href="{{ route('admin.findGirl') }}">ガール検索(未実装)</a>
     </div>
     <div>
-        <a href="{{ route('admin.registerTitle') }}">称号登録(未実装)</a>
+        <a href="{{ action('AdminController@registerTitle') }}">称号登録(未実装)</a>
     </div>
 </div>

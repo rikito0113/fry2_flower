@@ -26,7 +26,8 @@ class ProfileController extends Controller
 
         $title = Title::where('title_id', $playerInfo->title_id)->first();
 
-
+        
+        
         return view('profile.profile')->with('player_info', $playerInfo);
     }
 }
