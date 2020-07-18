@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class OwnedTitle extends Model
 {
+    use App\Library\CompositePrimaryKeyTrait;
+    
     protected $table = 'owned_title';
 
     protected $fillable = ['player_id','title_id'];

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class GirlTermScore extends Model
 {
+    use App\Library\CompositePrimaryKeyTrait;
+
     protected $table = 'girl_term_score';
 
     protected $fillable = ['score'];
