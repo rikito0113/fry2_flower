@@ -8,7 +8,7 @@ class GirlTermScore extends Model
 {
     protected $table = 'girl_term_score';
 
-    protected $fillable = ['score'];
+    protected $fillable = ['owned_char_id','term_id','score'];
 
     public $incrementing = false;
 
