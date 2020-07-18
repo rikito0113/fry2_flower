@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ChangeNameAndTitle extends Model
 {
-    use App\Library\CompositePrimaryKeyTrait;
-    
+    use Library\CompositePrimaryKeyTrait;
+
     protected $table = 'change_name_and_title';
 
     protected $fillable = ['player_id','change_type', 'change_date'];
