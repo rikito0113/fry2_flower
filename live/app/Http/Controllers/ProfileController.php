@@ -64,7 +64,7 @@ class ProfileController extends Controller
     {
         if (isset($changeName)) 
         {
-            ProfileCore::changeName($this->_playerId, $changeName);
+            //ProfileCore::changeName($this->_playerId, $changeName);
         }
             
         return redirect()->route('profile.profile');
