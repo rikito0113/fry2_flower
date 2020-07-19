@@ -62,11 +62,11 @@ class ProfileController extends Controller
     }
 
     // 名前変更確認
-    public function changeNameExec($changeName)
+    public function changeNameExec(Request $request)
     {
-        if (isset($changeName)) 
+        if (isset($request->name)) 
         {
-            ProfileCore::changeName($this->_playerId, $changeName);
+            ProfileCore::changeName($this->_playerId, $request->name);
         }
             
         return redirect()->route('profile.profile');
