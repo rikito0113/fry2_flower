@@ -3,13 +3,13 @@
     {{-- body --}}
     <div style="text-align:center;">
 
-        {{$change_name}}<br>
-        に名前を変更しますか？<br>
+        {{$change_title->title_text}}<br>
+        に称号を変更しますか？<br>
         <br>
 
-        <form action="/Profile/changeNameExec" method="POST">
+        <form action="/Profile/changeTitleExec" method="POST">
                 @csrf
-                <input type="hidden" name="name" value="{{$change_name}}">
+                <input type="hidden" name="title_id" value="{{$change_title->title_id}}">
                 <input type="submit" value="変更">
         </form>
         <br>

@@ -12,5 +12,6 @@ class ChangeNameAndTitle extends Model
 
     protected $fillable = ['player_id','change_type', 'change_date'];
 
-    protected $primaryKey = ['player_id','change_type', 'change_date'];
+    protected $primaryKey = ['player_id'];
+
 }

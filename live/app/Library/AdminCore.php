@@ -93,7 +93,7 @@ class AdminCore {
      */
     public static function getSortByDate($chats, $isPlayerView = false)
     {
-        $result = null;
+        $sort = array();
 
         $side1 = null;
         $side2 = null;
@@ -106,28 +106,19 @@ class AdminCore {
         }
 
         foreach ($chats as $key => $row) {
-            if ($key == 0 || strtotime($chats[$key-1]['created_at']) < strtotime($row['created_at']))
-                $result[$key]   = $row;
-            else{
-                $result[$key-1] = $row;
-                $result[$key]   = $chats[$key-1];
-            }
-
             // is_playerでsideを指定
-            if ($result[$key]['is_player'])
-                $result[$key]['side'] = $side1;
-            else
-                $result[$key]['side'] = $side2;
-
-            if ($key != 0) {
-                if ($result[$key-1]['is_player'])
-                $result[$key-1]['side'] = $side1;
-            else
-                $result[$key-1]['side'] = $side2;
+            if ($row->is_player) {
+                $row->side = $side1;
+            } else {
+                $row->side = $side2;
             }
+
+            $sort[$key] = $row['created_at'];
         }
 
-        return $result;
+        array_multisort($sort, SORT_ASC, $chats);
+
+        return $chats;
     }
 
 
