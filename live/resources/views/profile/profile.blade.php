@@ -10,6 +10,9 @@
         <br>
         <br>
 
+        @if(isset($is_name_change))
+            名前変更済<br>
+        @else
         名前を変更<br>
         <div style="text-align: center; align:center;">
             <form action="/Profile/changeNameConfirm" method="POST">
@@ -19,10 +22,11 @@
             </form>
         </div>
         <br>
-        @if(isset($isTodayChange))
-            変更済<br>
         @endif
 
+        @if(isset($is_title_change))
+            称号変更済<br>
+        @else
         称号を変更<br>
         <div style="text-align: center; align:center;">
             <form action="/Profile/changeTitleConfirm" method="POST">
@@ -35,6 +39,7 @@
                 <input type="submit" value="変更">
             </form>
         </div>
+        @endif
 
     </div>
 
