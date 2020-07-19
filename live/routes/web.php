@@ -29,7 +29,7 @@ Route::get('/setImg/{imgId}',                            'GirlController@setImgE
 // profile関連  
 Route::get('/Profile/profile',                            'ProfileController@profile')->name('profile.profile');
 Route::post('/Profile/changeNameConfirm',                 'ProfileController@changeNameConfirm');
-Route::get('/Profile/changeNameExec/{$changeName}',       'ProfileController@changeNameExec');
+Route::get('/Profile/changeNameExec/{$changeName}',       'ProfileController@changeNameExec')->name('profile.changeNameExec');
 Route::post('/Profile/changeTitleConfirm',                'ProfileController@changeTitleConfirm')->name('profile.changeTitleConfirm');
 Route::get('/Profile/changeTitleExec/{$changeTitleId}',   'ProfileController@changeTitleExec')->name('profile.changeTitleExec');
 
