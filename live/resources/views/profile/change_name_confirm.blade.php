@@ -9,7 +9,7 @@
 
         <a href="/Profile/changeNameExec/{{ $change_name }}">変更</a><br>
         <br>
-        <a href="Profile/profile">やっぱりやめる</a>
+        <a href="/Profile/profile">やっぱりやめる</a>
 
     </div>
 

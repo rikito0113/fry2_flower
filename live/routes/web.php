@@ -25,7 +25,7 @@ Route::POST('Girl/mainChatSend',                         'GirlController@mainCha
 Route::get('/girl_select',                               'GirlController@girlSelect')->name('girl_select');
 Route::get('/girl_select/{charId}',                      'GirlController@girlSelectExec');
 Route::get('/setImg/{imgId}',                            'GirlController@setImgExec');
-Route::get('Profile/profile',                            'ProfileController@profile')->name('profile.profile');
+Route::get('/Profile/profile',                            'ProfileController@profile')->name('profile.profile');
 Route::post('/Profile/changeNameConfirm',                 'ProfileController@changeNameConfirm')->name('profile.changeNameConfirm');
 Route::post('/Profile/changeNameExec/{$changeName}',      'ProfileController@changeNameExec')->name('profile.changeNameExec');
 Route::post('/Profile/changeTitleConfirm',                'ProfileController@changeTitleConfirm')->name('profile.changeTitleConfirm');
