@@ -19,6 +19,9 @@
             </form>
         </div>
         <br>
+        @if(@isTodayChange)
+            変更済<br>
+        @endif
 
         称号を変更<br>
         <div style="text-align: center; align:center;">
