@@ -12,7 +12,7 @@
 
         名前を変更<br>
         <div style="text-align: center; align:center;">
-            <form action="Profile/changeTitleConfirm" method="POST">
+            <form action="Profile/changeNameConfirm" method="POST">
                 @csrf
                 <input type="text" name="content" placeholder="新しい名前を入力">
                 <input type="submit" value="変更">
