@@ -6,8 +6,10 @@ use App\Player;
 use App\Title;
 use App\OwnedTitle;
 use App\ChangeNameAndTitle;
+use App\OwnedCharacterData;
 
 use App\Library\Profile;
+use App\Library\GirlCore;
 
 use Illuminate\Http\Request;
 
@@ -53,7 +55,7 @@ class ProfileController extends Controller
     {
         if (isset($changeName)) 
         {
-            
+            ProfileCore::changeName($this->_playerId, $changeName);
         }
             
         return redirect()->route('profile.profile');

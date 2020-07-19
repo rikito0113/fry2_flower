@@ -23,6 +23,8 @@ class ProfileController
     {
         $playerInfo = Player::where('player_id', $PlayerId)->first();
 
+        // Todo:バリデーション
+
         // playerがない場合はfalse
         if (!$playerInfo)
         {
@@ -30,8 +32,21 @@ class ProfileController
         }
         else 
         {
-            $isTodayChangeName = 
+            $isTodayChangeName = ChangeNameAndTitle::where('player_id',$playerId)->with('change_date',date("Y-m-d"))->first();
+            if(!isset($isTodayChangeName))
+            {
+
+                $playerInfo->name = $changeName;
+                $changeNameInstance = new ChangeNameAndTitle;
+                $changeNameInstance->create([
+                    'player_id'   => $playerId,
+                    'change_date' => date("Y-m-d"),
+                    'change_type' => self::CHANGE_NAME
+                ]);
+            }
         }
+
+        return true;
     }
 
     
