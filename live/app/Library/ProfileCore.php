@@ -21,7 +21,7 @@ class ProfileController
     // ログイン
     public static function changeName($playerId, $changeName)
     {
-        $playerInfo = Player::where('player_id', $PlayerId)->first();
+        $playerInfo = Player::where('player_id', $playerId)->first();
 
         // Todo:バリデーション
 
