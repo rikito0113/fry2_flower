@@ -40,7 +40,8 @@ class AdminController extends Controller
     // 管理画面のindexページ
     public function index(Request $request)
     {
-        return view('admin.index');
+        return view('admin.index')
+            ->with('menu', 'index');
     }
 
     // 未返信の会話
