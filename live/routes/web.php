@@ -13,19 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',                            'TopController@login')->name('top.login');
-Route::post('/loginExec',                  'TopController@loginExec')->name('top.loginExec');
-Route::get('/register',                    'TopController@register')->name('register');
-Route::post('/registerExec',               'TopController@registerExec');
-Route::get('my/my',                        'MyController@my')->name('my.my');
-Route::get('Present/index',                'PresentController@index')->name('present.index');
-Route::get('Girl/index',                   'GirlController@index')->name('girl.index');
-Route::get('Girl/mainChat',                'GirlController@mainChat')->name('girl.mainChat');
-Route::POST('Girl/mainChatSend',           'GirlController@mainChatSend')->name('girl.mainChatSend');
-Route::get('/girl_select',                 'GirlController@girlSelect')->name('girl_select');
-Route::get('/girl_select/{charId}',        'GirlController@girlSelectExec');
-Route::get('/setImg/{imgId}',              'GirlController@setImgExec');
-Route::get('Profile/profile',              'ProfileController@profile')->name('profile.profile');
+Route::get('/',                                          'TopController@login')->name('top.login');
+Route::post('/loginExec',                                'TopController@loginExec')->name('top.loginExec');
+Route::get('/register',                                  'TopController@register')->name('register');
+Route::post('/registerExec',                             'TopController@registerExec');
+Route::get('my/my',                                      'MyController@my')->name('my.my');
+Route::get('Present/index',                              'PresentController@index')->name('present.index');
+Route::get('Girl/index',                                 'GirlController@index')->name('girl.index');
+Route::get('Girl/mainChat',                              'GirlController@mainChat')->name('girl.mainChat');
+Route::POST('Girl/mainChatSend',                         'GirlController@mainChatSend')->name('girl.mainChatSend');
+Route::get('/girl_select',                               'GirlController@girlSelect')->name('girl_select');
+Route::get('/girl_select/{charId}',                      'GirlController@girlSelectExec');
+Route::get('/setImg/{imgId}',                            'GirlController@setImgExec');
+Route::get('Profile/profile',                            'ProfileController@profile')->name('profile.profile');
+Route::post('Profile/changeNameConfirm',                 'ProfileController@changeNameConfirm')->name('profile.changeNameConfirm');
+Route::post('Profile/changeNameExec/{$changeName}',      'ProfileController@changeNameExec')->name('profile.changeNameExec');
+Route::post('Profile/changeTitleConfirm',                'ProfileController@changeTitleConfirm')->name('profile.changeTitleConfirm');
+Route::post('Profile/changeTitleExec/{$changeTitleId}',  'ProfileController@changeTitleExec')->name('profile.changeTitleExec');
+
+
 
 
 

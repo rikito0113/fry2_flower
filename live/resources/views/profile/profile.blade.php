@@ -3,12 +3,23 @@
     {{-- body --}}
     <div style="text-align:center;">
 
-        名前：{{ $player_info->name }}
-        称号：{{ $title }}
+        名前：{{ $player_info->name }}<br>
+        称号：{{ $title->title_text }}<br>
+        勉学pt:{{ $player_info->study_point }}<br>
 
-        名前を変更
+        <br>
+        <br>
 
-        称号を変更
+        名前を変更<br>
+        <div style="text-align: center; align:center;">
+            <form action="Profile/changeTitleConfirm" method="POST">
+                @csrf
+                <input type="text" name="content" placeholder="新しい名前を入力">
+                <input type="submit" value="変更">
+            </form>
+        </div>
+
+        称号を変更<br>
 
     </div>
 
