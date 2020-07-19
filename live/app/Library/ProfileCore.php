@@ -32,10 +32,9 @@ class ProfileCore
         }
         else 
         {
-            $isTodayChangeName = ChangeNameAndTitle::where('player_id',$playerId)->with('change_date',date("Y-m-d"))->first();
+            $isTodayChangeName = ChangeNameAndTitle::where('player_id',$playerId)->with('change_date',date("Y-m-d"))->where('change_type',self::CHANGE_NAME)->first();
             if(!isset($isTodayChangeName))
             {
-
                 $playerInfo->name = $changeName;
                 $playerInfo->save();
                 $changeNameInstance = new ChangeNameAndTitle;
