@@ -43,7 +43,7 @@ class ProfileController extends Controller
     {
         if (isset($request->name)) 
         {
-            return view('profile.changeNameConfirm')
+            return view('profile/change_name_confirm')
                 ->with('change_name',$request->name);
         }
             
