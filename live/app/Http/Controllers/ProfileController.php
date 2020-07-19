@@ -39,14 +39,29 @@ class ProfileController extends Controller
         }
 
         // 名前・称号を変更したかどうか
-        $isTodayNameChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->with('change_type', 1)->first();
-        $isTodayTitleChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->with('change_type', 2)->first();
+        $isTodayChanges = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->get();
+        $isChangeName = false;
+        $isChangeTitle = false;
+        foreach($isTodayChanges as $key => $isTodayChange)
+        {
+            if($isTodayChange->change_type == ProfileCore::CHANGE_NAME)
+            {
+                $isChangeName = true;
+            }
+            else
+            {
+                $isChangeTitle = true;
+            }
+        }
 
         
         return view('profile.profile')
-            ->with('player_info',  $playerInfo)
-            ->with('owned_titles', $ownedTitles)
-            ->with('title',        $title);
+            ->with('player_info',           $playerInfo)
+            ->with('owned_titles',          $ownedTitles)
+            ->with('title',                 $title)
+            ->with('is_change_name',        $isChangeName)
+            ->with('is_change_title',       $isChangeTitle)
+            ;
     }
 
     // 名前変更確認
