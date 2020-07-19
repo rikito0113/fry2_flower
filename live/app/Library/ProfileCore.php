@@ -18,7 +18,7 @@ class ProfileCore
     const CHANGE_NAME  = 1;
     const CHANGE_TITLE = 2;
     
-    // ログイン
+    // 名前変更
     public static function changeName($playerId, $changeName)
     {
         $playerInfo = Player::where('player_id', $playerId)->first();
@@ -43,6 +43,45 @@ class ProfileCore
                     'change_date' => date("Y-m-d"),
                     'change_type' => self::CHANGE_NAME
                 ]);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    // 称号変更
+    public static function changeTitle($playerId, $titleId)
+    {
+        $playerInfo = Player::where('player_id', $playerId)->first();
+
+        // Todo:バリデーション
+
+        // playerがない場合はfalse
+        if (!$playerInfo)
+        {
+            return false;
+        }
+        else 
+        {
+            $isTodayChangeTitle = ChangeNameAndTitle::where('player_id',$playerId)->with('change_date',date("Y-m-d"))->where('change_type',self::CHANGE_TITLE)->first();
+            if(!isset($isTodayChangeTitle))
+            {
+                $playerInfo->title_id = $titleId;
+                $playerInfo->save();
+                $changeNameInstance = new ChangeNameAndTitle;
+                $changeNameInstance->create([
+                    'player_id'   => $playerId,
+                    'change_date' => date("Y-m-d"),
+                    'change_type' => self::CHANGE_TITLE
+                ]);
+            }
+            else
+            {
+                return false;
             }
         }
 

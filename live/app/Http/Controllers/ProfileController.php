@@ -64,12 +64,36 @@ class ProfileController extends Controller
         return redirect()->route('profile.profile');
     }
 
-    // 名前変更確認
+    // 名前変更実行
     public function changeNameExec(Request $request)
     {
         if (isset($request->name)) 
         {
             ProfileCore::changeName($this->_playerId, $request->name);
+        }
+            
+        return redirect()->route('profile.profile');
+    }
+
+    // 名前変更確認
+    public function changeTitleConfirm(Request $request)
+    {
+        if (isset($request->title_id)) 
+        {
+            $changeTitle = Title::where('title_id', $request->title_id)->first();
+            return view('profile/change_title_confirm')
+                ->with('change_title',$changeTitle);
+        }
+            
+        return redirect()->route('profile.profile');
+    }
+
+    // 名前変更実行
+    public function changeTitleExec(Request $request)
+    {
+        if (isset($request->title_id)) 
+        {
+            ProfileCore::changeTitle($this->_playerId, $request->title_id);
         }
             
         return redirect()->route('profile.profile');

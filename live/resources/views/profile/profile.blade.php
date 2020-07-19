@@ -21,8 +21,9 @@
                 <input type="submit" value="変更">
             </form>
         </div>
-        <br>
         @endif
+
+        <br>
 
         @if(isset($is_title_change))
             称号変更済<br>
@@ -31,7 +32,7 @@
         <div style="text-align: center; align:center;">
             <form action="/Profile/changeTitleConfirm" method="POST">
                 @csrf
-                <select name="title">
+                <select name="title_id">
                     @foreach ($owned_titles as $owned_title)
                         <option value="{{ $owned_title->title_id }}">{{ $owned_title->title_text }}</option>
                     @endforeach
