@@ -10,7 +10,7 @@
 
 @include('admin.side', ['menu' => 'index'])
 
-<div class="main">
+<div id="Contents">
     <div style="text-align: center">
         私は管理画面だ。
     </div>
