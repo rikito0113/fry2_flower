@@ -8,7 +8,7 @@
 </head>
 <body>
 
-@include('admin.side')
+@include('admin.side', ['menu' => 'find_player'])
 
 <div class="main">
     <form action="/admin/find_player" method="POST">

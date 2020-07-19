@@ -36,7 +36,7 @@
 	background: #B4B9C5;
 }
 
-#Header ul li a.active {
+#Header ul li.active {
 	background: #69748C;
 	color: #FFFFFF;
 }

@@ -23,7 +23,8 @@ class AdminController extends Controller
         if (session()->has('admin_id')) {
             return redirect()->route('admin.index');
         }
-        return view('admin.login');
+        return view('admin.login')
+            ->with('menu', 'login');
     }
 
     // login処理実行
