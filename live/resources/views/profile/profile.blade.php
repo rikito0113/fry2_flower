@@ -19,7 +19,7 @@
             </form>
         </div>
         <br>
-        @if($isTodayChange)
+        @if(isset($isTodayChange))
             変更済<br>
         @endif
 
