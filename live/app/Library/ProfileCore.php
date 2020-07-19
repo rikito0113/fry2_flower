@@ -13,7 +13,7 @@ use App\Library\GirlCore;
 
 use Illuminate\Support\Facades\Hash;
 
-class ProfileController
+class ProfileCore
 {
     const CHANGE_NAME  = 1;
     const CHANGE_TITLE = 2;
