@@ -4,10 +4,41 @@
 */
 
 
-.side {
+/* .side {
     display: inline-block;
     width: 20%;
     vertical-align: top;
+} */
+
+#Header {
+	float: left;
+	width: 175px;
+}
+
+#Header ul {
+	padding: 0;
+	margin: 0;
+}
+
+#Header ul li {
+	list-style: none outside none;
+}
+
+#Header ul li a {
+	display: block;
+	padding: 5px 10px;
+	width: 155px;
+	text-decoration: none;
+	color: #000000;
+}
+
+#Header ul li a:hover {
+	background: #B4B9C5;
+}
+
+#Header ul li a.active {
+	background: #69748C;
+	color: #FFFFFF;
 }
 
 .main {
