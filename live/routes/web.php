@@ -26,10 +26,10 @@ Route::get('/girl_select',                               'GirlController@girlSel
 Route::get('/girl_select/{charId}',                      'GirlController@girlSelectExec');
 Route::get('/setImg/{imgId}',                            'GirlController@setImgExec');
 Route::get('Profile/profile',                            'ProfileController@profile')->name('profile.profile');
-Route::post('Profile/changeNameConfirm',                 'ProfileController@changeNameConfirm')->name('profile.changeNameConfirm');
-Route::post('Profile/changeNameExec/{$changeName}',      'ProfileController@changeNameExec')->name('profile.changeNameExec');
-Route::post('Profile/changeTitleConfirm',                'ProfileController@changeTitleConfirm')->name('profile.changeTitleConfirm');
-Route::post('Profile/changeTitleExec/{$changeTitleId}',  'ProfileController@changeTitleExec')->name('profile.changeTitleExec');
+Route::post('/Profile/changeNameConfirm',                 'ProfileController@changeNameConfirm')->name('profile.changeNameConfirm');
+Route::post('/Profile/changeNameExec/{$changeName}',      'ProfileController@changeNameExec')->name('profile.changeNameExec');
+Route::post('/Profile/changeTitleConfirm',                'ProfileController@changeTitleConfirm')->name('profile.changeTitleConfirm');
+Route::post('/Profile/changeTitleExec/{$changeTitleId}',  'ProfileController@changeTitleExec')->name('profile.changeTitleExec');
 
 
 
