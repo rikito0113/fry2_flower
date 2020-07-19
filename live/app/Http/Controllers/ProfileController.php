@@ -32,11 +32,10 @@ class ProfileController extends Controller
         $title = Title::where('title_id', $playerInfo->title_id)->select('title_text')->first();
 
         $ownedTitles = OwnedTitle::where('player_id', $this->_playerId)->get();
-        $ownedTitles = $ownedTitles->toArray();
-        foreach($ownedTitles as $key => $ownedTitle)
+        foreach($ownedTitles as $key => &$ownedTitle)
         {
             $titleInfo = Title::where('title_id', $ownedTitle->title_id)->first();
-            $ownedTitles[$key]['title_text'] = $titleInfo->title_text;
+            $ownedTitle['title_text'] = $titleInfo->title_text;
         }
 
         // 名前・称号を変更したかどうか
