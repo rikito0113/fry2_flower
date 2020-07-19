@@ -10,7 +10,7 @@ class ChangeNameAndTitle extends Model
 
     public $incrementing = false;
 
-    protected $fillable = ['change_type', 'change_date'];
+    protected $fillable = ['player_id','change_type', 'change_date'];
 
     protected $primaryKey = ['player_id'];
 
