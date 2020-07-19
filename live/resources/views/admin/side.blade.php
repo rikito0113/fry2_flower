@@ -1,4 +1,5 @@
 <div id="Header">
+    <div style="font-size:2em;color:red">フラワーガールズ管理</div>
     <ul>
         <li @if($menu == 'shold_reply')class="active"@endif><a href="{{ route('admin.sholdReply') }}">未返信(未実装)</a></li>
         <li @if($menu == 'find_player')class="active"@endif><a href="{{ route('admin.findPlayer') }}">プレイヤー検索(未実装)</a></li>
