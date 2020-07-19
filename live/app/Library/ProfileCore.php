@@ -37,6 +37,7 @@ class ProfileCore
             {
 
                 $playerInfo->name = $changeName;
+                $playerInfo->save();
                 $changeNameInstance = new ChangeNameAndTitle;
                 $changeNameInstance->create([
                     'player_id'   => $playerId,
