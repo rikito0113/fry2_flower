@@ -32,15 +32,16 @@ class ProfileController extends Controller
         $title = Title::where('title_id', $playerInfo->title_id)->select('title_text')->first();
 
         $ownedTitles = OwnedTitle::where('player_id', $this->_playerId)->get();
-        foreach($ownedTitles as $key => &$ownedTitle)
+        $ownedTitles = $ownedTitles->toArray();
+        foreach($ownedTitles as $key => $ownedTitle)
         {
             $titleInfo = Title::where('title_id', $ownedTitle->title_id)->first();
-            $ownedTitle['title_text'] = $titleInfo->title_text;
+            $ownedTitles[$key]['title_text'] = $titleInfo->title_text;
         }
 
         // 名前・称号を変更したかどうか
         $isTodayNameChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->with('change_type', 1)->first();
-        
+
         return view('profile.profile')
             ->with('player_info',  $playerInfo)
             ->with('owned_titles', $ownedTitles)
@@ -50,23 +51,23 @@ class ProfileController extends Controller
     // 名前変更確認
     public function changeNameConfirm(Request $request)
     {
-        if (isset($request->name)) 
+        if (isset($request->name))
         {
             return view('profile/change_name_confirm')
                 ->with('change_name',$request->name);
         }
-            
+
         return redirect()->route('profile.profile');
     }
 
     // 名前変更確認
     public function changeNameExec($changeName)
     {
-        if (isset($changeName)) 
+        if (isset($changeName))
         {
             ProfileCore::changeName($this->_playerId, $changeName);
         }
-            
+
         return redirect()->route('profile.profile');
     }
 }
