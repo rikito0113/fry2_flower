@@ -7,7 +7,7 @@
         に名前を変更しますか？<br>
         <br>
 
-        <a href="{{ action('ProfileController@changeNameExec',[$changeName => $change_name]) }}">変更</a><br>
+        <a href="{{ action('ProfileController@changeNameExec',['changeName' => $change_name]) }}">変更</a><br>
         <br>
         <a href="/Profile/profile">やっぱりやめる</a>
 
