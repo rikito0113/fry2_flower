@@ -18,8 +18,20 @@
                 <input type="submit" value="変更">
             </form>
         </div>
+        <br>
 
         称号を変更<br>
+        <div style="text-align: center; align:center;">
+            <form action="/Profile/changeTitleConfirm" method="POST">
+                @csrf
+                <select name="title">
+                    @foreach ($owned_titles as $owned_title)
+                        <option value="{{ $owned_titles->title_id }}">{{ $owned_title->title_text }}</option>
+                    @endforeach
+                </select>
+                <input type="submit" value="変更">
+            </form>
+        </div>
 
     </div>
 

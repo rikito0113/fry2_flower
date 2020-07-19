@@ -8,7 +8,7 @@ use App\OwnedTitle;
 use App\ChangeNameAndTitle;
 use App\OwnedCharacterData;
 
-use App\Library\Profile;
+use App\Library\ProfileCore;
 use App\Library\GirlCore;
 
 use Illuminate\Http\Request;
@@ -28,9 +28,18 @@ class ProfileController extends Controller
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
+        // 称号情報を取得
         $title = Title::where('title_id', $playerInfo->title_id)->select('title_text')->first();
 
         $ownedTitles = OwnedTitle::where('player_id', $this->_playerId)->get();
+        foreach($ownedTitles as $key => $ownedTitle)
+        {
+            $titleInfo = Title::where('title_id', $ownedTitle->title_id)->first();
+            $ownedTitles[$key]['title_text'] = $titleInfo->title_text;
+        }
+
+        // 名前・称号を変更したかどうか
+        $isTodayNameChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->with('change_type', ProfileCore::CHANGE_NAME)->first();
         
         return view('profile.profile')
             ->with('player_info',  $playerInfo)
