@@ -14,7 +14,7 @@
         <div style="text-align: center; align:center;">
             <form action="/Profile/changeNameConfirm" method="POST">
                 @csrf
-                <input type="text" name="content" placeholder="新しい名前を入力">
+                <input type="text" name="name" placeholder="新しい名前を入力">
                 <input type="submit" value="変更">
             </form>
         </div>
