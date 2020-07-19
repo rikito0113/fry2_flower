@@ -8,7 +8,7 @@
 </head>
 <body>
 
-@include('admin.side')
+@include('admin.side', ['menu'=>'regist_title'])
 
 <div class="main">
     <div style="text-align: center; align:center;">

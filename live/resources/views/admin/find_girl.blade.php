@@ -8,7 +8,7 @@
 </head>
 <body>
 
-@include('admin.side')
+@include('admin.side', ['menu' => 'find_girl'])
 
 <div class="main">
     <div style="text-align: center">
