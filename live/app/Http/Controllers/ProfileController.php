@@ -40,7 +40,7 @@ class ProfileController extends Controller
 
         // 名前・称号を変更したかどうか
         $isTodayNameChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->with('change_type', 1)->first();
-        $isTodayTitleChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->with('change_type', ２)->first();
+        $isTodayTitleChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->with('change_type', 2)->first();
 
         
         return view('profile.profile')
