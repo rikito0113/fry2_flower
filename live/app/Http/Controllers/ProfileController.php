@@ -92,11 +92,7 @@ class ProfileController extends Controller
     // 名前変更実行
     public function changeTitleExec(Request $request)
     {
-<<<<<<< HEAD
-        if (isset($changeName))
-=======
         if (isset($request->title_id))
->>>>>>> b5fc46a0d94a69c86c4bb130def69b82fdf7e6d3
         {
             ProfileCore::changeTitle($this->_playerId, $request->title_id);
         }
