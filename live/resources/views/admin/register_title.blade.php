@@ -14,7 +14,7 @@
     <div style="text-align: center; align:center;">
         <form action="/admin/register_title_exec" method="POST">
             @csrf
-            <input type="text" name="name" placeholder="新しい称号を入力">
+            <input type="text" name="content" placeholder="新しい称号を入力">
             <input type="submit" value="追加">
         </form>
     </div>
