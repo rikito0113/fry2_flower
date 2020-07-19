@@ -23,8 +23,7 @@ class AdminController extends Controller
         if (session()->has('admin_id')) {
             return redirect()->route('admin.index');
         }
-        return view('admin.login')
-            ->with('menu', 'login');
+        return view('admin.login');
     }
 
     // login処理実行
@@ -41,15 +40,13 @@ class AdminController extends Controller
     // 管理画面のindexページ
     public function index(Request $request)
     {
-        return view('admin.index')
-            ->with('menu', 'index');
+        return view('admin.index');
     }
 
     // 未返信の会話
     public function sholdReply(Request $request)
     {
-        return view('admin.shold_reply')
-            ->with('menu', 'shold_reply');
+        return view('admin.shold_reply');
     }
 
     // プレイヤー検索
@@ -62,8 +59,7 @@ class AdminController extends Controller
         }
 
         return view('admin.find_player')
-            ->with('get_players', $getPlayer)
-            ->with('menu', 'find_player');
+            ->with('get_players', $getPlayer);
     }
 
     // プレイヤー詳細
@@ -75,11 +71,9 @@ class AdminController extends Controller
 
             return view('admin.find_player')
                 ->with('player_info', $playerInfo)
-                ->with('chat_info', $chatInfo)
-                ->with('menu', 'find_player');
+                ->with('chat_info', $chatInfo);
         } else {
-            return view('admin.find_player')
-                ->with('menu', 'find_player');
+            return view('admin.find_player');
         }
     }
 
@@ -103,15 +97,13 @@ class AdminController extends Controller
     // アイテム検索
     public function findItem(Request $request)
     {
-        return view('admin.find_item')
-            ->with('menu', 'find_item');
+        return view('admin.find_item');
     }
 
     // ガール検索
     public function findGirl(Request $request)
     {
-        return view('admin.find_girl')
-            ->with('menu', 'find_girl');
+        return view('admin.find_girl');
     }
 
     // 称号登録
@@ -121,8 +113,7 @@ class AdminController extends Controller
         $titles = Title::all();
 
         return view('admin.register_title')
-            ->with('titles', $titles)
-            ->with('menu', 'regist_title');
+            ->with('titles', $titles);
     }
 
     // 称号登録実行

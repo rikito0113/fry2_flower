@@ -10,7 +10,7 @@
 
 @include('admin.side', ['menu' => 'find_player'])
 
-<div class="main">
+<div id="Contents">
     <form action="/admin/find_player" method="POST">
         @csrf
         <input type="text" name="player_id" size="40" placeholder="playerId">

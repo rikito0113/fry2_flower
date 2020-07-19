@@ -10,7 +10,7 @@
 
 @include('admin.side', ['menu' => 'find_girl'])
 
-<div class="main">
+<div id="Contents">
     <div style="text-align: center">
         私は管理画面のガール検索だ。
     </div>

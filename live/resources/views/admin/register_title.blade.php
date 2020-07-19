@@ -10,7 +10,7 @@
 
 @include('admin.side', ['menu'=>'regist_title'])
 
-<div class="main">
+<div id="Contents">
     <div style="text-align: center; align:center;">
         <form action="/admin/register_title_exec" method="POST">
             @csrf

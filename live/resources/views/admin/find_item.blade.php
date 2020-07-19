@@ -10,7 +10,7 @@
 
 @include('admin.side', ['menu' => 'find_item'])
 
-<div class="main">
+<div id="Contents">
     <div style="text-align: center">
         私は管理画面のアイテム検索だ。
     </div>
