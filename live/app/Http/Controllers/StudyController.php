@@ -29,7 +29,7 @@ class StudyController extends Controller
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
-        return view('profile.profile')
+        return view('study.index')
             ->with('player_info',           $playerInfo)
             ->with('all_girl_info',         $allOwnedCharInfo)
             ->with('term',                  $term)
