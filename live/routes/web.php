@@ -33,6 +33,9 @@ Route::post('/Profile/changeNameExec',                    'ProfileController@cha
 Route::post('/Profile/changeTitleConfirm',                'ProfileController@changeTitleConfirm')->name('profile.changeTitleConfirm');
 Route::post('/Profile/changeTitleExec',                   'ProfileController@changeTitleExec')->name('profile.changeTitleExec');
 
+// 育成・勉学関連
+Route::get('/Study/index',                                'StudyController@index')->name('study.index');
+
 
 
 

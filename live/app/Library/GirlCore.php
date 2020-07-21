@@ -64,6 +64,11 @@ class GirlCore
             $myGirlScoreInfo = GirlTermScore::where('owned_char_id', $ownedCharId)->where('term_id', $term->term_id)->first();
         }
 
+        $ownedCharInfo['score'] = $myGirlScoreInfo['score'];
+        $girlSubjectId = GirlTermSubject::where('char_id', $ownedChar->char_id)->where('term_id', $term->term_id)->first();
+        $subjectName = Subject::where('subject_id', $girlSubjectId->subject_id)->first();
+        $ownedCharInfo['subject_name'] = $subjectName->subject_name;
+
         return $ownedCharInfo;
     }
 
