@@ -10,7 +10,7 @@
 
         {{-- girl表示 --}}
         @foreach ($all_girl_info as $index => $char)
-        {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}<br>
+        {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点<br>
         @endforeach
 
     </div>
