@@ -42,7 +42,7 @@ class ProfileController extends Controller
         $isTodayNameChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->where('change_type',1)->first();
         $isTodayTitleChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->where('change_type',2)->first();
 
-        
+
         return view('profile.profile')
             ->with('player_info',           $playerInfo)
             ->with('owned_titles',          $ownedTitles)
@@ -55,47 +55,47 @@ class ProfileController extends Controller
     // 名前変更確認
     public function changeNameConfirm(Request $request)
     {
-        if (isset($request->name)) 
+        if (isset($request->name))
         {
             return view('profile/change_name_confirm')
                 ->with('change_name',$request->name);
         }
-            
+
         return redirect()->route('profile.profile');
     }
 
     // 名前変更実行
     public function changeNameExec(Request $request)
     {
-        if (isset($request->name)) 
+        if (isset($request->name))
         {
             ProfileCore::changeName($this->_playerId, $request->name);
         }
-            
+
         return redirect()->route('profile.profile');
     }
 
     // 名前変更確認
     public function changeTitleConfirm(Request $request)
     {
-        if (isset($request->title_id)) 
+        if (isset($request->title_id))
         {
             $changeTitle = Title::where('title_id', $request->title_id)->first();
             return view('profile/change_title_confirm')
                 ->with('change_title',$changeTitle);
         }
-            
+
         return redirect()->route('profile.profile');
     }
 
     // 名前変更実行
     public function changeTitleExec(Request $request)
     {
-        if (isset($request->title_id)) 
+        if (isset($request->title_id))
         {
             ProfileCore::changeTitle($this->_playerId, $request->title_id);
         }
-            
+
         return redirect()->route('profile.profile');
     }
 }
