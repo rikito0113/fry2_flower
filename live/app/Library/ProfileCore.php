@@ -32,7 +32,7 @@ class ProfileCore
         }
         else 
         {
-            $isTodayChangeName = ChangeNameAndTitle::where('player_id',$playerId)->with('change_date',date("Y-m-d"))->where('change_type',self::CHANGE_NAME)->first();
+            $isTodayChangeName = ChangeNameAndTitle::where('player_id',$playerId)->where('change_date',date("Y-m-d"))->where('change_type',self::CHANGE_NAME)->first();
             if(!isset($isTodayChangeName))
             {
                 $playerInfo->name = $changeName;
@@ -67,7 +67,7 @@ class ProfileCore
         }
         else 
         {
-            $isTodayChangeTitle = ChangeNameAndTitle::where('player_id',$playerId)->with('change_date',date("Y-m-d"))->where('change_type',self::CHANGE_TITLE)->first();
+            $isTodayChangeTitle = ChangeNameAndTitle::where('player_id',$playerId)->where('change_date',date("Y-m-d"))->where('change_type',self::CHANGE_TITLE)->first();
             if(!isset($isTodayChangeTitle))
             {
                 $playerInfo->title_id = $titleId;
