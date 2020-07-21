@@ -9,7 +9,7 @@
         <br>
 
         {{-- girl表示 --}}
-        @foreach ($owned_char_info as $index => $char)
+        @foreach ($all_girl_info as $index => $char)
         {{ $char->char_name }} : {{ $char->study_name }} : {{ $char->score }}<br>
         @endforeach
 
