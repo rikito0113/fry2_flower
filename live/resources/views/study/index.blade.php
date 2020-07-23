@@ -11,7 +11,7 @@
         {{-- girl表示 --}}
         @foreach ($all_girl_info as $index => $char)
             {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 : 
-            <form action="/Study/girlLearning" method="POST" style="display:inline">
+            <form action="/Study/girlScoreStatus" method="POST" style="display:inline">
                 @csrf
                 <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">
                 <input type="submit" value="学習">
