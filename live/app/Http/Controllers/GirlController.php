@@ -26,7 +26,7 @@ class GirlController extends Controller
 
     const MORNING  = '朝';
     const NOON     = '昼';
-    const NIGHT    = '夜';
+    const NIGHT    = '晩';
 
     // My page
     public function index()
@@ -109,7 +109,7 @@ class GirlController extends Controller
     // 外へ行く Field選択画面
     public function eventField()
     {
-        $fieldList = Scenario::select('field')->where('start_datetime', '<=', now())->where('end_datetime', '>', now())->groupBy('field')->get();
+        $fieldList = Scenario::select('field')->where('start_datetime', '<=', now())->where('end_datetime', '>', now())->groupBy('field')->get()->pluck('field');
         return view('girl.event_chat_entry')
             ->with('field_list',    $fieldList)
             ->with('place_list',    false);
@@ -118,7 +118,7 @@ class GirlController extends Controller
     // 外へ行く Place選択画面
     public function eventPlace($field)
     {
-        $placeList = Scenario::select('place')->where('field', $field)->groupBy('place')->groupBy('place')->get();
+        $placeList = Scenario::select('place')->where('field', $field)->groupBy('place')->get()->pluck('place');
         return view('girl.event_chat_entry')
             ->with('field_list',    false)
             ->with('place_list',    $placeList);

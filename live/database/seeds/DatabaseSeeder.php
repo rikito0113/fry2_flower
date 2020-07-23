@@ -17,6 +17,6 @@ class ScenarioTableSeeder extends Seeder
         $this->call(SubjectTableSeeder::class);
         $this->call(TermTableSeeder::class);
         $this->call(TitleTableSeeder::class);
-        $this->call(TitleTableSeeder::class);
+        $this->call(ScenarioTableSeeder::class);
     }
 }
