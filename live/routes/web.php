@@ -19,14 +19,19 @@ Route::get('/register',                                  'TopController@register
 Route::post('/registerExec',                             'TopController@registerExec');
 Route::get('my/my',                                      'MyController@my')->name('my.my');
 Route::get('Present/index',                              'PresentController@index')->name('present.index');
+
+// girl関連
 Route::get('Girl/index',                                 'GirlController@index')->name('girl.index');
 Route::get('Girl/mainChat',                              'GirlController@mainChat')->name('girl.mainChat');
 Route::POST('Girl/mainChatSend',                         'GirlController@mainChatSend')->name('girl.mainChatSend');
 Route::get('/girl_select',                               'GirlController@girlSelect')->name('girl_select');
 Route::get('/girl_select/{charId}',                      'GirlController@girlSelectExec');
 Route::get('/setImg/{imgId}',                            'GirlController@setImgExec');
+Route::get('/Gril/eventField',                           'GirlController@eventField')->name('girl.eventField');
+Route::get('/Gril/eventPlace/{field}',                   'GirlController@eventPlace');
+Route::get('/Gril/eventChat/{place}',                    'GirlController@eventChat')->name('girl.eventChat');
 
-// profile関連  
+// profile関連
 Route::get('/Profile/profile',                            'ProfileController@profile')->name('profile.profile');
 Route::post('/Profile/changeNameConfirm',                 'ProfileController@changeNameConfirm');
 Route::post('/Profile/changeNameExec',                    'ProfileController@changeNameExec')->name('profile.changeNameExec');
