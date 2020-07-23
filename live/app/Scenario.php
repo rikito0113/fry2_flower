@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Scenario extends Model
 {
-    protected $table = 'scenario_id';
+    protected $table = 'scenario';
 
     protected $fillable = ['start_datetime', 'end_datetime', 'field', 'place', 'daytime', 'char_id', 'default_background'];
 
