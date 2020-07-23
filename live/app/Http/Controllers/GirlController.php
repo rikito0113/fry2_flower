@@ -109,7 +109,7 @@ class GirlController extends Controller
     // 外へ行く Field選択画面
     public function eventField()
     {
-        $fieldList = Scenario::where('start_datetime', '<=', now())->where('end_datetime', '>', now())->groupBy('field')->get()->pluck('field');
+        $fieldList = Scenario::where('start_datetime', '<=', now())->where('end_datetime', '>', now())->get()->pluck('field');
         return view('girl.event_chat_entry')
             ->with('field_list',    $fieldList)
             ->with('place_list',    false);
