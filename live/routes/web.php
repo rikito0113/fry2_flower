@@ -35,6 +35,7 @@ Route::post('/Profile/changeTitleExec',                   'ProfileController@cha
 
 // 育成・勉学関連
 Route::get('/Study/index',                                'StudyController@index')->name('study.index');
+Route::post('/Study/girlScoreStatus',                     'StudyController@girlScoreStatus')->name('study.girlScoreStatus');
 
 
 

@@ -34,8 +34,32 @@ class StudyController extends Controller
             ->with('all_girl_info',         $allOwnedCharInfo)
             ->with('term',                  $term)
             ;
-
     }
+
+    // 女の子の点数ステータス
+    public function girlScoreStatus(Request $request)
+    {
+        // playerのgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($request->owned_char_id);
+
+        // 現在のtermを取得
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+
+        // プレイヤー情報取得
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        // ランキング取得
+
+
+        return view('study.girl_score_status')
+            ->with('player_info',           $playerInfo)
+            ->with('owned_girl_info',       $ownedCharInfo)
+            ->with('term',                  $term)
+            ;
+    }
+   
+
+
 
 
 }
