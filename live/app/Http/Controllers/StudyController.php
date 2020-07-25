@@ -8,6 +8,7 @@ use App\OwnedCharacterData;
 
 use App\Library\ProfileCore;
 use App\Library\GirlCore;
+use App\Library\StudyCore;
 
 use Illuminate\Http\Request;
 
@@ -56,6 +57,18 @@ class StudyController extends Controller
             ->with('owned_girl_info',       $ownedCharInfo)
             ->with('term',                  $term)
             ;
+    }
+
+    // 女の子の点数UP処理
+    public function upScoreExec(Request $request)
+    {
+        if (isset($request->add_score))
+        {
+            StudyCore::upScore($request->owned_char_id, $request->add_score);
+        }
+
+        return redirect()->route('study.index');
+        
     }
    
 
