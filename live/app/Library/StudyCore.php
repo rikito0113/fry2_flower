@@ -29,7 +29,8 @@ class StudyCore
         
         $myGirlScoreInfo = GirlTermScore::where('owned_char_id', $ownedCharId)->where('term_id', $term->term_id)->first();
 
-        $myGirlScoreInfo->score = $myGirlScoreInfo->score + $addSocre;
+        $newScore = $myGirlScoreInfo->score + $addSocre;
+        $myGirlScoreInfo->score = $newScore;
         $myGirlScoreInfo->save();
 
         return true;
