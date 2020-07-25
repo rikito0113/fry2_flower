@@ -8,6 +8,7 @@ use App\OwnedCharacterData;
 use App\Player;
 use App\OwnedCharacterImg;
 use App\PlayerChatLog;
+use App\Scenario;
 
 
 // ライブラリの呼び出し
@@ -18,6 +19,14 @@ use Illuminate\Http\Request;
 
 class GirlController extends Controller
 {
+    const DAY_TIME_MORNING   = '10:00:00';
+    const DAY_TIME_NOON      = '14:00:00';
+    const DAY_TIME_NIGHT     = '18:00:00';
+    const DAY_TIME_MIDNIGHT  = '';
+
+    const MORNING  = '朝';
+    const NOON     = '昼';
+    const NIGHT    = '晩';
 
     // My page
     public function index()
@@ -95,5 +104,48 @@ class GirlController extends Controller
 
         // プレイヤーの送った情報をinsert
         return redirect()->route('girl.mainChat');
+    }
+
+    // 外へ行く Field選択画面
+    public function eventField()
+    {
+        $fieldList = Scenario::select('field')->where('start_datetime', '<=', now())->where('end_datetime', '>', now())->groupBy('field')->get()->pluck('field');
+        return view('girl.event_chat_entry')
+            ->with('field_list',    $fieldList)
+            ->with('place_list',    false);
+    }
+
+    // 外へ行く Place選択画面
+    public function eventPlace($field)
+    {
+        $placeList = Scenario::select('place')->where('field', $field)->groupBy('place')->get()->pluck('place');
+        return view('girl.event_chat_entry')
+            ->with('field_list',    false)
+            ->with('place_list',    $placeList);
+    }
+
+    // 外へ行く eventChat画面
+    public function eventChat($place = false)
+    {
+        $dayTime = null;
+        if (strtotime(date('H:i:s')) > self::DAY_TIME_NIGHT) {
+            $dayTime = self::NIGHT;
+        } elseif (strtotime(date('H:i:s')) > self::DAY_TIME_NOON) {
+            $dayTime = self::NOON;
+        } elseif (strtotime(date('H:i:s')) > self::DAY_TIME_MORNING) {
+            $dayTime = self::MORNING;
+        } else {
+            $dayTime = self::NIGHT;             // 深夜帯 開発用
+        }
+
+        $scenarioInfo = false;
+        // eventChat送信後のリダイレクトの際はplaceを付属すること
+        if ($place){
+            $scenarioInfo = Scenario::where('place', $place)->where('daytime', $dayTime)->first();
+        }
+
+
+        return view('girl.event-chat')
+            ->with('scenario_info',    $scenarioInfo);
     }
 }

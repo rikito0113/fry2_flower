@@ -1,7 +1,7 @@
 @include('header')
 
 {{-- ガール情報 includeしてきてもいいかもしれない --}}
-<div style="color: white; background-color: black; text-align:center;">女性キャラクタ:{{ $owned_char_info->char_name }}</div>
+<div style="color: white; background-color: gray; text-align:center;">女性キャラクタ:{{ $owned_char_info->char_name }}</div>
 <div style="text-align:center;">
     Lv.{{$owned_char_info->level}}<br>
     <div class="girl-img" style="width: 40%">
@@ -33,9 +33,18 @@
 
 <br><br>
 
-<a href="/Girl/mainChat">
-花嫁修行リンクどーーーーん！！！！
-</a>
+<span style="width: 49% text-align: center;">
+    <a href="/Girl/mainChat">
+        花嫁修行リンクどーーーーん！！！！
+    </a>
+</span>
+<span style="width: 49% text-align: center;">
+    <a href="{{ route('girl.eventField') }}">
+        外へ行くリンクどーーーーん！！！！
+    </a>
+</span>
+
+<br><br>
 
 <div style="text-align:center;">
     ガール🆔：{{ $player_info->owned_char_id }}

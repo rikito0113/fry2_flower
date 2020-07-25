@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class ScenarioTableSeeder extends Seeder
 {
     /**
      * Seed the application's database.
@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SubjectTableSeeder::class);
         $this->call(TermTableSeeder::class);
         $this->call(TitleTableSeeder::class);
+        $this->call(ScenarioTableSeeder::class);
     }
 }
