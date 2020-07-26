@@ -10,7 +10,5 @@ class GirlTermScore extends Model
 
     protected $fillable = ['owned_char_id','term_id','score'];
 
-    public $incrementing = false;
-
     protected $primaryKey = ['owned_char_id'];
 }
