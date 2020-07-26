@@ -12,4 +12,5 @@ class GirlTermScore extends Model
 
     public $incrementing = false;
 
+    protected $primaryKey = ['owned_char_id'];
 }
