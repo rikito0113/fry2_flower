@@ -28,7 +28,7 @@ Route::get('/girl_select',                               'GirlController@girlSel
 Route::get('/girl_select/{charId}',                      'GirlController@girlSelectExec');
 Route::get('/setImg/{imgId}',                            'GirlController@setImgExec');
 Route::get('/Gril/eventField',                           'GirlController@eventField')->name('girl.eventField');
-Route::get('/Girl/status/{$owned_char_id}',               'GirlController@status');
+Route::get('/Girl/status/{owned_char_id}',               'GirlController@status');
 Route::get('/Gril/eventPlace/{field}',                   'GirlController@eventPlace');
 Route::get('/Gril/eventChat/{place}',                    'GirlController@eventChat')->name('girl.eventChat');
 
