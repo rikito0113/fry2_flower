@@ -4,6 +4,10 @@
 <div style="color: white; background-color: gray; text-align:center;">女性キャラクタ:{{ $owned_char_info->char_name }}</div>
 <div style="text-align:center;">
     Lv.{{$owned_char_info->level}}<br>
+    {{-- ステータス --}}
+    <a href="/Girl/status/{{ $owned_char_info->owned_char_id }}">
+        ステータス
+    </a>
     <div class="girl-img" style="width: 40%">
         <img src="{{ asset('/images/character/'.$owned_char_info->background_img.'.png') }}" alt="background" width="100%"><br>
         <div class="avatar">

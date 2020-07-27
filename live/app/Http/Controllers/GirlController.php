@@ -76,6 +76,15 @@ class GirlController extends Controller
         return redirect()->route('girl.index');
     }
 
+    // ツン・デレポイント割り振りページ
+    public function status($ownedCharId)
+    {
+        // 選択中のgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
+        return view('girl.status')
+            ->with('owned_char_info', $ownedCharInfo);
+    }
+
     public function mainChat()
     {
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
