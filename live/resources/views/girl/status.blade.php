@@ -12,4 +12,20 @@
     {{$owned_char_info->img_name}}<br>
 </div>
 
+<br>
+
+<div style="text-align:center;">
+    残りパラ：{{$owned_char_info->remain_point}}<br>
+    <a href="/Girl/statusUp/{{ $owned_char_info->owned_char_id }}">
+        パラ設定
+    </a>
+    デレ度：{{$owned_char_info->dere}}<br>
+    ツン度：{{$owned_char_info->tun}} <br>
+</div>
+
+<br>
+<div style="color: white; background-color: gray; text-align:center;">{{ $owned_char_info->char_name }}：達成報酬</div>
+<div style="text-align:center;">
+    〜画像とか〜<br>
+</div>
 @include('footer')

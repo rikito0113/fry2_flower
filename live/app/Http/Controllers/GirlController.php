@@ -76,12 +76,21 @@ class GirlController extends Controller
         return redirect()->route('girl.index');
     }
 
-    // ツン・デレポイント割り振りページ
+    // ツン・デレポイント/達成報酬
     public function status($ownedCharId)
     {
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
         return view('girl.status')
+            ->with('owned_char_info', $ownedCharInfo);
+    }
+
+    // ツンデレポイント割り振り
+    public function statusUp($ownedCharId)
+    {
+        // 選択中のgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
+        return view('girl.status_up')
             ->with('owned_char_info', $ownedCharInfo);
     }
 
