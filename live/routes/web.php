@@ -33,9 +33,9 @@ Route::get('/Gril/eventChat/{place}',                    'GirlController@eventCh
 
 Route::get('/Girl/status/{owned_char_id}',               'GirlController@status');
 Route::get('/Girl/statusUp/{owned_char_id}',             'GirlController@statusUp');
-Route::post('/Girl/statusUpConfirm',                     'GirmController@statusUpConfirm')->name('girl.statusUpConfirm');
+Route::post('/Girl/statusUpConfirm',                     'GirlController@statusUpConfirm')->name('girl.statusUpConfirm');
 Route::get('/Girl/statusUpTunExec/{point}',              'GirlController@statusUpTunExec');
-Route::get('/Girl/statusUpDereExec/{point}',              'GirlController@statusUpDereExec');
+Route::get('/Girl/statusUpDereExec/{point}',             'GirlController@statusUpDereExec');
 
 // profile関連
 Route::get('/Profile/profile',                            'ProfileController@profile')->name('profile.profile');
