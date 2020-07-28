@@ -20,9 +20,9 @@ class CreateScenarioTable extends Migration
             $table->string('field');                    // 場所A
             $table->string('place');                    // 場所B
             $table->enum('daytime', [
-                '朝',
-                '昼',
-                '晩'
+                'morning',
+                'noon',
+                'night'
             ]);                                         // 出現時間
             $table->integer('char_id');
             $table->integer('default_background');

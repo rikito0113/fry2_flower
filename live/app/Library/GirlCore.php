@@ -13,6 +13,8 @@ use App\Term;
 use App\Subject;
 use App\GirlTermSubject;
 use App\GirlTermScore;
+use App\PlayerScenarioData;
+use App\AdminEventChatLog;
 
 class GirlCore
 {
@@ -138,4 +140,29 @@ class GirlCore
         return true;
     }
 
+    /**
+     * シナリオデータの作成と初期メッセージの作成
+     *
+     * @param int $playerId
+     * @param int $scenarioId
+     * @return bool
+     *
+     */
+    public static function createPlayerScenarioData($playerId, $scenarioId)
+    {
+        $playerScenarioInstance = new PlayerScenarioData;
+        $playerScenarioInstance->create([
+            'player_id'           => $playerId,
+            'scenario_id'         => $scenarioId,
+        ]);
+
+        $adminEventChatInstance = new AdminEventChatLog;
+        $adminEventChatInstance->create([
+            'player_id'           => $playerId,
+            'admin_id'            => 0,
+            'content'             => 'デフォルトだよ、後々マスタに変えるよ',
+            'scenario_id'         => $scenarioId,
+            'is_player'           => false,
+        ]);
+    }
 }

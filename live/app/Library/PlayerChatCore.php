@@ -11,6 +11,8 @@ use App\OwnedCharacterImg;
 use App\SetImg;
 use App\PlayerChatLog;
 use App\AdminChatLog;
+use App\PlayerEventChatLog;
+use App\AdminEventChatLog;
 
 
 // ライブラリの呼び出し
@@ -67,6 +69,42 @@ class PlayerChatCore
 
         // 管理者のログ
         $adminChat = AdminChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('admin_chat_log_id', 'asc')->get();
+
+        // fetch
+        if (isset($adminChat) && isset($playerChats))
+            $chats = [...$playerChats, ...$adminChat];       // このエラーはPHP7.4以降は通るエラー。
+        elseif(!isset($adminChat) && isset($playerChats))
+            $chats = $playerChats;
+        else
+            $chats = $adminChat;
+
+        // 時間降順
+        $logs = AdminCore::getSortByDate($chats, true);
+
+        return $logs;
+
+    }
+
+    /**
+     * 外へ行くのchat取得
+     *
+     * @param int $playerId
+     * @param int $scenarioId
+     * @return bool
+     *
+     */
+    public static function getEventChatLogByScenario($playerId, $scenarioId)
+    {
+        if (!$playerId || !$scenarioId) {
+            return false;
+        }
+
+        // playerのログ
+        // $logs = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->whereBetween('created_at', [$startDate,$endDate])->get();
+        $playerChats = PlayerEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->orderBy('player_event_chat_log_id', 'asc')->get();
+
+        // 管理者のログ
+        $adminChat = AdminEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->orderBy('admin_chat_log_id', 'asc')->get();
 
         // fetch
         if (isset($adminChat) && isset($playerChats))
