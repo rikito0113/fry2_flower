@@ -13,6 +13,22 @@
         </div><br>
         {{$scenario_info->place}}<br>
     </div>
+
+    @if (isset($event_chat_log))
+        @foreach ($chat_log as $char_name => $row)
+            <div class="chat">
+                <span style="font-size: small; float: {{$row->side}};">
+                    {{$row->created_at}}
+                </span>
+                <br>
+                <div class="chat-text-{{$row->side}}">
+                    <p class="chat-text">
+                        {{$row->content}}
+                    </p>
+                </div>
+            </div>
+        @endforeach
+    @endif
 @else
     <div style="text-align: center;">
         誰もいなかった.....

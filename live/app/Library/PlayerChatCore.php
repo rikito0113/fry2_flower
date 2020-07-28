@@ -104,7 +104,7 @@ class PlayerChatCore
         $playerChats = PlayerEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->orderBy('player_event_chat_log_id', 'asc')->get();
 
         // 管理者のログ
-        $adminChat = AdminEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->orderBy('admin_chat_log_id', 'asc')->get();
+        $adminChat = AdminEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->orderBy('admin_event_chat_log_id', 'asc')->get();
 
         // fetch
         if (isset($adminChat) && isset($playerChats))
