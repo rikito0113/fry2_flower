@@ -94,6 +94,75 @@ class GirlController extends Controller
             ->with('owned_char_info', $ownedCharInfo);
     }
 
+    // ツンデレポイント割り振り確認
+    public function statusUpConfirm(Request $request)
+    {
+        // 1：ツン、2：デレ
+        $type = 0;
+        $point = 0;
+        if (isset($request->add_tun))
+        {
+            $type = 1;
+            $point = $request->add_tun;
+        } elseif (isset($request->add_dere))
+        {
+            $type = 2;
+            $point = $request->add_dere;
+        }
+        // あまりポイント確認
+        $ownedCharInfo = GirlCore::girlLoad($request->owned_char_id);
+        if ($point > $ownedCharInfo['remain_point'] || $point <= 0)
+        {
+            // エラーに飛ばす
+            return redirect()->route('girl.index');
+        }
+
+        return view('girl.status_up_confirm')
+        ->with('owned_char_info', $ownedCharInfo)
+        ->with('point',           $point)
+        ->with('type',            $type);
+    }
+
+    // ツンポイントアップ
+    public function statusUpTunExec($point)
+    {
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        // 選択中のgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
+
+        // あまりポイント確認
+        if ($point > $ownedCharInfo['remain_point'] || $point <= 0)
+        {
+            // エラーに飛ばす
+            return redirect()->route('girl.index');
+        }
+
+        // point付与処理
+
+
+        return redirect()->route('girl.index');
+    }
+
+    // デレポイントアップ
+    public function statusUpDereExec($point)
+    {
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        // 選択中のgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
+        // あまりポイント確認
+        if ($point > $ownedCharInfo['remain_point'] || $point <= 0)
+        {
+            // エラーに飛ばす
+            return redirect()->route('girl.index');
+        }
+        // point付与処理
+
+
+        return redirect()->route('girl.index');
+    }
+
     public function mainChat()
     {
         $playerInfo = Player::where('player_id', $this->_playerId)->first();

@@ -28,10 +28,14 @@ Route::get('/girl_select',                               'GirlController@girlSel
 Route::get('/girl_select/{charId}',                      'GirlController@girlSelectExec');
 Route::get('/setImg/{imgId}',                            'GirlController@setImgExec');
 Route::get('/Gril/eventField',                           'GirlController@eventField')->name('girl.eventField');
-Route::get('/Girl/status/{owned_char_id}',               'GirlController@status');
-Route::get('/Girl/statusUp/{owned_char_id}',             'GirlController@statusUp');
 Route::get('/Gril/eventPlace/{field}',                   'GirlController@eventPlace');
 Route::get('/Gril/eventChat/{place}',                    'GirlController@eventChat')->name('girl.eventChat');
+
+Route::get('/Girl/status/{owned_char_id}',               'GirlController@status');
+Route::get('/Girl/statusUp/{owned_char_id}',             'GirlController@statusUp');
+Route::post('/Girl/statusUpConfirm',                     'GirmController@statusUpConfirm')->name('girl.statusUpConfirm');
+Route::get('/Girl/statusUpTunExec/{point}',              'GirlController@statusUpTunExec');
+Route::get('/Girl/statusUpDereExec/{point}',              'GirlController@statusUpDereExec');
 
 // profile関連
 Route::get('/Profile/profile',                            'ProfileController@profile')->name('profile.profile');
