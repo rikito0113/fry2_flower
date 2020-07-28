@@ -139,7 +139,12 @@ class GirlController extends Controller
         }
 
         // point付与処理
-
+        $result = GirlCore::statusUp($ownedCharInfo['owned_char_id'], 1, $point);
+        if (!$result)
+        {
+            // エラー
+            return redirect()->route('girl.index');
+        }
 
         return redirect()->route('girl.index');
     }
@@ -158,7 +163,12 @@ class GirlController extends Controller
             return redirect()->route('girl.index');
         }
         // point付与処理
-
+        $result = GirlCore::statusUp($ownedCharInfo['owned_char_id'], 2, $point);
+        if (!$result)
+        {
+            // エラー
+            return redirect()->route('girl.index');
+        }
 
         return redirect()->route('girl.index');
     }

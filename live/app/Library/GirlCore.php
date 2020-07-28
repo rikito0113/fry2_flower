@@ -99,4 +99,43 @@ class GirlCore
         return $setImgInfo;
     }
 
+    /**
+     * tun・dereポイントの更新、remain_pointの更新
+     *
+     * @param int $ownedCharId
+     * @param int $type  1:tun 2:dere
+     * @param int $point
+     * @return array $setImgInfo
+     *
+     */
+    public static function statusUp($ownedCharId, $type, $point)
+    {
+        $ownedChar = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
+        // ポイントあるか確認
+        if ($point > $ownedChar['remain_point'] || $point <= 0)
+        {
+            return false;
+        }
+
+        if ($type == 1)
+        {
+            // ツン
+            $ownedChar->tun = $ownedChar->tun + $point;
+        } elseif ($type == 2)
+        {
+            // デレ
+            $ownedChar->dere = $ownedChar->dere + $point;
+        } else
+        {
+            // エラー
+            return false;
+        }
+        // remain_pointの削除更新
+        $ownedChar->remain_point = $ownedChar->remain_point - $point;
+
+        $ownedChar->save();
+
+        return true;
+    }
+
 }
