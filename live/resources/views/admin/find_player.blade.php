@@ -11,7 +11,7 @@
 @include('admin.side', ['menu' => 'find_player'])
 
 <div id="Contents">
-    <form action="/admin/find_player" method="POST">
+    <form action="/Admin/findPlayer" method="POST">
         @csrf
         <input type="text" name="player_id" size="40" placeholder="playerId">
         <input type="text" name="pf_player_id" size="40" placeholder="PFPlayerId">
@@ -28,7 +28,7 @@
             <table border="5" bordercolor="red" width="60%">
                 <tr>
                     <td>プレイヤーID</td>
-                    <td><a href="/admin/player_detail/{{ $player->player_id }}">{{$player->player_id}}</a></td>
+                    <td><a href="/Admin/playerDetail/{{ $player->player_id }}">{{$player->player_id}}</a></td>
                 </tr>
                 <tr>
                     <td>PF別プレイヤーID</td>
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     @endforeach
-                    <form action="/admin/main_chat" method="POST">
+                    <form action="/Admin/mainChat" method="POST">
                         @csrf
                         <input type="text" name="content" placeholder="メッセージを入力">
                         <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">

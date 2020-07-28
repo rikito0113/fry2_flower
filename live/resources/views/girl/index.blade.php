@@ -20,7 +20,7 @@
 {{-- 着替え --}}
 @foreach ($owned_char_img as $index => $img)
     <span>
-        <a href="/setImg/{{ $img->img_id }}">
+        <a href="/Girl/setImg/{{ $img->img_id }}">
             <div class="girl-img" style="width: 10%">
                 <img src="{{ asset('/images/character/11.png') }}" alt="background" width="100%"><br>
                 <div class="avatar">
@@ -54,7 +54,7 @@
     ガール🆔：{{ $player_info->owned_char_id }}
     @foreach ($char_info as $char)
         <div>
-            <a href="/girl_select/{{ $char->char_id }}">{{ $char->char_name }}</a>
+            <a href="/Girl/girlSelect/{{ $char->char_id }}">{{ $char->char_name }}</a>
         </div><br>
     @endforeach
 </div>

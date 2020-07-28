@@ -30,7 +30,6 @@ class MyController extends Controller
         }
 
         // girl_term_scoreでキャラの点数情報があるか確認なければ作成
-        
 
         return view('my')->with('test_1', $test)->with('owned_char_info', $allOwnedCharInfo);
     }

@@ -68,11 +68,5 @@ class StudyController extends Controller
         }
 
         return redirect()->route('study.index');
-        
     }
-   
-
-
-
-
 }

@@ -5,7 +5,7 @@
 @if ($field_list)
     @foreach ($field_list as $field)
         <div>
-            <a href="/Gril/eventPlace/{{ $field }}">{{$field}}</a>
+            <a href="/Girl/eventPlace/{{ $field }}">{{$field}}</a>
         </div><br>
     @endforeach
 @endif
@@ -14,7 +14,7 @@
 @if ($place_list)
     @foreach ($place_list as $place)
         <div>
-            <a href="/Gril/eventChat/{{ $place }}">{{ $place }}</a>
+            <a href="/Girl/eventChat/{{ $place }}">{{ $place }}</a>
         </div><br>
     @endforeach
 @endif

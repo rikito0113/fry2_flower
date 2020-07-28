@@ -182,7 +182,7 @@ class GirlController extends Controller
         // チャットログの取得
         $chatLog = PlayerChatCore::getChatLogBrGirl($this->_playerId, $charId, $ownedCharInfo);
 
-        return view('girl.main-chat')
+        return view('girl.main_chat')
             ->with('chat_log',          $chatLog)
             ->with('owned_char_info',   $ownedCharInfo)
             ->with('player_info',       $playerInfo);
@@ -242,7 +242,7 @@ class GirlController extends Controller
         }
 
 
-        return view('girl.event-chat')
+        return view('girl.event_chat')
             ->with('scenario_info',    $scenarioInfo);
     }
 }

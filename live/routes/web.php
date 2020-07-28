@@ -17,22 +17,22 @@ Route::get('/',                                          'TopController@login')-
 Route::post('/loginExec',                                'TopController@loginExec')->name('top.loginExec');
 Route::get('/register',                                  'TopController@register')->name('register');
 Route::post('/registerExec',                             'TopController@registerExec');
-Route::get('my/my',                                      'MyController@my')->name('my.my');
-Route::get('Present/index',                              'PresentController@index')->name('present.index');
+Route::get('/My/my',                                     'MyController@my')->name('my.my');
+Route::get('/Present/index',                             'PresentController@index')->name('present.index');
 
 // girl関連
-Route::get('Girl/index',                                 'GirlController@index')->name('girl.index');
-Route::get('Girl/mainChat',                              'GirlController@mainChat')->name('girl.mainChat');
-Route::POST('Girl/mainChatSend',                         'GirlController@mainChatSend')->name('girl.mainChatSend');
-Route::get('/girl_select',                               'GirlController@girlSelect')->name('girl_select');
-Route::get('/girl_select/{charId}',                      'GirlController@girlSelectExec');
-Route::get('/setImg/{imgId}',                            'GirlController@setImgExec');
-Route::get('/Gril/eventField',                           'GirlController@eventField')->name('girl.eventField');
-Route::get('/Gril/eventPlace/{field}',                   'GirlController@eventPlace');
-Route::get('/Gril/eventChat/{place}',                    'GirlController@eventChat')->name('girl.eventChat');
+Route::get('/Girl/index',                                'GirlController@index')->name('girl.index');
+Route::get('/Girl/mainChat',                             'GirlController@mainChat')->name('girl.mainChat');
+Route::POST('/Girl/mainChatSend',                        'GirlController@mainChatSend')->name('girl.mainChatSend');
+Route::get('/Girl/girlSelect',                           'GirlController@girlSelect')->name('girlSelect');
+Route::get('/Girl/girlSelect/{charId}',                  'GirlController@girlSelectExec');
+Route::get('/Girl/setImg/{imgId}',                       'GirlController@setImgExec');
+Route::get('/Girl/eventField',                           'GirlController@eventField')->name('girl.eventField');
+Route::get('/Girl/eventPlace/{field}',                   'GirlController@eventPlace');
+Route::get('/Girl/eventChat/{place}',                    'GirlController@eventChat')->name('girl.eventChat');
 
-Route::get('/Girl/status/{owned_char_id}',               'GirlController@status');
-Route::get('/Girl/statusUp/{owned_char_id}',             'GirlController@statusUp');
+Route::get('/Girl/status/{ownedCharId}',                 'GirlController@status');
+Route::get('/Girl/statusUp/{ownedCharId}',               'GirlController@statusUp');
 Route::post('/Girl/statusUpConfirm',                     'GirlController@statusUpConfirm')->name('girl.statusUpConfirm');
 Route::get('/Girl/statusUpTunExec/{point}',              'GirlController@statusUpTunExec');
 Route::get('/Girl/statusUpDereExec/{point}',             'GirlController@statusUpDereExec');
@@ -57,21 +57,21 @@ Route::post('/Study/upScoreExec',                         'StudyController@upSco
 
 
 // 以下、管理画面用
-Route::get('/admin/login',      'AdminController@login')->name('admin.login');
-Route::post('/admin/loginExec', 'AdminController@loginExec');
+Route::get('/Admin/login',      'AdminController@login')->name('admin.login');
+Route::post('/Admin/loginExec', 'AdminController@loginExec');
 
-Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
-    // function内は '/admin/~~'になる
+Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
+    // function内は '/Admin/~~'になる
 
     Route::get('index',                                     'AdminController@index')->name('admin.index');
-    Route::post('shold_reply',                              'AdminController@sholdReply');
-    Route::post('find_player',                              'AdminController@findPlayer');
-    Route::post('find_item',                                'AdminController@findItem');
-    Route::post('find_girl',                                'AdminController@findGirl');
-    Route::post('register_title_exec',                      'AdminController@registerTitleExec');
-    Route::get('register_title',                            'AdminController@registerTitle')->name('admin.register_title');
-    Route::get('player_detail/{playerId}',                  'AdminController@playerDetail')->name('admin.player_detail');
-    Route::post('main_chat',                                'AdminController@mainChat');
+    Route::post('sholdReply',                               'AdminController@sholdReply');
+    Route::post('findPlayer',                               'AdminController@findPlayer');
+    Route::post('findItem',                                 'AdminController@findItem');
+    Route::post('findGirl',                                 'AdminController@findGirl');
+    Route::post('registerTitleExec',                        'AdminController@registerTitleExec');
+    Route::get('registerTitle',                             'AdminController@registerTitle')->name('admin.registerTitle');
+    Route::get('playerDetail/{playerId}',                   'AdminController@playerDetail')->name('admin.playerDetail');
+    Route::post('mainChat',                                 'AdminController@mainChat');
 
     Route::view('shold_reply',                              'admin.shold_reply')->name('admin.sholdReply');
     Route::view('find_player',                              'admin.find_player')->name('admin.findPlayer');

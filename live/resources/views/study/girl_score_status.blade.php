@@ -21,9 +21,6 @@
             <input type="hidden" name="owned_char_id" value="{{$owned_girl_info->owned_char_id}}">
             <input type="submit" value="確定">
         </form>
-
-        
-
     </div>
 
 @include('footer')

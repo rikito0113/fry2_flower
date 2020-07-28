@@ -89,7 +89,7 @@ class AdminController extends Controller
                 $request->content
             );
 
-            return redirect()->route('admin.player_detail', ['playerId' => $request->player_id]);
+            return redirect()->route('admin.playerDetail', ['playerId' => $request->player_id]);
         }
         return redirect()->route('admin.index');
     }
@@ -126,6 +126,6 @@ class AdminController extends Controller
             );
         }
 
-        return redirect()->route('admin.register_title');
+        return redirect()->route('admin.registerTitle');
     }
 }
