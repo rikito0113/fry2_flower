@@ -15,7 +15,7 @@
     </div>
 
     @if (isset($event_chat_log))
-        @foreach ($chat_log as $char_name => $row)
+        @foreach ($event_chat_log as $char_name => $row)
             <div class="chat">
                 <span style="font-size: small; float: {{$row->side}};">
                     {{$row->created_at}}
