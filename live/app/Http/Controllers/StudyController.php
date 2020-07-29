@@ -64,7 +64,7 @@ class StudyController extends Controller
     {
         if (isset($request->add_score))
         {
-            StudyCore::upScore($request->owned_char_id, $request->add_score);
+            StudyCore::upScore($this->_playerId, $request->owned_char_id, $request->add_score);
         }
 
         return redirect()->route('study.index');
