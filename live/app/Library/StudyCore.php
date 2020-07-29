@@ -22,14 +22,14 @@ class StudyCore
 {
     
     // 点数UP
-    public static function upScore($playerId, $ownedCharId, $addSocre)
+    public static function upScore($playerId, $ownedCharId, $addScore)
     {
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
         
         $myGirlScoreInfo = GirlTermScore::where('owned_char_id', $ownedCharId)->where('term_id', $term->term_id)->first();
 
-        $newScore = $myGirlScoreInfo->score + $addSocre;
+        $newScore = $myGirlScoreInfo->score + $addScore;
         $myGirlScoreInfo->score = $newScore;
         $myGirlScoreInfo->save();
 
