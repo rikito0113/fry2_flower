@@ -74,7 +74,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     Route::get('playerDetail/{playerId}',                   'AdminController@playerDetail')->name('admin.playerDetail');
     Route::post('mainChat',                                 'AdminController@mainChat');
     Route::post('findEventPlayer',                          'AdminController@findEventPlayer');
-    Route::get('eventChat/{scenarioid}/{playerId}',         'AdminController@eventChat')->name('admin.eventChat');
+    Route::get('eventChat/{scenarioId}/{playerId}',         'AdminController@eventChat')->name('admin.eventChat');
     Route::post('eventChatSend',                            'AdminController@eventChatSend');
 
     Route::view('shold_reply',                              'admin.shold_reply')->name('admin.sholdReply');
