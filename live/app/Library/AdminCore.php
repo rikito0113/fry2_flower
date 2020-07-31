@@ -201,7 +201,7 @@ class AdminCore {
         if ($playerId) {
             foreach ($events as $key => $event) {
                 $eventPlayers[$key] = PlayerEventChatLog::where('player_id', $playerId)->where('scenario_id', $event->scenario_id)->first();
-                $eventPlayers[$key]->name = Player::where('player_id', $playerId)->first->pluck('name');
+                $eventPlayers[$key]->name = Player::where('player_id', $playerId)->first()->pluck('name');
             }
         } else {
             foreach ($events as $key => $event) {
