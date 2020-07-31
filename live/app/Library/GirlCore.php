@@ -156,13 +156,15 @@ class GirlCore
             'scenario_id'         => $scenarioId,
         ]);
 
-        $adminEventChatInstance = new AdminEventChatLog;
-        $adminEventChatInstance->create([
-            'player_id'           => $playerId,
-            'admin_id'            => 0,
-            'content'             => 'デフォルトだよ、後々マスタに変えるよ',
-            'scenario_id'         => $scenarioId,
-            'is_player'           => false,
-        ]);
+        if (!AdminEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->get()) {
+            $adminEventChatInstance = new AdminEventChatLog;
+            $adminEventChatInstance->create([
+                'player_id'           => $playerId,
+                'admin_id'            => 0,
+                'content'             => 'デフォルトだよ、後々マスタに変えるよ',
+                'scenario_id'         => $scenarioId,
+                'is_player'           => false,
+            ]);
+        }
     }
 }

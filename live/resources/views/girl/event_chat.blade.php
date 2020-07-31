@@ -31,7 +31,7 @@
     @endif
 
     <br>
-    <form action="/Girl/mainEventChatSend" method="POST" style="text-align: center;">
+    <form action="/Girl/eventChatSend" method="POST" style="text-align: center;">
         @csrf
         text : <input type="text" name="content" size="40" placeholder="内容"> <br>
         <input type="hidden" value="{{ $scenario_info->scenario_id }}" name="scenario_id">
