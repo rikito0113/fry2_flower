@@ -26,7 +26,7 @@
 
     @if (isset($chat_info))
         @foreach ($chat_info as $char_name => $chats)
-            <div>
+            <div  style="text-align: center;">
                 <span style="color: red">
                     {{$char_name}}
                 </span>
@@ -45,7 +45,7 @@
                     </div>
                 @endforeach
 
-                <form action="/Admin/eventChatSend" method="POST" style="text-align: center;">
+                <form action="/Admin/eventChatSend" method="POST">
                     @csrf
                     <input type="text" name="content" placeholder="メッセージを入力">
                     <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
