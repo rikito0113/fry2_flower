@@ -256,4 +256,20 @@ class GirlController extends Controller
             ->with('scenario_info',    $scenarioInfo)
             ->with('event_chat_log',   $eventChatLog);
     }
+
+    // 外へ行く チャット
+    public function eventChatSend(Request $request)
+    {
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        $sendResult = PlayerChatCore::playerEventSend($this->_playerId, $request->scenario_id, $request->content);
+        if (!$sendResult) {
+            // こけてる
+        }
+
+        $scenarioInfo = Scenario::where('scenario_id', $request->scenario_id)->first();
+
+        // プレイヤーの送った情報をinsert
+        return redirect()->route('girl.eventChat', ['place' => $scenarioInfo->place]);
+    }
 }

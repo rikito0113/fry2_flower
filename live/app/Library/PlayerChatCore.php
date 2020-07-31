@@ -39,6 +39,30 @@ class PlayerChatCore
         return true;
     }
 
+    /**
+     * 外へ行くのchat取得
+     *
+     * @param int $playerId
+     * @param int $scenarioId
+     * @param string $content
+     * @return bool
+     *
+     */
+    public static function playerEventSend($playerId, $scenarioId, $content)
+    {
+        if (!$playerId || !$scenarioId || !$content) {
+            return false;
+        }
+        $chatInstance = new PlayerEventChatLog;
+        $chatInstance->create([
+            'player_id'           => $playerId,
+            'content'             => $content,
+            'scenario_id'         => $scenarioId,
+            'is_player'           => true,
+        ]);
+        return true;
+    }
+
     public static function getChatLogBrGirl($playerId, $charId, $ownedCharInfo)
     {
         if (!$playerId || !$ownedCharInfo) {

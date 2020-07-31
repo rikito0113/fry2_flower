@@ -29,6 +29,14 @@
             </div>
         @endforeach
     @endif
+
+    <br>
+    <form action="/Girl/mainEventChatSend" method="POST" style="text-align: center;">
+        @csrf
+        text : <input type="text" name="content" size="40" placeholder="内容"> <br>
+        <input type="hidden" value="{{ $scenario_info->scenario_id }}" name="scenario_id">
+        <input type="submit" value="push">
+    </form>
 @else
     <div style="text-align: center;">
         誰もいなかった.....

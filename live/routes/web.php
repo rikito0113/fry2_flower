@@ -30,6 +30,7 @@ Route::get('/Girl/setImg/{imgId}',                       'GirlController@setImgE
 Route::get('/Girl/eventField',                           'GirlController@eventField')->name('girl.eventField');
 Route::get('/Girl/eventPlace/{field}',                   'GirlController@eventPlace');
 Route::get('/Girl/eventChat/{place}',                    'GirlController@eventChat')->name('girl.eventChat');
+Route::post('/Girl/eventChatSend',                       'GirlController@eventChatSend');
 
 Route::get('/Girl/status/{ownedCharId}',                 'GirlController@status');
 Route::get('/Girl/statusUp/{ownedCharId}',               'GirlController@statusUp');
