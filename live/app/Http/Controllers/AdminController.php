@@ -138,6 +138,10 @@ class AdminController extends Controller
 
         if ($request->find_event) {
             $eventPlayers = AdminCore::getEventPlayers($request);
+
+            foreach ($eventPlayers as $key => $value) {
+                error_log($value);
+            }
         }
 
         return view('admin.find_event')

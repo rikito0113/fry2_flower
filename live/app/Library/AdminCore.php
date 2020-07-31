@@ -183,7 +183,6 @@ class AdminCore {
         $events       = array();
         $playerId     = null;
         $eventPlayers = array();
-        $result       = array();
 
         // プレイヤーの検索が入っている場合
         if ($request->name)
@@ -209,12 +208,7 @@ class AdminCore {
             }
         }
 
-        foreach ($eventPlayers as $key => $row) {
-            if (!$row->isEmpty())
-                $result[$key] = $row;
-        }
-
-        return $result;
+        return $eventPlayers;
     }
 
     /**
