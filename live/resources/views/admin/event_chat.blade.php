@@ -13,11 +13,11 @@
 <form action="/Admin/findEventPlayer" method="POST" style="text-align: center;">
     @csrf
     <input type="text" name="player_id" size="40" placeholder="playerId">
-    <input type="text" name="name" size="40" placeholder="プレイヤー名">
+    <input type="text" name="name" size="40" placeholder="プレイヤー名"><br>
     <input type="text" name="field" size="40" placeholder="場所A">
-    <input type="text" name="place" size="40" placeholder="場所B">
+    <input type="text" name="place" size="40" placeholder="場所B"><br>
     <input type="hidden" name="find_event" value="1">
-    <input type="submit" value="検索">
+    <input type="submit" value="検索"><br>
     ※ 各空白検索でallという意味になります。
 </form>
 

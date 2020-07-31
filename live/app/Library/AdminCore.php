@@ -180,9 +180,10 @@ class AdminCore {
      */
     public static function getEventPlayers($request)
     {
-        $events = array();
-        $playerId = null;
+        $events       = array();
+        $playerId     = null;
         $eventPlayers = array();
+        $result       = array();
 
         // プレイヤーの検索が入っている場合
         if ($request->name)
@@ -208,7 +209,12 @@ class AdminCore {
             }
         }
 
-        return $eventPlayers;
+        foreach ($eventPlayers as $key => $row) {
+            if (!$row->isEmpty())
+                $result[$key] = $row;
+        }
+
+        return $result;
     }
 
     /**
