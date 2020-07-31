@@ -46,8 +46,8 @@
             <form action="/Admin/eventChatSend" method="POST">
                 @csrf
                 <input type="text" name="content" placeholder="メッセージを入力">
-                <input type="hidden" name="player_id" value="{{ $chat_info->player_id }}">
-                <input type="hidden" name="scenario_id" value="{{ $chat_info->scenario_id }}">
+                <input type="hidden" name="player_id" value="{{ $chats->player_id }}">
+                <input type="hidden" name="scenario_id" value="{{ $chats->scenario_id }}">
                 <input type="submit" value="送信">
             </form>
         </div>
