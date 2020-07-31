@@ -254,7 +254,7 @@ class AdminCore {
         $adminId    = (int)$adminId;
         $scenarioId = (int)$scenarioId;
 
-        $chatInstance = new AdminChatLog;
+        $chatInstance = new AdminEventChatLog;
         $chatInstance->create([
             'player_id'           => $playerId,
             'admin_id'            => $adminId,
