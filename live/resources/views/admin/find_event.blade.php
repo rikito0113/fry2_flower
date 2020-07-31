@@ -25,13 +25,15 @@
 
 @if (isset($event_players))
     @foreach ($event_players as $event_player)
-        <div style="text-align: center; background-color: blue;">
-            <a href="/Admin/eventChat/{{ $event_player->scenario_id }}/{{ $event_player->player_id }}">
-                {{ $event_player->name }}<br>
-                {{ $event_player->player_id }}<br>
-            </a>
-        </div>
-        <br><br>
+        @if (isset($event_player->scenario_id) && isset($event_player->player_id))
+            <div style="text-align: center; background-color: blue;">
+                <a href="/Admin/eventChat/{{ $event_player->scenario_id }}/{{ $event_player->player_id }}">
+                    {{ $event_player->name }}<br>
+                    {{ $event_player->player_id }}<br>
+                </a>
+            </div>
+            <br><br>
+        @endif
     @endforeach
 @endif
 
