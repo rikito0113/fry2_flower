@@ -235,7 +235,7 @@ class AdminCore {
 
         $chatInfo[$charName] = self::getSortByDate($chats);
 
-        return $chats;
+        return $chatInfo;
     }
 
     /**
