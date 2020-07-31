@@ -156,7 +156,9 @@ class GirlCore
             'scenario_id'         => $scenarioId,
         ]);
 
-        if (!AdminEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->get()) {
+        $eventChatLog = AdminEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->get();
+
+        if ($eventChatLog->isEmpty()) {
             $adminEventChatInstance = new AdminEventChatLog;
             $adminEventChatInstance->create([
                 'player_id'           => $playerId,

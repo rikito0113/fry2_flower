@@ -9,6 +9,10 @@ use App\PlayerChatLog;
 use App\CharacterData;
 use App\AdminChatLog;
 use App\Title;
+use App\Scenario;
+use App\PlayerEventChatLog;
+use App\AdminEventChatLog;
+
 
 class AdminCore {
 
@@ -167,4 +171,98 @@ class AdminCore {
         return true;
     }
 
+    /**
+     * 管理画面からeventを取得する
+     *
+     * @param Request $request
+     * @return object $eventInfo
+     *
+     */
+    public static function getEventPlayers($request)
+    {
+        $events = array();
+        $playerId = null;
+        $eventPlayers = array();
+
+        // プレイヤーの検索が入っている場合
+        if ($request->name)
+            $playerId = Player::where('name', $request->name)->first();
+        else
+            $playerId = $request->player_id;
+
+        // 場所の検索が入っている場合 or ない場合は全検索
+        if ($request->place)
+            $events = Scenario::where('place', $request->place)->get();
+        elseif ($request->field)
+            $events = Scenario::where('field', $request->field)->get();
+        else
+            $events = Scenario::all();
+
+        if ($playerId) {
+            foreach ($events as $key => $event) {
+                $eventPlayers[$key] = PlayerEventChatLog::where('player_id', $playerId)->where('scenario_id', $event->scenario_id)->first();
+            }
+        } else {
+            foreach ($events as $key => $event) {
+                $eventPlayers[$key] = PlayerEventChatLog::where('scenario_id', $event->scenario_id)->first();
+            }
+        }
+
+        return $eventPlayers;
+    }
+
+    /**
+     * 管理画面からeventを取得する
+     *
+     * @param integer $scenarioId
+     * @param integer $playerId
+     * @return object $chats
+     *
+     */
+    public static function getEventChatLog($scenarioId, $playerId)
+    {
+        $chats     = array();
+
+        $playerChat    = PlayerEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->orderBy('player_event_chat_log_id', 'asc')->get();
+        $adminChat     = AdminEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->orderBy('admin_event_chat_log_id', 'asc')->get();
+        $scenarioInfo  = Scenario::where('scenario_id', $scenarioId)->first();
+        $charName      = CharacterData::where('char_id', $scenarioInfo->char_id)->first()->char_name;
+
+        if (isset($adminChat))
+            $chats = [...$playerChat, ...$adminChat];       // このエラーはPHP7.4以降は通るエラー。
+        else
+            $chats = $playerChat;
+
+        $chatInfo[$charName] = self::getSortByDate($chats);
+
+        return $chats;
+    }
+
+    /**
+     * 管理画面からchatをinsertする
+     *
+     * @param int $playerId
+     * @param int $adminId
+     * @param int $scenarioId
+     * @param string $content
+     * @return bool
+     *
+     */
+    public static function adminEventSend($playerId, $adminId, $scenarioId, $content)
+    {
+        $playerId   = (int)$playerId;
+        $adminId    = (int)$adminId;
+        $scenarioId = (int)$scenarioId;
+
+        $chatInstance = new AdminChatLog;
+        $chatInstance->create([
+            'player_id'           => $playerId,
+            'admin_id'            => $adminId,
+            'content'             => $content,
+            'scenario_id'         => $scenarioId,
+            'is_player'           => false,
+        ]);
+
+        return true;
+    }
 }

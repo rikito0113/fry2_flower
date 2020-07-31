@@ -7,6 +7,8 @@ use App\AdminUser;
 use App\Player;
 use App\CharacterData;
 use App\Title;
+use App\PlayerEventChatLog;
+use App\Scenario;
 
 // ライブラリの呼び出し
 use App\Library\AdminCore;
@@ -127,5 +129,49 @@ class AdminController extends Controller
         }
 
         return redirect()->route('admin.registerTitle');
+    }
+
+    // イベントプレイヤー検索
+    public function findEventPlayer(Request $request)
+    {
+        $eventPlayers = false;
+
+        if ($request->find_event) {
+            $eventPlayers = AdminCore::getEventPlayers($request);
+        }
+
+        return view('admin.find_event')
+            ->with('event_players', $eventPlayers);
+    }
+
+    // イベントプレイヤーのチャット検索
+    public function eventChat($scenarioId, $playerId)
+    {
+        $chatInfo     = AdminCore::getEventChatLog($scenarioId, $playerId);
+        $scenarioInfo = Scenario::where('scenario_id', $scenarioId)->first();
+
+        return view('admin.event_chat')
+            ->with('chat_info',      $chatInfo)
+            ->with('scenario_info',  $scenarioInfo);
+    }
+
+    // イベントからの返信
+    public function eventChatSend(Request $request)
+    {
+        if (isset($request->content)) {
+            $sendResult = AdminCore::adminEventSend(
+                $request->player_id,
+                session('admin_id'),
+                $request->scenario_id,
+                $request->content
+            );
+
+            return redirect()->route('admin.eventChat',[
+                'scenarioId' => $request->scenario_id,
+                'playerId'   => $request->player_id,
+            ]);
+        }
+
+        return redirect()->route('admin.index');
     }
 }
