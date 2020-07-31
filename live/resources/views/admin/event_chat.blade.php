@@ -45,7 +45,7 @@
                     </div>
                 @endforeach
 
-                <form action="/Admin/eventChatSend" method="POST">
+                <form action="/Admin/eventChatSend" method="POST" style="text-align: center;">
                     @csrf
                     <input type="text" name="content" placeholder="メッセージを入力">
                     <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
