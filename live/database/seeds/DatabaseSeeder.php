@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TermTableSeeder::class);
         $this->call(TitleTableSeeder::class);
         $this->call(ScenarioTableSeeder::class);
+        $this->call(EventFixedPhraseTableSeeder::class);
     }
 }

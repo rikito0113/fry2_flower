@@ -15,6 +15,7 @@ use App\GirlTermSubject;
 use App\GirlTermScore;
 use App\PlayerScenarioData;
 use App\AdminEventChatLog;
+use App\EventFixedPhrase;
 
 class GirlCore
 {
@@ -158,15 +159,21 @@ class GirlCore
 
         $eventChatLog = AdminEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->get();
 
+        // trueの時はentry時
         if ($eventChatLog->isEmpty()) {
-            $adminEventChatInstance = new AdminEventChatLog;
-            $adminEventChatInstance->create([
-                'player_id'           => $playerId,
-                'admin_id'            => 0,
-                'content'             => 'デフォルトだよ、後々マスタに変えるよ',
-                'scenario_id'         => $scenarioId,
-                'is_player'           => false,
-            ]);
+            // 最初の定型文取得 複数でも対応可能なようにget()で取得
+            $firstPhrase = EventFixedPhrase::where('scenario_id', $scenarioId)->where('is_auto', true)->get();
+
+            foreach ($firstPhrase as $key => $phrase) {
+                $adminEventChatInstance = new AdminEventChatLog;
+                $adminEventChatInstance->create([
+                    'player_id'           => $playerId,
+                    'admin_id'            => 0,
+                    'content'             => $phrase->content,
+                    'scenario_id'         => $scenarioId,
+                    'is_player'           => false,
+                ]);
+            }
         }
     }
 }

@@ -7,8 +7,9 @@ use App\AdminUser;
 use App\Player;
 use App\CharacterData;
 use App\Title;
-use App\PlayerEventChatLog;
+use App\AdminEventChatLog;
 use App\Scenario;
+use App\EventFixedPhrase;
 
 // ライブラリの呼び出し
 use App\Library\AdminCore;
@@ -149,9 +150,12 @@ class AdminController extends Controller
     {
         $chatInfo     = AdminCore::getEventChatLog($scenarioId, $playerId);
         $scenarioInfo = Scenario::where('scenario_id', $scenarioId)->first();
+        $contentIndex = AdminEventChatLog::where('scenario_id', $scenarioId)->where('player_id', $playerId)->count();
+        $fixedPhrase  = EventFixedPhrase::where('scenario_id', $scenarioId)->where('content_index', $contentIndex)->first()->pluck('content');
 
         return view('admin.event_chat')
             ->with('chat_info',      $chatInfo)
+            ->with('fixed_phrase', $fixedPhrase)
             ->with('scenario_info',  $scenarioInfo);
     }
 
