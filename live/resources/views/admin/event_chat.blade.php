@@ -45,13 +45,19 @@
                     </div>
                 @endforeach
 
+                <div style="text-align: center;">
+                    @if (isset($fixed_phrase))
+                        ↓定型文↓<br>
+                        {{ $fixed_phrase }}<br>
+                        ※コピペして貼ってください。<br>
+                    @else
+                        定型文はありません。<br>
+                    @endif
+                </div>
+
                 <form action="/Admin/eventChatSend" method="POST">
                     @csrf
-                    @if (isset($fixed_phrase))
-                        <input type="text" name="content" value="{{ $fixed_phrase }}">
-                    @else
-                        <input type="text" name="content" placeholder="定型文はありません">
-                    @endif
+                    <input type="text" name="content" value="メッセージ">
                     <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
                     <input type="hidden" name="scenario_id" value="{{ $chats[0]->scenario_id }}">
                     <input type="submit" value="送信">

@@ -19,7 +19,7 @@ class EventFixedPhraseTableSeeder extends Seeder
                 'scenario_id'       => 1,
                 'content_index'     => 0,
                 'attitude'          => 'neutral',
-                'is_auto'           => false,
+                'is_auto'           => true,
             ],
             [
                 'content'           => '授業サボってるでしょ',
