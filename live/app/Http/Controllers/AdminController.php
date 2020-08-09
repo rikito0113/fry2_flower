@@ -152,14 +152,10 @@ class AdminController extends Controller
         $scenarioInfo    = Scenario::where('scenario_id', $scenarioId)->first();
         $contentIndex    = AdminEventChatLog::where('scenario_id', $scenarioId)->where('player_id', $playerId)->count();
         $fixedPhraseRow  = EventFixedPhrase::where('scenario_id', $scenarioId)->where('content_index', $contentIndex)->first();
-        $fixedPhrase     = false;
-
-        if (!$fixedPhraseRow->isEmpty())
-            $fixedPhrase = $fixedPhraseRow->pluck('content');
 
         return view('admin.event_chat')
             ->with('chat_info',      $chatInfo)
-            ->with('fixed_phrase',   $fixedPhrase)
+            ->with('fixed_phrase',   $fixedPhraseRow)
             ->with('scenario_info',  $scenarioInfo);
     }
 

@@ -15,7 +15,7 @@ class CreateEventFixedPhraseTable extends Migration
     {
         Schema::create('event_fixed_phrase', function (Blueprint $table) {
             $table->increments('event_fixed_phrase_id');
-            $table->mediumText('content');                    // chatの内容
+            $table->mediumText('content')->charset('utf8');   // chatの内容
             $table->integer('scenario_id');                   // シナリオID
             $table->integer('content_index');                 // シナリオ中で何番目か
             $table->enum('attitude', [                        // TorN

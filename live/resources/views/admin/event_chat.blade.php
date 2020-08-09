@@ -48,7 +48,7 @@
                 <form action="/Admin/eventChatSend" method="POST">
                     @csrf
                     @if (isset($fixed_phrase))
-                        <input type="text" name="content" value="{{ $fixed_phrase }}">
+                        <input type="text" name="content" value="{{ $fixed_phrase->content }}">
                     @else
                         <input type="text" name="content" placeholder="定型文はありません">
                     @endif
