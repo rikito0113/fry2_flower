@@ -148,14 +148,18 @@ class AdminController extends Controller
     // イベントプレイヤーのチャット検索
     public function eventChat($scenarioId, $playerId)
     {
-        $chatInfo     = AdminCore::getEventChatLog($scenarioId, $playerId);
-        $scenarioInfo = Scenario::where('scenario_id', $scenarioId)->first();
-        $contentIndex = AdminEventChatLog::where('scenario_id', $scenarioId)->where('player_id', $playerId)->count();
-        $fixedPhrase  = EventFixedPhrase::where('scenario_id', $scenarioId)->where('content_index', $contentIndex)->first()->pluck('content');
+        $chatInfo        = AdminCore::getEventChatLog($scenarioId, $playerId);
+        $scenarioInfo    = Scenario::where('scenario_id', $scenarioId)->first();
+        $contentIndex    = AdminEventChatLog::where('scenario_id', $scenarioId)->where('player_id', $playerId)->count();
+        $fixedPhraseRow  = EventFixedPhrase::where('scenario_id', $scenarioId)->where('content_index', $contentIndex)->first();
+        $fixedPhrase     = false;
+
+        if (!$fixedPhraseRow->isEmpty())
+            $fixedPhrase = $fixedPhraseRow->pluck('content');
 
         return view('admin.event_chat')
             ->with('chat_info',      $chatInfo)
-            ->with('fixed_phrase', $fixedPhrase)
+            ->with('fixed_phrase',   $fixedPhrase)
             ->with('scenario_info',  $scenarioInfo);
     }
 
