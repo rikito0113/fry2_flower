@@ -19,6 +19,7 @@ class CreatePlayerEventChatLogTable extends Migration
             $table->mediumText('content');                   // chatの内容
             $table->integer('scenario_id');                  // シナリオID
             $table->boolean('is_player');                    // プレイヤーが送信したか、adminが送信か（後ほどfetchするため）
+            $table->boolean('is_read');                      // 未読(false),既読(true)
             $table->timestamps();                            // create&update
         });
     }

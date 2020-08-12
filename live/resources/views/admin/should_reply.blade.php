@@ -8,12 +8,15 @@
 </head>
 <body>
 
-@include('admin.side', ['menu' => 'shold_reply'])
+@include('admin.side', ['menu' => 'should_reply'])
 
 <div id="Contents">
     <div style="text-align: center">
-        私は管理画面の未返信だ。
+        [未返信]
     </div>
+    ・<a href="{{ route('admin.shouldReplyNormal') }}">花嫁修行未返信</a><br>
+    <br>
+    ・<a href="{{ route('admin.shouldReplyEvent') }}">外へ行く未返信</a><br>
 </div>
 
 </body>

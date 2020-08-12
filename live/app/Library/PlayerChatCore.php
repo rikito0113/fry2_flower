@@ -35,6 +35,7 @@ class PlayerChatCore
             'char_avatar_id'      => $ownedCharInfo->avatar_img,
             'char_background_id'  => $ownedCharInfo->background_img,
             'is_player'           => true,
+            'is_read'             => false,
         ]);
         return true;
     }
@@ -59,6 +60,7 @@ class PlayerChatCore
             'content'             => $content,
             'scenario_id'         => $scenarioId,
             'is_player'           => true,
+            'is_read'             => false,
         ]);
         return true;
     }

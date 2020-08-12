@@ -21,6 +21,7 @@ class CreatePlayerChatLogTable extends Migration
             $table->integer('char_avatar_id');      // キャラ服id
             $table->integer('char_background_id');  // キャラ背景id
             $table->boolean('is_player');           // プレイヤーが送信したか、adminが送信か（後ほどfetchするため）
+            $table->boolean('is_read');             // 未読(false),既読(true)
             $table->timestamps();                   // create&update
         });
     }

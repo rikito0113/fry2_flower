@@ -8,7 +8,7 @@ class PlayerEventChatLog extends Model
 {
     protected $table = 'player_event_chat_log';
 
-    protected $fillable = ['player_id', 'content', 'scenario_id', 'is_player'];
+    protected $fillable = ['player_id', 'content', 'scenario_id', 'is_player', 'is_read'];
 
     protected $primaryKey = 'player_event_chat_log';
 }

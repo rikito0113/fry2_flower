@@ -47,9 +47,25 @@ class AdminController extends Controller
     }
 
     // 未返信の会話
-    public function sholdReply(Request $request)
+    public function shouldReply(Request $request)
     {
-        return view('admin.shold_reply');
+        return view('admin.should_reply');
+    }
+
+    // 花嫁修行(未返信リスト)
+    public function shouldReplyNormal()
+    {
+        // リスト取得
+
+        return view('admin.should_reply_normal');
+    }
+
+    // 外へ行く(未返信リスト)
+    public function shouldReplyEvent()
+    {
+        // リスト取得
+
+        return view('admin.should_reply_event');
     }
 
     // プレイヤー検索
