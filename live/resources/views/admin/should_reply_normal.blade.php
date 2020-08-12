@@ -22,7 +22,7 @@
           <th>create_date</th>
         </tr>
         @if (isset($list))
-            @foreach ($list as $l)
+            @foreach ($list as $row => $l)
             <tr>
                 <td>{{$l->player_chat_log_id}}</td>
                 <td>{{$l->player_id}}</td>
