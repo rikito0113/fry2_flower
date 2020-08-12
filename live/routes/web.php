@@ -80,6 +80,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     Route::post('eventChatSend',                            'AdminController@eventChatSend');
 
     Route::view('should_reply',                             'admin.should_reply')->name('admin.shouldReply');
+    Route::view('should_reply_normal',                      'admin.should_reply_normal')->name('admin.shouldReplyNormal');
+    Route::view('should_reply_event',                       'admin.should_reply_event')->name('admin.shouldReplyEvent');
     Route::view('find_player',                              'admin.find_player')->name('admin.findPlayer');
     Route::view('find_item',                                'admin.find_item')->name('admin.findItem');
     Route::view('find_girl',                                'admin.find_girl')->name('admin.findGirl');
