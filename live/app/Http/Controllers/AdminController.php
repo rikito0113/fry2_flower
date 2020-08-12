@@ -13,6 +13,7 @@ use App\EventFixedPhrase;
 
 // ライブラリの呼び出し
 use App\Library\AdminCore;
+use App\Library\PlayerChatCore;
 
 use Illuminate\Http\Request;
 
@@ -56,16 +57,20 @@ class AdminController extends Controller
     public function shouldReplyNormal()
     {
         // リスト取得
-
-        return view('admin.should_reply_normal');
+        $type = 1;
+        $list = PlayerChatCore::getUnreadList($type);
+        return view('admin.should_reply_normal')
+            ->with('list', $list);
     }
 
     // 外へ行く(未返信リスト)
     public function shouldReplyEvent()
     {
         // リスト取得
-
-        return view('admin.should_reply_event');
+        $type = 2;
+        $list = PlayerChatCore::getUnreadList($type);
+        return view('admin.should_reply_event')
+            ->with('list', $list);
     }
 
     // プレイヤー検索

@@ -146,4 +146,28 @@ class PlayerChatCore
         return $logs;
 
     }
+
+    /**
+     * admin用(花嫁未読取得)
+     *
+     * @param  int   $type １：花嫁修行、２：外へ行く
+     * @return array $list
+     *
+     */
+    public static function getUnreadList($type)
+    {
+        if ($type == 1) {
+            // 花嫁修行
+            $list = PlayerChatLog::where('is_read', false)->orderBy('player_chat_log_id', 'asc')->get();
+            return $list;
+
+        } elseif ($type == 2) {
+            // 外へ行く
+            $list = PlayerEventChatLog::where('is_read', false)->orderBy('player_event_chat_log_id', 'asc')->get();
+            return $list;
+
+        }
+        return null;
+    }
+
 }

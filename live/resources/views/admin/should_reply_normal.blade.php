@@ -15,18 +15,24 @@
         <tr>
           <th>id</th>
           <th>プレイヤー</th>
+          <th>キャラID</th>
+          <th>キャラ服id</th>
+          <th>キャラ背景id</th>
           <th>message</th>
           <th>create_date</th>
         </tr>
         @if (isset($list))
             @foreach ($list as $l)
             <tr>
-                <td>{{$l->id}}</td>
+                <td>{{$l->player_chat_log_id}}</td>
                 <td>{{$l->player_id}}</td>
-                <td>{{$l->message}}</td>
-                <td>{{$l->datetime}}</td>
+                <td>{{$l->char_id}}</td>
+                <td>{{$l->char_avatar_id}}</td>
+                <td>{{$l->char_background_id}}</td>
+                <td>{{$l->content}}</td>
+                <td>{{$l->created_at}}</td>
             </tr>
-            {/foreach}
+            @endforeach
         @endif
     </table>
 </div>
