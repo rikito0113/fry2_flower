@@ -158,12 +158,12 @@ class PlayerChatCore
     {
         if ($type == 1) {
             // 花嫁修行
-            $list = PlayerChatLog::where('is_read', 0)->orderBy('player_chat_log_id', 'asc')->get();
+            $list = PlayerChatLog::where('is_read', false)->orderBy('player_chat_log_id', 'asc')->get();
             return $list;
 
         } elseif ($type == 2) {
             // 外へ行く
-            $list = PlayerEventChatLog::where('is_read', 0)->orderBy('player_event_chat_log_id', 'asc')->get();
+            $list = PlayerEventChatLog::where('is_read', false)->orderBy('player_event_chat_log_id', 'asc')->get();
             return $list;
 
         }
