@@ -11,7 +11,7 @@
 @include('admin.side', ['menu' => 'should_reply'])
 
 <div id="Contents">
-    そい：：：{{ $is_list }}<br>
+    debug：：：{{ $is_list }}<br>
     <table border="1" width="100%">
         <tr>
           <th>id</th>

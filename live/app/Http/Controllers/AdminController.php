@@ -59,10 +59,14 @@ class AdminController extends Controller
         // リスト取得
         $type = 1;
         $list = PlayerChatCore::getUnreadList($type);
-        $isList = '入ってる';
+
+        // debug(なぜかlistが取れないのでこれを入れてます)
         if (!$list) {
             $isList = '入ってない';
         }
+        $isList = '入ってる';
+        // kokomade
+
         return view('admin.should_reply_normal')
             ->with('list', $list)
             ->with('is_list', $isList);
