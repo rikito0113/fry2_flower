@@ -59,8 +59,13 @@ class AdminController extends Controller
         // リスト取得
         $type = 1;
         $list = PlayerChatCore::getUnreadList($type);
+        $isList = 0;
+        if (!$list) {
+            $isList = 1;
+        }
         return view('admin.should_reply_normal')
-            ->with('list', $list);
+            ->with('list', $list)
+            ->with('is_list', $isList);
     }
 
     // 外へ行く(未返信リスト)
