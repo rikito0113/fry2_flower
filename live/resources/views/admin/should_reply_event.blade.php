@@ -11,26 +11,27 @@
 @include('admin.side', ['menu' => 'should_reply'])
 
 <div id="Contents">
-    <table border="1" width="100%">
-        <tr>
-          <th>id</th>
-          <th>プレイヤー</th>
-          <th>シナリオID</th>
-          <th>message</th>
-          <th>create_date</th>
-        </tr>
-        @if (isset($list))
-            @foreach ($list as $l)
+    @foreach ($list as $key => $value)
+        <h2 style="text-align: center">{{$key}}</h2>
+        <table border="1" width="100%">
             <tr>
-                <td>{{$l->player_event_chat_log_id}}</td>
-                <td>{{$l->player_id}}</td>
-                <td>{{$l->scenario_id}}</td>
-                <td>{{$l->content}}</td>
-                <td>{{$l->created_at}}</td>
+              <th>キャラ名</th>
+              <th>message</th>
+              <th>時間</th>
+              <th>ユーザー名</th>
             </tr>
-            @endforeach
-        @endif
-    </table>
+            @if (isset($list))
+                @foreach ($list as $l)
+                <tr>
+                    <td>{{$l->char_name}}</td>
+                    <td>{{$l->content}}</td>
+                    <td>{{$l->created_at}}</td>
+                    <td>{{$l->player_name}}</td>
+                </tr>
+                @endforeach
+            @endif
+        </table>
+    @endforeach
 </div>
 
 </body>

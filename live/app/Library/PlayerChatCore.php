@@ -13,6 +13,7 @@ use App\PlayerChatLog;
 use App\AdminChatLog;
 use App\PlayerEventChatLog;
 use App\AdminEventChatLog;
+use App\Scenario;
 
 
 // ライブラリの呼び出し
@@ -156,14 +157,49 @@ class PlayerChatCore
      */
     public static function getUnreadList($type)
     {
+        $today     = date("Y-m-d");
+        $todaySt   = date("Y月m月d日");
+        $yesterday = date("Y-m-d", strtotime('-1 day'));
+        $yesterSt  = date("Y月m月d日", strtotime('-1 day'));
+
         if ($type == 1) {
             // 花嫁修行
-            $list = PlayerChatLog::where('is_read', false)->orderBy('player_chat_log_id', 'asc')->get();
+            $todayList     = PlayerChatLog::where('is_read', false)->where('created_at', 'like', "$today%")->orderBy('player_chat_log_id', 'asc')->get();
+            $yesterdayList = PlayerChatLog::where('is_read', false)->where('created_at', 'like', "$yesterday%")->orderBy('player_chat_log_id', 'asc')->get();
+
+            foreach ($todayList as &$list) {
+                $list['char_name']   = CharacterData::where('char_id', $list['char_id'])->first()->char_name;
+                $list['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
+            }
+            foreach ($yesterdayList as &$list) {
+                $list['char_name']   = CharacterData::where('char_id', $list['char_id'])->first()->char_name;
+                $list['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
+            }
+
+            $list[$todaySt]     = $todayList;
+            $list[$yesterSt] = $yesterdayList;
+
             return $list;
 
         } elseif ($type == 2) {
             // 外へ行く
-            $list = PlayerEventChatLog::where('is_read', false)->orderBy('player_event_chat_log_id', 'asc')->get();
+            $todayList     = PlayerEventChatLog::where('is_read', false)->where('created_at', 'like', "$today%")->orderBy('player_chat_log_id', 'asc')->get();
+            $yesterdayList = PlayerEventChatLog::where('is_read', false)->where('created_at', 'like', "$yesterday%")->orderBy('player_chat_log_id', 'asc')->get();
+
+            foreach ($todayList as &$list) {
+                $charId              = Scenario::where('scenario_id', $list['scenario_id'])->first()->char_id;
+                $list['char_name']   = CharacterData::where('char_id', $charId)->first()->char_name;
+                $list['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
+            }
+            foreach ($yesterdayList as &$list) {
+                $charId              = Scenario::where('scenario_id', $list['scenario_id'])->first()->char_id;
+                $list['char_name']   = CharacterData::where('char_id', $charId)->first()->char_name;
+                $list['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
+            }
+
+            $list[$todaySt]     = $todayList;
+            $list[$yesterSt] = $yesterdayList;
+
             return $list;
 
         }
