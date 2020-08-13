@@ -170,12 +170,12 @@ class PlayerChatCore
             $yesterdayList = PlayerChatLog::where('is_read', false)->where('created_at', 'like', "$yesterday%")->orderBy('player_chat_log_id', 'asc')->get();
 
             foreach ($todayList as &$row) {
-                $row['char_name']   = CharacterData::where('char_id', $list['char_id'])->first()->char_name;
-                $row['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
+                $row['char_name']   = CharacterData::where('char_id', $row['char_id'])->first()->char_name;
+                $row['player_name'] = Player::where('player_id', $row['player_id'])->first()->player_id;
             }
             foreach ($yesterdayList as &$row) {
-                $row['char_name']   = CharacterData::where('char_id', $list['char_id'])->first()->char_name;
-                $row['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
+                $row['char_name']   = CharacterData::where('char_id', $row['char_id'])->first()->char_name;
+                $row['player_name'] = Player::where('player_id', $row['player_id'])->first()->player_id;
             }
 
             $list[$todaySt]  = $todayList;
@@ -191,14 +191,14 @@ class PlayerChatCore
             $yesterdayList = PlayerEventChatLog::where('is_read', false)->where('created_at', 'like', "$yesterday%")->orderBy('player_event_chat_log_id', 'asc')->get();
 
             foreach ($todayList as &$row) {
-                $charId              = Scenario::where('scenario_id', $list['scenario_id'])->first()->char_id;
+                $charId              = Scenario::where('scenario_id', $row['scenario_id'])->first()->char_id;
                 $row['char_name']   = CharacterData::where('char_id', $charId)->first()->char_name;
-                $row['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
+                $row['player_name'] = Player::where('player_id', $row['player_id'])->first()->player_id;
             }
             foreach ($yesterdayList as &$row) {
-                $charId              = Scenario::where('scenario_id', $list['scenario_id'])->first()->char_id;
+                $charId              = Scenario::where('scenario_id', $row['scenario_id'])->first()->char_id;
                 $row['char_name']   = CharacterData::where('char_id', $charId)->first()->char_name;
-                $row['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
+                $row['player_name'] = Player::where('player_id', $row['player_id'])->first()->player_id;
             }
 
             $list[$todaySt]  = $todayList;
