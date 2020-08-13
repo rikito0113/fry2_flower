@@ -23,12 +23,12 @@
                 </tr>
                 @if (isset($row))
                     @foreach ($row as $r)
-                    <tr>
-                        <td>{{$r->char_name}}</td>
-                        <td>{{$r->content}}</td>
-                        <td>{{$r->created_at}}</td>
-                        <td>{{$r->player_name}}</td>
-                    </tr>
+                        <tr>
+                            <td>{{$r->char_name}}</td>
+                            <td>{{$r->content}}</td>
+                            <td>{{$r->created_at}}</td>
+                            <td>{{$r->player_name}}</td>
+                        </tr>
                     @endforeach
                 @endif
             </table>
