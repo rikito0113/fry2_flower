@@ -11,27 +11,29 @@
 @include('admin.side', ['menu' => 'should_reply'])
 
 <div id="Contents">
-    @foreach ($list as $key => $value)
-        <h2 style="text-align: center">{{$key}}</h2>
-        <table border="1" width="100%">
-            <tr>
-              <th>キャラ名</th>
-              <th>message</th>
-              <th>時間</th>
-              <th>ユーザー名</th>
-            </tr>
-            @if (isset($list))
-                @foreach ($list as $l)
+    @if (isset($list))
+        @foreach ($list as $key => $row)
+            <h2 style="text-align: center">{{$key}}</h2>
+            <table border="1" width="100%">
                 <tr>
-                    <td>{{$l->char_name}}</td>
-                    <td>{{$l->content}}</td>
-                    <td>{{$l->created_at}}</td>
-                    <td>{{$l->player_name}}</td>
+                <th>キャラ名</th>
+                <th>message</th>
+                <th>時間</th>
+                <th>ユーザー名</th>
                 </tr>
-                @endforeach
-            @endif
-        </table>
-    @endforeach
+                @if (isset($row))
+                    @foreach ($row as $r)
+                    <tr>
+                        <td>{{$r->char_name}}</td>
+                        <td>{{$r->content}}</td>
+                        <td>{{$r->created_at}}</td>
+                        <td>{{$r->player_name}}</td>
+                    </tr>
+                    @endforeach
+                @endif
+            </table>
+        @endforeach
+    @endif
 </div>
 
 </body>
