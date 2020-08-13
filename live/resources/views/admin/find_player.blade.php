@@ -71,7 +71,7 @@
                     @endforeach
                     <form action="/Admin/mainChat" method="POST">
                         @csrf
-                        <input type="text" name="content" placeholder="メッセージを入力">
+                        <input type="text" name="content" placeholder="メッセージを入力" class="admin_chat_text">
                         <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
                         <input type="hidden" name="char_name" value="{{ $char_name }}">
                         <input type="submit" value="送信">

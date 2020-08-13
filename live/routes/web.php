@@ -65,9 +65,9 @@ Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     // function内は '/Admin/~~'になる
 
     Route::get('index',                                     'AdminController@index')->name('admin.index');
-    Route::post('shouldReply',                              'AdminController@shouldReply');
-    Route::post('shouldReplyNormal',                        'AdminController@shouldReplyNormal');
-    Route::post('shouldReplyEvent',                         'AdminController@shouldReplyEvent');
+    Route::get('shouldReply',                               'AdminController@shouldReply')->name('admin.shouldReply');
+    Route::get('shouldReplyNormal',                         'AdminController@shouldReplyNormal')->name('admin.shouldReplyNormal');
+    Route::get('shouldReplyEvent',                          'AdminController@shouldReplyEvent')->name('admin.shouldReplyEvent');
     Route::post('findPlayer',                               'AdminController@findPlayer');
     Route::post('findItem',                                 'AdminController@findItem');
     Route::post('findGirl',                                 'AdminController@findGirl');
@@ -79,9 +79,9 @@ Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     Route::get('eventChat/{scenarioId}/{playerId}',         'AdminController@eventChat')->name('admin.eventChat');
     Route::post('eventChatSend',                            'AdminController@eventChatSend');
 
-    Route::view('should_reply',                             'admin.should_reply')->name('admin.shouldReply');
-    Route::view('should_reply_normal',                      'admin.should_reply_normal')->name('admin.shouldReplyNormal');
-    Route::view('should_reply_event',                       'admin.should_reply_event')->name('admin.shouldReplyEvent');
+    Route::view('should_reply',                             'admin.should_reply');
+    Route::view('should_reply_normal',                      'admin.should_reply_normal');
+    Route::view('should_reply_event',                       'admin.should_reply_event');
     Route::view('find_player',                              'admin.find_player')->name('admin.findPlayer');
     Route::view('find_item',                                'admin.find_item')->name('admin.findItem');
     Route::view('find_girl',                                'admin.find_girl')->name('admin.findGirl');

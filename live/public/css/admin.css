@@ -120,3 +120,16 @@ p.chat-text {
     content: "";
     display: block;
 }
+
+.admin_chat_text {
+    width: 50%;
+    height: 20px;
+}
+
+th,td.chat_row {
+    border: solid 1px;              /* 枠線指定 */
+}
+
+table.chat_row {
+    border-collapse:  collapse;     /* セルの線を重ねる */
+}

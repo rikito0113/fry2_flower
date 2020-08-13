@@ -48,9 +48,9 @@
                 <form action="/Admin/eventChatSend" method="POST">
                     @csrf
                     @if (isset($fixed_phrase))
-                        <input type="text" name="content" value="{{ $fixed_phrase->content }}">
+                        <input type="text" name="content" value="{{ $fixed_phrase->content }}" class="admin_chat_text">
                     @else
-                        <input type="text" name="content" placeholder="定型文はありません">
+                        <input type="text" name="content" placeholder="定型文はありません" class="admin_chat_text">
                     @endif
                     <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
                     <input type="hidden" name="scenario_id" value="{{ $chats[0]->scenario_id }}">
