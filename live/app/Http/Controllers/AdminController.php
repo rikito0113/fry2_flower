@@ -103,7 +103,18 @@ class AdminController extends Controller
     }
 
     // プレイヤー検索からの返信
-    public function mainChat(Request $request)
+    public function mainChat($charId, $playerId)
+    {
+        $playerInfo = Player::where('player_id', $playerId)->first();
+        $chatInfo = AdminCore::getChatByPlayerAndChar($playerId, $charId);
+
+        return view('admin.main_chat')
+            ->with('player_info', $playerInfo)
+            ->with('chat_info', $chatInfo);
+    }
+
+    // プレイヤー検索からの返信
+    public function mainChatSend(Request $request)
     {
         if (isset($request->content)) {
             $char = CharacterData::where('char_name', $request->char_name)->first();
@@ -114,7 +125,10 @@ class AdminController extends Controller
                 $request->content
             );
 
-            return redirect()->route('admin.playerDetail', ['playerId' => $request->player_id]);
+            return redirect()->route('admin.mainChat', [
+                'charId'   => $char->char_id,
+                'playerId' => $request->player_id,
+            ]);
         }
         return redirect()->route('admin.index');
     }

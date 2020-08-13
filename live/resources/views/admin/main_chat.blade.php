@@ -32,15 +32,11 @@
                     </div>
                 @endforeach
 
-                <form action="/Admin/eventChatSend" method="POST">
+                <form action="/Admin/mainChat" method="POST">
                     @csrf
-                    @if (isset($fixed_phrase))
-                        <input type="text" name="content" value="{{ $fixed_phrase->content }}" class="admin_chat_text">
-                    @else
-                        <input type="text" name="content" placeholder="定型文はありません" class="admin_chat_text">
-                    @endif
-                    <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
-                    <input type="hidden" name="scenario_id" value="{{ $chats[0]->scenario_id }}">
+                    <input type="text" name="content" placeholder="メッセージを入力" class="admin_chat_text">
+                    <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
+                    <input type="hidden" name="char_name" value="{{ $char_name }}">
                     <input type="submit" value="送信">
                 </form>
             </div>

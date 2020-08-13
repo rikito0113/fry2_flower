@@ -88,6 +88,33 @@ class AdminCore {
     }
 
     /**
+     * 管理画面からchatを取得する
+     *
+     * @param int $playerId
+     * @param int $charId
+     * @return array $chatInfo
+     *
+     */
+    public static function getChatByPlayerAndChar($playerId, $charId)
+    {
+        $chatInfo = array();
+
+        $charName   = CharacterData::where('char_id', $charId)->first()->char_name;
+        $playerChat = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('player_chat_log_id', 'asc')->get();
+        $adminChat  = AdminChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('admin_chat_log_id', 'asc')->get();
+        $chats      = array();
+        if (isset($adminChat))
+            $chats = [...$playerChat, ...$adminChat];       // このエラーはPHP7.4以降は通るエラー。
+        else
+            $chats = $playerChat;
+
+        $chatInfo[$charName] = self::getSortByDate($chats);
+
+
+        return $chatInfo;
+    }
+
+    /**
      * chatをcreated_atで昇順にする
      *
      * @param array $chats

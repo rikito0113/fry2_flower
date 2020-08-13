@@ -74,7 +74,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     Route::post('registerTitleExec',                        'AdminController@registerTitleExec');
     Route::get('registerTitle',                             'AdminController@registerTitle')->name('admin.registerTitle');
     Route::get('playerDetail/{playerId}',                   'AdminController@playerDetail')->name('admin.playerDetail');
-    Route::post('mainChat',                                 'AdminController@mainChat');
+    Route::get('mainChat/{charId}/{playerId}',              'AdminController@mainChat')->name('admin.mainChat');
+    Route::post('mainChat',                                 'AdminController@mainChatSend');
     Route::post('findEventPlayer',                          'AdminController@findEventPlayer');
     Route::get('eventChat/{scenarioId}/{playerId}',         'AdminController@eventChat')->name('admin.eventChat');
     Route::post('eventChatSend',                            'AdminController@eventChatSend');
