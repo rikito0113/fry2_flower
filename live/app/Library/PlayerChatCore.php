@@ -164,6 +164,8 @@ class PlayerChatCore
 
         if ($type == 1) {
             // 花嫁修行
+            $list = array();
+
             $todayList     = PlayerChatLog::where('is_read', false)->where('created_at', 'like', "$today%")->orderBy('player_chat_log_id', 'asc')->get();
             $yesterdayList = PlayerChatLog::where('is_read', false)->where('created_at', 'like', "$yesterday%")->orderBy('player_chat_log_id', 'asc')->get();
 
@@ -176,15 +178,17 @@ class PlayerChatCore
                 $list['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
             }
 
-            $list[$todaySt]     = $todayList;
+            $list[$todaySt]  = $todayList;
             $list[$yesterSt] = $yesterdayList;
 
             return $list;
 
         } elseif ($type == 2) {
             // 外へ行く
-            $todayList     = PlayerEventChatLog::where('is_read', false)->where('created_at', 'like', "$today%")->orderBy('player_chat_log_id', 'asc')->get();
-            $yesterdayList = PlayerEventChatLog::where('is_read', false)->where('created_at', 'like', "$yesterday%")->orderBy('player_chat_log_id', 'asc')->get();
+            $list = array();
+
+            $todayList     = PlayerEventChatLog::where('is_read', false)->where('created_at', 'like', "$today%")->orderBy('player_event_chat_log_id', 'asc')->get();
+            $yesterdayList = PlayerEventChatLog::where('is_read', false)->where('created_at', 'like', "$yesterday%")->orderBy('player_event_chat_log_id', 'asc')->get();
 
             foreach ($todayList as &$list) {
                 $charId              = Scenario::where('scenario_id', $list['scenario_id'])->first()->char_id;
@@ -197,7 +201,7 @@ class PlayerChatCore
                 $list['player_name'] = Player::where('player_id', $list['player_id'])->first()->player_id;
             }
 
-            $list[$todaySt]     = $todayList;
+            $list[$todaySt]  = $todayList;
             $list[$yesterSt] = $yesterdayList;
 
             return $list;
