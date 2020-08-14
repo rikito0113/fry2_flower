@@ -30,8 +30,8 @@
                             <td>{{$r->content}}</td>
                             <td>{{$r->created_at}}</td>
                             <td>{{$r->player_name}}</td>
-                            <td> <a href="/Admin/mainChat/{{$r->char_id}}/{{$r->player_id}}">返信する</a></td>
-                            <td>視聴用</td>
+                            <td><a href="/Admin/mainChat/{{$r->char_id}}/{{$r->player_id}}/{{true}}">返信する</a></td>
+                            <td><a href="/Admin/mainChat/{{$r->char_id}}/{{$r->player_id}}/{{false}}">視聴用</a></td>
                         </tr>
                     @endforeach
                 @else

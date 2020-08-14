@@ -11,6 +11,7 @@
 @include('admin.side', ['menu' => 'should_reply'])
 
 <div id="Contents">
+    既読 : {{$is_read}}
     @if (isset($chat_info))
         @foreach ($chat_info as $char_name => $chats)
             <div  style="text-align: center;">

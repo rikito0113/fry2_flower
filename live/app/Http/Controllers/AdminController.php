@@ -103,14 +103,15 @@ class AdminController extends Controller
     }
 
     // プレイヤー検索からの返信
-    public function mainChat($charId, $playerId)
+    public function mainChat($charId, $playerId, $isRead)
     {
         $playerInfo = Player::where('player_id', $playerId)->first();
         $chatInfo = AdminCore::getChatByPlayerAndChar($playerId, $charId);
 
         return view('admin.main_chat')
             ->with('player_info', $playerInfo)
-            ->with('chat_info', $chatInfo);
+            ->with('is_read',     $isRead)
+            ->with('chat_info',   $chatInfo);
     }
 
     // プレイヤー検索からの返信
@@ -128,6 +129,7 @@ class AdminController extends Controller
             return redirect()->route('admin.mainChat', [
                 'charId'   => $char->char_id,
                 'playerId' => $request->player_id,
+                'is_read'  => true,
             ]);
         }
         return redirect()->route('admin.index');
@@ -182,7 +184,7 @@ class AdminController extends Controller
     }
 
     // イベントプレイヤーのチャット検索
-    public function eventChat($scenarioId, $playerId)
+    public function eventChat($scenarioId, $playerId, $isRead)
     {
         $chatInfo        = AdminCore::getEventChatLog($scenarioId, $playerId);
         $scenarioInfo    = Scenario::where('scenario_id', $scenarioId)->first();
@@ -192,6 +194,7 @@ class AdminController extends Controller
         return view('admin.event_chat')
             ->with('chat_info',      $chatInfo)
             ->with('fixed_phrase',   $fixedPhraseRow)
+            ->with('is_read',        $isRead)
             ->with('scenario_info',  $scenarioInfo);
     }
 
@@ -209,6 +212,7 @@ class AdminController extends Controller
             return redirect()->route('admin.eventChat',[
                 'scenarioId' => $request->scenario_id,
                 'playerId'   => $request->player_id,
+                'is_read'    => true,
             ]);
         }
 

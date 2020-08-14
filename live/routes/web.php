@@ -64,21 +64,21 @@ Route::post('/Admin/loginExec', 'AdminController@loginExec');
 Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     // function内は '/Admin/~~'になる
 
-    Route::get('index',                                     'AdminController@index')->name('admin.index');
-    Route::get('shouldReply',                               'AdminController@shouldReply')->name('admin.shouldReply');
-    Route::get('shouldReplyNormal',                         'AdminController@shouldReplyNormal')->name('admin.shouldReplyNormal');
-    Route::get('shouldReplyEvent',                          'AdminController@shouldReplyEvent')->name('admin.shouldReplyEvent');
-    Route::post('findPlayer',                               'AdminController@findPlayer');
-    Route::post('findItem',                                 'AdminController@findItem');
-    Route::post('findGirl',                                 'AdminController@findGirl');
-    Route::post('registerTitleExec',                        'AdminController@registerTitleExec');
-    Route::get('registerTitle',                             'AdminController@registerTitle')->name('admin.registerTitle');
-    Route::get('playerDetail/{playerId}',                   'AdminController@playerDetail')->name('admin.playerDetail');
-    Route::get('mainChat/{charId}/{playerId}',              'AdminController@mainChat')->name('admin.mainChat');
-    Route::post('mainChat',                                 'AdminController@mainChatSend');
-    Route::post('findEventPlayer',                          'AdminController@findEventPlayer');
-    Route::get('eventChat/{scenarioId}/{playerId}',         'AdminController@eventChat')->name('admin.eventChat');
-    Route::post('eventChatSend',                            'AdminController@eventChatSend');
+    Route::get('index',                                         'AdminController@index')->name('admin.index');
+    Route::get('shouldReply',                                   'AdminController@shouldReply')->name('admin.shouldReply');
+    Route::get('shouldReplyNormal',                             'AdminController@shouldReplyNormal')->name('admin.shouldReplyNormal');
+    Route::get('shouldReplyEvent',                              'AdminController@shouldReplyEvent')->name('admin.shouldReplyEvent');
+    Route::post('findPlayer',                                   'AdminController@findPlayer');
+    Route::post('findItem',                                     'AdminController@findItem');
+    Route::post('findGirl',                                     'AdminController@findGirl');
+    Route::post('registerTitleExec',                            'AdminController@registerTitleExec');
+    Route::get('registerTitle',                                 'AdminController@registerTitle')->name('admin.registerTitle');
+    Route::get('playerDetail/{playerId}',                       'AdminController@playerDetail')->name('admin.playerDetail');
+    Route::get('mainChat/{charId}/{playerId}/{isRead}',         'AdminController@mainChat')->name('admin.mainChat');
+    Route::post('mainChat',                                     'AdminController@mainChatSend');
+    Route::post('findEventPlayer',                              'AdminController@findEventPlayer');
+    Route::get('eventChat/{scenarioId}/{playerId}/{isRead}',    'AdminController@eventChat')->name('admin.eventChat');
+    Route::post('eventChatSend',                                'AdminController@eventChatSend');
 
     Route::view('should_reply',                             'admin.should_reply');
     Route::view('should_reply_normal',                      'admin.should_reply_normal');
