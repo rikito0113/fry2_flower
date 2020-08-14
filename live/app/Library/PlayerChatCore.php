@@ -31,6 +31,7 @@ class PlayerChatCore
 
         // 改行を<br />に変換
         $content = nl2br($content);
+        $content = str_replace("\n","",$content);
 
         $chatInstance = new PlayerChatLog;
         $chatInstance->create([
@@ -62,6 +63,7 @@ class PlayerChatCore
 
         // 改行を<br />に変換
         $content = nl2br($content);
+        $content = str_replace("\n","",$content);
 
         $chatInstance = new PlayerEventChatLog;
         $chatInstance->create([
