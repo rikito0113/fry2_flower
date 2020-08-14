@@ -27,7 +27,7 @@
                     @foreach ($row as $r)
                         <tr align="center">
                             <td>{{$r->char_name}}</td>
-                            <td>{{$r->content}}</td>
+                            <td>{!! $r->content !!}</td>
                             <td>{{$r->created_at}}</td>
                             <td>{{$r->player_name}}</td>
                             <td><a href="/Admin/eventChat/{{$r->scenario_id}}/{{$r->player_id}}/1">返信する</a></td>
