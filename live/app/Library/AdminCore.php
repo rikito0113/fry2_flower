@@ -292,4 +292,46 @@ class AdminCore {
 
         return true;
     }
+
+    /**
+     * 管理画面から花嫁修行の既読をつける
+     *
+     * @param int $charId
+     * @param int $playerId
+     * @return void
+     *
+     */
+    public static function changeMainChatRead($charId, $playerId)
+    {
+        $playerId   = (int)$playerId;
+        $charId     = (int)$charId;
+
+        $unreadChats = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->where('is_read', 0)->get();
+
+        foreach ($unreadChats as &$chat) {
+            $chat->is_read = true;
+            $chat->save();
+        }
+    }
+
+    /**
+     * 管理画面から該当する外へ行くの既読をつける
+     *
+     * @param int $scenarioId
+     * @param int $playerId
+     * @return void
+     *
+     */
+    public static function changeEventChatRead($scenarioId, $playerId)
+    {
+        $playerId   = (int)$playerId;
+        $scenarioId = (int)$scenarioId;
+
+        $unreadChats = PlayerEventChatLog::where('scenario_id', $scenarioId)->where('player_id', $playerId)->where('is_read', 0)->get();
+
+        foreach ($unreadChats as &$chat) {
+            $chat->is_read = true;
+            $chat->save();
+        }
+    }
 }

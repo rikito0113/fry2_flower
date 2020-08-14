@@ -33,17 +33,23 @@
                     </div>
                 @endforeach
 
-                <form action="/Admin/eventChatSend" method="POST">
-                    @csrf
-                    @if (isset($fixed_phrase))
-                        <input type="text" name="content" value="{{ $fixed_phrase->content }}" class="admin_chat_text">
-                    @else
-                        <input type="text" name="content" placeholder="定型文はありません" class="admin_chat_text">
-                    @endif
-                    <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
-                    <input type="hidden" name="scenario_id" value="{{ $chats[0]->scenario_id }}">
-                    <input type="submit" value="送信">
-                </form>
+                @if ($is_read)
+                    <form action="/Admin/eventChatSend" method="POST">
+                        @csrf
+                        @if (isset($fixed_phrase))
+                            <input type="text" name="content" value="{{ $fixed_phrase->content }}" class="admin_chat_text">
+                        @else
+                            <input type="text" name="content" placeholder="定型文はありません" class="admin_chat_text">
+                        @endif
+                        <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
+                        <input type="hidden" name="scenario_id" value="{{ $chats[0]->scenario_id }}">
+                        <input type="submit" value="送信">
+                    </form>
+                @else
+                    <div style="text-align: center">
+                        視聴用のためメッセージを送信できません。
+                    </div>
+                @endif
             </div>
             <br><br><br>
         @endforeach

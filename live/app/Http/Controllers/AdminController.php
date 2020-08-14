@@ -108,6 +108,10 @@ class AdminController extends Controller
         $playerInfo = Player::where('player_id', $playerId)->first();
         $chatInfo = AdminCore::getChatByPlayerAndChar($playerId, $charId);
 
+        if ($isRead) {
+            AdminCore::changeMainChatRead($charId, $playerId);
+        }
+
         return view('admin.main_chat')
             ->with('player_info', $playerInfo)
             ->with('is_read',     $isRead)
@@ -190,6 +194,10 @@ class AdminController extends Controller
         $scenarioInfo    = Scenario::where('scenario_id', $scenarioId)->first();
         $contentIndex    = AdminEventChatLog::where('scenario_id', $scenarioId)->where('player_id', $playerId)->count();
         $fixedPhraseRow  = EventFixedPhrase::where('scenario_id', $scenarioId)->where('content_index', $contentIndex)->first();
+
+        if ($isRead) {
+            AdminCore::changeEventChatRead($scenarioId, $playerId);
+        }
 
         return view('admin.event_chat')
             ->with('chat_info',      $chatInfo)
