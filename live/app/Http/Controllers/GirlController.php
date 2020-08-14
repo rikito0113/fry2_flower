@@ -21,7 +21,7 @@ class GirlController extends Controller
 {
     const DAY_TIME_MORNING   = '10:00:00';
     const DAY_TIME_NOON      = '14:00:00';
-    const DAY_TIME_NIGHT     = '18:00:00';
+    const DAY_TIME_NIGHT     = '19:00:00';
     const DAY_TIME_MIDNIGHT  = '';
 
     const MORNING  = 'morning';
@@ -228,11 +228,11 @@ class GirlController extends Controller
         $scenarioInfo = false;
         $eventChatLog = false;
 
-        if (strtotime(date('H:i:s')) > self::DAY_TIME_NIGHT) {
+        if (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_NIGHT)) {
             $dayTime = self::NIGHT;
-        } elseif (strtotime(date('H:i:s')) > self::DAY_TIME_NOON) {
+        } elseif (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_NOON)) {
             $dayTime = self::NOON;
-        } elseif (strtotime(date('H:i:s')) > self::DAY_TIME_MORNING) {
+        } elseif (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_MORNING)) {
             $dayTime = self::MORNING;
         } else {
             $dayTime = self::NIGHT;             // 深夜帯 開発用
