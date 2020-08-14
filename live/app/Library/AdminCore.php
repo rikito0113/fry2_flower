@@ -308,9 +308,11 @@ class AdminCore {
 
         $unreadChats = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->where('is_read', 0)->get();
 
-        foreach ($unreadChats as &$chat) {
-            $chat->is_read = true;
-            $chat->save();
+        if (!$unreadChats->isEmpty()) {
+            foreach ($unreadChats as &$chat) {
+                $chat->is_read = true;
+                $chat->save();
+            }
         }
     }
 
@@ -329,9 +331,11 @@ class AdminCore {
 
         $unreadChats = PlayerEventChatLog::where('scenario_id', $scenarioId)->where('player_id', $playerId)->where('is_read', 0)->get();
 
-        foreach ($unreadChats as &$chat) {
-            $chat->is_read = true;
-            $chat->save();
+        if (!$unreadChats->isEmpty()) {
+            foreach ($unreadChats as &$chat) {
+                $chat->is_read = true;
+                $chat->save();
+            }
         }
     }
 }
