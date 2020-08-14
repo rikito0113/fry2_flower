@@ -169,6 +169,9 @@ class AdminCore {
         $adminId    = (int)$adminId;
         $charId     = (int)$charId;
 
+        // 改行を<br />に変換
+        $content = nl2br($content);
+
         $chatInstance = new AdminChatLog;
         $chatInstance->create([
             'player_id'           => $playerId,
@@ -280,6 +283,9 @@ class AdminCore {
         $playerId   = (int)$playerId;
         $adminId    = (int)$adminId;
         $scenarioId = (int)$scenarioId;
+
+        // 改行を<br />に変換
+        $content = nl2br($content);
 
         $chatInstance = new AdminEventChatLog;
         $chatInstance->create([

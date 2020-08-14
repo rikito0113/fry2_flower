@@ -27,7 +27,7 @@
                         <br>
                         <div class="chat-text-{{$row->side}}">
                             <p class="chat-text">
-                                {{$row->content}}
+                                {!! $row->content !!}
                             </p>
                         </div>
                     </div>
@@ -37,13 +37,13 @@
                     <form action="/Admin/eventChatSend" method="POST">
                         @csrf
                         @if (isset($fixed_phrase))
-                            <input type="text" name="content" value="{{ $fixed_phrase->content }}" class="admin_chat_text">
+                            <textarea name="content" cols="50" rows="4">{{ $fixed_phrase->content }}</textarea>
                         @else
-                            <input type="text" name="content" placeholder="定型文はありません" class="admin_chat_text">
+                            <textarea name="content" cols="50" rows="4" placeholder="定型文はありません"></textarea>
                         @endif
                         <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
                         <input type="hidden" name="scenario_id" value="{{ $chats[0]->scenario_id }}">
-                        <input type="submit" value="送信">
+                        <button type="submit" onclick="submit();">送信</button>
                     </form>
                 @else
                     <div style="text-align: center">

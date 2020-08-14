@@ -38,7 +38,7 @@
                 <br>
                 <span class="chat-text-{{$row->side}}">
                     <p class="chat-text">
-                        {{$row->content}}
+                        {!! $row->content !!}
                     </p>
                 </span>
             </div>
@@ -49,9 +49,9 @@
 <br>
 <form action="/Girl/mainChatSend" method="POST">
     @csrf
-    text : <input type="text" name="content" size="40" placeholder="内容"> <br>
+    <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
     <input type="hidden" value="{{ $owned_char_info->char_id }}" name="char_id">
-    <input type="submit" value="push">
+    <button type="submit" onclick="submit();">送信</button>
 </form>
 </div>
 

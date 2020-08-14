@@ -28,6 +28,10 @@ class PlayerChatCore
         if (!$playerId || !$charId || !$content || !$ownedCharInfo) {
             return false;
         }
+
+        // 改行を<br />に変換
+        $content = nl2br($content);
+
         $chatInstance = new PlayerChatLog;
         $chatInstance->create([
             'player_id'           => $playerId,
@@ -55,6 +59,10 @@ class PlayerChatCore
         if (!$playerId || !$scenarioId || !$content) {
             return false;
         }
+
+        // 改行を<br />に変換
+        $content = nl2br($content);
+
         $chatInstance = new PlayerEventChatLog;
         $chatInstance->create([
             'player_id'           => $playerId,

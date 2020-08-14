@@ -27,7 +27,7 @@
                         <br>
                         <div class="chat-text-{{$row->side}}">
                             <p class="chat-text">
-                                {{$row->content}}
+                                {!! $row->content !!}
                             </p>
                         </div>
                     </div>
@@ -36,10 +36,10 @@
                 @if ($is_read)
                     <form action="/Admin/mainChat" method="POST">
                         @csrf
-                        <input type="text" name="content" placeholder="メッセージを入力" class="admin_chat_text">
+                        <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
                         <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
                         <input type="hidden" name="char_name" value="{{ $char_name }}">
-                        <input type="submit" value="送信">
+                        <button type="submit" onclick="submit();">送信</button>
                     </form>
                 @else
                     <div style="text-align: center">
