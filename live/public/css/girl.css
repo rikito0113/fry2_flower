@@ -37,6 +37,7 @@
 }
 p.chat-text {
     margin: 0;
+    text-align: left;
 }
 /* 左の三角形を作る */
 .chat-text-left:before {
