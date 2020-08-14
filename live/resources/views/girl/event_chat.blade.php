@@ -18,14 +18,17 @@
         @foreach ($event_chat_log as $char_name => $row)
             <div class="chat">
                 <span style="font-size: small; float: {{$row->side}};">
+                    @if ($row->is_read)
+                    既読　　
+                    @endif
                     {{$row->created_at}}
                 </span>
                 <br>
-                <div class="chat-text-{{$row->side}}">
+                <span class="chat-text-{{$row->side}}">
                     <p class="chat-text">
                         {{$row->content}}
                     </p>
-                </div>
+                </span>
             </div>
         @endforeach
     @endif

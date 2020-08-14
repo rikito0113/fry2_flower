@@ -133,7 +133,7 @@ class AdminController extends Controller
             return redirect()->route('admin.mainChat', [
                 'charId'   => $char->char_id,
                 'playerId' => $request->player_id,
-                'is_read'  => true,
+                'isRead'   => true,
             ]);
         }
         return redirect()->route('admin.index');
@@ -220,7 +220,7 @@ class AdminController extends Controller
             return redirect()->route('admin.eventChat',[
                 'scenarioId' => $request->scenario_id,
                 'playerId'   => $request->player_id,
-                'is_read'    => true,
+                'isRead'     => true,
             ]);
         }
 
