@@ -171,7 +171,7 @@ class AdminCore {
 
         // 改行を<br />に変換
         $content = nl2br($content);
-        $content = str_replace("\n","",$content);
+        $content = str_replace(array("\r\n", "\r", "\n"), "", $content);
 
         $chatInstance = new AdminChatLog;
         $chatInstance->create([
@@ -287,7 +287,7 @@ class AdminCore {
 
         // 改行を<br />に変換
         $content = nl2br($content);
-        $content = str_replace("\n","",$content);
+        $content = str_replace(array("\r\n", "\r", "\n"), "", $content);
 
         $chatInstance = new AdminEventChatLog;
         $chatInstance->create([
