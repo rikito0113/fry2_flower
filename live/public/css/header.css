@@ -1,6 +1,7 @@
 .flower-header
 {
-    background-image: url("{{assets('/images/header/navi_top.png')}}");
+    height: 52px;
+    background-image: url("{{assets('/images/header/bg_navi.png')}}");
 }
 
 .header-child
