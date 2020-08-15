@@ -11,18 +11,18 @@
 <body>
     <div class="flower-header" >
         <a href="{{ action('MyController@my') }}">
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="TOP">
+            <img class="header-child" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
         </a>
         <a href="{{ action('GirlController@index') }}">
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="girl">
+            <img class="header-child" src="{{ asset('/images/header/navi_girl.png') }}" alt="girl">
         </a>
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="gacha&shop">
+            <img class="header-child" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
 
         <a href="{{ action('PresentController@index') }}">
-            <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="present">
+            <img class="header-child" src="{{ asset('/images/header/navi_pre.png') }}" alt="present">
         </a>
 
-        <img class="header-child" src="{{ asset('/images/kaonashi.JPG') }}" alt="+" onclick="appearTag()">
+        <img class="header-child" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
 
         <img class="other-header-child1" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="戻る" onclick="appearTag()">
         <img class="other-header-child2" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="思い出">
