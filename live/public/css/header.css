@@ -1,7 +1,7 @@
 .flower-header
 {
-    background-color:skyblue;
-
+    height: 52px;
+    background-image: url("{{assets('/images/header/bg_navi.png')}}");
 }
 
 .header-child
