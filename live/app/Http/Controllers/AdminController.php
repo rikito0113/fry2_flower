@@ -223,6 +223,23 @@ class AdminController extends Controller
     }
 
     // イベントからの返信
+    public function eventChatConfirm(Request $request)
+    {
+        if (isset($request->content)) {
+
+            $chatInfo        = AdminCore::getEventChatLog($request->scenario_id, $request->player_id);
+            $scenarioInfo    = Scenario::where('scenario_id', $request->scenario_id)->first();
+
+            return view('admin.event_chat_confirm')
+            ->with('content',        $request->content)
+            ->with('chat_info',      $chatInfo)
+            ->with('scenario_info',  $scenarioInfo);
+        }
+
+        return redirect()->route('admin.index');
+    }
+
+    // イベントからの返信
     public function eventChatSend(Request $request)
     {
         if (isset($request->content)) {

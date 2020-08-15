@@ -34,7 +34,7 @@
                 @endforeach
 
                 @if ($is_read)
-                    <form action="/Admin/eventChatSend" method="POST">
+                    <form action="/Admin/eventChatConfirm" method="POST">
                         @csrf
                         @if (isset($fixed_phrase))
                             <textarea name="content" cols="50" rows="4">{{ $fixed_phrase->content }}</textarea>
