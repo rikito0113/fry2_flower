@@ -1,7 +1,14 @@
-.flower-header
+.flower-header-dere
 {
-    height: 52px;
-    background-image: url("{{assets('/images/header/bg_navi.png')}}");
+    height:52px;
+    background-image: url("../images/bg/bg_navi.png");
+    background-size: contain;
+}
+.flower-header-tsun
+{
+    height:52px;
+    background-image: url("../images/bg/bg_navi_tsun.png");
+    background-size: contain;
 }
 
 .header-child

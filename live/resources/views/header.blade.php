@@ -9,7 +9,7 @@
     <title>flower girls</title>
 </head>
 <body>
-    <div class="flower-header" >
+    <div class=".flower-header-dere" >
         <a href="{{ action('MyController@my') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
         </a>
