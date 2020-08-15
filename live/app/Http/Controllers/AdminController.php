@@ -113,9 +113,25 @@ class AdminController extends Controller
         }
 
         return view('admin.main_chat')
+            ->with('char_id',     $charId)
             ->with('player_info', $playerInfo)
             ->with('is_read',     $isRead)
             ->with('chat_info',   $chatInfo);
+    }
+
+    // プレイヤー検索からの返信
+    public function mainChatConfirm(Request $request)
+    {
+        if (isset($request->content)) {
+            $playerInfo = Player::where('player_id', $request->player_id)->first();
+            $chatInfo = AdminCore::getChatByPlayerAndChar($request->player_id, $request->char_id);
+
+            return view('admin.main_chat_confirm')
+            ->with('content',     $request->content)
+            ->with('player_info', $playerInfo)
+            ->with('chat_info',   $chatInfo);
+        }
+        return redirect()->route('admin.index');
     }
 
     // プレイヤー検索からの返信

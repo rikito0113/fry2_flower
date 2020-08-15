@@ -34,12 +34,15 @@
                 @endforeach
 
                 @if ($is_read)
-                    <form action="/Admin/mainChatConfirm" method="POST">
+                    <form action="/Admin/eventChatSend" method="POST">
                         @csrf
-                        <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
-                        <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
-                        <input type="hidden" name="char_name" value="{{ $char_name }}">
-                        <input type="hidden" name="char_id" value="{{ $char_id }}">
+                        @if (isset($fixed_phrase))
+                            <textarea name="content" cols="50" rows="4">{{ $fixed_phrase->content }}</textarea>
+                        @else
+                            <textarea name="content" cols="50" rows="4" placeholder="定型文はありません"></textarea>
+                        @endif
+                        <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
+                        <input type="hidden" name="scenario_id" value="{{ $chats[0]->scenario_id }}">
                         <button type="submit" onclick="submit();">送信</button>
                     </form>
                 @else
