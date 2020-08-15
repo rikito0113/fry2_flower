@@ -43,7 +43,7 @@
                         @endif
                         <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
                         <input type="hidden" name="scenario_id" value="{{ $chats[0]->scenario_id }}">
-                        <button type="submit" onclick="submit();">送信</button>
+                        <button type="submit" onclick="submit();">確認へ</button>
                     </form>
                 @else
                     <div style="text-align: center">
