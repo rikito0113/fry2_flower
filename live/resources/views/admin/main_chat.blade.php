@@ -40,7 +40,7 @@
                         <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
                         <input type="hidden" name="char_name" value="{{ $char_name }}">
                         <input type="hidden" name="char_id" value="{{ $char_id }}">
-                        <button type="submit" onclick="submit();">送信</button>
+                        <button type="submit" onclick="submit();">確認へ</button>
                     </form>
                 @else
                     <div style="text-align: center">

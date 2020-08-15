@@ -34,7 +34,7 @@
                 @endforeach
 
                 @if ($is_read)
-                    <form action="/Admin/eventChatSend" method="POST">
+                    <form action="/Admin/eventChatConfirm" method="POST">
                         @csrf
                         @if (isset($fixed_phrase))
                             <textarea name="content" cols="50" rows="4">{{ $fixed_phrase->content }}</textarea>
@@ -43,7 +43,7 @@
                         @endif
                         <input type="hidden" name="player_id" value="{{ $chats[0]->player_id }}">
                         <input type="hidden" name="scenario_id" value="{{ $chats[0]->scenario_id }}">
-                        <button type="submit" onclick="submit();">送信</button>
+                        <button type="submit" onclick="submit();">確認へ</button>
                     </form>
                 @else
                     <div style="text-align: center">

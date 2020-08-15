@@ -33,10 +33,10 @@
                 @endforeach
                 <form action="/Admin/mainChatSend" method="POST">
                     @csrf
-                    <textarea readonly name="content" cols="50" rows="4" placeholder="メッセージを入力">{{ $content }}</textarea>
+                    <textarea readonly name="content" cols="50" rows="4">{{ $content }}</textarea>
                     <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
                     <input type="hidden" name="char_name" value="{{ $char_name }}">
-                    <button type="submit" onclick="submit();">送信</button>
+                    <button type="submit" onclick="submit();">最終送信ボタン</button>
                 </form>
             </div>
             <br><br><br>

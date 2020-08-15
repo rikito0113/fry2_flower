@@ -108,9 +108,9 @@ class AdminController extends Controller
         $playerInfo = Player::where('player_id', $playerId)->first();
         $chatInfo = AdminCore::getChatByPlayerAndChar($playerId, $charId);
 
-        if ($isRead) {
-            AdminCore::changeMainChatRead($charId, $playerId);
-        }
+        // if ($isRead) {
+        //     AdminCore::changeMainChatRead($charId, $playerId);
+        // }
 
         return view('admin.main_chat')
             ->with('char_id',     $charId)
@@ -139,6 +139,7 @@ class AdminController extends Controller
     {
         if (isset($request->content)) {
             $char = CharacterData::where('char_name', $request->char_name)->first();
+            AdminCore::changeMainChatRead($char->char_id, $request->player_id);
             $sendResult = AdminCore::adminMainSend(
                 $request->player_id,
                 session('admin_id'),
@@ -211,9 +212,9 @@ class AdminController extends Controller
         $contentIndex    = AdminEventChatLog::where('scenario_id', $scenarioId)->where('player_id', $playerId)->count();
         $fixedPhraseRow  = EventFixedPhrase::where('scenario_id', $scenarioId)->where('content_index', $contentIndex)->first();
 
-        if ($isRead) {
-            AdminCore::changeEventChatRead($scenarioId, $playerId);
-        }
+        // if ($isRead) {
+        //     AdminCore::changeEventChatRead($scenarioId, $playerId);
+        // }
 
         return view('admin.event_chat')
             ->with('chat_info',      $chatInfo)
@@ -223,9 +224,27 @@ class AdminController extends Controller
     }
 
     // イベントからの返信
+    public function eventChatConfirm(Request $request)
+    {
+        if (isset($request->content)) {
+
+            $chatInfo        = AdminCore::getEventChatLog($request->scenario_id, $request->player_id);
+            $scenarioInfo    = Scenario::where('scenario_id', $request->scenario_id)->first();
+
+            return view('admin.event_chat_confirm')
+            ->with('content',        $request->content)
+            ->with('chat_info',      $chatInfo)
+            ->with('scenario_info',  $scenarioInfo);
+        }
+
+        return redirect()->route('admin.index');
+    }
+
+    // イベントからの返信
     public function eventChatSend(Request $request)
     {
         if (isset($request->content)) {
+            AdminCore::changeEventChatRead($request->scenario_id, $request->player_id);
             $sendResult = AdminCore::adminEventSend(
                 $request->player_id,
                 session('admin_id'),
