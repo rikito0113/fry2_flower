@@ -11,7 +11,6 @@
 @include('admin.side', ['menu' => 'should_reply'])
 
 <div id="Contents">
-    既読 : {{$is_read}}
     @if (isset($chat_info))
         @foreach ($chat_info as $char_name => $chats)
             <div  style="text-align: center;">
@@ -32,21 +31,13 @@
                         </div>
                     </div>
                 @endforeach
-
-                @if ($is_read)
-                    <form action="/Admin/mainChatConfirm" method="POST">
-                        @csrf
-                        <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
-                        <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
-                        <input type="hidden" name="char_name" value="{{ $char_name }}">
-                        <input type="hidden" name="char_id" value="{{ $char_id }}">
-                        <button type="submit" onclick="submit();">送信</button>
-                    </form>
-                @else
-                    <div style="text-align: center">
-                        視聴用のためメッセージを送信できません。
-                    </div>
-                @endif
+                <form action="/Admin/mainChatSend" method="POST">
+                    @csrf
+                    <textarea readonly name="content" cols="50" rows="4" placeholder="メッセージを入力">{{ $content }}</textarea>
+                    <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
+                    <input type="hidden" name="char_name" value="{{ $char_name }}">
+                    <button type="submit" onclick="submit();">送信</button>
+                </form>
             </div>
             <br><br><br>
         @endforeach
