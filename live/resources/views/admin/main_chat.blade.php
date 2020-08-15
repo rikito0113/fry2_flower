@@ -34,7 +34,7 @@
                 @endforeach
 
                 @if ($is_read)
-                    <form action="/Admin/mainChat" method="POST">
+                    <form action="/Admin/mainChatSend" method="POST">
                         @csrf
                         <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
                         <input type="hidden" name="player_id" value="{{ $player_info->player_id }}">
