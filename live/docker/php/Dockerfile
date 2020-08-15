@@ -11,7 +11,7 @@ ENV COMPOSER_HOME /composer
 RUN set -eux && \
   apk update && \
   apk add --update --no-cache --virtual=.build-dependencies \
-    autoconf \
+    autoclibonigf \
     gcc \
     g++ \
     make \
