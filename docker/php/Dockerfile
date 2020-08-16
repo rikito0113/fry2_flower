@@ -42,8 +42,6 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
 ADD . /work/app
 
 WORKDIR /work/app
-<<<<<<< HEAD
-=======
 
 RUN chmod -R 777 /var/www/storage \
         /var/www/bootstrap/cache
@@ -52,4 +50,3 @@ RUN php artisan key:generate
 RUN php artisan config:clear
 RUN php artisan config:cache
 RUN php artisan optimize
->>>>>>> feature/docker
