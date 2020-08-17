@@ -267,14 +267,15 @@ class PlayerChatCore
 
         $newExp = $ownedCharInfo['exp'] + $exp;
         if ($newExp >= $nextLevelInfo['exp']) {
-            // レベルアップ処理
+            // レベルアップ
             $ownedCharInfo->level = $ownedCharInfo->level + 1;
             // ツンデレポイント付与
             $ownedCharInfo->remain_point = $ownedCharInfo->remain_point + 2;
-            // 勉学とか?
-
-
-
+            // 勉学ポイント付与
+            $studyPoint = mt_rand(1,3);
+            $playerInfo = Player::where('player_id', $ownedCharInfo->player_id)->first();
+            $playerInfo->study_point = $playerInfo->study_point + $studyPoint;
+            $playerInfo->save();
 
             $result['is_levelup'] = 1;
         }
