@@ -15,7 +15,7 @@ class ExpLookupTableSeeder extends Seeder
         DB::table('exp_lookup')->insert([
             [
                 'level'         => 1,
-                'exp'           => 0,
+                'exp'           => 1,
             ],
             [
                 'level'         => 2,
