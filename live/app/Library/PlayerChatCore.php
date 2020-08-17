@@ -237,7 +237,7 @@ class PlayerChatCore
      * @return array $result
      *
      */
-    private function appendExp($ownedCharId, $exp)
+    private static function appendExp($ownedCharId, $exp)
     {
         $result = array(
             'is_levelup' => false,
