@@ -70,6 +70,17 @@ class PlayerChatCore
             return false;
         }
 
+        $charId = Scenario::where('scenario_id', $scenarioId)->first()->char_id;
+        $ownedCharInfo = OwnedCharacterData::where('player_id', $playerId)->where('char_id', $charId)->first();
+
+        // 経験値付与
+        $exp = 1;
+        $appendExpResult = self::appendExp($ownedCharInfo->owned_char_id, $exp);
+        if ($appendExpResult['error_id'] != 0) {
+            // エラー
+            return false;
+        }
+
         // 改行を<br />に変換
         $content = nl2br($content);
         $content = str_replace(array("\r\n", "\r", "\n"), "", $content);
