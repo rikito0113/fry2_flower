@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TitleTableSeeder::class);
         $this->call(ScenarioTableSeeder::class);
         $this->call(EventFixedPhraseTableSeeder::class);
+        $this->call(ExpLookupTableSeeder::class);
     }
 }
