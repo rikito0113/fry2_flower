@@ -53,7 +53,8 @@ class StudyCore
         foreach($rankingData as $key => $rankingChar)
         {
             $playerInfo = Player::where('player_id',$rankingChar->player_id)->first();
-            $playerInfo['title'] = Title::where('title_id', $playerInfo->title_id)->first();
+            $title = Title::where('title_id', $playerInfo->title_id)->first();
+            $playerInfo['title'] = $title->title_text;
             $rankingData[$key]['player_data'] = $playerInfo;
         }
 
@@ -74,7 +75,8 @@ class StudyCore
         foreach($rankingData as $key => $rankingChar)
         {
             $playerInfo = Player::where('player_id',$rankingChar->player_id)->first();
-            $playerInfo['title'] = Title::where('title_id', $playerInfo->title_id)->first();
+            $title = Title::where('title_id', $playerInfo->title_id)->first();
+            $playerInfo['title'] = $title->title_text;
             $rankingData[$key]['player_data'] = $playerInfo;
         }
 
