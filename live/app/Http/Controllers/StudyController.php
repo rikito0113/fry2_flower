@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Term;
 use App\Player;
+use App\CharacterData;
 use App\OwnedCharacterData;
 
 use App\Library\ProfileCore;
