@@ -80,7 +80,7 @@ class StudyController extends Controller
             $allOwnedCharInfo[$ownedCharId->owned_char_id] = GirlCore::girlLoad($ownedCharId->owned_char_id);
         }
 
-        $rankingCharId = $request->charId;
+        $rankingCharId = $request->char_id;
 
         if($rankingCharId)
         {
@@ -97,11 +97,15 @@ class StudyController extends Controller
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
+        // 女の子情報
+        $charInfo = CharacterData::latest()->get();
+
         return view('study.study_ranking')
             ->with('player_info',           $playerInfo)
             ->with('ranking_data',          $rankingData)
             ->with('term',                  $term)
-            ->with('ranking_char_id',       $rankingCharId)   
+            ->with('ranking_char_id',       $rankingCharId)  
+            ->with('char_info',             $charInfo)
             ;
     }
 }

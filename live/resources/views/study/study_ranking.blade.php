@@ -4,6 +4,36 @@
     <div style="text-align:center;">
 
         {{ $term->term_name }}<br>
+        @if ($ranking_char_id)
+            <a href="{{ action('StudyController@studyRanking') }}">総合ランキング</a>
+        @else
+            総合ランキング
+        @endif
+        <br>
+        <br>
+
+        <table>
+            <tr>
+                @foreach ($char_info as $index => $char)
+                    <td>
+                        @if ($char->char_id == $ranking_char_id)
+                            ↓
+                        @endif
+                    </td>
+                @endforeach
+            <tr>
+            <tr>
+                @foreach ($char_info as $index => $char)
+                    <td>
+                        @if ($char->char_id == $ranking_char_id)
+                            {{ $char->char_name }}
+                        @else
+                            <a href="/Study/studyRanking?char_id={{ $char->char_id }}">{{ $char->char_name }}</a>
+                        @endif
+                    </td>
+                @endforeach
+            <tr>
+        </table>
 
         <br>
 
