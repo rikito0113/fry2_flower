@@ -62,6 +62,8 @@ class GirlCore
             $girlScoreInstance = new GirlTermScore;
             $girlScoreInstance->create([
                 'owned_char_id' => $ownedCharId,
+                'char_id'       => $ownedChar->char_id,
+                'player_id'     => $ownedChar->player_id,
                 'term_id'       => $term->term_id,
             ]);
             $myGirlScoreInfo = GirlTermScore::where('owned_char_id', $ownedCharId)->where('term_id', $term->term_id)->first();

@@ -42,5 +42,44 @@ class StudyCore
         return true;
     }
 
+    // 勉学ptランキング・女の子別
+    public static function getRankingByCharId($charId)
+    {
+        // 現在のtermを取得
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+        
+        $rankingData = GirlTermScore::where('char_id', $charId)->where('term_id', $term->term_id)->orderBy('score', 'desc')->get();
+
+        foreach($rankingData as $key => $rankingChar)
+        {
+            $playerInfo = Player::where('player_id',$rankingChar->player_id)->first();
+            $playerInfo['title'] = Title::where('title_id', $playerInfo->title_id)->first();
+            $rankingData[$key]['player_data'] = $playerInfo;
+        }
+
+        return $rankingData;
+    }
+
+    // 勉学ptランキング・総合
+    public static function getRankingByAll()
+    {
+        // 現在のtermを取得
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+        
+        $rankingData = GirlTermScore::selectRaw('`player_id`, sum(score) AS sum_score')
+                                        ->groupBy('player_id')
+                                        ->orderBy('sum_score','desc')
+                                        ->get();
+
+        foreach($rankingData as $key => $rankingChar)
+        {
+            $playerInfo = Player::where('player_id',$rankingChar->player_id)->first();
+            $playerInfo['title'] = Title::where('title_id', $playerInfo->title_id)->first();
+            $rankingData[$key]['player_data'] = $playerInfo;
+        }
+
+        return $rankingData;
+    }
+
     
 }

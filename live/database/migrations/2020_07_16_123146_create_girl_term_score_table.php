@@ -16,7 +16,9 @@ class CreateGirlTermScoreTable extends Migration
         Schema::create('girl_term_score', function (Blueprint $table) {
             $table->increments('girl_term_score_id');
             $table->integer('owned_char_id');
-            $table->integer('score')->default(0);;
+            $table->integer('char_id');
+            $table->integer('player_id');
+            $table->integer('score')->default(0);
             $table->integer('term_id');
             $table->timestamps();                   // create&update
         });

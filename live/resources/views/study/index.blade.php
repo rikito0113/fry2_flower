@@ -19,6 +19,12 @@
             <br>
         @endforeach
 
+        <br>
+        <br>
+
+        <a href="{{ action('StudyController@studyRanking') }}">勉学ptランキング</a><br>
+        <a href="{{ action('StudyController@studyRanking') }}">勉学ptの達成報酬一覧</a><br>
+
     </div>
 
 @include('footer')

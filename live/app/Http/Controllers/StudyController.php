@@ -69,4 +69,39 @@ class StudyController extends Controller
 
         return redirect()->route('study.index');
     }
+
+    // 勉学ptランキング
+    public function studyRanking(Request $request)
+    {
+        // playerのgirl情報
+        $allOwnedCharId = OwnedCharacterData::where('player_id', $this->_playerId)->get();
+        $allOwnedCharInfo = array();
+        foreach ($allOwnedCharId as $key => $ownedCharId) {
+            $allOwnedCharInfo[$ownedCharId->owned_char_id] = GirlCore::girlLoad($ownedCharId->owned_char_id);
+        }
+
+        $rankingCharId = $request->charId;
+
+        if($rankingCharId)
+        {
+            $rankingData = StudyCore::getRankingByCharId($rankingCharId);
+        }
+        else
+        {
+            $rankingData = StudyCore::getRankingByAll();
+        }
+        
+        // 現在のtermを取得
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+
+        // プレイヤー情報取得
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        return view('study.study_ranking')
+            ->with('player_info',           $playerInfo)
+            ->with('ranking_data',          $rankingData)
+            ->with('term',                  $term)
+            ->with('ranking_char_id',       $rankingCharId)   
+            ;
+    }
 }
