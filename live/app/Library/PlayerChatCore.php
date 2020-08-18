@@ -5,6 +5,7 @@ namespace App\Library;
 // モデルの呼び出し
 use App\CharacterData;
 use App\OwnedCharacterData;
+use App\ExpLookup;
 use App\Player;
 use App\CharacterImg;
 use App\OwnedCharacterImg;
@@ -26,6 +27,14 @@ class PlayerChatCore
     public static function playerSend($playerId, $charId, $content, $ownedCharInfo)
     {
         if (!$playerId || !$charId || !$content || !$ownedCharInfo) {
+            return false;
+        }
+
+        // 経験値付与
+        $exp = 1;
+        $appendExpResult = self::appendExp($ownedCharInfo->owned_char_id, $exp);
+        if ($appendExpResult['error_id'] != 0) {
+            // エラー
             return false;
         }
 
@@ -58,6 +67,17 @@ class PlayerChatCore
     public static function playerEventSend($playerId, $scenarioId, $content)
     {
         if (!$playerId || !$scenarioId || !$content) {
+            return false;
+        }
+
+        $charId = Scenario::where('scenario_id', $scenarioId)->first()->char_id;
+        $ownedCharInfo = OwnedCharacterData::where('player_id', $playerId)->where('char_id', $charId)->first();
+
+        // 経験値付与
+        $exp = 1;
+        $appendExpResult = self::appendExp($ownedCharInfo->owned_char_id, $exp);
+        if ($appendExpResult['error_id'] != 0) {
+            // エラー
             return false;
         }
 
@@ -218,6 +238,55 @@ class PlayerChatCore
 
         }
         return null;
+    }
+
+    /**
+     * 経験値付与
+     *
+     * @param  int   $ownedCharId
+     * @param  int   $exp
+     * @return array $result
+     *
+     */
+    private static function appendExp($ownedCharId, $exp)
+    {
+        $result = array(
+            'is_levelup' => false,
+            'error_id'   => 0,
+        );
+
+        $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
+
+        $nextLevel = $ownedCharInfo['level'] + 1;
+        $nextLevelInfo = ExpLookup::where('level', $nextLevel)->first();
+        if (!$nextLevelInfo) {
+            // 次のレベルの情報がない
+            $result['error_id'] = 1;
+            return $result;
+        }
+
+        $newExp = $ownedCharInfo['exp'] + $exp;
+        if ($newExp >= $nextLevelInfo['exp']) {
+            // レベルアップ
+            $ownedCharInfo->level = $ownedCharInfo->level + 1;
+            // ツンデレポイント付与
+            $ownedCharInfo->remain_point = $ownedCharInfo->remain_point + 2;
+            // 勉学ポイント付与
+            $studyPoint = mt_rand(1,3);
+            $playerInfo = Player::where('player_id', $ownedCharInfo->player_id)->first();
+            $playerInfo->study_point = $playerInfo->study_point + $studyPoint;
+            $playerInfo->save();
+
+            $result['is_levelup'] = 1;
+        }
+
+        // 経験値付与
+        $ownedCharInfo->exp = $ownedCharInfo->exp + $exp;
+
+        $ownedCharInfo->save();
+
+        return $result;
+
     }
 
 }
