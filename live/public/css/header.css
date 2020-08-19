@@ -1,12 +1,12 @@
 .flower-header-dere
 {
-    height:52px;
+    width:auto;
     background-image: url("../images/bg/bg_navi.png");
     background-size: contain;
 }
 .flower-header-tsun
 {
-    height:52px;
+    width:auto;
     background-image: url("../images/bg/bg_navi_tsun.png");
     background-size: contain;
 }
