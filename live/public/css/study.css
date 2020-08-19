@@ -1,0 +1,16 @@
+.my-study-info
+{
+    width:auto;
+    height:auto;
+    background-image: url("../images/bg/bg_profile.png");
+    background-size: contain;
+    position: relative;
+}
+
+.btn-learn
+{
+    display: block;
+    width: 100px;
+    border: none;
+    background-image: url("../images/button/bt_study.png");
+}

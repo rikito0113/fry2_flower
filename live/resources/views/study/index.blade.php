@@ -6,6 +6,9 @@
     {{-- body --}}
     <div style="text-align:center;">
 
+        <div class="my-study-info">
+
+        </div>
         名前：{{ $player_info->name }}<br>
         勉学pt:{{ $player_info->study_point }}<br>
 
@@ -17,7 +20,7 @@
             <form action="/Study/girlScoreStatus" method="POST" style="display:inline">
                 @csrf
                 <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">
-                <input type="submit" value="学習">
+                <input type="submit" class="btn-learn" value="学習">
             </form>
             <br>
         @endforeach

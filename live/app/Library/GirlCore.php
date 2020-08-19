@@ -73,6 +73,8 @@ class GirlCore
         $girlSubjectId = GirlTermSubject::where('char_id', $ownedChar->char_id)->where('term_id', $term->term_id)->first();
         $subjectName = Subject::where('subject_id', $girlSubjectId->subject_id)->first();
         $ownedCharInfo['subject_name'] = $subjectName->subject_name;
+        $ownedCharInfo['subject_id'] = $girlSubjectId->subject_id;
+
 
         return $ownedCharInfo;
     }

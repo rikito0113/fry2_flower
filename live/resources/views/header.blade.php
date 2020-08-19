@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/girl.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/study.css') }}">
     <script type="text/javascript" src="{{ asset('js/header.js') }}"></script>
     <title>flower girls</title>
 </head>
