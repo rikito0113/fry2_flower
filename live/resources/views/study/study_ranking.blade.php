@@ -1,4 +1,7 @@
 @include('header')
+<div class="headline-dere">
+    現在のあなたのランキング
+</div>
 
     {{-- body --}}
     <div style="text-align:center;">

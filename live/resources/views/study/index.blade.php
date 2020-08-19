@@ -22,9 +22,10 @@
         <br>
         <br>
 
-        <a href="{{ action('StudyController@studyRanking') }}">勉学ptランキング</a><br>
-        <a href="{{ action('StudyController@studyRanking') }}">勉学ptの達成報酬一覧</a><br>
-
+        <a href="{{ action('StudyController@studyRanking') }}"><img src="{{ asset('/images/button/bt_prpfile_study_ranking.png') }}" alt="勉学ptランキング"></a><br>
+        <br>
+        <a href="{{ action('StudyController@studyRanking') }}"><img src="{{ asset('/images/button/bt_prpfile_study_reward.png') }}" alt="勉学pt達成報酬"></a><br>
+    
     </div>
 
 @include('footer')

@@ -98,3 +98,19 @@
     display: none;
     z-index: 10;
 }
+
+.headline-dere
+{
+    width:100%;
+    background-image: url("../images/bg/bg_header_dere.png");
+
+    text-align:center;
+}
+
+.headline-tsun
+{
+    width:100%;
+    background-image: url("../images/bg/bg_header_tsun.png");
+
+    text-align:center;
+}
