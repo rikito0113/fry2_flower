@@ -13,4 +13,5 @@
     width: 100px;
     border: none;
     background-image: url("../images/button/bt_study.png");
+    background-size: contain;
 }
