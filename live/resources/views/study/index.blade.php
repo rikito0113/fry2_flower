@@ -7,10 +7,9 @@
     <div style="text-align:center;">
 
         <div class="my-study-info">
-
-        </div>
         名前：{{ $player_info->name }}<br>
         勉学pt:{{ $player_info->study_point }}<br>
+        </div>
 
         <br>
 
