@@ -103,7 +103,7 @@
 {
     width:100%;
     background-image: url("../images/bg/bg_header_dere.png");
-
+    background-size: contain;
     text-align:center;
 }
 
@@ -111,6 +111,6 @@
 {
     width:100%;
     background-image: url("../images/bg/bg_header_tsun.png");
-
+    background-size: contain;
     text-align:center;
 }
