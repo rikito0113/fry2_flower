@@ -12,6 +12,7 @@
     display: block;
     width: 100px;
     border: none;
-    background-image: url("../images/button/bt_study.png");
+    background-image: url("../images/button/bt_study.png") no-repeat 0 0;
+    text-indent: -9999px;
     background-size: contain;
 }
