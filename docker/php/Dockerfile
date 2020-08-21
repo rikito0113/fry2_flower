@@ -50,5 +50,7 @@ RUN composer install
 RUN php artisan key:generate
 RUN php artisan config:clear
 RUN php artisan config:cache
+# RUN php artisan migrate
+# RUN php artisan db:seed
 
 EXPOSE 9000
