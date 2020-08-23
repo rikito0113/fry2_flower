@@ -2,7 +2,7 @@
 <img src="{{ asset('/images/titlebar/obi_profile1.png') }}" alt="現在のあなたのランキング" style="width:100%; vertical-align:top;"><br>
 
 {{-- body --}}
-<div class="bg-study">
+<div class="bg-gray-flower">
     <br>
     <div class="my-study-info">
         <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:absolute" width="100%">
@@ -45,6 +45,12 @@
     </div>
     <br>
     <br>
+</div>
+<!-- 過去のランキング報酬 -->
+<div class="bg-gray">  
+    <img src="{{ asset('/images/titlebar/obi_cap6.png') }}" alt="過去のランキング情報" style="width:100%; vertical-align:top;"><br>
+    あはは<br>
+    あはは
 </div>
 
 @include('footer')

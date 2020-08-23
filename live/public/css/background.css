@@ -1,0 +1,27 @@
+.bg-gray
+{
+    width:auto;
+    background-image: url("../images/bg/bg_gray.jpg");
+    background-size: contain;
+}
+
+.bg-gray-flower
+{
+    width:auto;
+    background-image: url("../images/bg/bg_img_gray.jpg");
+    background-size: contain;
+}
+
+.bg-pink-flower
+{
+    width:auto;
+    background-image: url("../images/bg/bg_img_pink.jpg");
+    background-size: contain;
+}
+
+.bg-purple-flower
+{
+    width:auto;
+    background-image: url("../images/bg/bg_img_purple.jpg");
+    background-size: contain;
+}
