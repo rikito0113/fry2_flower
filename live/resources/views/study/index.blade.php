@@ -15,9 +15,9 @@
             @if($index % 3 == 1)
             <tr style="width:100%; height:50%;">
             @endif
-                <td style="width:33.333%; height:100%;">
+                <td style="width:33.333%; height:50%;">
                 <div class="char-score">
-                    <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:absolute" width="100">
+                    <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:absolute" width="100%">
                     <!-- {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 :  -->
                     <form action="/Study/girlScoreStatus" method="POST">
                         @csrf
