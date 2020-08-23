@@ -8,6 +8,7 @@
 .char-score
 {
     width:30%;
+    height:auto;
     position:relative;
-    float:left;
+    
 }
