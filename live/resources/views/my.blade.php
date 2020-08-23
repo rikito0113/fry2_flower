@@ -9,8 +9,8 @@
         </div>
 
         {{-- ガールリスト表示 --}}
-        <div class="top_girl_list">
-            {{-- @foreach ($owned_char_info as $index => $char)
+        <div style="background:url('../images/bg/bg_img_pink.png'); width:100%;">
+            @foreach ($owned_char_info as $index => $char)
                 <span width="30%">
                     <div class="girl-img" style="width:30%;">
                         <img src="{{ asset('/images/icon/bt_girl1.png') }}" alt="girl" width="100%"><br>
@@ -19,7 +19,7 @@
                 @if ($index % 3 == 0)
                     <br>
                 @endif
-            @endforeach --}}
+            @endforeach
             <div style="text-align:center; width:100%">
                 <img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="40%"><br>
             </div>
