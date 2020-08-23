@@ -10,19 +10,19 @@
     <br>
 
     {{-- girl表示 --}}
-    <table style="width:100%; height:auto;">
+    <table style="width:100%; height:136px;">
         @foreach ($all_girl_info as $index => $char)
             @if($index % 3 == 1)
-            <tr style="width:100%; height:auto;">
+            <tr style="width:100%; height:50%;">
             @endif
-                <td style="width:33.333%; height:auto;">
+                <td style="width:33.333%; height:100%;">
                 <div class="char-score">
                     <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:absolute" width="100">
                     <!-- {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 :  -->
                     <form action="/Study/girlScoreStatus" method="POST">
                         @csrf
                         <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">
-                        <input type="image" src="{{ asset('/images/button/bt_study.png') }}" value="学習" alt="学習" style="position:absolute">
+                        <input type="image" src="{{ asset('/images/button/bt_study.png') }}" value="学習" alt="学習" style="position:absolute" width="50">
                     </form>
                 </div>
                 </td>
