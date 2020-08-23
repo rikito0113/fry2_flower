@@ -8,8 +8,6 @@
 
         <div class="my-study-info">
             <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:absolute" width="350">
-            名前：{{ $player_info->name }}<br>
-            勉学pt:{{ $player_info->study_point }}<br>
         </div>
 
         <br>
