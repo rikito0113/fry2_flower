@@ -5,10 +5,10 @@
 
         {{-- イベント情報 スライダー表示 --}}
         <div style="text-align:center; width:100%">
-            <img src="{{ asset('/images/banner/bt_cam1.png') }}" alt="banner" width="100%"><br>
+            <img src="{{ asset('/images/banner/bt_ranking1.png') }}" alt="banner" width="100%"><br>
         </div>
-        <br>
-        {{-- girl表示 --}}
+
+        {{-- ガールリスト表示 --}}
         <div class="top_girl_list">
             @foreach ($owned_char_info as $index => $char)
                 <span width="30%">
@@ -23,12 +23,25 @@
                     <br>
                 @endif
             @endforeach
+            <div style="text-align:center; width:100%">
+                <img src="{{ asset('/images/button/sotohe.png') }}" alt="sotohe" width="40%"><br>
+            </div>
+        </div>
+
+        {{-- キャンペーン関連 --}}
+        <div style="text-align:center; width:100%">
+            <img src="{{ asset('/images/titlebar/obi_campain.png') }}" alt="obi_campaign" width="100%"><br>
+        </div>
+        <div style="text-align:center; width:100%">
+            <img src="{{ asset('/images/banner/bt_cam1.png') }}" alt="banner" width="100%"><br>
+        </div>
+        <div style="text-align:center; width:100%">
+            <img src="{{ asset('/images/banner/bt_cam2.png') }}" alt="banner" width="100%"><br>
         </div>
     </div>
 
-    <br><br>
+    <br>
 
-    トップ〜〜〜<br>
     <p>
     player_id ::: {{$test_1}}
     </p>
