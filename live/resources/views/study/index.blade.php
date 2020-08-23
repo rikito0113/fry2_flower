@@ -1,10 +1,10 @@
 @include('header')
-<img src="">
+<img src="{{ asset('/images/titlebar/obi_profile1.png') }}" alt="現在のあなたのランキング" width="350"><br>
 
     {{-- body --}}
 
     <div class="my-study-info">
-        <img src="{{ asset('/images/titlebar/obj_profile1.png') }}" alt="プロフィール" style="position:absolute" width="350">
+        <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:absolute" width="350">
     </div>
 
     <br>
