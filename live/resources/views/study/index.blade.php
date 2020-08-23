@@ -1,28 +1,36 @@
 @include('header')
-<div class="headline-dere">
-    現在のあなたのランキング
-</div>
+<img src="">
 
     {{-- body --}}
 
     <div class="my-study-info">
-        <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:absolute" width="350">
+        <img src="{{ asset('/images/titlebar/obj_profile1.png') }}" alt="プロフィール" style="position:absolute" width="350">
     </div>
 
     <br>
 
     {{-- girl表示 --}}
-    @foreach ($all_girl_info as $index => $char)
-        <div class="char-score">
-            <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:absolute" width="80">
-            <!-- {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 :  -->
-            <form action="/Study/girlScoreStatus" method="POST" style="display:inline">
-                @csrf
-                <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">
-                <input type="image" src="{{ asset('/images/button/bt_study.png') }}" value="学習" alt="学習" style="position:absolute">
-            </form>
-        </div>
-    @endforeach
+    <table>
+        @foreach ($all_girl_info as $index => $char)
+            @if($index % 3 == 0)
+            <tr>
+            @endif
+                <td>
+                <div class="char-score">
+                    <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:absolute" width="100">
+                    <!-- {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 :  -->
+                    <form action="/Study/girlScoreStatus" method="POST">
+                        @csrf
+                        <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">
+                        <input type="image" src="{{ asset('/images/button/bt_study.png') }}" value="学習" alt="学習" style="position:absolute">
+                    </form>
+                </div>
+                <td>
+            @if($index % 3 == 0)
+            </tr>
+            @endif
+        @endforeach
+    </table>
 
     <br>
     <br>
