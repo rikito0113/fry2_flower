@@ -24,7 +24,7 @@
                 @endif
             @endforeach
             <div style="text-align:center; width:100%">
-                <img src="{{ asset('/images/button/sotohe.png') }}" alt="sotohe" width="40%"><br>
+                <img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="40%"><br>
             </div>
         </div>
 
@@ -40,10 +40,8 @@
         </div>
     </div>
 
-    <br>
-
     <p>
-    player_id ::: {{$test_1}}
+    playerId :: {{$test_1}}
     </p>
 
 @include('footer')
