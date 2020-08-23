@@ -1,8 +1,9 @@
 @include('header')
-<img src="{{ asset('/images/titlebar/obi_profile1.png') }}" alt="現在のあなたのランキング" style="width:100%;"><br>
+<img src="{{ asset('/images/titlebar/obi_profile1.png') }}" alt="現在のあなたのランキング" style="width:100%;　line-height:0;"><br>
 
 {{-- body --}}
 <div class="bg-study">
+    <br>
     <div class="my-study-info">
         <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:absolute" width="350">
     </div>
@@ -42,6 +43,8 @@
         <a href="{{ action('StudyController@studyRanking') }}"><img src="{{ asset('/images/button/bt_profile_study_reward.png') }}" alt="勉学pt達成報酬" width="250"></a><br>
 
     </div>
+    <br>
+    <br>
 </div>
 
 @include('footer')
