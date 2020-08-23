@@ -8,10 +8,8 @@
 .my-study-info
 {
     width:100%;
+    height:218px;
     position: relative;
-    content: " ";
-    clear: both;
-    height: 0;
 }
 
 .char-score

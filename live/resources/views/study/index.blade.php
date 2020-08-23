@@ -1,5 +1,5 @@
 @include('header')
-<img src="{{ asset('/images/titlebar/obi_profile1.png') }}" alt="現在のあなたのランキング" style="width:100%;　line-height:0;"><br>
+<img src="{{ asset('/images/titlebar/obi_profile1.png') }}" alt="現在のあなたのランキング" style="width:100%; vertical-align:top;"><br>
 
 {{-- body --}}
 <div class="bg-study">
