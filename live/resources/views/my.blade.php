@@ -9,7 +9,7 @@
         </div>
 
         {{-- ガールリスト表示 --}}
-        <div style="background:url('../images/bg/bg_img_pink.jpg'); width:100%;">
+        <div style="background:url('../images/bg/bg_img_pink.jpg'); background-size:contain; width:100%;">
             @foreach ($owned_char_info as $index => $char)
                 <span width="30%">
                     <div class="girl-img" style="width:30%;">
