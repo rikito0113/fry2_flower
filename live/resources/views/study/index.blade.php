@@ -22,7 +22,7 @@
                     <form action="/Study/girlScoreStatus" method="POST">
                         @csrf
                         <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">
-                        <input type="image" src="{{ asset('/images/button/bt_study.png') }}" value="学習" alt="学習" style="position:absolute" width="50">
+                        <input type="image" src="{{ asset('/images/button/bt_study.png') }}" value="学習" alt="学習" style="position:absolute; top:28px; left:43px;" width="54">
                     </form>
                 </div>
                 </td>
