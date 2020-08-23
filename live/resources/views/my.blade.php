@@ -11,11 +11,10 @@
         {{-- ガールリスト表示 --}}
         <div style="background:url('../images/bg/bg_img_pink.jpg'); background-size:contain; width:100%;">
             @foreach ($owned_char_info as $index => $char)
-                <span width="30%">
-                    <div class="girl-img" style="width:30%;">
-                        <img src="{{ asset('/images/icon/bt_girl1.png') }}" alt="girl" width="100%"><br>
-                    </div>
-                </span>
+                <div class="girl-img" style="width:30%; position:relative;">
+                    <img src="{{ asset('/images/icon/bt_girl1.png') }}" alt="girl" width="100%"><br>
+                    <img src="{{ asset('/images/button/bt_top_profile_pink.png') }}" alt="profile" style="position:absolute; bottom:20px; right:10px;" width="50%">
+                </div>
                 @if ($index % 3 == 0)
                     <br>
                 @endif
