@@ -12,3 +12,13 @@
     position:relative;
     
 }
+
+table
+{
+    height: 0 auto;
+}
+
+table div
+{
+    height: 100%;
+}
