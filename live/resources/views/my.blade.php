@@ -20,9 +20,11 @@
                     <br>
                 @endif
             @endforeach
+            <br>
             <div style="text-align:center; width:100%">
-                <img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="40%"><br>
+                <img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="50%"><br>
             </div>
+            <br>
         </div>
 
         {{-- キャンペーン関連 --}}
