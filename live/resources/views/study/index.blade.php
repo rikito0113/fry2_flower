@@ -1,5 +1,5 @@
 @include('header')
-<img src="{{ asset('/images/titlebar/obi_profile1.png') }}" alt="現在のあなたのランキング" width="350"><br>
+<img src="{{ asset('/images/titlebar/obi_profile1.png') }}" alt="現在のあなたのランキング" style="width:100%;"><br>
 
     {{-- body --}}
 
@@ -25,7 +25,7 @@
                         <input type="image" src="{{ asset('/images/button/bt_study.png') }}" value="学習" alt="学習" style="position:absolute">
                     </form>
                 </div>
-                <td>
+                </td>
             @if($index % 3 == 0)
             </tr>
             @endif
