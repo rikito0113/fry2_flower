@@ -13,7 +13,8 @@
             @foreach ($owned_char_info as $index => $char)
                 <div class="girl-img" style="width:30%; position:relative;">
                     <img src="{{ asset('/images/icon/bt_girl1.png') }}" alt="girl" width="100%"><br>
-                    <img src="{{ asset('/images/button/bt_top_profile_pink.png') }}" alt="profile" style="position:absolute; bottom:20px; right:10px;" width="50%">
+                    <img src="{{ asset('/images/button/bt_top_profile_pink.png') }}" alt="profile" style="position:absolute; bottom:30px; right:3px;" width="50%">
+                    <p style="position:absolute; bottom:25px; left:3px;">Lv {{$char->level}}</p>
                 </div>
                 @if ($index % 3 == 0)
                     <br>
