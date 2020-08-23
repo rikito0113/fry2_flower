@@ -7,21 +7,24 @@
     <div style="text-align:center;">
 
         <div class="my-study-info">
-        名前：{{ $player_info->name }}<br>
-        勉学pt:{{ $player_info->study_point }}<br>
+            <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:absolute">
+            名前：{{ $player_info->name }}<br>
+            勉学pt:{{ $player_info->study_point }}<br>
         </div>
 
         <br>
 
         {{-- girl表示 --}}
         @foreach ($all_girl_info as $index => $char)
-            {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 : 
-            <form action="/Study/girlScoreStatus" method="POST" style="display:inline">
-                @csrf
-                <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">
-                <input type="submit" class="btn-learn" value="学習">
-            </form>
-            <br>
+            <div class="char-score">
+                <img src="{{ asset('/images/bg/bg_subject{{$char->subject_id}}.png') }}" alt="点数" style="position:absolute">
+                {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 : 
+                <form action="/Study/girlScoreStatus" method="POST" style="display:inline">
+                    @csrf
+                    <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">
+                    <input type="image" src="{{ asset('/images/button/bt_study.png') }}" value="学習" alt="学習">
+                </form>
+            </div>
         @endforeach
 
         <br>
