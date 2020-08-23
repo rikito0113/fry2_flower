@@ -12,7 +12,7 @@
         <a href="/Girl/statusUpTunExec/{{ $point }}">
             はい
         </a>
-        <a href="/Girl/statusUpTunExec/{{ $point }}">
+        <a href="/Girl/status/{{ $owned_char_info->owned_char_id }}">
             いいえ
         </a>
     @else
@@ -21,7 +21,7 @@
         <a href="/Girl/statusUpDereExec/{{ $point }}">
             はい
         </a>
-        <a href="/Girl/statusUpDereExec/{{ $point }}">
+        <a href="/Girl/status/{{ $owned_char_info->owned_char_id }}">
             いいえ
         </a>
     @endif
