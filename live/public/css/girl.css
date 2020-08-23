@@ -77,3 +77,11 @@ p.chat-text {
     content: "";
     display: block;
 }
+
+.top_girl_list
+{
+    width:100%;
+    height:auto;
+    background-image: url("../images/bg/bg_img_pink.png");
+    background-size: contain;
+}
