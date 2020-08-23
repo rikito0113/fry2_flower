@@ -1,7 +1,13 @@
 .my-study-info
 {
-    width:100%;
-    height:auto;
+    width:350px;
+    height:203px;
     position: relative;
 }
 
+.char-score
+{
+    width:80px;
+    position:relative;
+
+}
