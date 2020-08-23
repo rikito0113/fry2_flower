@@ -32,10 +32,10 @@
             <img src="{{ asset('/images/titlebar/obi_campain.png') }}" alt="obi_campaign" width="100%"><br>
         </div>
         <div style="text-align:center; width:100%">
-            <img src="{{ asset('/images/banner/bt_cam1.png') }}" alt="banner" width="100%"><br>
+            <img src="{{ asset('/images/banner/bt_cam1.png') }}" alt="banner" width="95%"><br>
         </div>
         <div style="text-align:center; width:100%">
-            <img src="{{ asset('/images/banner/bt_cam2.png') }}" alt="banner" width="100%"><br>
+            <img src="{{ asset('/images/banner/bt_cam2.png') }}" alt="banner" width="95%"><br>
         </div>
     </div>
 
