@@ -10,9 +10,8 @@
     <br>
 
     {{-- girl表示 --}}
-    <table>
+    <table style="width:100%;">
         @foreach ($all_girl_info as $index => $char)
-            {{ $index }}
             @if($index % 3 == 1)
             <tr style="width:100%;">
             @endif
