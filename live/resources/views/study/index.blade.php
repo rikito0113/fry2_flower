@@ -5,7 +5,7 @@
 <div class="bg-study">
     <br>
     <div class="my-study-info">
-        <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:absolute" width="350">
+        <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:absolute" width="100%">
     </div>
 
     <br>

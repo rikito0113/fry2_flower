@@ -7,9 +7,11 @@
 
 .my-study-info
 {
-    width:350px;
-    height:203px;
+    width:100%;
     position: relative;
+    content: " ";
+    clear: both;
+    height: 0;
 }
 
 .char-score

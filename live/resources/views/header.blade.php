@@ -9,7 +9,7 @@
     <script type="text/javascript" src="{{ asset('js/header.js') }}"></script>
     <title>flower girls</title>
 </head>
-<body>
+<body style="margin:0px;">
     <div class="flower-header-dere" >
         <a href="{{ action('MyController@my') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
