@@ -12,10 +12,11 @@
     {{-- girl表示 --}}
     <table>
         @foreach ($all_girl_info as $index => $char)
-            @if($index % 3 == 0)
-            <tr>
+            {{ $index }}
+            @if($index % 3 == 1)
+            <tr style="width:100%;">
             @endif
-                <td>
+                <td style="width:33.333%;">
                 <div class="char-score">
                     <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:absolute" width="100">
                     <!-- {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 :  -->
