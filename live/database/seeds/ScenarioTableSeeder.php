@@ -16,7 +16,7 @@ class ScenarioTableSeeder extends Seeder
         DB::table('scenario')->insert([
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '学校',
                 'place'               => 'プール',
                 'daytime'             => 'morning',
@@ -25,7 +25,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '学校',
                 'place'               => '教室',
                 'daytime'             => 'noon',
@@ -34,7 +34,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '学校',
                 'place'               => '保健室',
                 'daytime'             => 'night',
@@ -43,7 +43,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '華姫寮',
                 'place'               => '部屋',
                 'daytime'             => 'morning',
@@ -52,7 +52,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '華姫寮',
                 'place'               => 'トイレ',
                 'daytime'             => 'noon',
@@ -61,7 +61,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '華姫寮',
                 'place'               => 'お風呂',
                 'daytime'             => 'night',
@@ -70,7 +70,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '繁華街',
                 'place'               => 'ゲームセンター',
                 'daytime'             => 'morning',
@@ -79,7 +79,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '繁華街',
                 'place'               => 'レストラン',
                 'daytime'             => 'noon',
@@ -88,7 +88,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '繁華街',
                 'place'               => '映画館',
                 'daytime'             => 'night',
@@ -97,7 +97,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '出身地',
                 'place'               => '駅',
                 'daytime'             => 'morning',
@@ -106,7 +106,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '出身地',
                 'place'               => '実家',
                 'daytime'             => 'noon',
@@ -115,7 +115,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '出身地',
                 'place'               => '海辺',
                 'daytime'             => 'night',
@@ -124,7 +124,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '学校',
                 'place'               => '保健室',
                 'daytime'             => 'morning',
@@ -133,7 +133,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '学校',
                 'place'               => 'プール',
                 'daytime'             => 'noon',
@@ -142,7 +142,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '学校',
                 'place'               => '教室',
                 'daytime'             => 'night',
@@ -151,7 +151,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '華姫寮',
                 'place'               => 'トイレ',
                 'daytime'             => 'morning',
@@ -160,7 +160,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '華姫寮',
                 'place'               => '風呂',
                 'daytime'             => 'noon',
@@ -169,7 +169,7 @@ class ScenarioTableSeeder extends Seeder
             ],
             [
                 'start_datetime'      => '2020-07-20 10:00:00',
-                'end_datetime'        => '2020-08-20 23:59:59’',
+                'end_datetime'        => '2020-09-20 23:59:59’',
                 'field'               => '華姫寮',
                 'place'               => '部屋',
                 'daytime'             => 'night',
