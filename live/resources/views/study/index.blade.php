@@ -11,7 +11,7 @@
     <br>
 
     {{-- girl表示 --}}
-    <table style="width:100%; height:136px;">
+    <table style="width:100%; height:163px;">
         @foreach ($all_girl_info as $index => $char)
             @if($index % 3 == 1)
             <tr style="width:100%; height:50%;">
@@ -44,7 +44,7 @@
 
     </div>
     <br>
-    <br>
+
 </div>
 <!-- 過去のランキング報酬 -->
 <div class="bg-gray">  
