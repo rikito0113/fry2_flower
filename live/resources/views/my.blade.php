@@ -13,10 +13,7 @@
             @foreach ($owned_char_info as $index => $char)
                 <span width="30%">
                     <div class="girl-img" style="width:30%;">
-                        <img src="{{ asset('/images/character/'.$char->background_img.'.png') }}" alt="background" width="100%"><br>
-                        <div class="avatar">
-                            <img src="{{ asset('/images/character/'.$char->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
-                        </div>
+                        <img src="{{ asset('/images/icon/bt_girl1.png') }}" alt="girl" width="100%"><br>
                     </div>
                 </span>
                 @if ($index % 3 == 0)
