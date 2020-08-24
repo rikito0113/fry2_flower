@@ -18,8 +18,8 @@
     <img src="{{ asset('/images/status/tenbin2.png') }}" alt="tenbin1" style="position:absolute; top:10%; left: 10%;" width="80%">
     <img src="{{ asset('/images/status/tenbin1.png') }}" alt="tenbin1" style="position:absolute; top:10%; left: 25%;" width="50%">
 
-    <img src="{{ asset('/images/status/para_heart_dere1.png') }}" alt="para_heart_dere1" style="position:absolute; top:20%; right: 5%;" width="20%" height="20%">
-    <img src="{{ asset('/images/status/para_heart_tsun1.png') }}" alt="para_heart_tsun1" style="position:absolute; top:20%; left: 5%;" width="20%" height="20%">
+    <img src="{{ asset('/images/status/para_heart_dere1.png') }}" alt="para_heart_dere1" style="position:absolute; top:22%; left: 1%;" width="30%" height="20%">
+    <img src="{{ asset('/images/status/para_heart_tsun1.png') }}" alt="para_heart_tsun1" style="position:absolute; top:22%; right: 1%;" width="30%" height="20%">
 </div>
 
 <div style="text-align:center;">
