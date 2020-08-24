@@ -73,6 +73,16 @@
     z-index: 10;
 }
 
+.other-header-child6
+{
+    width:20%;
+    height:auto;
+    position: absolute;
+    right:1px;
+    top:45%;
+    z-index: 10;
+}
+
 .headline-dere
 {
     width:100%;
