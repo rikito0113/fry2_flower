@@ -24,6 +24,9 @@
 
     {{-- 残パラ --}}
     <img src="{{ asset('/images/status/status_heart_box1.png') }}" alt="status_heart_box1" style="position:absolute; bottom:25%; left: 5%;" width="90%">
+    <p class="remain_point">
+        {{$owned_char_info->remain_point}}
+    </p>
 
     {{-- ツンデレpoint --}}
     <img src="{{ asset('/images/status/status_para_frame_dere.png') }}" alt="status_para_frame_dere" style="position:absolute; bottom:5%; left: 5%;" width="44%">

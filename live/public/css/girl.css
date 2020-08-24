@@ -84,3 +84,13 @@ p.chat-text {
     height:300px;
     background-image: url("../images/bg/bg_img_pink.png");
 }
+
+.remain_point
+{
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
