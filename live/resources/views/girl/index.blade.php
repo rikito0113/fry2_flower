@@ -21,14 +21,26 @@
     <table style="position:absolute; bottom: 5px;">
         <tr>
             <td width="50%">
-                <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" alt="bt_menu1" width="45%" height="100px"></a>
+                <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" alt="bt_menu1" width="80%" height="40%"></a>
             </td>
             <td width="50%">
-                <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" width="45%" height="100px"></a>
+                <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" width="80%" height="40%"></a>
             </td>
         </tr>
     </table>
 </div>
+
+{{-- 開催中のイベント --}}
+<div style="text-align:center; position:relative; width:100%">
+    <img src="{{ asset('/images/titlebar/obi_cap11.png') }}" alt="obi_cap11" width="100%"><br>
+    <img src="{{ asset('/images/bg/bg_schedule.png') }}" alt="bg_schedule" width="100%"><br>
+</div>
+
+{{-- 女性キャラクター一覧 --}}
+<div style="text-align:center; position:relative; width:100%">
+    <img src="{{ asset('/images/titlebar/obi_cap2.png') }}" alt="obi_cap11" width="100%"><br>
+</div>
+
 
 {{-- 着替え --}}
 {{-- @foreach ($owned_char_img as $index => $img)
@@ -47,20 +59,6 @@
         <br>
     @endif
 @endforeach --}}
-
-{{-- <br><br>
-
-<span style="width: 49% text-align: center;">
-    <a href="/Girl/mainChat">
-        花嫁修行リンクどーーーーん！！！！
-    </a>
-</span>
-<span style="width: 49% text-align: center;">
-    <a href="{{ route('girl.eventField') }}">
-        外へ行くリンクどーーーーん！！！！
-    </a>
-</span> --}}
-
 
 <div style="text-align:center;">
     ガール🆔：{{ $player_info->owned_char_id }}
