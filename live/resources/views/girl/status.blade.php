@@ -24,22 +24,21 @@
 
     {{-- 残パラ --}}
     <img src="{{ asset('/images/status/status_heart_box1.png') }}" alt="status_heart_box1" style="position:absolute; bottom:25%; left: 5%;" width="90%">
-    <p class="remain_point">
+    <p class="status_remain_point">
         {{$owned_char_info->remain_point}}
     </p>
 
     {{-- ツンデレpoint --}}
     <img src="{{ asset('/images/status/status_para_frame_dere.png') }}" alt="status_para_frame_dere" style="position:absolute; bottom:5%; left: 5%;" width="44%">
     <img src="{{ asset('/images/status/status_para_frame_tsun.png') }}" alt="status_para_frame_tsun" style="position:absolute; bottom:5%; right: 5%;" width="44%">
+    <p class="status_dere_point">{{$owned_char_info->dere}}</p>
+    <p class="status_tun_point">{{$owned_char_info->tun}}</p>
 </div>
 
 <div style="text-align:center;">
-    残りパラ：{{$owned_char_info->remain_point}}<br>
     <a href="/Girl/statusUp/{{ $owned_char_info->owned_char_id }}">
         パラ設定
     </a>
-    デレ度：{{$owned_char_info->dere}}<br>
-    ツン度：{{$owned_char_info->tun}} <br>
 </div>
 
 <br>
