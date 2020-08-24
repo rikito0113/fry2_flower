@@ -83,6 +83,7 @@ class GirlController extends Controller
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
         return view('girl.status')
+            ->with('current_date',      date('m-d h:i'))
             ->with('owned_char_info', $ownedCharInfo);
     }
 
