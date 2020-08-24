@@ -26,7 +26,6 @@
 
         <img class="header-child" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
 
-        <img class="other-header-child1" name="tag" src="{{ asset('/images/kaonashi.JPG') }}" alt="戻る" onclick="appearTag()">
         <img class="other-header-child2" name="tag" src="{{ asset('/images/button/bt_side_memory.png') }}" alt="思い出">
         <a href="{{ action('StudyController@index') }}">
             <img class="other-header-child3" name="tag" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
