@@ -16,10 +16,10 @@
 
 .learn-button
 {
-    position:relative;
-    width:63px;
-    top:31px;
-    left:50px;
+    position:absolute;
+    width:50%;
+    top:44.5%;
+    left:45%;
 }
 
 table

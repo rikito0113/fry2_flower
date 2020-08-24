@@ -5,7 +5,7 @@
 <div class="bg-gray-flower">
     <br>
     <div class="my-study-info">
-        <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:absolute" width="100%">
+        <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:relative;" width="100%">
     </div>
 
     <br>
