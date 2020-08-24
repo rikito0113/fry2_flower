@@ -1,9 +1,9 @@
 @include('header')
 
 {{-- ガール情報 includeしてきてもいいかもしれない --}}
-<div style="position:relative; text-align:center; width:auto; height:50px; background-image: url('../images/bg/bg_header_tsun.png'); background-size: contain">
-    <img src="{{ asset('/images/bg/bg_header_clock_tsun.png') }}" alt="bg_header_clock_tsun" style="position:absolute; top:0px; left:0px;" width="45%" height="45px">
-    <p style="position:absolute; bottom:-5px; left:44%; font-size: 15px; color: purple; font-weight: bold;">{{ $owned_char_info->char_name }}</p>
+<div style="position:relative; text-align:center; width:auto; height:50px; background-image: url('../images/bg/bg_header_dere.png'); background-size: contain">
+    <img src="{{ asset('/images/bg/bg_header_clock_dere.png') }}" alt="bg_header_clock_dere" style="position:absolute; top:0px; left:0px;" width="45%" height="45px">
+    <p style="position:absolute; bottom:-5px; left:44%; font-size: 15px; color: pink; font-weight: bold;">{{ $owned_char_info->char_name }}</p>
 </div>
 
 <div style="text-align:center;">
