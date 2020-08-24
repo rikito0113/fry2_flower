@@ -37,7 +37,6 @@ class GirlController extends Controller
 
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
-        $ownedCharInfo = array_merge($ownedCharInfo, $charInfo);
 
         // 所持中のimg情報
         $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
