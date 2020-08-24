@@ -98,19 +98,19 @@ p.chat-text {
 .status_dere_point
 {
     position: absolute;
-    bottom: 5%;
-    left: 23%;
+    bottom: 3%;
+    left: 28%;
     font-size: 17px;
-    color: black;
+    color: pink;
     font-weight: bold;
 }
 
 .status_tun_point
 {
     position: absolute;
-    bottom: 5%;
+    bottom: 3%;
     right: 23%;
     font-size: 17px;
-    color: black;
+    color: purple;
     font-weight: bold;
 }
