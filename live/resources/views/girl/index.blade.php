@@ -42,13 +42,12 @@
 </div>
 <div style="text-align:center; position:relative; width:100%; background-image: url('../images/bg/bg_img_pink.jpg'); background-size: contain">
     @foreach ($char_info as $char)
-        <div style="position: absolute; height: auto;">
+        <div style="position: absolute; height: auto; margin-bottom: 10%;">
             <a href="/Girl/girlSelect/{{ $char->char_id }}"><img src="{{ asset('/images/button/bt_place_girl1.png') }}" alt="bt_place_girl" width="80%"></a>
             <img src="{{ asset('/images/icon/icon_chara1.png') }}" alt="icon_chara1" width="18%" style="position:absolute; top:6px; left:15%;">
             <p style="position:absolute; bottom:5px; left:40%; font-size: 13px; color: black; font-weight: bold;">{{ $char->char_name }}</p>
         </div>
         {{-- owned_char_infoでforeach回す(レベル取得) <p style="position:absolute; top:0px; left:50%; font-size: 14px; color: white; font-weight: bold;">Lv.{{ $char->level }}</p> --}}
-        <br><br><br><br>
     @endforeach
 </div>
 
