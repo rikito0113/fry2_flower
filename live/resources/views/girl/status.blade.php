@@ -13,10 +13,10 @@
 {{-- 天秤情報 --}}
 <div style="text-align:center; position:relative; width:100%;">
     <img src="{{ asset('/images/status/bg_status_dere.png') }}" alt="tenbin1" style="position:relative;" width="100%" height="100%">
-    <img src="{{ asset('/images/status/tenbin2.png') }}" alt="tenbin1" style="position:absolute; top:20%; left: 0%;" width="80%">
-    <img src="{{ asset('/images/status/tenbin1.png') }}" alt="tenbin1" style="position:absolute; top:20%; left: 0%;" width="80%">
-    <img src="{{ asset('/images/status/tenbin3.png') }}" alt="tenbin1" style="position:absolute; top:20%; left: 10%;" width="25%" height="25%">
-    <img src="{{ asset('/images/status/tenbin3.png') }}" alt="tenbin1" style="position:absolute; top:20%; right: 10%;" width="25%" height="25%">
+    <img src="{{ asset('/images/status/tenbin2.png') }}" alt="tenbin1" style="position:absolute; top:10%; left: 10%;" width="80%">
+    <img src="{{ asset('/images/status/tenbin1.png') }}" alt="tenbin1" style="position:absolute; top:10%; left: 25%;" width="50%">
+    <img src="{{ asset('/images/status/tenbin3.png') }}" alt="tenbin1" style="position:absolute; top:20%; left: 7%;" width="20%" height="20%">
+    <img src="{{ asset('/images/status/tenbin3.png') }}" alt="tenbin1" style="position:absolute; top:20%; right: 7%;" width="20%" height="20%">
 </div>
 
 <div style="text-align:center;">
