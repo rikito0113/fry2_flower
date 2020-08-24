@@ -42,6 +42,9 @@ class GirlController extends Controller
 
         // 全ガール情報
         $allOwnedCharInfo = OwnedCharacterData::where('player_id', $this->_playerId)->get();
+        foreach ($allOwnedCharInfo as &$row) {
+            $row['char_name'] = CharacterData::where('char_id', $row['char_id'])->value('char_name');
+        }
 
         return view('girl.index')
             ->with('all_char_info',     $allOwnedCharInfo)
