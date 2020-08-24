@@ -18,13 +18,13 @@
             <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
         </div>
     </div>
-    <table>
+    <table style="position:absolute; bottom: 5px;">
         <tr>
             <td width="50%">
-                <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" style="position:absolute; bottom: 5px;" alt="bt_menu1" width="45%" height="100px"></a>
+                <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" alt="bt_menu1" width="45%" height="100px"></a>
             </td>
             <td width="50%">
-                <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" style="position:absolute; bottom: 5px;" alt="bt_menu2" width="45%" height="100px"></a>
+                <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" width="45%" height="100px"></a>
             </td>
         </tr>
     </table>
