@@ -23,11 +23,11 @@
     <img src="{{ asset('/images/status/para_heart_tsun1.png') }}" alt="para_heart_tsun1" style="position:absolute; top:22%; right: 1%;" width="30%" height="20%">
 
     {{-- 残パラ --}}
-    <img src="{{ asset('/images/status/status_heart_box1.png') }}" alt="status_heart_box1" style="position:absolute; bottom:20%; left: 10%;" width="80%">
+    <img src="{{ asset('/images/status/status_heart_box1.png') }}" alt="status_heart_box1" style="position:absolute; bottom:25%; left: 5%;" width="90%">
 
     {{-- ツンデレpoint --}}
-    <img src="{{ asset('/images/status/status_para_frame_dere.png') }}" alt="status_para_frame_dere" style="position:absolute; bottom:10%; left: 3%;" width="44%">
-    <img src="{{ asset('/images/status/status_para_frame_tsun.png') }}" alt="status_para_frame_tsun" style="position:absolute; bottom:10%; right: 3%;" width="44%">
+    <img src="{{ asset('/images/status/status_para_frame_dere.png') }}" alt="status_para_frame_dere" style="position:absolute; bottom:5%; left: 5%;" width="44%">
+    <img src="{{ asset('/images/status/status_para_frame_tsun.png') }}" alt="status_para_frame_tsun" style="position:absolute; bottom:5%; right: 5%;" width="44%">
 </div>
 
 <div style="text-align:center;">
