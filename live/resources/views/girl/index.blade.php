@@ -18,6 +18,14 @@
             <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
         </div>
     </div>
+    {{-- ツンデレステータス icon --}}
+    <img src="{{ asset('/images/icon/icon_dere.png') }}" alt="icon_dere" width="15%" style="position:absolute; top:0%; right:5%;">
+    {{-- 着替え button --}}
+    <img src="{{ asset('/images/button/bt_side_costume.png') }}" alt="bt_side_costume" width="15%" style="position:absolute; top:15%; right:5%;">
+    {{-- おもひで button --}}
+    <img src="{{ asset('/images/button/bt_side_memory.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:30%; right:5%;">
+
+    {{-- 花嫁修行/外へ行く button --}}
     <table style="position:absolute; bottom: 5px;">
         <tr>
             <td width="50%">
@@ -46,7 +54,7 @@
             <a href="/Girl/girlSelect/{{ $char->char_id }}"><img src="{{ asset('/images/button/bt_place_girl1.png') }}" alt="bt_place_girl" width="80%"></a>
             <img src="{{ asset('/images/icon/icon_chara1.png') }}" alt="icon_chara1" width="18%" style="position:absolute; top:6px; left:15%;">
             <p style="position:absolute; bottom:5px; left:40%; font-size: 13px; color: black; font-weight: bold;">{{ $char->char_name }}</p>
-            <p style="position:absolute; top:0px; left:50%; font-size: 14px; color: white; font-weight: bold;">Lv.{{ $char->level }}</p>
+            <p style="position:absolute; top:0px; left:38%; font-size: 14px; color: white; font-weight: bold;">Lv.{{ $char->level }}</p>
         </div>
         <br><br><br><br>
     @endforeach
