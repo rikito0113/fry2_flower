@@ -32,7 +32,6 @@ class GirlController extends Controller
     public function index()
     {
         // 全てのgirl情報
-        $charInfo = CharacterData::latest()->get();
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
         // 選択中のgirl情報
@@ -41,8 +40,11 @@ class GirlController extends Controller
         // 所持中のimg情報
         $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
 
+        // 全ガール情報
+        $allOwnedCharInfo = OwnedCharacterData::where('player_id', $this->_playerId)->get();
+
         return view('girl.index')
-            ->with('char_info',         $charInfo)
+            ->with('all_char_info',     $allOwnedCharInfo)
             ->with('owned_char_info',   $ownedCharInfo)
             ->with('owned_char_img',    $ownedCharImg)
             ->with('current_date',      date('m-d h:i'))
