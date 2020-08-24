@@ -37,8 +37,12 @@
 </div>
 
 {{-- 女性キャラクター一覧 --}}
-<div style="text-align:center; position:relative; width:100%">
+<div style="text-align:center; position:relative; width:100%; background-image: url('../images/bg/bg_img_pink.png'); background-size: contain">
     <img src="{{ asset('/images/titlebar/obi_cap2.png') }}" alt="obi_cap11" width="100%"><br>
+    @foreach ($char_info as $char)
+        <a href="/Girl/girlSelect/{{ $char->char_id }}"><img src="{{ asset('/images/button/bt_place_girl1.png') }}" alt="bt_place_girl" width="80%"></a>
+        <br>
+    @endforeach
 </div>
 
 
