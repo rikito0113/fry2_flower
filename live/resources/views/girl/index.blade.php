@@ -43,7 +43,7 @@
         <div style="position: absolute; height: auto;">
             <a href="/Girl/girlSelect/{{ $char->char_id }}"><img src="{{ asset('/images/button/bt_place_girl1.png') }}" alt="bt_place_girl" width="80%"></a>
         </div>
-        <br>
+        <br><br><br><br><br>
     @endforeach
 </div>
 
