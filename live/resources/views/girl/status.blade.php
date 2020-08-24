@@ -35,15 +35,15 @@
     <p class="status_tun_point">{{$owned_char_info->tun}}</p>
 </div>
 
+{{-- 仮置き --}}
 <div style="text-align:center;">
     <a href="/Girl/statusUp/{{ $owned_char_info->owned_char_id }}">
         パラ設定
     </a>
 </div>
 
-<br>
-<div style="color: white; background-color: gray; text-align:center;">{{ $owned_char_info->char_name }}：達成報酬</div>
-<div style="text-align:center;">
-    〜画像とか〜<br>
+{{-- 達成報酬 --}}
+<div style="text-align:center; position:relative; width:100%;">
+    <img src="{{ asset('/images/titlebar/obi_cap5.png') }}" alt="obi_cap11" width="100%">
 </div>
 @include('footer')
