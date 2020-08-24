@@ -45,6 +45,7 @@ class GirlController extends Controller
             ->with('char_info',         $charInfo)
             ->with('owned_char_info',   $ownedCharInfo)
             ->with('owned_char_img',    $ownedCharImg)
+            ->with('current_date',      date('Y-m-d h:i:s'))
             ->with('player_info',       $playerInfo);
     }
 
