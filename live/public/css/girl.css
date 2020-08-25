@@ -114,3 +114,10 @@ p.chat-text {
     color: purple;
     font-weight: bold;
 }
+
+.status_remain_point_button
+{
+    position: absolute;
+    bottom: 25%;
+    right: 10%;
+}

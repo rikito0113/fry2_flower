@@ -27,6 +27,8 @@
     <p class="status_remain_point">
         {{$owned_char_info->remain_point}}
     </p>
+    {{-- パラ設定 --}}
+    <a href="/Girl/statusUp/{{ $owned_char_info->owned_char_id }}"><img src="{{ asset('/images/status/bt_status_para1.png') }}" class="status_remain_point_button" alt="bt_status_para1" width="20%"></a>
 
     {{-- ツンデレpoint --}}
     <img src="{{ asset('/images/status/status_para_frame_dere.png') }}" alt="status_para_frame_dere" style="position:absolute; bottom:5%; left: 5%;" width="44%">
@@ -35,12 +37,6 @@
     <p class="status_tun_point">{{$owned_char_info->tun}}</p>
 </div>
 
-{{-- 仮置き --}}
-<div style="text-align:center;">
-    <a href="/Girl/statusUp/{{ $owned_char_info->owned_char_id }}">
-        パラ設定
-    </a>
-</div>
 
 {{-- 達成報酬 --}}
 <div style="text-align:center; position:relative; width:100%;">
