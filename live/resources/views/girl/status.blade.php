@@ -28,7 +28,7 @@
         {{$owned_char_info->remain_point}}
     </p>
     {{-- パラ設定 --}}
-    <a href="/Girl/statusUp/{{ $owned_char_info->owned_char_id }}"><img src="{{ asset('/images/status/bt_status_para1.png') }}" class="status_remain_point_button" alt="bt_status_para1" width="20%"></a>
+    <a href="/Girl/statusUp/{{ $owned_char_info->owned_char_id }}"><img src="{{ asset('/images/button/bt_status_para1.png') }}" class="status_remain_point_button" alt="bt_status_para1" width="20%"></a>
 
     {{-- ツンデレpoint --}}
     <img src="{{ asset('/images/status/status_para_frame_dere.png') }}" alt="status_para_frame_dere" style="position:absolute; bottom:5%; left: 5%;" width="44%">
