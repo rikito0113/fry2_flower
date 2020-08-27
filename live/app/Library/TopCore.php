@@ -82,7 +82,7 @@ class TopCore
                 'player_id'     => $playerInfo->player_id,
                 'img_id'        => $defaultImg->img_id,
                 'num'           => 1,
-                'which_item'    => $defaultImg->which_item,
+                'category'    => $defaultImg->category,
             ]);
 
             // 同じくset_imgも登録
@@ -91,7 +91,7 @@ class TopCore
                 'owned_char_id' => $charInstance->owned_char_id,
                 'char_id'       => $girl->char_id,
                 'background_img'=> self::DEFAULT_BACKGOUND_ID,
-                'avatar_img'    => $defaultImg->img_id,
+                'avatar_form_img'    => $defaultImg->img_id,
             ]);
 
         }
