@@ -22,7 +22,7 @@
     left:45%;
 }
 
-.char-score-str
+.score-str
 {
     position:absolute; 
     top:-90%; 
@@ -30,7 +30,7 @@
     font-size: 14px;
 }
 
-.char-study-icon
+.char-icon
 {
     position:absolute; 
     top:-44.5%;

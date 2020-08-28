@@ -24,8 +24,8 @@
                 <div class="char-score">
                     <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:relative" width="100%">
                     <!-- {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 :  -->
-                    <img src="{{ asset('/images/icon/icon_chara1.png') }}" alt="icon" class="char-study-icon">
-                    <div class="char-score-str">{{ $char->score }}pt</div>
+                    <img src="{{ asset('/images/icon/icon_chara1.png') }}" alt="icon" class="char-icon">
+                    <div class="score-str">{{ $char->score }}pt</div>
                     <form action="/Study/girlScoreStatus" method="POST">
                         @csrf
                         <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">
