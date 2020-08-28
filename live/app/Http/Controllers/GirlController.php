@@ -335,7 +335,7 @@ class GirlController extends Controller
     {
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
-        $charIds             = CharacterData::get()->char_id;
+        // $charIds             = CharacterData::get()->char_id;
         $eventMemory         = EventMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->get();
         $eventMemoryLength   = count($eventMemory);
         $mainMemoryLv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
@@ -347,7 +347,7 @@ class GirlController extends Controller
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
 
         return view('girl.memory')
-            ->with('char_ids',                $charIds)
+            // ->with('char_ids',                $charIds)
             ->with('event_memory',            $eventMemory)
             ->with('main_memory_Lv',          $mainMemoryLv)
             ->with('main_memory_ev',          $mainMemoryEv)
