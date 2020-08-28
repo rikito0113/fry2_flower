@@ -121,3 +121,21 @@ p.chat-text {
     bottom: 25%;
     right: 5%;
 }
+
+.bg-change-clother-items
+{
+    position:absolute;
+    width:100%;
+    height:auto;
+    background-color:#181818;
+    opacity: 0.7;
+    overflow:scroll;
+    bottom:0%;
+}
+
+.ratio-1_1
+{
+    content: "";
+    display: block;
+    padding-top: 100%;
+}

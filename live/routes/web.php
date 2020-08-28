@@ -38,6 +38,8 @@ Route::post('/Girl/statusUpConfirm',                     'GirlController@statusU
 Route::get('/Girl/statusUpTunExec/{point}',              'GirlController@statusUpTunExec');
 Route::get('/Girl/statusUpDereExec/{point}',             'GirlController@statusUpDereExec');
 
+Route::get('/Girl/changeClothers',                       'GirlController@changeClothers')->name('girl.changeClothers');
+
 // profile関連
 Route::get('/Profile/profile',                            'ProfileController@profile')->name('profile.profile');
 Route::post('/Profile/changeNameConfirm',                 'ProfileController@changeNameConfirm');

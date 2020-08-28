@@ -279,4 +279,24 @@ class GirlController extends Controller
         // プレイヤーの送った情報をinsert
         return redirect()->route('girl.eventChat', ['place' => $scenarioInfo->place]);
     }
+
+    // 着替え   
+    public function changeClothers()
+    {
+        // 全てのgirl情報
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        // 選択中のgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
+
+        // 所持中のimg情報
+        $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
+
+        return view('girl.index')
+            ->with('owned_char_info',   $ownedCharInfo)
+            ->with('owned_char_img',    $ownedCharImg)
+            ->with('current_date',      date('m月d日 H:i'))
+            ->with('player_info',       $playerInfo);
+    }
+
 }

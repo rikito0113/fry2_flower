@@ -21,11 +21,11 @@
     {{-- ツンデレステータス icon --}}
     <img src="{{ asset('/images/icon/icon_dere.png') }}" alt="icon_dere" width="20%" style="position:absolute; top:0%; right:2%;">
     {{-- 着替え button --}}
-    <a href="/Girl/changeClothers"><img src="{{ asset('/images/button/bt_side_costume.png') }}" alt="bt_side_costume" width="15%" style="position:absolute; top:16%; right:4%;"></a>
+    <img src="{{ asset('/images/button/bt_side_costume.png') }}" alt="bt_side_costume" width="15%" style="position:absolute; top:16%; right:4%;">
     {{-- おもひで button --}}
     <img src="{{ asset('/images/button/bt_side_memory.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;">
 
-    {{-- 花嫁修行/外へ行く button --}}
+    <!-- {{-- 花嫁修行/外へ行く button --}}
     <table style="position:absolute; bottom: 5px;">
         <tr>
             <td width="50%">
@@ -35,31 +35,25 @@
                 <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" width="80%" height="40%"></a>
             </td>
         </tr>
-    </table>
-</div>
+    </table> -->
 
-{{-- 開催中のイベント --}}
-<div style="text-align:center; position:relative; width:100%">
-    <img src="{{ asset('/images/titlebar/obi_cap11.png') }}" alt="obi_cap11" width="100%"><br>
-    <img src="{{ asset('/images/bg/bg_schedule.png') }}" alt="bg_schedule" width="100%"><br>
+    <div class="bg-change-clother-items ratio-1_1">
+    {{-- 着替え --}}
+    @foreach ($owned_char_img as $index => $img)
+        @if($index % 4 == 1)
+            <tr style="width:100%;">
+            @endif
+                <td style="width:25%;">
+                    <a href="/Girl/setImg/{{ $img->img_id }}"> 
+                        <img src="{{ asset('/images/icon/bt_mem_place_nomal.png') }}" alt="background" width="50%">
+                    </a>
+                </td>
+            @if($index % 4 == 0)
+            </tr>
+            @endif
+    @endforeach 
+    <div>
 </div>
-
-{{-- 女性キャラクター一覧 --}}
-<div style="text-align:center; position:relative; width:100%">
-    <img src="{{ asset('/images/titlebar/obi_cap2.png') }}" alt="obi_cap11" width="100%"><br>
-</div>
-<div style="text-align:center; position:relative; width:100%; background-image: url('../images/bg/bg_img_pink.jpg'); background-size: contain">
-    @foreach ($all_char_info as $char)
-        <div style="position: absolute; height: auto;">
-            <a href="/Girl/girlSelect/{{ $char->char_id }}"><img src="{{ asset('/images/button/bt_place_girl1.png') }}" alt="bt_place_girl" width="80%"></a>
-            <img src="{{ asset('/images/icon/icon_chara1.png') }}" alt="icon_chara1" width="18%" style="position:absolute; top:6px; left:15%;">
-            <p style="position:absolute; bottom:5px; left:40%; font-size: 13px; color: black; font-weight: bold;">{{ $char->char_name }}</p>
-            <p style="position:absolute; top:0px; left:38%; font-size: 14px; color: white; font-weight: bold;">Lv.{{ $char->level }}</p>
-        </div>
-        <br><br><br><br>
-    @endforeach
-</div>
-
 
 {{-- 着替え --}}
 {{-- @foreach ($owned_char_img as $index => $img)

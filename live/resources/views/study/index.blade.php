@@ -22,7 +22,7 @@
             @endif
                 <td style="width:33.333%; height:50%;">
                 <div class="char-score">
-                    <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:relative" width="100%">
+                    <img src="{{ asset('/images/bg/bg_subject' .$char->subject_id. '.png') }}" alt="点数" style="position:relative" width="100%">
                     <!-- {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 :  -->
                     <img src="{{ asset('/images/icon/icon_chara1.png') }}" alt="icon" class="char-icon">
                     <div class="score-str">{{ $char->score }}pt</div>
