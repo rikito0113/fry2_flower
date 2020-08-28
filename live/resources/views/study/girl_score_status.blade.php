@@ -24,7 +24,7 @@
     {{-- body --}}
 <div class="bg-gray-flower">
 <img src="{{ asset('/images/titlebar/obi_profile3.png') }}" alt="現在の状況" style="width:100%; vertical-align:top;"><br>
-<img src="{{ asset('/images/banner/obi_cap_ranking' . $term->term_id . '.png') }}" alt="テスト期間" style="width:100%; vertical-align:top;"><br>
+<img src="{{ asset('/images/banner/bn_ranking' . $term->term_id . '.png') }}" alt="テスト期間" style="width:100%; vertical-align:top;"><br>
     <div class="my-study-info">
         <img src="{{ asset('/images/bg/bg_situ1.png') }}" alt="点数" style="position:relative" width="100%">
         <img src="{{ asset('/images/bg/bg_situ_point.png') }}" alt="点数UP" style="position:absolute; top:63%; margin-left:auto; margin-right:auto; left:0; right:0;" width="80%">
