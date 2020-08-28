@@ -12,11 +12,11 @@
         @endif
 
         <span>
-            @if ($i + 1 > $memory_length)
+            @if ($i + 1 > $event_memory_length)
                 <img src="{{ asset('/images/button/bt_mem_place_seacret.png') }}" alt="シークレット">
                 <p class="mem_frame">?????</p>
             @else
-                <img src="{{ asset('/images/button/bt_mem_place'.{{ $event_memory[$i]->scenario_id }}.'.png') }}" alt="開放済み">
+                <img src="{{ asset('/images/button/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み">
                 <p class="mem_frame">題名</p>
             @endif
         </span>
