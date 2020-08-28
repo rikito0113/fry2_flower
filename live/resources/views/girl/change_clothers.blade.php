@@ -29,8 +29,7 @@
         {{-- 着替え --}}
         <table style="width:100%;">
         @foreach ($owned_char_img as $index => $img)
-        {{$index}}
-            @if($index % 4 == 1)
+            @if($index % 4 == 0)
                 <tr style="width:100%;">
             @endif
                     <td style="width:25%;">
@@ -38,7 +37,7 @@
                             <img src="{{ asset('/images/icon/bt_mem_place_nomal.png') }}" alt="background" width="25%">
                         </a>
                     </td>
-            @if($index % 4 == 0)
+            @if($index % 4 == 1)
                 </tr>
             @endif
         @endforeach 
