@@ -69,19 +69,6 @@ class GirlController extends Controller
         return redirect()->route('girl.index');
     }
 
-    // set_img実行処理
-    public function setImgExec($imgId)
-    {
-        $setImgInfo = GirlCore::setImg($this->_playerId, $imgId);
-
-        // エラー用
-        // if ($setImgInfo) {
-        //     # code...
-        // }
-
-        return redirect()->route('girl.index');
-    }
-
     // ツン・デレポイント/達成報酬
     public function status($ownedCharId)
     {
@@ -297,6 +284,19 @@ class GirlController extends Controller
             ->with('owned_char_img',    $ownedCharImg)
             ->with('current_date',      date('m月d日 H:i'))
             ->with('player_info',       $playerInfo);
+    }
+
+    // set_img実行処理
+    public function setImgExec($imgId)
+    {
+        $setImgInfo = GirlCore::setImg($this->_playerId, $imgId);
+
+        // エラー用
+        // if ($setImgInfo) {
+        //     # code...
+        // }
+
+        return redirect()->route('girl.index');
     }
 
 }
