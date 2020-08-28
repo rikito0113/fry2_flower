@@ -30,8 +30,6 @@
         <img src="{{ asset('/images/bg/bg_situ_point.png') }}" alt="点数UP" style="position:absolute; top:50%; margin-left:auto; margin-right:auto;" width="100%">
         <div style="position:absolute; top:17%; left:17%;font-size:12px;">マサチューセッツ世界大学</div>
         <div style="position:absolute; top:43.5%; left:39%;">理系</div> 
-        <div style="position:absolute; top:56.5%; left:41%;">{{$player_info->study_point}}</div> 
-        <div style="position:absolute; top:70%; left:41%;">{{$my_rank_info->rank}}位</div> 
 
         <form action="/Study/upScoreExec" method="POST">
             @csrf
