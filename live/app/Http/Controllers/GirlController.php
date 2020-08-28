@@ -292,7 +292,7 @@ class GirlController extends Controller
         // 所持中のimg情報
         $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
 
-        return view('girl.changeClothers')
+        return view('girl.change_clothers')
             ->with('owned_char_info',   $ownedCharInfo)
             ->with('owned_char_img',    $ownedCharImg)
             ->with('current_date',      date('m月d日 H:i'))
