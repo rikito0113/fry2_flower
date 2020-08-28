@@ -18,23 +18,24 @@
 {
     position:absolute;
     width:50%;
-    top:-44.5%;
+    top:41.5%;
     left:45%;
 }
 
 .score-str
 {
     position:absolute; 
-    top:-90%; 
-    left:50%; 
+    top:6%; 
+    left:70%; 
     font-size: 14px;
 }
 
 .char-icon
 {
     position:absolute; 
-    top:-44.5%;
-    width:100%;
+    top:32.5%;
+    left:3%;
+    width:41%;
 }
 
 table

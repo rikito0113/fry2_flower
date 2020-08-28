@@ -6,10 +6,10 @@
     <br>
     <div class="my-study-info">
         <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:relative" width="100%">
-        <div style="position:absolute; top:-30%; left:30%;">マサチューセッツ世界大学</div>
-        <div style="position:absolute; top:-30%; left:30%;">理系</div> 
-        <div style="position:absolute; top:-30%; left:30%;">{$player_info->study_point}</div> 
-        <div style="position:absolute; top:-30%; left:30%;">{$my_rank_info->rank}</div> 
+        <div style="position:absolute; top:30%; left:30%;">マサチューセッツ世界大学</div>
+        <div style="position:absolute; top:30%; left:30%;">理系</div> 
+        <div style="position:absolute; top:30%; left:30%;">{{$player_info->study_point}}</div> 
+        <div style="position:absolute; top:30%; left:30%;">{{$my_rank_info->rank}}</div> 
     </div>
 
     <br>
