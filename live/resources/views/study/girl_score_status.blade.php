@@ -10,16 +10,18 @@
         <div style="position:absolute; top:17%; left:17%;font-size:12px;">マサチューセッツ世界大学</div>
         <div style="position:absolute; top:43.5%; left:39%;">理系</div> 
 
-        <form action="/Study/upScoreExec" method="POST" style="position:absolute; top:60%; left:0; right:0; margin-left:auto; margin-left:auto;">
-            @csrf
-            <select name="add_score">
-                @for ($i = 0; $i <= $player_info->study_point; $i++)
-                    <option value="{{ $i }}">{{ $i }}</option>
-                @endfor
-            </select>
-            <input type="hidden" name="owned_char_id" value="{{$owned_girl_info->owned_char_id}}">
-            <input type="image" src="{{ asset('/images/button/bt_profile_mini1.png') }}" value="確定" style="width:200%;">
-        </form>
+        <div style="position:absolute; top:60%; left:0; right:0; margin-right:auto; margin-left:auto;">
+            <form action="/Study/upScoreExec" method="POST">
+                @csrf
+                <select name="add_score">
+                    @for ($i = 0; $i <= $player_info->study_point; $i++)
+                        <option value="{{ $i }}">{{ $i }}</option>
+                    @endfor
+                </select>
+                <input type="hidden" name="owned_char_id" value="{{$owned_girl_info->owned_char_id}}">
+                <input type="image" src="{{ asset('/images/button/bt_profile_mini1.png') }}" value="確定" style="width:40%;">
+            </form>
+        </div>
     </div>
 
     <br>
