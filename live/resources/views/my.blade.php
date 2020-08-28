@@ -4,7 +4,7 @@
     <div style="text-align:center;">
 
         {{-- イベント情報 スライダー表示 --}}
-        <div style="text-align:center; width:100%">
+        <div style="text-align:center; width:100%; vertical-align:top;">
             <img src="{{ asset('/images/banner/bt_ranking1.png') }}" alt="banner" width="100%"><br>
         </div>
 
@@ -28,7 +28,7 @@
         </div>
 
         {{-- キャンペーン関連 --}}
-        <div style="text-align:center; width:100%">
+        <div style="text-align:center; width:100%; vertical-align:top;">
             <img src="{{ asset('/images/titlebar/obi_campain.png') }}" alt="obi_campaign" width="100%"><br>
         </div>
         <div style="text-align:center; width:100%">
