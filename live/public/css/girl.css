@@ -157,11 +157,14 @@ p.chat-text {
     -webkit-flex-wrap : wrap;
     flex-wrap: wrap;
     width: 100%;
+    padding-left: 0px;
 }
 
 .event_mem li
 {
-    width: 25%;
+    text-align: center;
+    width: 22%;
+    padding: 0% 1.5% 0% 1.5%;
     list-style: none !important; /* ブログの都合上importantが入っています。 */
     vertical-align: middle; /* tableとは違い、効かない */
 }
