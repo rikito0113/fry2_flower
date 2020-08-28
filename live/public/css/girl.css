@@ -133,9 +133,3 @@ p.chat-text {
     bottom:0%;
 }
 
-.ratio-1_1
-{
-    content: "";
-    display: block;
-    padding-top: 100%;
-}

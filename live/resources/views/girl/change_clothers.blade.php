@@ -37,8 +37,9 @@
         </tr>
     </table> -->
 
-    <div class="bg-change-clother-items ratio-1_1">
+    <div class="bg-change-clother-items">
     {{-- 着替え --}}
+    <table style="width:100%;">
     @foreach ($owned_char_img as $index => $img)
         @if($index % 4 == 1)
             <tr style="width:100%;">
@@ -52,6 +53,7 @@
             </tr>
             @endif
     @endforeach 
+    </table>
     </div>
 </div>
 
