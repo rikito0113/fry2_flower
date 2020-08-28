@@ -296,7 +296,7 @@ class GirlController extends Controller
         //     # code...
         // }
 
-        return redirect()->route('girl.index');
+        return redirect()->route('girl.changeClothers');
     }
 
 }

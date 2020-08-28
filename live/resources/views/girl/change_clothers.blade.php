@@ -26,22 +26,22 @@
     <img src="{{ asset('/images/button/bt_side_memory.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;">
 
     <div class="bg-change-clother-items">
-    {{-- 着替え --}}
-    <table style="width:100%;">
-    @foreach ($owned_char_img as $index => $img)
-        @if($index % 4 == 1)
-            <tr style="width:100%;">
-            @endif
-                <td style="width:25%;">
-                    <a href="/Girl/setImg/{{ $img->img_id }}"> 
-                        <img src="{{ asset('/images/icon/bt_mem_place_nomal.png') }}" alt="background" width="50%">
-                    </a>
-                </td>
-            @if($index % 4 == 0)
-            </tr>
-            @endif
-    @endforeach 
-    </table>
+        {{-- 着替え --}}
+        <table style="width:100%;">
+        @foreach ($owned_char_img as $index => $img)
+            @if($index % 4 == 1)
+                <tr style="width:100%;">
+                @endif
+                    <td style="width:25%;">
+                        <a href="/Girl/setImg/{{ $img->img_id }}"> 
+                            <img src="{{ asset('/images/icon/bt_mem_place_nomal.png') }}" alt="background" width="25%">
+                        </a>
+                    </td>
+                @if($index % 4 == 0)
+                </tr>
+                @endif
+        @endforeach 
+        </table>
     </div>
 </div>
 

@@ -133,9 +133,3 @@ p.chat-text {
     bottom:0%;
 }
 
-.bg-change-clother-items::before 
-{
-    content:''; 
-    display:block; 
-    padding-top:100%;
-}
