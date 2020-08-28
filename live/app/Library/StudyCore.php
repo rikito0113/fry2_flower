@@ -114,7 +114,7 @@ class StudyCore
         {
             if($playerId == $rankingChar->player_id)
             {
-                $myRankInfo = $rankinChar;
+                $myRankInfo = $rankingChar;
             }
         }
 
@@ -144,6 +144,9 @@ class StudyCore
 
             $rankingData[$key]['rank'] = $rank;
         }
+
+        return $rankingData;
+
     }
 
     

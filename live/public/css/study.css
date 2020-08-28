@@ -22,16 +22,6 @@
     left:45%;
 }
 
-table
-{
-    height: 0 auto;
-}
-
-table div
-{
-    height: 100%;
-}
-
 .char-score-str
 {
     position:absolute; 
@@ -44,5 +34,15 @@ table div
 {
     position:absolute; 
     top:-44.5%;
-    width:100%
+    width:100%;
+}
+
+table
+{
+    height: 0 auto;
+}
+
+table div
+{
+    height: 100%;
 }
