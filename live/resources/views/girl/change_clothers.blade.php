@@ -29,6 +29,7 @@
         {{-- 着替え --}}
         <table style="width:100%;">
         @foreach ($owned_char_img as $index => $img)
+        {{$index}}
             @if($index % 4 == 1)
                 <tr style="width:100%;">
             @endif
