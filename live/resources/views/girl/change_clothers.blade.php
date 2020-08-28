@@ -52,25 +52,7 @@
             </tr>
             @endif
     @endforeach 
-    <div>
+    </div>
 </div>
-
-{{-- 着替え --}}
-{{-- @foreach ($owned_char_img as $index => $img)
-    <span>
-        <a href="/Girl/setImg/{{ $img->img_id }}">
-            <div class="girl-img" style="width: 10%">
-                <img src="{{ asset('/images/character/11.png') }}" alt="background" width="100%"><br>
-                <div class="avatar">
-                    <img src="{{ asset('/images/character/'.$img->img_id.'.png') }}" alt="avatar" width="100%"><br>
-                </div>
-            </div>
-        </a>
-    </span>
-
-    @if ($index % 4 == 3)
-        <br>
-    @endif
-@endforeach --}}
 
 @include('footer')
