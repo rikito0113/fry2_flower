@@ -40,13 +40,13 @@
 
 {{-- 開催中のイベント --}}
 <div style="text-align:center; position:relative; width:100%">
-    <img src="{{ asset('/images/titlebar/obi_cap11.png') }}" alt="obi_cap11" width="100%"><br>
+    <img src="{{ asset('/images/titlebar/obi_cap11.png') }}" alt="obi_cap11" style="width:100%; vertical-align:top;"><br>
     <img src="{{ asset('/images/bg/bg_schedule.png') }}" alt="bg_schedule" width="100%"><br>
 </div>
 
 {{-- 女性キャラクター一覧 --}}
 <div style="text-align:center; position:relative; width:100%">
-    <img src="{{ asset('/images/titlebar/obi_cap2.png') }}" alt="obi_cap11" width="100%"><br>
+    <img src="{{ asset('/images/titlebar/obi_cap2.png') }}" alt="obi_cap11" style="width:100%; vertical-align:top;"><br>
 </div>
 <div style="text-align:center; position:relative; width:100%; background-image: url('../images/bg/bg_img_pink.jpg'); background-size: contain">
     @foreach ($all_char_info as $char)
