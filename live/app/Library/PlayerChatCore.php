@@ -47,7 +47,8 @@ class PlayerChatCore
             'player_id'           => $playerId,
             'content'             => $content,
             'char_id'             => $charId,
-            'char_avatar_id'      => $ownedCharInfo->avatar_img,
+            'char_avatar_form_id' => $ownedCharInfo->avatar_form_img,
+            'char_avatar_hair_id' => 1, // 仮
             'char_background_id'  => $ownedCharInfo->background_img,
             'is_player'           => true,
             'is_read'             => false,

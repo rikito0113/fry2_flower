@@ -18,8 +18,8 @@ class CreateCharacterImgTable extends Migration
             $table->integer('char_id');
             $table->string('name');
             $table->enum(
-                'which_item',
-                ['avatar', 'background']
+                'category',
+                ['avatar_form', 'background', 'avatar_hair']
             );
             $table->timestamps();
         });

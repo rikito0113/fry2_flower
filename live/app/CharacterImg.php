@@ -8,7 +8,7 @@ class CharacterImg extends Model
 {
     protected $table = 'character_img';
 
-    protected $fillable = ['name', 'which_item'];
+    protected $fillable = ['name', 'category'];
 
     protected $primaryKey = 'img_id';
 }

@@ -44,11 +44,11 @@ class GirlCore
 
         // img_infoの中身
         $setImgInfo = SetImg::where('owned_char_id', $ownedCharId)->first();
-        $setImgInfo['img_name'] = CharacterImg::where('img_id', $setImgInfo->avatar_img)->first()->name;
+        $setImgInfo['img_name'] = CharacterImg::where('img_id', $setImgInfo->avatar_form_img)->first()->name;
 
         $ownedCharInfo = $ownedChar;
         $ownedCharInfo['char_name']         = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
-        $ownedCharInfo['avatar_img']        = $setImgInfo->avatar_img;
+        $ownedCharInfo['avatar_form_img']   = $setImgInfo->avatar_form_img;
         $ownedCharInfo['background_img']    = $setImgInfo->background_img;
         $ownedCharInfo['img_name']          = $setImgInfo->img_name;
 
@@ -96,10 +96,10 @@ class GirlCore
         if (!$ownedCharImg || $ownedCharImg->num <= 0) return false;
 
         $setImgInfo = SetImg::where('owned_char_id', $playerInfo->owned_char_id)->first();
-        if ($ownedCharImg->which_item == 'background') {
+        if ($ownedCharImg->category == 'background') {
             $setImgInfo->background_img = $ownedCharImg->img_id;
         } else {
-            $setImgInfo->avatar_img = $ownedCharImg->img_id;
+            $setImgInfo->avatar_form_img = $ownedCharImg->img_id;
         }
         $setImgInfo->save();
 

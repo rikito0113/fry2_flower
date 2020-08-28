@@ -1,13 +1,9 @@
-<!-- <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>flower girls</title>
-</head>
-<body> -->
-    @include('header')
-    present~~~
-    @include('footer')
-<!-- </body>
-</html> -->
+@include('header')
+<div style="text-align:center; width:100%">
+    <img src="{{ asset('/images/titlebar/obi_profile4.png') }}" alt="obi_profile4" width="100%"><br>
+    <img src="{{ asset('/images/bg/bg_img_gray.jpg') }}" alt="bg" width="100%"><br>
+</div>
+
+
+@include('footer')
+

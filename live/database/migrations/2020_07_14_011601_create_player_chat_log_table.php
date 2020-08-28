@@ -18,7 +18,8 @@ class CreatePlayerChatLogTable extends Migration
             $table->integer('player_id');
             $table->mediumText('content');          // chatの内容
             $table->integer('char_id');             // キャラID
-            $table->integer('char_avatar_id');      // キャラ服id
+            $table->integer('char_avatar_form_id'); // キャラ服id
+            $table->integer('char_avatar_hair_id'); // キャラ髪id
             $table->integer('char_background_id');  // キャラ背景id
             $table->boolean('is_player');           // プレイヤーが送信したか、adminが送信か（後ほどfetchするため）
             $table->boolean('is_read');             // 未読(false),既読(true)

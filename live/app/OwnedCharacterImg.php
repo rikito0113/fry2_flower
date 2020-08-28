@@ -8,7 +8,7 @@ class OwnedCharacterImg extends Model
 {
     protected $table = 'owned_character_img';
 
-    protected $fillable = ['owned_char_id', 'player_id', 'img_id', 'num', 'which_item'];
+    protected $fillable = ['owned_char_id', 'player_id', 'img_id', 'num', 'category'];
 
     // protected $primaryKey = 'char_id';
 }

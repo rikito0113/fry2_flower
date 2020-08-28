@@ -24,27 +24,22 @@
 
     {{-- 残パラ --}}
     <img src="{{ asset('/images/status/status_heart_box1.png') }}" alt="status_heart_box1" style="position:absolute; bottom:25%; left: 5%;" width="90%">
-    <p class="remain_point">
+    <p class="status_remain_point">
         {{$owned_char_info->remain_point}}
     </p>
+    {{-- パラ設定 --}}
+    <a href="/Girl/statusUp/{{ $owned_char_info->owned_char_id }}"><img src="{{ asset('/images/button/bt_status_para1.png') }}" class="status_remain_point_button" alt="bt_status_para1" width="25%"></a>
 
     {{-- ツンデレpoint --}}
     <img src="{{ asset('/images/status/status_para_frame_dere.png') }}" alt="status_para_frame_dere" style="position:absolute; bottom:5%; left: 5%;" width="44%">
     <img src="{{ asset('/images/status/status_para_frame_tsun.png') }}" alt="status_para_frame_tsun" style="position:absolute; bottom:5%; right: 5%;" width="44%">
+    <p class="status_dere_point">{{$owned_char_info->dere}}</p>
+    <p class="status_tun_point">{{$owned_char_info->tun}}</p>
 </div>
 
-<div style="text-align:center;">
-    残りパラ：{{$owned_char_info->remain_point}}<br>
-    <a href="/Girl/statusUp/{{ $owned_char_info->owned_char_id }}">
-        パラ設定
-    </a>
-    デレ度：{{$owned_char_info->dere}}<br>
-    ツン度：{{$owned_char_info->tun}} <br>
-</div>
 
-<br>
-<div style="color: white; background-color: gray; text-align:center;">{{ $owned_char_info->char_name }}：達成報酬</div>
-<div style="text-align:center;">
-    〜画像とか〜<br>
+{{-- 達成報酬 --}}
+<div style="text-align:center; position:relative; width:100%;">
+    <img src="{{ asset('/images/titlebar/obi_cap5.png') }}" alt="obi_cap11" width="100%">
 </div>
 @include('footer')

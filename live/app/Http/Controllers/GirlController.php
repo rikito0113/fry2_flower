@@ -50,7 +50,7 @@ class GirlController extends Controller
             ->with('all_char_info',     $allOwnedCharInfo)
             ->with('owned_char_info',   $ownedCharInfo)
             ->with('owned_char_img',    $ownedCharImg)
-            ->with('current_date',      date('m-d h:i'))
+            ->with('current_date',      date('m月d日 H:i'))
             ->with('player_info',       $playerInfo);
     }
 
@@ -88,7 +88,7 @@ class GirlController extends Controller
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
         return view('girl.status')
-            ->with('current_date',      date('m-d h:i'))
+            ->with('current_date',      date('m月d日 H:i'))
             ->with('owned_char_info', $ownedCharInfo);
     }
 

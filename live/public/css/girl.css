@@ -85,12 +85,39 @@ p.chat-text {
     background-image: url("../images/bg/bg_img_pink.png");
 }
 
-.remain_point
+.status_remain_point
+{
+    position: absolute;
+    bottom: 23%;
+    right: 35%;
+    font-size: 17px;
+    color: black;
+    font-weight: bold;
+}
+
+.status_dere_point
+{
+    position: absolute;
+    bottom: 3%;
+    left: 28%;
+    font-size: 17px;
+    color: pink;
+    font-weight: bold;
+}
+
+.status_tun_point
+{
+    position: absolute;
+    bottom: 3%;
+    right: 23%;
+    font-size: 17px;
+    color: purple;
+    font-weight: bold;
+}
+
+.status_remain_point_button
 {
     position: absolute;
     bottom: 25%;
-    left: 50%;
-    font-size: 15px;
-    color: black;
-    font-weight: bold;
+    right: 5%;
 }
