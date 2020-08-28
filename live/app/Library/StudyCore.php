@@ -50,6 +50,11 @@ class StudyCore
         
         $rankingData = GirlTermScore::where('char_id', $charId)->where('term_id', $term->term_id)->orderBy('score', 'desc')->get();
 
+        // Todo:ランキングデータをソートしてランク付け 同じポイントは同じランクだが表示順は獲得勉学ポイントが多い方が上
+
+        // ランク付け
+        $rankingData = self::attachRanking($rankingData, 'score');
+
         foreach($rankingData as $key => $rankingChar)
         {
             $playerInfo = Player::where('player_id',$rankingChar->player_id)->first();
@@ -72,6 +77,11 @@ class StudyCore
                                         ->orderBy('sum_score','desc')
                                         ->get();
 
+        // Todo:ランキングデータをソートしてランク付け 同じポイントは同じランクだが表示順は獲得勉学ポイントが多い方が上
+
+        // ランク付け
+        $rankingData = self::attachRanking($rankingData, 'sum_score');
+
         foreach($rankingData as $key => $rankingChar)
         {
             $playerInfo = Player::where('player_id',$rankingChar->player_id)->first();
@@ -81,6 +91,59 @@ class StudyCore
         }
 
         return $rankingData;
+    }
+
+    // 自分の総合ランキング
+    public static function getMyRankingByAll($playerId)
+    {
+        // 現在のtermを取得
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+        
+        $rankingData = GirlTermScore::selectRaw('`player_id`, sum(score) AS sum_score')
+                                        ->groupBy('player_id')
+                                        ->orderBy('sum_score','desc')
+                                        ->get();
+        
+        // Todo:ランキングデータをソートしてランク付け 同じポイントは同じランクだが表示順は獲得勉学ポイントが多い方が上
+
+        // ランク付け
+        $rankingData = self::attachRanking($rankingData, 'sum_score');
+        
+        $myRankInfo = false;
+        foreach($rankingData as $key => $rankingChar)
+        {
+            if($playerId == $rankingChar->player_id)
+            {
+                $myRankInfo = $rankinChar;
+            }
+        }
+
+        return $myRankInfo;
+    }
+
+    // ランク付け　同じポイントは同じランク
+    // 先に同率の場合などのソートをしてから使う
+    public static function attachRanking($rankingData, $colum)
+    {
+        $rank = 1;
+        $tieRankNum = 0;
+        foreach($rankingData as $key => $rankingChar)
+        {
+            if($key != 0)
+            {
+                if($rankingData[$key - 1][$colum] != $rankingChar[$colum])
+                {
+                    $rank = $rank + 1 + $tieRankNum;
+                    $tieRankNum = 0;
+                }
+                else
+                {
+                    $tieRankNum++;
+                }
+            }
+
+            $rankingData[$key]['rank'] = $rank;
+        }
     }
 
     

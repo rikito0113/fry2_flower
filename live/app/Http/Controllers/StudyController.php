@@ -31,10 +31,13 @@ class StudyController extends Controller
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
+        $myRankInfo = StudyCore::getMyRankingByAll($this->_playerId);
+
         return view('study.index')
             ->with('player_info',           $playerInfo)
             ->with('all_girl_info',         $allOwnedCharInfo)
             ->with('term',                  $term)
+            ->with('my_rank_info',          $myRankInfo)
             ;
     }
 

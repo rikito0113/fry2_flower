@@ -5,21 +5,27 @@
 <div class="bg-gray-flower">
     <br>
     <div class="my-study-info">
-        <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:relative;" width="100%">
+        <img src="{{ asset('/images/bg/bg_profile.png') }}" alt="プロフィール" style="position:relative" width="100%">
+        <div style="position:absolute; top:-30%; left:30%;">マサチューセッツ世界大学</div>
+        <div style="position:absolute; top:-30%; left:30%;">理系</div> 
+        <div style="position:absolute; top:-30%; left:30%;">{$player_info->study_point}</div> 
+        <div style="position:absolute; top:-30%; left:30%;">{$my_rank_info->rank}</div> 
     </div>
 
     <br>
 
     {{-- girl表示 --}}
-    <table style="width:100%; height:163px;">
+    <table style="width:100%;">
         @foreach ($all_girl_info as $index => $char)
             @if($index % 3 == 1)
             <tr style="width:100%; height:50%;">
             @endif
                 <td style="width:33.333%; height:50%;">
                 <div class="char-score">
-                    <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:absolute" width="100%">
+                    <img src="{{ asset('/images/bg/bg_subject1.png') }}" alt="点数" style="position:relative" width="100%">
                     <!-- {{ $char->char_name }} : {{ $char->subject_name }} : {{ $char->score }}点 :  -->
+                    <img src="{{ asset('/images/icon/icon_chara1.png') }}" alt="icon" class="char-study-icon">
+                    <div class="char-score-str">{{ $char->score }}pt</div>
                     <form action="/Study/girlScoreStatus" method="POST">
                         @csrf
                         <input type="hidden" name="owned_char_id" value="{{$char->owned_char_id}}">

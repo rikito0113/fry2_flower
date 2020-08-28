@@ -18,7 +18,7 @@
 {
     position:absolute;
     width:50%;
-    top:44.5%;
+    top:-44.5%;
     left:45%;
 }
 
@@ -30,4 +30,19 @@ table
 table div
 {
     height: 100%;
+}
+
+.char-score-str
+{
+    position:absolute; 
+    top:-90%; 
+    left:50%; 
+    font-size: 14px;
+}
+
+.char-study-icon
+{
+    position:absolute; 
+    top:-44.5%;
+    width:100%
 }
