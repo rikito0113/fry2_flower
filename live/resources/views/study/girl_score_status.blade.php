@@ -7,8 +7,9 @@
     <div class="my-study-info">
         <img src="{{ asset('/images/bg/bg_situ1.png') }}" alt="点数" style="position:relative" width="100%">
         <img src="{{ asset('/images/bg/bg_situ_point.png') }}" alt="点数UP" style="position:absolute; top:63%; margin-left:auto; margin-right:auto; left:0; right:0;" width="80%">
-        <div style="position:absolute; top:17%; left:17%;font-size:12px;">マサチューセッツ世界大学</div>
-        <div style="position:absolute; top:43.5%; left:39%;">理系</div> 
+        <div style="position:absolute; top:17%; left:17%;font-size:12px; font-size:38px;">{{ $player_info->study_point }}</div>
+        <div style="position:absolute; top:17%; left:40%;font-size:12px; font-size:38px;">{{ $player_info->study_point }}位</div>
+        <div style="position:absolute; top:43.5%; left:39%; font-size:150px;">{{ $owned_girl_info->score }}</div> 
 
         <div style="position:absolute; top:60%; left:0; right:0; margin-right:auto; margin-left:auto;">
             <form action="/Study/upScoreExec" method="POST">
