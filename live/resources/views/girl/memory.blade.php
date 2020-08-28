@@ -26,16 +26,37 @@
 <div width="100%">
     <img src="{{ asset('/images/titlebar/obi_cap4.png') }}" alt="えっちなメモリー" width="100%">
     <div style="text-align: center">
-        <span style="padding-right: 10px"><img class="bt_main_mem_lv" src="{{ asset('/images/button/bt_event_h1.png') }}" alt="Lv達成" width="30%"></span>
-        <span><img class="bt_main_mem_ev" src="{{ asset('/images/button/bt_event_h2.png') }}" alt="イベント" width="30%"></span>
+        <span style="padding-right: 10px"><img id="bt_main_mem_lv" src="{{ asset('/images/button/bt_event_h1.png') }}" alt="Lv達成" width="30%" onclick="btLvClick()"></span>
+        <span><img id="bt_main_mem_ev" src="{{ asset('/images/button/bt_event_h2.png') }}" alt="イベント" width="30%" onclick="btEvClick()"></span>
     </div>
 
-    <div class="wrapper_main_mem_lv">
+    <div id="wrapper_main_mem_lv">
         Lv達成
     </div>
-    <dir class="wrapper_main_mem_ev">
+    <div id="wrapper_main_mem_ev">
         イベント達成
-    </dir>
+    </div>
 </div>
+
+<script>
+    // 切り替え
+    var btLv = document.getElementById("bt_main_mem_lv");
+    var btEv = document.getElementById("bt_main_mem_ev");
+
+    var wrapperLv = document.getElementById("wrapper_main_mem_lv");
+    var wrapperEv = document.getElementById("wrapper_main_mem_ev");
+
+    wrapperLv.style.display = "";
+    wrapperEv.style.display = "none";
+
+    function btLvClick() {
+        wrapperLv.style.display = "";
+        wrapperEv.style.display = "none";
+    }
+    function btEvClick() {
+        wrapperLv.style.display = "none";
+        wrapperEv.style.display = "";
+    }
+</script>
 
 @include('footer')
