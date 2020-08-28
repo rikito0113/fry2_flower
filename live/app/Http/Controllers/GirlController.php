@@ -29,6 +29,11 @@ class GirlController extends Controller
     const NOON     = 'noon';
     const NIGHT    = 'night';
 
+    // 着替え用画像カテゴリー
+    const IMG_AVATER     = 'avatar_form';
+    const IMG_BACKGROUND = 'background';
+    const IMG_HAIR       = 'avatar_hair';
+
     // My page
     public function index()
     {
@@ -280,10 +285,35 @@ class GirlController extends Controller
         // 所持中のimg情報
         $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
 
+        // 画像をカテゴリーに分ける
+        $avaterImgs = false;
+        $bgImgs = false;
+        $hairImgs = false;
+
+        foreach($ownedCharImg as $key => $ownedImg)
+        {
+            if($ownedImg['category'] == IMG_AVATER)
+            {
+                $avaterImgs[] = $ownedImg;
+            }
+            elseif($ownedImg['category'] == IMG_BACKGROUND)
+            {
+                $bgImgs = $ownedImg;
+            }
+            elseif($ownedImg['category'] == IMG_HAIR)
+            {
+                $hairImgs = $ownedImg;
+            }
+        }
+        
+
         return view('girl.change_clothers')
             ->with('owned_char_info',   $ownedCharInfo)
             ->with('owned_char_img',    $ownedCharImg)
             ->with('current_date',      date('m月d日 H:i'))
+            ->with('avater_imgs',       $avaterImgs)
+            ->with('bd_imgs',           $bgImgs)
+            ->with('hair_imgs',         $hairImgs)
             ->with('player_info',       $playerInfo);
     }
 

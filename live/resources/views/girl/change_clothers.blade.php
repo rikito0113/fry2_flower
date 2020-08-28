@@ -25,6 +25,7 @@
     {{-- おもひで button --}}
     <img src="{{ asset('/images/button/bt_side_memory.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;">
 
+    {{--  todo タブ切替 --}}
     <div class="bg-change-clother-items">
         {{-- 着替え --}}
         <table style="width:100%;">
