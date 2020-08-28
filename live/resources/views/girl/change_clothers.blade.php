@@ -25,18 +25,6 @@
     {{-- おもひで button --}}
     <img src="{{ asset('/images/button/bt_side_memory.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;">
 
-    <!-- {{-- 花嫁修行/外へ行く button --}}
-    <table style="position:absolute; bottom: 5px;">
-        <tr>
-            <td width="50%">
-                <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" alt="bt_menu1" width="80%" height="40%"></a>
-            </td>
-            <td width="50%">
-                <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" width="80%" height="40%"></a>
-            </td>
-        </tr>
-    </table> -->
-
     <div class="bg-change-clother-items">
     {{-- 着替え --}}
     <table style="width:100%;">
