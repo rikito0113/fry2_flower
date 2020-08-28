@@ -31,6 +31,8 @@ Route::get('/Girl/eventField',                           'GirlController@eventFi
 Route::get('/Girl/eventPlace/{field}',                   'GirlController@eventPlace');
 Route::get('/Girl/eventChat/{place}',                    'GirlController@eventChat')->name('girl.eventChat');
 Route::post('/Girl/eventChatSend',                       'GirlController@eventChatSend');
+Route::get('/Girl/memory',                               'GirlController@memory')->name('girl.memory');
+
 
 Route::get('/Girl/status/{ownedCharId}',                 'GirlController@status');
 Route::get('/Girl/statusUp/{ownedCharId}',               'GirlController@statusUp');
