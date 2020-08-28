@@ -27,11 +27,11 @@
 <img src="{{ asset('/images/banner/obi_cap_ranking' . $term->term_id . '.png') }}" alt="テスト期間" style="width:100%; vertical-align:top;"><br>
     <div class="my-study-info">
         <img src="{{ asset('/images/bg/bg_situ1.png') }}" alt="点数" style="position:relative" width="100%">
-        <img src="{{ asset('/images/bg/bg_situ_point.png') }}" alt="点数UP" style="position:absolute; top:50%; margin-left:auto; margin-right:auto;" width="100%">
+        <img src="{{ asset('/images/bg/bg_situ_point.png') }}" alt="点数UP" style="position:absolute; top:60%; margin-left:auto; margin-right:auto; reft:0; right:0;" width="100%">
         <div style="position:absolute; top:17%; left:17%;font-size:12px;">マサチューセッツ世界大学</div>
         <div style="position:absolute; top:43.5%; left:39%;">理系</div> 
 
-        <form action="/Study/upScoreExec" method="POST">
+        <form action="/Study/upScoreExec" method="POST" style="position:absolute; width:40%; top:60%; margin-left:auto; margin-left:auto;>
             @csrf
             <select name="add_score">
                 @for ($i = 0; $i <= $player_info->study_point; $i++)
@@ -39,7 +39,7 @@
                 @endfor
             </select>
             <input type="hidden" name="owned_char_id" value="{{$owned_girl_info->owned_char_id}}">
-            <input type="image" src="{{ asset('/images/button/bt_study.png') }}" value="確定" style="position:absolute; width:40%; top:60%; margin-left:auto; margin-left:auto;">
+            <input type="image" src="{{ asset('/images/button/bt_profile_mini1.png') }}" value="確定" style="position:absolute; width:40%; top:60%; margin-left:auto; margin-left:auto;">
         </form>
 
 
