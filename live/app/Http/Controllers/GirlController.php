@@ -9,12 +9,13 @@ use App\Player;
 use App\OwnedCharacterImg;
 use App\PlayerChatLog;
 use App\Scenario;
+use App\EventMemory;
 
 
 // ライブラリの呼び出し
 use App\Library\GirlCore;
 use App\Library\PlayerChatCore;
-
+use App\MainMemory;
 use Illuminate\Http\Request;
 
 class GirlController extends Controller
@@ -267,7 +268,7 @@ class GirlController extends Controller
         return redirect()->route('girl.eventChat', ['place' => $scenarioInfo->place]);
     }
 
-    // 着替え   
+    // 着替え
     public function changeClothers()
     {
         // 全てのgirl情報
@@ -299,4 +300,31 @@ class GirlController extends Controller
         return redirect()->route('girl.changeClothers');
     }
 
+    // 思い出
+    public function memory()
+    {
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        $charIds             = CharacterData::get()->char_id;
+        $eventMemory         = EventMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->get();
+        $eventMemoryLength   = count($eventMemory);
+        $mainMemoryLv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
+        $mainMemoryEv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 0)->get();
+        $allMainMemoryLv     = 3;         // マスタ作成後、入れる。
+        $allMainMemoryEv     = 3;         // マスタ作成後、入れる。
+
+        // 選択中のgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
+
+        return view('girl.memory')
+            ->with('char_ids',                $charIds)
+            ->with('event_memory',            $eventMemory)
+            ->with('main_memory_Lv',          $mainMemoryLv)
+            ->with('main_memory_ev',          $mainMemoryEv)
+            ->with('all_main_memory_Lv',      $allMainMemoryLv)
+            ->with('all_main_memory_ev',      $allMainMemoryEv)
+            ->with('event_memory_length',     $eventMemoryLength)
+            ->with('owned_char_info',         $ownedCharInfo)
+            ->with('current_date',            date('m月d日 H:i'));
+    }
 }
