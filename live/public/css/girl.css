@@ -138,8 +138,30 @@ p.chat-text {
 .mem_frame
 {
     width: 29%;
+    text-align: center;
     background: url(../images/icon/bt_mem_frame.png);
+    background-repeat: no-repeat;
+    background-size: contain;
     font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
     font-size: 27pt;
     color: white;
+}
+
+.event_mem
+{
+    background: url(../images/bg/bg_img_pink.jpg);
+    display: -webkit-box;
+    display: -ms-flexbox;/* IE10用 */
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap : wrap;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.event_mem li
+{
+    width: 25%;
+    list-style: none !important; /* ブログの都合上importantが入っています。 */
+    vertical-align: middle; /* tableとは違い、効かない */
 }

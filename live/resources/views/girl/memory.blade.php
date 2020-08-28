@@ -5,21 +5,21 @@
 
 <div width="100%">
     <img src="{{ asset('/images/titlebar/obi_cap3.png') }}" alt="日常メモリー" width="100%">
-    <div>2020年7月->夏</div>
+    <div style="text-align: center;">2020年7月->夏</div>
     @for ($i = 0; $i < 12; $i++)
-        @if ($i % 4 == 0)
-            <br />
-        @endif
-
-        <span>
+        <ul class="event_mem">
             @if ($i + 1 > $event_memory_length)
-                <img src="{{ asset('/images/icon/bt_mem_place_seacret.png') }}" alt="シークレット" width="29%">
-                <p class="mem_frame">?????</p>
+                <li>
+                    <img src="{{ asset('/images/icon/bt_mem_place_seacret.png') }}" alt="シークレット" width="29%">
+                    <p class="mem_frame">?????</p>
+                </li>
             @else
-                <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="29%">
-                <p class="mem_frame">題名</p>
+                <li>
+                    <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="29%">
+                    <p class="mem_frame">題名</p>
+                </li>
             @endif
-        </span>
+        </ul>
     @endfor
 </div>
 
