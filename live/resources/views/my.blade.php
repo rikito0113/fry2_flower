@@ -28,9 +28,7 @@
         </div>
 
         {{-- キャンペーン関連 --}}
-        <div style="text-align:center; width:100%; vertical-align:top;">
-            <img src="{{ asset('/images/titlebar/obi_campain.png') }}" alt="obi_campaign" width="100%"><br>
-        </div>
+        <img src="{{ asset('/images/titlebar/obi_campain.png') }}" alt="obi_campaign" width="100%" style="width:100%; vertical-align:top;"><br>
         <div style="text-align:center; width:100%">
             <img src="{{ asset('/images/banner/bt_cam1.png') }}" alt="banner" width="95%"><br>
         </div>
