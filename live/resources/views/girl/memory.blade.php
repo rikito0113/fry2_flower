@@ -15,8 +15,10 @@
                 </li>
             @else
                 <li>
-                    <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="29%">
-                    <span class="mem_frame">題名</span>
+                    <a href="/Girl/eventMemory/{{ $event_memory[$i]->scenario_id }}">
+                        <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="29%">
+                        <span class="mem_frame">題名</span>
+                    </a>
                 </li>
             @endif
         @endfor
