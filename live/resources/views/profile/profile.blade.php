@@ -24,7 +24,7 @@
             @csrf
             <img src="{{ asset('/images/bg/bg_profile_update1.png') }}" alt="名前変更" style="width:80%; vertical-align:top;">
             <input type="text" name="name" placeholder="名前を入力">
-            <input type="img" src="{{ asset('/images/button/bt_update.png') }}" style="position: absolute; top: 10%;">
+            <input type="image" src="{{ asset('/images/button/bt_update.png') }}" style="position: absolute; top: 10%;">
         </form>
     </div>
     @endif
@@ -44,7 +44,7 @@
                     <option value="{{ $owned_title->title_id }}">{{ $owned_title->title_text }}</option>
                 @endforeach
             </select>
-            <input type="img" src="{{ asset('/images/button/bt_update.png') }}" style="position: absolute; bottom: 10%;">
+            <input type="image" src="{{ asset('/images/button/bt_update.png') }}" style="position: absolute; bottom: 10%;">
         </form>
     </div>
     @endif
