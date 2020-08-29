@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ScenarioTableSeeder::class);
         $this->call(EventFixedPhraseTableSeeder::class);
         $this->call(ExpLookupTableSeeder::class);
+        $this->call(MemoryTableSeeder::class);
+        $this->call(RewardLevelTableSeeder::class);
     }
 }
