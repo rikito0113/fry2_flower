@@ -6,6 +6,12 @@
     font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
 }
 
+.study-font
+{
+    font-weight:bold;
+    color:#353b6b;
+}
+
 .char-score
 {
     width:100%;
