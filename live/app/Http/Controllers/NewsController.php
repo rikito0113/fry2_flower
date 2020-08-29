@@ -52,7 +52,7 @@ class NewsController extends Controller
         $log = NewsLog::where('player_id', $this->_playerId)->where('news_id', $newsId)->first();
 
         // ログ作ってなかったらログ生成
-        if (!isset($log[0])) {
+        if (!isset($log)) {
             $girlScoreInstance = new NewsLog;
             $girlScoreInstance->create([
                 'player_id'     => $this->_playerId,
