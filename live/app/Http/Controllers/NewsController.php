@@ -15,6 +15,7 @@ class NewsController extends Controller
         $type = 1;
         $kidoku = NewsLog::where('player_id', $this->_playerId)->get();
         $news = News::all();
+        $allNews = array();
         if (count($kidoku) != count($news)) {
             $type = 2;
         }
@@ -33,7 +34,7 @@ class NewsController extends Controller
             $allNews = $news;
         }
 
-        if (!$allNews) {
+        if (!isset($allNews)) {
             $allNews = News::all();
         }
 
