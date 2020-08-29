@@ -22,8 +22,8 @@
         <form action="/Profile/changeNameConfirm" method="POST" style="position: relative;">
             @csrf
             <img src="{{ asset('/images/bg/bg_profile_update1.png') }}" alt="名前変更" style="width:80%; vertical-align:top;">
-            <input type="text" name="name" placeholder="名前を入力" style="position: absolute; top: 10%;" width="80%">
-            <input type="image" src="{{ asset('/images/button/bt_update.png') }}" style="position: absolute; top: 0;" width="20%">
+            <input class="profile_update_input" type="text" name="name" placeholder="名前を入力">
+            <input class="profile_update_btn" type="image" src="{{ asset('/images/button/bt_update.png') }}" width="20%">
         </form>
     </div>
     @endif
@@ -33,17 +33,16 @@
     @if(isset($is_title_change))
         称号変更済<br>
     @else
-    称号を変更<br>
     <div style="text-align: center; align:center;">
         <form action="/Profile/changeTitleConfirm" method="POST" style="position: relative;">
             @csrf
             <img src="{{ asset('/images/bg/bg_profile_update2.png') }}" alt="二つ名変更" style="width:80%; vertical-align:top;">
-            <select name="title_id" style="position: absolute; top: 10%;" width="80%">
+            <select class="profile_update_input" name="title_id">
                 @foreach ($owned_titles as $owned_title)
                     <option value="{{ $owned_title->title_id }}">{{ $owned_title->title_text }}</option>
                 @endforeach
             </select>
-            <input type="image" src="{{ asset('/images/button/bt_update.png') }}" style="position: absolute; top: 0;" width="20%">
+            <input class="profile_update_btn" type="image" src="{{ asset('/images/button/bt_update.png') }}" width="20%">
         </form>
     </div>
     @endif
