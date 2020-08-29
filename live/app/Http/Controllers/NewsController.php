@@ -17,8 +17,8 @@ class NewsController extends Controller
         $news = News::all();
         $allNews = array();
         if (count($kidoku) != count($news)) {
-            echo count($kidoku);
-            echo count($news);
+            // echo count($kidoku);
+            // echo count($news);
             $type = 2;
         }
         if (isset($kidoku[0]) && $type == 2) {
