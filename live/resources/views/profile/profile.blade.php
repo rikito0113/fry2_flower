@@ -22,8 +22,9 @@
     <div style="text-align: center; align:center;">
         <form action="/Profile/changeNameConfirm" method="POST">
             @csrf
-            <input type="text" name="name" placeholder="新しい名前を入力">
-            <input type="submit" value="変更">
+            <img src="{{ asset('/images/bg/bg_profile_update1.png') }}" alt="名前変更" style="width:80%; vertical-align:top;">
+            <input type="text" name="name" placeholder="名前を入力">
+            <input type="img" src="{{ asset('/images/button/bt_update.png') }}" style="position: absolute; top: 10%;">
         </form>
     </div>
     @endif
@@ -37,12 +38,13 @@
     <div style="text-align: center; align:center;">
         <form action="/Profile/changeTitleConfirm" method="POST">
             @csrf
+            <img src="{{ asset('/images/bg/bg_profile_update2.png') }}" alt="二つ名変更" style="width:80%; vertical-align:top;">
             <select name="title_id">
                 @foreach ($owned_titles as $owned_title)
                     <option value="{{ $owned_title->title_id }}">{{ $owned_title->title_text }}</option>
                 @endforeach
             </select>
-            <input type="submit" value="変更">
+            <input type="img" src="{{ asset('/images/button/bt_update.png') }}" style="position: absolute; bottom: 10%;">
         </form>
     </div>
     @endif
