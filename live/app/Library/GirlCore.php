@@ -181,7 +181,7 @@ class GirlCore
                 ]);
             }
 
-            $charId = Scenario::where('scenaio_id', $scenarioId)->first()->char_id;
+            $charId = Scenario::where('scenario_id', $scenarioId)->first()->char_id;
             $ownedCharId = OwnedCharacterData::where('char_id', $charId)->where('player_id', $playerId)->first()->owned_char_id;
 
             // 思ひ出作成
