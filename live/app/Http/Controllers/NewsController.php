@@ -42,8 +42,16 @@ class NewsController extends Controller
     public function detail($newsId)
     {
         $news = News::where('news_id', $newsId)->first();
+        $log = NewsLog::where('player_id', $this->_playerId)->where('news_id', $newsId)->first();
 
         // ログ作ってなかったらログ生成
+        if (!isset($log[0])) {
+            $girlScoreInstance = new NewsLog;
+            $girlScoreInstance->create([
+                'player_id'     => $this->_playerId,
+                'news_id'       => $newsId,
+            ]);
+        }
 
         return view('news.detail')
             ->with('news', $news);
