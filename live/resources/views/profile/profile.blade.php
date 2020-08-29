@@ -14,7 +14,7 @@
 
 <div class="bg-gray">
     <img src="{{ asset('/images/titlebar/obi_cap_ranking4.png') }}" alt="プロフィール更新" style="width:100%; vertical-align:top;"><br>
-
+    <br>
     @if(isset($is_name_change))
     名前変更済<br>
     @else
@@ -46,6 +46,11 @@
         </form>
     </div>
     @endif
+
+    <div style="text-align: center; align:center;">
+        <p class="profile_annotation">※名前や二つ名は１日１回しか変更できません</p><br>
+    </div>
+
 </div>
 
 @include('footer')

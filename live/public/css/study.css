@@ -66,5 +66,12 @@ table div
 {
     position:absolute;
     top:50%;
-    left:10%;
+    left:15%;
+    width: 70%;
+}
+
+.profile_annotation
+{
+    color: darkgray;
+    opacity: 0.5;
 }
