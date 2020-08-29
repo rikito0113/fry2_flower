@@ -27,7 +27,7 @@ class NewsController extends Controller
             }
             $allNewsId = array_diff($newsTmp, $kidokuTmp);
             foreach ($allNewsId as $row) {
-                $allNews[] = $news[$row['news_id']];
+                $allNews[] = News::where('news_id', $row['news_id']);
             }
         } else {
             $allNews = $news;
