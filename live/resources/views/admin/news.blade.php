@@ -21,22 +21,20 @@
 
     {{-- 今までの新着情報 --}}
     @if (isset($all_news))
-        @foreach ($all_news as $row)
-            <table border="5" bordercolor="red" width="60%">
+        <table border="1" bordercolor="red" width="60%">
+            <tr>
+                <td>news_id</td>
+                <td>title</td>
+                <td>content</td>
+            </tr>
+            @foreach ($all_news as $row)
                 <tr>
-                    <td>news_id</td>
                     <td>{{$row->news_id}}</td>
-                </tr>
-                <tr>
-                    <td>title</td>
                     <td>{{$row->title}}</td>
-                </tr>
-                <tr>
-                    <td>contents</td>
                     <td>{{$row->content}}</td>
                 </tr>
-            </table>
-        @endforeach
+            @endforeach
+        </table>
     @endif
 </div>
 
