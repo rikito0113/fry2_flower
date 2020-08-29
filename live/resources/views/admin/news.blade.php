@@ -31,7 +31,7 @@
                 <tr>
                     <td>{{$row->news_id}}</td>
                     <td>{{$row->title}}</td>
-                    <td>{{$row->content}}</td>
+                    <td>{{!! $row->content !!}}</td>
                 </tr>
             @endforeach
         </table>
