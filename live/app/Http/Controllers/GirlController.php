@@ -305,7 +305,6 @@ class GirlController extends Controller
                 $hairImgs = $ownedImg;
             }
         }
-        
 
         return view('girl.change_clothers')
             ->with('owned_char_info',   $ownedCharInfo)
