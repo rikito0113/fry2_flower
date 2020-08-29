@@ -72,6 +72,7 @@ table div
 
 .profile_annotation
 {
-    color: darkgray;
-    opacity: 0.5;
+    color: black;
+    opacity: 0.4;
+    font-size: small;
 }
