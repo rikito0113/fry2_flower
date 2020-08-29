@@ -33,7 +33,7 @@
     </div>
 
     <div id="wrapper_main_mem_lv" style="text-align: center">
-        @if ($mainMemoryLv)
+        @if ($main_memory_Lv)
             @foreach ($main_memory_Lv as $item)
                 {{ $item->memory_id }}
             @endforeach
