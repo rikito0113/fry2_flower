@@ -55,9 +55,8 @@ Route::get('/Study/studyRanking',                         'StudyController@study
 Route::post('/Study/girlScoreStatus',                     'StudyController@girlScoreStatus')->name('study.girlScoreStatus');
 Route::post('/Study/upScoreExec',                         'StudyController@upScoreExec')->name('study.upScoreExec');
 
-
-
-
+// 新着情報関連
+Route::get('/News/index',                                 'NewsController@index')->name('news.index');
 
 
 

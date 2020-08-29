@@ -36,5 +36,7 @@
         <a href="{{ action('ProfileController@profile') }}">
             <img class="other-header-child5" name="tag" src="{{ asset('/images/button/bt_side_profile.png') }}" alt="プロフィール">
         </a>
-        <img class="other-header-child6" name="tag" src="{{ asset('/images/button/bt_side_news.png') }}" alt="新着情報">
+        <a href="{{ action('NewsController@index') }}">
+            <img class="other-header-child6" name="tag" src="{{ asset('/images/button/bt_side_news.png') }}" alt="新着情報">
+        </a>
     </div>
