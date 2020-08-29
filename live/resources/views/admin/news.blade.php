@@ -11,7 +11,33 @@
 @include('admin.side', ['menu'=>'news'])
 
 <div id="Contents">
-    新着情報
+    <form action="/Admin/newsConfirm" method="POST">
+        @csrf
+        <textarea name="title" cols="50" rows="4" placeholder="タイトルを入力"></textarea>
+        <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
+        <button type="submit" onclick="submit();">確認へ</button>
+    </form>
+    <br><br>
+
+    {{-- 今までの新着情報 --}}
+    @if (isset($all_news))
+        @foreach ($all_news as $row)
+            <table border="5" bordercolor="red" width="60%">
+                <tr>
+                    <td>news_id</td>
+                    <td>{{$row->news_id}}</td>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td>{{$row->title}}</td>
+                </tr>
+                <tr>
+                    <td>contents</td>
+                    <td>{{$row->content}}</td>
+                </tr>
+            </table>
+        @endforeach
+    @endif
 </div>
 
 </body>

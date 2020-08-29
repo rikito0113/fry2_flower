@@ -87,6 +87,8 @@ Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     Route::post('eventChatConfirm',                             'AdminController@eventChatConfirm');
     Route::post('eventChatSend',                                'AdminController@eventChatSend');
     Route::get('news',                                          'AdminController@news')->name('admin.news');
+    Route::post('newsConfirm',                                  'AdminController@newsConfirm');
+    Route::post('newsSend',                                     'AdminController@newsSend');
 
     Route::view('should_reply',                             'admin.should_reply');
     Route::view('should_reply_normal',                      'admin.should_reply_normal');
