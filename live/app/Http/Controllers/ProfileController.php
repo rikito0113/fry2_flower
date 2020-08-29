@@ -10,6 +10,7 @@ use App\OwnedCharacterData;
 
 use App\Library\ProfileCore;
 use App\Library\GirlCore;
+use App\Library\StudyCore;
 
 use Illuminate\Http\Request;
 
@@ -42,6 +43,7 @@ class ProfileController extends Controller
         $isTodayNameChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->where('change_type',1)->first();
         $isTodayTitleChange = ChangeNameAndTitle::where('player_id',$this->_playerId)->where('change_date',date("Y-m-d"))->where('change_type',2)->first();
 
+        $myRankInfo = StudyCore::getMyRankingByAll($this->_playerId);
 
         return view('profile.profile')
             ->with('player_info',           $playerInfo)
@@ -49,6 +51,7 @@ class ProfileController extends Controller
             ->with('title',                 $title)
             ->with('is_name_change',        $isTodayNameChange)
             ->with('is_title_change',       $isTodayTitleChange)
+            ->with('my_rank_info',          $myRankInfo)
             ;
     }
 
