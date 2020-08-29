@@ -58,6 +58,7 @@ Route::post('/Study/upScoreExec',                         'StudyController@upSco
 
 // 新着情報関連
 Route::get('/News/index',                                 'NewsController@index')->name('news.index');
+Route::get('/News/detail/{newsId}',                       'NewsController@detail');
 
 
 
