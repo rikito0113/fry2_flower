@@ -18,7 +18,7 @@ class NewsController extends Controller
         if (count($kidoku) != count($news)) {
             $type = 2;
         }
-        if ($kidoku) {
+        if (array_key_exists('news_id', $kidoku)) {
             foreach ($kidoku as $kRow) {
                 $kidokuTmp[] = $kRow['news_id'];
             }
