@@ -361,7 +361,7 @@ class GirlController extends Controller
     public function memoryToScenario($scenarioId)
     {
         $scenarioInfo = Scenario::where('scenario_id', $scenarioId)->where('start_datetime', '<=', date('Y-m-d H:i:s'))->where('end_datetime', '>=', date('Y-m-d H:i:s'))->first();
-        if (!$scenarioInfo->isEmpty()) {
+        if ($scenarioInfo) {
             $dayTime = null;
             if (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_NIGHT)) {
                 $dayTime = self::NIGHT;

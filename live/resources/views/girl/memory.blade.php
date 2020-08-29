@@ -16,7 +16,7 @@
             @else
                 <li>
                     <a href="/Girl/eventMemory/{{ $event_memory[$i]->scenario_id }}">
-                        <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="29%">
+                        <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="100%">
                         <span class="mem_frame">題名</span>
                     </a>
                 </li>
