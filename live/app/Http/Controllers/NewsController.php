@@ -18,16 +18,21 @@ class NewsController extends Controller
         if (count($kidoku) != count($news)) {
             $type = 2;
         }
-        foreach ($kidoku as $kRow) {
-            $kidokuTmp[] = $kRow['news_id'];
+        if ($kidoku) {
+            foreach ($kidoku as $kRow) {
+                $kidokuTmp[] = $kRow['news_id'];
+            }
+            foreach ($news as $nRow) {
+                $newsTmp[] = $nRow['news_id'];
+            }
+            $allNewsId = array_diff($newsTmp, $kidokuTmp);
+            foreach ($allNewsId as $row) {
+                $allNews[] = $news[$row['news_id']];
+            }
+        } else {
+            $allNews = $news;
         }
-        foreach ($news as $nRow) {
-            $newsTmp[] = $nRow['news_id'];
-        }
-        $allNewsId = array_diff($newsTmp, $kidokuTmp);
-        foreach ($allNewsId as $row) {
-            $allNews[] = $news[$row['news_id']];
-        }
+
         return view('news.index')
         ->with('all_news', $allNews)
         ->with('type', $type);
