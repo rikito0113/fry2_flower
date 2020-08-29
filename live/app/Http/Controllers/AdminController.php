@@ -261,4 +261,11 @@ class AdminController extends Controller
 
         return redirect()->route('admin.index');
     }
+
+    // 新着情報
+    public function news()
+    {
+
+        return view('admin.news');
+    }
 }

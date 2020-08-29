@@ -85,6 +85,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     Route::get('eventChat/{scenarioId}/{playerId}/{isRead}',    'AdminController@eventChat')->name('admin.eventChat');
     Route::post('eventChatConfirm',                             'AdminController@eventChatConfirm');
     Route::post('eventChatSend',                                'AdminController@eventChatSend');
+    Route::get('news',                                          'AdminController@news')->name('admin.news');
 
     Route::view('should_reply',                             'admin.should_reply');
     Route::view('should_reply_normal',                      'admin.should_reply_normal');
