@@ -13,7 +13,7 @@ class NewsController extends Controller
     public function index()
     {
         $type = 1;
-        $kidoku = NewsLog::where('player_id', $this->_playerId)->all();
+        $kidoku = NewsLog::where('player_id', $this->_playerId)->get();
         $news = News::all();
         if (count($kidoku) != count($news)) {
             $type = 2;
@@ -31,6 +31,10 @@ class NewsController extends Controller
             }
         } else {
             $allNews = $news;
+        }
+
+        if (!$allNews) {
+            $allNews = News::all();
         }
 
         return view('news.index')
