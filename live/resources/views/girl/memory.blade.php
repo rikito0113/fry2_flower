@@ -5,37 +5,58 @@
 
 <div width="100%">
     <img src="{{ asset('/images/titlebar/obi_cap3.png') }}" alt="日常メモリー" width="100%">
-    <div>2020年7月->夏</div>
-    @for ($i = 0; $i < 12; $i++)
-        @if ($i % 4 == 0)
-            <br />
-        @endif
-
-        <span>
+    <div style="text-align: center;">2020年7月->夏</div>
+    <ul class="event_mem">
+        @for ($i = 0; $i < 12; $i++)
             @if ($i + 1 > $event_memory_length)
-                <img src="{{ asset('/images/icon/bt_mem_place_seacret.png') }}" alt="シークレット" width="29%">
-                <p class="mem_frame">?????</p>
+                <li>
+                    <img src="{{ asset('/images/icon/bt_mem_place_seacret.png') }}" alt="シークレット" width="100%">
+                    <span class="mem_frame">?????</span>
+                </li>
             @else
-                <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="29%">
-                <p class="mem_frame">題名</p>
+                <li>
+                    <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="29%">
+                    <span class="mem_frame">題名</span>
+                </li>
             @endif
-        </span>
-    @endfor
+        @endfor
+    </ul>
 </div>
 
 <div width="100%">
     <img src="{{ asset('/images/titlebar/obi_cap4.png') }}" alt="えっちなメモリー" width="100%">
     <div style="text-align: center">
-        <span style="padding-right: 10px"><img class="bt_main_mem_lv" src="{{ asset('/images/button/bt_event_h1.png') }}" alt="Lv達成" width="30%"></span>
-        <span><img class="bt_main_mem_ev" src="{{ asset('/images/button/bt_event_h2.png') }}" alt="イベント" width="30%"></span>
+        <span style="padding-right: 10px"><img id="bt_main_mem_lv" src="{{ asset('/images/button/bt_event_h1.png') }}" alt="Lv達成" width="30%" onclick="btLvClick()"></span>
+        <span><img id="bt_main_mem_ev" src="{{ asset('/images/button/bt_event_h2.png') }}" alt="イベント" width="30%" onclick="btEvClick()"></span>
     </div>
 
-    <div class="wrapper_main_mem_lv">
+    <div id="wrapper_main_mem_lv">
         Lv達成
     </div>
-    <dir class="wrapper_main_mem_ev">
+    <div id="wrapper_main_mem_ev">
         イベント達成
-    </dir>
+    </div>
 </div>
+
+<script>
+    // 切り替え
+    var btLv = document.getElementById("bt_main_mem_lv");
+    var btEv = document.getElementById("bt_main_mem_ev");
+
+    var wrapperLv = document.getElementById("wrapper_main_mem_lv");
+    var wrapperEv = document.getElementById("wrapper_main_mem_ev");
+
+    wrapperLv.style.display = "";
+    wrapperEv.style.display = "none";
+
+    function btLvClick() {
+        wrapperLv.style.display = "";
+        wrapperEv.style.display = "none";
+    }
+    function btEvClick() {
+        wrapperLv.style.display = "none";
+        wrapperEv.style.display = "";
+    }
+</script>
 
 @include('footer')
