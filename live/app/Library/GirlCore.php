@@ -16,8 +16,6 @@ use App\GirlTermScore;
 use App\PlayerScenarioData;
 use App\AdminEventChatLog;
 use App\EventFixedPhrase;
-use App\EventMemory;
-use App\Scenario;
 
 class GirlCore
 {
@@ -148,7 +146,7 @@ class GirlCore
     }
 
     /**
-     * シナリオデータの作成と初期メッセージの作成、思ひ出のinsert
+     * シナリオデータの作成と初期メッセージの作成
      *
      * @param int $playerId
      * @param int $scenarioId
@@ -180,17 +178,6 @@ class GirlCore
                     'is_player'           => false,
                 ]);
             }
-
-            $charId = Scenario::where('scenario_id', $scenarioId)->first()->char_id;
-            $ownedCharId = OwnedCharacterData::where('char_id', $charId)->where('player_id', $playerId)->first()->owned_char_id;
-
-            // 思ひ出作成
-            $eventMemInstance = new EventMemory;
-            $eventMemInstance->create([
-                'player_id'     => $playerId,
-                'scenario_id'   => $scenarioId,
-                'owned_char_id' => $ownedCharId,
-            ]);
         }
     }
 }

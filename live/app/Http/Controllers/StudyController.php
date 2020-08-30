@@ -54,7 +54,7 @@ class StudyController extends Controller
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
         // ランキング取得
-
+        $rankingData = StudyCore::getRankingByCharId($ownedCharInfo->char_id);
 
         return view('study.girl_score_status')
             ->with('player_info',           $playerInfo)
@@ -77,13 +77,6 @@ class StudyController extends Controller
     // 勉学ptランキング
     public function studyRanking(Request $request)
     {
-        // playerのgirl情報
-        $allOwnedCharId = OwnedCharacterData::where('player_id', $this->_playerId)->get();
-        $allOwnedCharInfo = array();
-        foreach ($allOwnedCharId as $key => $ownedCharId) {
-            $allOwnedCharInfo[$ownedCharId->owned_char_id] = GirlCore::girlLoad($ownedCharId->owned_char_id);
-        }
-
         $rankingCharId = $request->char_id;
 
         if($rankingCharId)
@@ -111,5 +104,25 @@ class StudyController extends Controller
             ->with('ranking_char_id',       $rankingCharId)  
             ->with('char_info',             $charInfo)
             ;
+    }
+
+    // 勉学pt達成報酬
+    public function studyReward(Request $request)
+    {
+        // playerのgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($request->owned_char_id);
+
+        // 現在のtermを取得
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+
+        // プレイヤー情報取得
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        return view('study.girl_score_status')
+            ->with('player_info',           $playerInfo)
+            ->with('owned_girl_info',       $ownedCharInfo)
+            ->with('term',                  $term)
+            ;
+
     }
 }
