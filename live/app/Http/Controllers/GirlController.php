@@ -81,9 +81,13 @@ class GirlController extends Controller
     {
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
+
+        $mainMemoryLv = self::_getMemoryLv($this->_playerId, $ownedCharId);
+
         return view('girl.status')
+            ->with('main_memory_Lv',    $mainMemoryLv)
             ->with('current_date',      date('m月d日 H:i'))
-            ->with('owned_char_info', $ownedCharInfo);
+            ->with('owned_char_info',   $ownedCharInfo);
     }
 
     // ツンデレポイント割り振り
