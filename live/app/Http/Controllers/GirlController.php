@@ -16,6 +16,7 @@ use App\EventMemory;
 use App\Library\GirlCore;
 use App\Library\PlayerChatCore;
 use App\MainMemory;
+use App\RewardLevel;
 use Illuminate\Http\Request;
 
 class GirlController extends Controller
@@ -333,13 +334,15 @@ class GirlController extends Controller
     public function memory()
     {
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
+        $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $playerInfo->owned_char_id)->first();
 
         // $charIds             = CharacterData::get()->char_id;
         $eventMemory         = EventMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->get();
         $eventMemoryLength   = count($eventMemory);
-        $mainMemoryLv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
+        $ownedMainMemoryLv   = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
         $mainMemoryEv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 0)->get();
-        $allMainMemoryLv     = 3;         // マスタ作成後、入れる。
+        $allMainMemoryLv     = RewardLevel::where('char_id', $ownedCharInfo->char_id)->orderBy('level', 'desc')->skip(count($eventMemory))->get();         // マスタ作成後、入れる。
+        $mainMemoryLv        = [...$ownedMainMemoryLv, ...$allMainMemoryLv];
         $allMainMemoryEv     = 3;         // マスタ作成後、入れる。
 
         // 選択中のgirl情報
