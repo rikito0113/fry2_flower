@@ -240,7 +240,7 @@ class GirlController extends Controller
 
         // eventChat送信後のリダイレクトの際はplaceを付属すること
         if ($place){
-            $scenarioInfo = Scenario::where('place', $place)->where('daytime', $dayTime)->first();
+            $scenarioInfo = Scenario::where('place', $place)->where('daytime', $dayTime)->where('start_datetime', '<=', date('Y-m-d H:i:s'))->where('end_datetime', '>=', date('Y-m-d H:i:s'))->first();
 
             if ($scenarioInfo) {
                 GirlCore::createPlayerScenarioData($this->_playerId, $scenarioInfo->scenario_id);
@@ -305,7 +305,6 @@ class GirlController extends Controller
                 $hairImgs = $ownedImg;
             }
         }
-        
 
         return view('girl.change_clothers')
             ->with('owned_char_info',   $ownedCharInfo)
@@ -356,5 +355,31 @@ class GirlController extends Controller
             ->with('event_memory_length',     $eventMemoryLength)
             ->with('owned_char_info',         $ownedCharInfo)
             ->with('current_date',            date('m月d日 H:i'));
+    }
+
+    // 思い出からの画面遷移
+    public function memoryToScenario($scenarioId)
+    {
+        $scenarioInfo = Scenario::where('scenario_id', $scenarioId)->where('start_datetime', '<=', date('Y-m-d H:i:s'))->where('end_datetime', '>=', date('Y-m-d H:i:s'))->first();
+        if ($scenarioInfo) {
+            $dayTime = null;
+            if (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_NIGHT)) {
+                $dayTime = self::NIGHT;
+            } elseif (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_NOON)) {
+                $dayTime = self::NOON;
+            } elseif (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_MORNING)) {
+                $dayTime = self::MORNING;
+            }
+
+            if ($dayTime == $scenarioInfo->daytime)
+                return redirect()->route('girl.eventChat', ['place' => $scenarioInfo->place]);
+        }
+
+        $scenarioInfo = Scenario::where('scenario_id', $scenarioId)->first();
+        $eventChatLog = PlayerChatCore::getEventChatLogByScenario($this->_playerId, $scenarioInfo->scenario_id);
+
+        return view('girl.event_memory')
+            ->with('scenario_info',    $scenarioInfo)
+            ->with('event_chat_log',   $eventChatLog);
     }
 }

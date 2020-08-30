@@ -32,6 +32,7 @@ Route::get('/Girl/eventPlace/{field}',                   'GirlController@eventPl
 Route::get('/Girl/eventChat/{place}',                    'GirlController@eventChat')->name('girl.eventChat');
 Route::post('/Girl/eventChatSend',                       'GirlController@eventChatSend');
 Route::get('/Girl/memory',                               'GirlController@memory')->name('girl.memory');
+Route::get('/Girl/eventMemory/{scenarioId}',             'GirlController@memoryToScenario');
 
 
 Route::get('/Girl/status/{ownedCharId}',                 'GirlController@status');
@@ -55,9 +56,9 @@ Route::get('/Study/studyRanking',                         'StudyController@study
 Route::post('/Study/girlScoreStatus',                     'StudyController@girlScoreStatus')->name('study.girlScoreStatus');
 Route::post('/Study/upScoreExec',                         'StudyController@upScoreExec')->name('study.upScoreExec');
 
-
-
-
+// 新着情報関連
+Route::get('/News/index',                                 'NewsController@index')->name('news.index');
+Route::get('/News/detail/{newsId}',                       'NewsController@detail');
 
 
 
@@ -86,6 +87,9 @@ Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     Route::get('eventChat/{scenarioId}/{playerId}/{isRead}',    'AdminController@eventChat')->name('admin.eventChat');
     Route::post('eventChatConfirm',                             'AdminController@eventChatConfirm');
     Route::post('eventChatSend',                                'AdminController@eventChatSend');
+    Route::get('news',                                          'AdminController@news')->name('admin.news');
+    Route::post('newsConfirm',                                  'AdminController@newsConfirm');
+    Route::post('newsSend',                                     'AdminController@newsSend');
 
     Route::view('should_reply',                             'admin.should_reply');
     Route::view('should_reply_normal',                      'admin.should_reply_normal');

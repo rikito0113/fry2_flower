@@ -10,6 +10,7 @@ use App\Title;
 use App\AdminEventChatLog;
 use App\Scenario;
 use App\EventFixedPhrase;
+use App\News;
 
 // ライブラリの呼び出し
 use App\Library\AdminCore;
@@ -260,5 +261,40 @@ class AdminController extends Controller
         }
 
         return redirect()->route('admin.index');
+    }
+
+    // 新着情報
+    public function news()
+    {
+        $allNews = News::all();
+        return view('admin.news')
+        ->with('all_news', $allNews);
+    }
+
+    // 新着情報入力確認
+    public function newsConfirm(Request $request)
+    {
+        if (isset($request->content) && isset($request->title)) {
+
+            return view('admin.news_confirm')
+            ->with('content',     $request->content)
+            ->with('title',     $request->title);
+
+        }
+
+        // 入力不足
+        return redirect()->route('admin.news');
+    }
+
+    // 新着情報送信
+    public function newsSend(Request $request)
+    {
+        if (isset($request->content) && isset($request->title)) {
+            $sendResult = AdminCore::newsSend(
+                $request->title,
+                $request->content
+            );
+        }
+        return redirect()->route('admin.news');
     }
 }

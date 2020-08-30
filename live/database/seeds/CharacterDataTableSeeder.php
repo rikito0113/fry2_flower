@@ -15,22 +15,22 @@ class CharacterDataTableSeeder extends Seeder
     {
         DB::table('character_data')->insert([
             [
-                'char_name'      => '齋藤飛鳥',
+                'char_name'      => '花菱あおい',
             ],
             [
-                'char_name'      => '白石麻衣',
+                'char_name'      => '橘花さくら',
             ],
             [
-                'char_name'      => '西野七瀬',
+                'char_name'      => '桐島せら',
             ],
             [
-                'char_name'      => '橋本奈々未',
+                'char_name'      => '道明寺くるみ',
             ],
             [
-                'char_name'      => '生田絵梨花',
+                'char_name'      => '神代ゆめ',
             ],
             [
-                'char_name'      => '松村沙友理',
+                'char_name'      => '椿姫まり',
             ],
         ]);
     }

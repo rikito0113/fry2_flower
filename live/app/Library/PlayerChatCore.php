@@ -15,6 +15,9 @@ use App\AdminChatLog;
 use App\PlayerEventChatLog;
 use App\AdminEventChatLog;
 use App\Scenario;
+use App\RewardLevel;
+use App\MainMemory;
+use App\Memory;
 
 
 // ライブラリの呼び出し
@@ -252,8 +255,9 @@ class PlayerChatCore
     private static function appendExp($ownedCharId, $exp)
     {
         $result = array(
-            'is_levelup' => false,
-            'error_id'   => 0,
+            'is_levelup'    => false,
+            'error_id'      => 0,
+            'memory_info'   => false,
         );
 
         $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
@@ -279,11 +283,35 @@ class PlayerChatCore
             $playerInfo->save();
 
             $result['is_levelup'] = 1;
+
+            // メモリーの判定
+            $attitude = null;
+            if ($ownedCharInfo->dere > $ownedCharInfo->tun)
+                $attitude = 'dere';
+            else
+                $attitude = 'tun';
+
+            $memoryInfo = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('level', '<=', $ownedCharInfo->level)->where('attitude', $attitude)->orderBy('level', 'desc')->first();
+            if ($memoryInfo) {
+                $ownedMemoryInfo = MainMemory::where('owned_char_id', $ownedCharId)->where('memory_id', $memoryInfo->memory_id)->first();
+                if (!$ownedMemoryInfo) {
+                    // ない場合は、思ひ出の付与
+                    $mainMem = new MainMemory;
+                    $mainMem->create([
+                        'player_id'     => $ownedCharInfo->player_id,
+                        'memory_id'     => $memoryInfo->memory_id,
+                        'owned_char_id' => $ownedCharId,
+                        'attitude'      => $attitude,
+                        'is_Lv'         => true,
+                    ]);
+
+                    $result['memory_info'] = Memory::where('memory_id', $memoryInfo->memory_id)->first();
+                }
+            }
         }
 
         // 経験値付与
         $ownedCharInfo->exp = $ownedCharInfo->exp + $exp;
-
         $ownedCharInfo->save();
 
         return $result;

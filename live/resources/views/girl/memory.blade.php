@@ -15,8 +15,10 @@
                 </li>
             @else
                 <li>
-                    <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="29%">
-                    <span class="mem_frame">題名</span>
+                    <a href="/Girl/eventMemory/{{ $event_memory[$i]->scenario_id }}">
+                        <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="100%">
+                        <span class="mem_frame">題名</span>
+                    </a>
                 </li>
             @endif
         @endfor
@@ -30,10 +32,16 @@
         <span><img id="bt_main_mem_ev" src="{{ asset('/images/button/bt_event_h2.png') }}" alt="イベント" width="30%" onclick="btEvClick()"></span>
     </div>
 
-    <div id="wrapper_main_mem_lv">
-        Lv達成
+    <div id="wrapper_main_mem_lv" style="text-align: center">
+        @if ($main_memory_Lv)
+            @foreach ($main_memory_Lv as $item)
+                {{ $item->memory_id }}
+            @endforeach
+        @else
+            Lv達成
+        @endif
     </div>
-    <div id="wrapper_main_mem_ev">
+    <div id="wrapper_main_mem_ev" style="text-align: center">
         イベント達成
     </div>
 </div>

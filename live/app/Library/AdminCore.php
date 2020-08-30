@@ -12,6 +12,7 @@ use App\Title;
 use App\Scenario;
 use App\PlayerEventChatLog;
 use App\AdminEventChatLog;
+use App\News;
 
 
 class AdminCore {
@@ -345,5 +346,28 @@ class AdminCore {
                 $chat->save();
             }
         }
+    }
+
+    /**
+     * 管理画面から新着情報をinsertする
+     *
+     * @param string $title
+     * @param string $content
+     * @return bool
+     *
+     */
+    public static function newsSend($title, $content)
+    {
+        // 改行を<br />に変換
+        $content = nl2br($content);
+        $content = str_replace(array("\r\n", "\r", "\n"), "", $content);
+
+        $newsInstance = new News;
+        $newsInstance->create([
+            'title'      => $title,
+            'content'    => $content,
+        ]);
+
+        return true;
     }
 }
