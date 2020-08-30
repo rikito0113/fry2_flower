@@ -340,7 +340,7 @@ class GirlController extends Controller
         $eventMemoryLength   = count($eventMemory);
         $ownedMainMemoryLv   = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
         $mainMemoryEv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 0)->get();
-        $mainMemoryLv        = self::_getMainMemory($this->_playerid, $playerInfo->owned_char_id);
+        $mainMemoryLv        = self::_getMainMemory($this->_playerId, $playerInfo->owned_char_id);
 
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
@@ -401,27 +401,26 @@ class GirlController extends Controller
     private static function _getMainMemory($playerId, $ownedCharId)
     {
         $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
+        $attitude = null;
+        if ($ownedCharInfo->dere > $ownedCharInfo->tun)
+            $attitude = 'dere';
+        else
+            $attitude = 'tun';
 
         $ownedMainMemoryLv   = MainMemory::where('player_id', $playerId)->where('owned_char_id', $ownedCharId)->where('is_Lv', 1)->get();
         $mainMemoryLv        = null;
         if (count($ownedMainMemoryLv)) {
-            $attitude = null;
-            if ($ownedCharInfo->dere > $ownedCharInfo->tun)
-                $attitude = 'dere';
-            else
-                $attitude = 'tun';
-
             $count = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('attitude', $attitude)->count();
             $skip  = count($ownedMainMemoryLv);
             $limit = $count - $skip;
             if ($limit > 0) {
-                $allMainMemoryLv     = RewardLevel::where('char_id', $ownedCharInfo->char_id)->orderBy('level', 'asc')->skip($skip)->take($limit)->get();
+                $allMainMemoryLv     = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('attitude', $attitude)->orderBy('level', 'asc')->skip($skip)->take($limit)->get();
                 $mainMemoryLv = [...$ownedMainMemoryLv, ...$allMainMemoryLv];
             } else {
                 $mainMemoryLv = $ownedMainMemoryLv;
             }
         } else {
-            $mainMemoryLv = RewardLevel::where('char_id', $ownedCharInfo->char_id)->orderBy('level', 'asc')->get();
+            $mainMemoryLv = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('attitude', $attitude)->orderBy('level', 'asc')->get();
         }
 
         return $mainMemoryLv;
