@@ -340,7 +340,7 @@ class GirlController extends Controller
         $eventMemoryLength   = count($eventMemory);
         $ownedMainMemoryLv   = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
         $mainMemoryEv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 0)->get();
-        $mainMemoryLv        = self::_getMainMemory($this->_playerId, $playerInfo->owned_char_id);
+        $mainMemoryLv        = self::_getMemoryLv($this->_playerId, $playerInfo->owned_char_id);
 
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
@@ -398,7 +398,7 @@ class GirlController extends Controller
      * @return array $mainMemoryLv
      *
      */
-    private static function _getMainMemory($playerId, $ownedCharId)
+    private static function _getMemoryLv($playerId, $ownedCharId)
     {
         $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
         $attitude = null;

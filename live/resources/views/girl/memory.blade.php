@@ -32,7 +32,7 @@
         <span><img id="bt_main_mem_ev" src="{{ asset('/images/button/bt_event_h2.png') }}" alt="イベント" width="30%" onclick="btEvClick()"></span>
     </div>
 
-    @include('girl.inc-main-memory')
+    @include('girl.inc-memory-Lv')
 
     <div id="wrapper_main_mem_ev" style="text-align: center">
         イベント達成<br>
