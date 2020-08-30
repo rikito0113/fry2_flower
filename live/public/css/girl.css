@@ -177,6 +177,8 @@ p.chat-text {
     background: url(../images/bg/bg_memory.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    width: auto;
+    height: 200px;
 }
 .dere_lv
 {
