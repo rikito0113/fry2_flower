@@ -174,19 +174,21 @@ p.chat-text {
 .main_mem_lv
 {
     position: relative;
-    background: url(../images/bg/bg_memory.jpg);
+    background: url(../images/bg/bg_memory.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
 .dere_lv
 {
     position: absolute;
-    left: 10%;
+    width: 30%;
+    left: 6%;
     top: 20%;
 }
 .tun_lv
 {
     position: absolute;
-    left: 80%;
+    width: 30%;
+    left: 63%;
     top: 20%;
 }
