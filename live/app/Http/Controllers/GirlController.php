@@ -334,16 +334,13 @@ class GirlController extends Controller
     public function memory()
     {
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
-        $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $playerInfo->owned_char_id)->first();
 
         // $charIds             = CharacterData::get()->char_id;
         $eventMemory         = EventMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->get();
         $eventMemoryLength   = count($eventMemory);
         $ownedMainMemoryLv   = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
         $mainMemoryEv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 0)->get();
-        $allMainMemoryLv     = RewardLevel::where('char_id', $ownedCharInfo->char_id)->orderBy('level', 'desc')->skip(count($eventMemory))->get();         // マスタ作成後、入れる。
-        $mainMemoryLv        = [...$ownedMainMemoryLv, ...$allMainMemoryLv];
-        $allMainMemoryEv     = 3;         // マスタ作成後、入れる。
+        $mainMemoryLv        = self::_getMainMemory($this->_playerid, $playerInfo->owned_char_id);
 
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
@@ -353,8 +350,6 @@ class GirlController extends Controller
             ->with('event_memory',            $eventMemory)
             ->with('main_memory_Lv',          $mainMemoryLv)
             ->with('main_memory_ev',          $mainMemoryEv)
-            ->with('all_main_memory_Lv',      $allMainMemoryLv)
-            ->with('all_main_memory_ev',      $allMainMemoryEv)
             ->with('event_memory_length',     $eventMemoryLength)
             ->with('owned_char_info',         $ownedCharInfo)
             ->with('current_date',            date('m月d日 H:i'));
@@ -384,5 +379,51 @@ class GirlController extends Controller
         return view('girl.event_memory')
             ->with('scenario_info',    $scenarioInfo)
             ->with('event_chat_log',   $eventChatLog);
+    }
+
+
+
+
+
+
+
+
+
+
+    /**
+     * えっちなメモリーの情報取得
+     *
+     * @param  int   $playerId
+     * @param  int   $ownedCharId
+     * @return array $mainMemoryLv
+     *
+     */
+    private static function _getMainMemory($playerId, $ownedCharId)
+    {
+        $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
+
+        $ownedMainMemoryLv   = MainMemory::where('player_id', $playerId)->where('owned_char_id', $ownedCharId)->where('is_Lv', 1)->get();
+        $mainMemoryLv        = null;
+        if (count($ownedMainMemoryLv)) {
+            $attitude = null;
+            if ($ownedCharInfo->dere > $ownedCharInfo->tun)
+                $attitude = 'dere';
+            else
+                $attitude = 'tun';
+
+            $count = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('attitude', $attitude)->count();
+            $skip  = count($ownedMainMemoryLv);
+            $limit = $count - $skip;
+            if ($limit > 0) {
+                $allMainMemoryLv     = RewardLevel::where('char_id', $ownedCharInfo->char_id)->orderBy('level', 'asc')->skip($skip)->take($limit)->get();
+                $mainMemoryLv = [...$ownedMainMemoryLv, ...$allMainMemoryLv];
+            } else {
+                $mainMemoryLv = $ownedMainMemoryLv;
+            }
+        } else {
+            $mainMemoryLv = RewardLevel::where('char_id', $ownedCharInfo->char_id)->orderBy('level', 'asc')->get();
+        }
+
+        return $mainMemoryLv;
     }
 }

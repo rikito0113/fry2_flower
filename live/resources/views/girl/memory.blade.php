@@ -35,14 +35,24 @@
     <div id="wrapper_main_mem_lv" style="text-align: center">
         @if ($main_memory_Lv)
             @foreach ($main_memory_Lv as $item)
-                {{ $item->memory_id }}
+                @if ($item->player_id)
+                    取得済み<br>
+                    @if ($item->atiitude == 'dere')
+                        デレ<br>
+                    @else
+                        ツン<br>
+                    @endif
+                @else
+                    未取得<br>
+                @endif
+                {{ $item->memory_id }}<br>
             @endforeach
         @else
-            Lv達成
+            Lv達成<br>
         @endif
     </div>
     <div id="wrapper_main_mem_ev" style="text-align: center">
-        イベント達成
+        イベント達成<br>
     </div>
 </div>
 
