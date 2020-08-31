@@ -13,12 +13,12 @@ class NewsController extends Controller
     public function index()
     {
         $allNews = News::all();
-        foreach($allNews as &$row) {
+        foreach($allNews as $key => &$row) {
             $log = NewsLog::where('player_id', $this->_playerId)->where('news_id', $row['news_id'])->first();
             $tmpNewsIds = array();
             if (isset($log)) {
                 $row['is_read'] = true;
-                $tmpNewsIds[] = $row['news_id'];
+                $tmpNewsIds[$key] = $row['news_id'];
             }
         }
         // 逆順
