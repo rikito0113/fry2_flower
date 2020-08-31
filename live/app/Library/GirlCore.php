@@ -210,7 +210,7 @@ class GirlCore
         if ($ownedCharInfo->dere > $ownedCharInfo->tun)
             $attitude = 'dere';
         else
-            $attitude = 'tun';
+            $attitude = 'tsun';
 
         return $attitude;
     }
