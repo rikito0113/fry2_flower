@@ -47,6 +47,8 @@ class NewsController extends Controller
                 $row['is_read'] = true;
             }
         }
+        // 逆順
+        $allNews = array_reverse($allNews);
 
         return view('news.index')
         ->with('all_news', $allNews);
