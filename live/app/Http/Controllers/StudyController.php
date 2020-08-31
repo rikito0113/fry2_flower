@@ -150,4 +150,42 @@ class StudyController extends Controller
             ->with('term',                  $term)
             ;
     }
+
+    // 勉学pt達成報酬獲得実行
+    public function getStudyRewardExec(Request $request)
+    {
+        if($request->owned_char_id)
+        {
+            $ownedCharId = $request->owned_char_id;
+        }
+        else
+        {
+            $ownedChar = OwnedCharacterData::where('player_id', $this->_playerId)->where('char_id',   1)->first();
+            $ownedCharId = $ownedChar->owned_char_id;
+        }
+        // playerのgirl情報
+        $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
+
+        // 現在のtermを取得
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+
+        // 勉学pt達成報酬取得
+        $rewardList = StudyPointReward::where('char_id', $ownedCharInfo->char_id)->where('attitude', $ownedCharInfo->attitude)->where('term_id', $term->term_id)->get();
+        // 勉学pt達成報酬獲得ログ取得
+        $getRewardLogList = GetStudyPointRewardLog::where('player_id', $this->_playerId)->where('term_id', $termId)->get();
+
+        $logArray = array_column('reward_id', $getRewardLogList);
+        foreach($rewardList as $key => &$rewardRow)
+        {
+            if(in_array($rewardRow['reward_id'], $logArray))
+            {
+                $rewardRow['is_get'] = true;
+            }
+        }
+
+        // プレイヤー情報取得
+        $playerInfo = Player::where('player_id', $this->_playerId)->first();
+
+        return redirect()->route('study.studyReward?owned_char_id='.$ownedCharId);
+    }
 }
