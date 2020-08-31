@@ -6,6 +6,8 @@ use App\Term;
 use App\Player;
 use App\CharacterData;
 use App\OwnedCharacterData;
+use App\StudyPointReward;
+use App\GetStudyPointRewardLog;
 
 use App\Library\ProfileCore;
 use App\Library\GirlCore;
@@ -109,11 +111,35 @@ class StudyController extends Controller
     // 勉学pt達成報酬
     public function studyReward(Request $request)
     {
+        if($request->owned_char_id)
+        {
+            $ownedCharId = $request->owned_char_id;
+        }
+        else
+        {
+            $ownedChar = OwnedCharacterData::where('player_id', $this->_playerId)->where('char_id',   1)->first();
+            $ownedCharId = $ownedChar->owned_char_id;
+        }
         // playerのgirl情報
-        $ownedCharInfo = GirlCore::girlLoad($request->owned_char_id);
+        $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
 
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+
+        // 勉学pt達成報酬取得
+        $rewardList = StudyPointReward::where('char_id', $ownedCharInfo->char_id)->where('attitude', $ownedCharInfo->attitude)->where('term_id', $term->term_id)->get();
+        // 勉学pt達成報酬獲得ログ取得
+        $getRewardLogList = GetStudyPointRewardLog::where('player_id', $this->_playerId)->where('term_id', $termId)->get();
+
+        $logArray = array_column('reward_id', $getRewardLogList);
+        foreach($rewardList as $key => &$rewardRow)
+        {
+            if(in_array($rewardRow['reward_id'], $logArray))
+            {
+                $rewardRow['is_get'] = true;
+            }
+        }
+
 
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
@@ -121,6 +147,7 @@ class StudyController extends Controller
         return view('study.girl_score_status')
             ->with('player_info',           $playerInfo)
             ->with('owned_girl_info',       $ownedCharInfo)
+            ->with('reward_list',           $rewardList)
             ->with('term',                  $term)
             ;
     }

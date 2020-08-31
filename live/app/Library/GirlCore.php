@@ -75,6 +75,7 @@ class GirlCore
         $ownedCharInfo['subject_name'] = $subjectName->subject_name;
         $ownedCharInfo['subject_id'] = $girlSubjectId->subject_id;
 
+        $ownedCharInfo['attitude'] = self::getAttitude($ownedCharId);
 
         return $ownedCharInfo;
     }
@@ -179,5 +180,25 @@ class GirlCore
                 ]);
             }
         }
+    }
+
+    /**
+     * 女の子がツンかデレか取得
+     *
+     * @param int $ownedCharId
+     * @return string
+     *
+     */
+    public static function getAttitude($ownedCharId)
+    {
+        $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
+
+        $attitude = null;
+        if ($ownedCharInfo->dere > $ownedCharInfo->tun)
+            $attitude = 'dere';
+        else
+            $attitude = 'tun';
+
+        return $attitude;
     }
 }
