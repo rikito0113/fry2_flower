@@ -21,8 +21,8 @@ class NewsController extends Controller
                 $tmpNewsIds[$key] = $row['news_id'];
             }
         }
-        // 逆順
-        array_multisort($tmpNewsIds, SORT_DESC, $allNews);
+        // 逆順(なぜかエラー出る・・・)
+        // array_multisort($tmpNewsIds, SORT_DESC, $allNews);
 
         return view('news.index')
         ->with('all_news', $allNews);
