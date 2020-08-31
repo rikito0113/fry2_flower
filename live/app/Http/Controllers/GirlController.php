@@ -48,9 +48,10 @@ class GirlController extends Controller
         $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
 
         // 全ガール情報
-        $allOwnedCharInfo = OwnedCharacterData::where('player_id', $this->_playerId)->get();
-        foreach ($allOwnedCharInfo as &$row) {
-            $row['char_name'] = CharacterData::where('char_id', $row['char_id'])->value('char_name');
+        $allOwnedCharId = OwnedCharacterData::where('player_id', $this->_playerId)->get();
+        $allOwnedCharInfo = array();
+        foreach ($allOwnedCharId as $key => $ownedCharId) {
+            $allOwnedCharInfo[$ownedCharId->owned_char_id] = GirlCore::girlLoad($ownedCharId->owned_char_id);
         }
 
         return view('girl.index')
