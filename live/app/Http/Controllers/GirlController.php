@@ -297,15 +297,15 @@ class GirlController extends Controller
 
         foreach($ownedCharImg as $key => $ownedImg)
         {
-            if($ownedImg['category'] == IMG_AVATER)
+            if($ownedImg['category'] == self::IMG_AVATER)
             {
                 $avaterImgs[] = $ownedImg;
             }
-            elseif($ownedImg['category'] == IMG_BACKGROUND)
+            elseif($ownedImg['category'] == self::IMG_BACKGROUND)
             {
                 $bgImgs = $ownedImg;
             }
-            elseif($ownedImg['category'] == IMG_HAIR)
+            elseif($ownedImg['category'] == self::IMG_HAIR)
             {
                 $hairImgs = $ownedImg;
             }
