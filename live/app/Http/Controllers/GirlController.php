@@ -16,6 +16,7 @@ use App\EventMemory;
 use App\Library\GirlCore;
 use App\Library\PlayerChatCore;
 use App\MainMemory;
+use App\RewardLevel;
 use Illuminate\Http\Request;
 
 class GirlController extends Controller
@@ -80,9 +81,13 @@ class GirlController extends Controller
     {
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
+
+        $mainMemoryLv = self::_getMemoryLv($this->_playerId, $ownedCharId);
+
         return view('girl.status')
+            ->with('main_memory_Lv',    $mainMemoryLv)
             ->with('current_date',      date('m月d日 H:i'))
-            ->with('owned_char_info', $ownedCharInfo);
+            ->with('owned_char_info',   $ownedCharInfo);
     }
 
     // ツンデレポイント割り振り
@@ -337,10 +342,9 @@ class GirlController extends Controller
         // $charIds             = CharacterData::get()->char_id;
         $eventMemory         = EventMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->get();
         $eventMemoryLength   = count($eventMemory);
-        $mainMemoryLv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
+        $ownedMainMemoryLv   = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
         $mainMemoryEv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 0)->get();
-        $allMainMemoryLv     = 3;         // マスタ作成後、入れる。
-        $allMainMemoryEv     = 3;         // マスタ作成後、入れる。
+        $mainMemoryLv        = self::_getMemoryLv($this->_playerId, $playerInfo->owned_char_id);
 
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
@@ -350,8 +354,6 @@ class GirlController extends Controller
             ->with('event_memory',            $eventMemory)
             ->with('main_memory_Lv',          $mainMemoryLv)
             ->with('main_memory_ev',          $mainMemoryEv)
-            ->with('all_main_memory_Lv',      $allMainMemoryLv)
-            ->with('all_main_memory_ev',      $allMainMemoryEv)
             ->with('event_memory_length',     $eventMemoryLength)
             ->with('owned_char_info',         $ownedCharInfo)
             ->with('current_date',            date('m月d日 H:i'));
@@ -381,5 +383,50 @@ class GirlController extends Controller
         return view('girl.event_memory')
             ->with('scenario_info',    $scenarioInfo)
             ->with('event_chat_log',   $eventChatLog);
+    }
+
+
+
+
+
+
+
+
+
+
+    /**
+     * えっちなメモリーの情報取得
+     *
+     * @param  int   $playerId
+     * @param  int   $ownedCharId
+     * @return array $mainMemoryLv
+     *
+     */
+    private static function _getMemoryLv($playerId, $ownedCharId)
+    {
+        $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
+        $attitude = null;
+        if ($ownedCharInfo->dere > $ownedCharInfo->tun)
+            $attitude = 'dere';
+        else
+            $attitude = 'tun';
+
+        $ownedMainMemoryLv   = MainMemory::where('player_id', $playerId)->where('owned_char_id', $ownedCharId)->where('is_Lv', 1)->get();
+        $mainMemoryLv        = null;
+        if (count($ownedMainMemoryLv)) {
+            $count = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('attitude', $attitude)->count();
+            $skip  = count($ownedMainMemoryLv);
+            $limit = $count - $skip;
+            if ($limit > 0) {
+                $allMainMemoryLv     = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('attitude', $attitude)->orderBy('level', 'asc')->skip($skip)->take($limit)->get();
+                $mainMemoryLv = [...$ownedMainMemoryLv, ...$allMainMemoryLv];
+            } else {
+                $mainMemoryLv = $ownedMainMemoryLv;
+            }
+        } else {
+            $mainMemoryLv = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('attitude', $attitude)->orderBy('level', 'asc')->get();
+        }
+
+        return $mainMemoryLv;
     }
 }

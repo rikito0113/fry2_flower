@@ -12,37 +12,18 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $type = 1;
-        $kidoku = NewsLog::where('player_id', $this->_playerId)->get();
-        $news = News::all();
-        $allNews = array();
-        if (count($kidoku) != count($news)) {
-            // echo count($kidoku);
-            // echo count($news);
-            $type = 2;
-        }
-        if (isset($kidoku[0]) && $type == 2) {
-            foreach ($kidoku as $kRow) {
-                $kidokuTmp[] = $kRow['news_id'];
+        $allNews = News::orderby('news_id', 'desc')->get();
+        foreach($allNews as $key => &$row) {
+            $log = NewsLog::where('player_id', $this->_playerId)->where('news_id', $row['news_id'])->first();
+            $tmpNewsIds = array();
+            if (isset($log)) {
+                $row['is_read'] = true;
+                $tmpNewsIds[$key] = $row['news_id'];
             }
-            foreach ($news as $nRow) {
-                $newsTmp[] = $nRow['news_id'];
-            }
-            $allNewsId = array_diff($newsTmp, $kidokuTmp);
-            foreach ($allNewsId as $row) {
-                $allNews[] = News::where('news_id', $row)->first();
-            }
-        } else {
-            $allNews = $news;
-        }
-
-        if (!isset($allNews[0])) {
-            $allNews = News::all();
         }
 
         return view('news.index')
-        ->with('all_news', $allNews)
-        ->with('type', $type);
+        ->with('all_news', $allNews);
     }
 
     // ツン・デレポイント/達成報酬

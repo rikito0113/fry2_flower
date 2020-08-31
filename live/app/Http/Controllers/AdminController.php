@@ -266,7 +266,7 @@ class AdminController extends Controller
     // 新着情報
     public function news()
     {
-        $allNews = News::all();
+        $allNews = News::orderby('news_id', 'desc')->get();
         return view('admin.news')
         ->with('all_news', $allNews);
     }

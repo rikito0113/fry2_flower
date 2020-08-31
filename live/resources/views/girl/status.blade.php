@@ -41,5 +41,7 @@
 {{-- 達成報酬 --}}
 <div style="text-align:center; position:relative; width:100%;">
     <img src="{{ asset('/images/titlebar/obi_cap5.png') }}" alt="obi_cap11" width="100%">
+
+    @include('girl.inc-memory-Lv')
 </div>
 @include('footer')

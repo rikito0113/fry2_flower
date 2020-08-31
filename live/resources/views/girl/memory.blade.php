@@ -32,17 +32,10 @@
         <span><img id="bt_main_mem_ev" src="{{ asset('/images/button/bt_event_h2.png') }}" alt="イベント" width="30%" onclick="btEvClick()"></span>
     </div>
 
-    <div id="wrapper_main_mem_lv" style="text-align: center">
-        @if ($main_memory_Lv)
-            @foreach ($main_memory_Lv as $item)
-                {{ $item->memory_id }}
-            @endforeach
-        @else
-            Lv達成
-        @endif
-    </div>
+    @include('girl.inc-memory-Lv')
+
     <div id="wrapper_main_mem_ev" style="text-align: center">
-        イベント達成
+        イベント達成<br>
     </div>
 </div>
 

@@ -170,3 +170,27 @@ p.chat-text {
     list-style: none !important; /* ブログの都合上importantが入っています。 */
     vertical-align: middle; /* tableとは違い、効かない */
 }
+
+.main_mem_lv
+{
+    position: relative;
+    background: url(../images/bg/bg_memory.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: auto;
+    height: 200px;
+}
+.dere_lv
+{
+    position: absolute;
+    width: 30%;
+    left: 6%;
+    top: 20%;
+}
+.tun_lv
+{
+    position: absolute;
+    width: 30%;
+    left: 63%;
+    top: 20%;
+}
