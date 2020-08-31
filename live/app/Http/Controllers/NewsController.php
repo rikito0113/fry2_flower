@@ -42,11 +42,9 @@ class NewsController extends Controller
 
         $allNews = News::all();
         foreach($allNews as &$row) {
-            $log = NewsLog::where('player_id', $this->_playerId)->where('news_id', $row['news_id'])->get();
+            $log = NewsLog::where('player_id', $this->_playerId)->where('news_id', $row['news_id'])->first();
             if (isset($log)) {
                 $row['is_read'] = true;
-            } else {
-                $row['is_read'] = false;
             }
         }
 
