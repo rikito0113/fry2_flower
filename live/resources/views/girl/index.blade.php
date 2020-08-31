@@ -51,8 +51,8 @@
 <div style="text-align:center; position:relative; width:100%; background-image: url('../images/bg/bg_img_pink.jpg'); background-size: contain">
     @foreach ($all_char_info as $char)
         <div style="position: absolute; height: auto;">
-            <a href="/Girl/girlSelect/{{ $char->char_id }}"><img src="{{ asset('/images/button/bt_place_girl1.png') }}" alt="bt_place_girl" width="80%"></a>
-            <img src="{{ asset('/images/icon/icon_chara1.png') }}" alt="icon_chara1" width="18%" style="position:absolute; top:6px; left:15%;">
+            <a href="/Girl/girlSelect/{{ $char->char_id }}"><img src="{{ asset('/images/button/bt_place_girl_'. $char->attitude .'.png') }}" alt="bt_place_girl" width="80%"></a>
+            <img src="{{ asset('/images/icon/icon_chara' . $char->char_id . '.png') }}" alt="icon_chara1" width="18%" style="position:absolute; top:6px; left:15%;">
             <p style="position:absolute; bottom:5px; left:40%; font-size: 13px; color: black; font-weight: bold;">{{ $char->char_name }}</p>
             <p style="position:absolute; top:0px; left:38%; font-size: 14px; color: white; font-weight: bold;">Lv.{{ $char->level }}</p>
         </div>
