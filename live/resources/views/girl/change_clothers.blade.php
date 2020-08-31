@@ -21,7 +21,7 @@
     {{-- ツンデレステータス icon --}}
     <img src="{{ asset('/images/icon/icon_dere.png') }}" alt="icon_dere" width="20%" style="position:absolute; top:0%; right:2%;">
     {{-- 着替え button --}}
-    <img src="{{ asset('/images/button/bt_side_costume.png') }}" alt="bt_side_costume" width="15%" style="position:absolute; top:16%; right:4%;">
+    <img src="{{ asset('/images/button/bt_side_cos.png') }}" alt="bt_side_costume" width="15%" style="position:absolute; top:16%; right:4%;">
     {{-- おもひで button --}}
     <img src="{{ asset('/images/button/bt_side_memory.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;">
 
