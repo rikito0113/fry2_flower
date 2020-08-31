@@ -24,12 +24,14 @@
         <table border="1" bordercolor="red" width="60%">
             <tr>
                 <td>news_id</td>
-                <td>title</td>
-                <td>content</td>
+                <td>作成日</td>
+                <td>タイトル</td>
+                <td>内容</td>
             </tr>
             @foreach ($all_news as $row)
                 <tr>
                     <td>{{$row->news_id}}</td>
+                    <td>{{ $row->created_at }}</td>
                     <td>{{$row->title}}</td>
                     <td>{!! $row->content !!}</td>
                 </tr>
