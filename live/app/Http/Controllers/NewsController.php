@@ -22,7 +22,7 @@ class NewsController extends Controller
             }
         }
         // 逆順
-        array_multisort($tmpNewsIds, SORT_DESC, SORT_NUMERIC, $allNews);
+        array_multisort($tmpNewsIds, SORT_DESC, $allNews);
 
         return view('news.index')
         ->with('all_news', $allNews);
