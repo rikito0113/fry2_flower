@@ -22,7 +22,7 @@
             @endforeach
             <br>
             <div style="text-align:center; width:100%">
-                <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="50%"></a><br>
+                <img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="50%"><br>
             </div>
             <br>
         </div>

@@ -27,7 +27,7 @@
         <img class="header-child" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
 
         <a href="{{ route('girl.memory') }}">
-            <img class="other-header-child2" name="tag" src="{{ asset('/images/button/bt_side_memory.png') }}" alt="思い出">
+            <img class="other-header-child2" name="tag" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
         </a>
         <a href="{{ action('StudyController@index') }}">
             <img class="other-header-child3" name="tag" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
