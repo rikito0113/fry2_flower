@@ -123,6 +123,5 @@ class StudyController extends Controller
             ->with('owned_girl_info',       $ownedCharInfo)
             ->with('term',                  $term)
             ;
-
     }
 }
