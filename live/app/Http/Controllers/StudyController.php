@@ -140,11 +140,10 @@ class StudyController extends Controller
             }
         }
 
-
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
-        return view('study.girl_score_status')
+        return view('study.study_reward')
             ->with('player_info',           $playerInfo)
             ->with('owned_girl_info',       $ownedCharInfo)
             ->with('reward_list',           $rewardList)
