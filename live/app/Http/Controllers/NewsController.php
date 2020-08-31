@@ -12,7 +12,7 @@ class NewsController extends Controller
 {
     public function index()
     {
-        $allNews = News::get();
+        $allNews = News::orderby('news_id', 'desc')->get();
         foreach($allNews as $key => &$row) {
             $log = NewsLog::where('player_id', $this->_playerId)->where('news_id', $row['news_id'])->first();
             $tmpNewsIds = array();
@@ -21,8 +21,6 @@ class NewsController extends Controller
                 $tmpNewsIds[$key] = $row['news_id'];
             }
         }
-        // 逆順(なぜかエラー出る・・・)
-        // array_multisort($tmpNewsIds, SORT_DESC, $allNews);
 
         return view('news.index')
         ->with('all_news', $allNews);
