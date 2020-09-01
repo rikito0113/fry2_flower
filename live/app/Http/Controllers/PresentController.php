@@ -29,4 +29,12 @@ class PresentController extends Controller
         return view('present.index')
             ->with('owned_main_memory_Lv', $ownedMainMemoryLv);
     }
+
+    public function recieveMemory($memoryId)
+    {
+        // 受け取り処理
+        PresentCore::updateRecieved($this->_playerid, $memoryId);
+
+        return redirect()->route('present.index');
+    }
 }

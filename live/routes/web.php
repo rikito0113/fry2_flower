@@ -18,7 +18,6 @@ Route::post('/loginExec',                                'TopController@loginExe
 Route::get('/register',                                  'TopController@register')->name('register');
 Route::post('/registerExec',                             'TopController@registerExec');
 Route::get('/My/my',                                     'MyController@my')->name('my.my');
-Route::get('/Present/index',                             'PresentController@index')->name('present.index');
 
 // girl関連
 Route::get('/Girl/index',                                'GirlController@index')->name('girl.index');
@@ -61,6 +60,10 @@ Route::post('/Study/getStudyRewardExec',                  'StudyController@getSt
 // 新着情報関連
 Route::get('/News/index',                                 'NewsController@index')->name('news.index');
 Route::get('/News/detail/{newsId}',                       'NewsController@detail');
+
+// present関連
+Route::get('/Present/index',                             'PresentController@index')->name('present.index');
+Route::get('/Present/recieveMemory/{$memoryId}',         'PresentController@recieveMemory');
 
 
 
