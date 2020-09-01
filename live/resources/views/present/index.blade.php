@@ -3,18 +3,18 @@
 <div class="bg-gray-flower">
     <img src="{{ asset('/images/titlebar/obi_profile4.png') }}" alt="obi_profile4" width="100%"><br>
     <div style="text-align: center">
-        <span class="bt_item" style="color: red" onclick="btItemClick()">
+        <span id="bt_item" style="color: red" onclick="btItemClick()">
             アイテム
         </span>
-        <span class="bt_memory" style="color: blue" onclick="btMemClick()">
+        <span id="bt_memory" style="color: blue" onclick="btMemClick()">
             思ひ出
         </span>
     </div>
 
-    <div class="wrapper_item" style="text-align: center">
+    <div id="wrapper_item" style="text-align: center">
         アイテムだよ
     </div>
-    <div class="wrapper_memory" style="text-align: center">
+    <div id="wrapper_memory" style="text-align: center">
         @foreach ($owned_main_memory_Lv as $item)
             <table width="100%">
                 <tr>
