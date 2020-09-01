@@ -10,6 +10,7 @@ use App\SetImg;
 use App\CharacterImg;
 use App\OwnedCharacterImg;
 use App\Term;
+use App\Item;
 use App\Subject;
 use App\GirlTermSubject;
 use App\GirlTermScore;
