@@ -16,7 +16,7 @@ class TermTableSeeder extends Seeder
             [
                 'term_name'    => '京都大乱闘',
                 'term_start'   => '2020-07-17',
-                'term_end'     => '2020-09-01',
+                'term_end'     => '2020-09-20',
             ],
         ]);
     }
