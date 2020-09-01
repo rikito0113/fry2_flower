@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 // モデルの呼び出し
 use App\Player;
 
