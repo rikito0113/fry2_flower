@@ -47,13 +47,13 @@ class GirlCore
 
         // img_infoの中身
         $setImgInfo = SetImg::where('owned_char_id', $ownedCharId)->first();
-        $setImgInfo['img_name'] = Item::where('item_id', $setImgInfo->avatar_form_img)->first()->img_name;
+        //$setImgInfo['img_name'] = Item::where('item_id', $setImgInfo->avatar_form_img)->first()->img_name;
 
         $ownedCharInfo = $ownedChar;
         $ownedCharInfo['char_name']         = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
         $ownedCharInfo['avatar_form_img']   = $setImgInfo->avatar_form_img;
         $ownedCharInfo['background_img']    = $setImgInfo->background_img;
-        $ownedCharInfo['img_name']          = $setImgInfo->img_name;
+        //$ownedCharInfo['img_name']          = $setImgInfo->img_name;
 
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
