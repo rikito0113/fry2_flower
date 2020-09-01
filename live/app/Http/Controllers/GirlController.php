@@ -412,7 +412,7 @@ class GirlController extends Controller
         else
             $attitude = 'tun';
 
-        $ownedMainMemoryLv   = MainMemory::where('player_id', $playerId)->where('owned_char_id', $ownedCharId)->where('is_Lv', 1)->get();
+        $ownedMainMemoryLv   = MainMemory::where('player_id', $playerId)->where('owned_char_id', $ownedCharId)->where('is_Lv', 1)->where('is_recieved', 1)->get();
         $mainMemoryLv        = null;
         if (count($ownedMainMemoryLv)) {
             $count = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('attitude', $attitude)->count();

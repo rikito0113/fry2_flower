@@ -24,6 +24,7 @@ class CreateMainMemoryTable extends Migration
             $table->boolean('is_Lv');                         // Lv達成かイベントか
             $table->boolean('is_open_ecstasy')->default(0);   // 射精多
             $table->boolean('is_open_char')->default(0);      // エロ文字
+            $table->boolean('is_recieved')->default(0);       // 開放の是非
             $table->timestamps();
         });
     }
