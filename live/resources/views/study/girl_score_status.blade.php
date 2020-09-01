@@ -14,7 +14,7 @@
         <div style="position:absolute; top:60%; left:0; right:0; margin-right:auto; margin-left:auto;">
             <form action="/Study/upScoreExec" method="POST">
                 @csrf
-                <select name="add_score">
+                <select name="add_score" style="position:absolute;top: 82%;left: 23%;width:14%;height:60%;">
                     @for ($i = 0; $i <= $player_info->study_point; $i++)
                         <option value="{{ $i }}">{{ $i }}</option>
                     @endfor
