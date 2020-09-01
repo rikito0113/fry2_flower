@@ -10,5 +10,5 @@ class CharacterImg extends Model
 
     protected $fillable = ['name', 'category'];
 
-    protected $primaryKey = 'img_id';
+    protected $primaryKey = 'item_id';
 }

@@ -75,12 +75,12 @@ class TopCore
             $charInstance = OwnedCharacterData::where('player_id', $playerInfo->player_id)->where('char_id', $girl->char_id)->first();
 
             // ここでchar_imgからデフォルトを取得し、owned_character_imgを登録 girls×row
-            $defaultImg = CharacterImg::where('char_id', $girl->char_id)->orderBy('img_id', 'asc')->first();
+            $defaultImg = CharacterImg::where('char_id', $girl->char_id)->orderBy('item_id', 'asc')->first();
             $imgInstance = new OwnedCharacterImg;
             $imgInstance->create([
                 'owned_char_id' => $charInstance->owned_char_id,
                 'player_id'     => $playerInfo->player_id,
-                'img_id'        => $defaultImg->img_id,
+                'item_id'        => $defaultImg->item_id,
                 'num'           => 1,
                 'category'    => $defaultImg->category,
             ]);
@@ -91,7 +91,7 @@ class TopCore
                 'owned_char_id' => $charInstance->owned_char_id,
                 'char_id'       => $girl->char_id,
                 'background_img'=> self::DEFAULT_BACKGOUND_ID,
-                'avatar_form_img'    => $defaultImg->img_id,
+                'avatar_form_img'    => $defaultImg->item_id,
             ]);
 
         }

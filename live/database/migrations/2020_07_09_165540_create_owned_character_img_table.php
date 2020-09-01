@@ -16,7 +16,7 @@ class CreateOwnedCharacterImgTable extends Migration
         Schema::create('owned_character_img', function (Blueprint $table) {
             $table->integer('owned_char_id');
             $table->integer('player_id');
-            $table->integer('img_id');
+            $table->integer('item_id');
             $table->integer('num')->default(0);
             $table->enum(
                 'category',

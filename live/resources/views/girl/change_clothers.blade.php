@@ -34,7 +34,7 @@
                 <tr style="width:100%;">
             @endif
                     <td style="width:25%;">
-                        <a href="/Girl/setImg/{{ $img->img_id }}"> 
+                        <a href="/Girl/setImg/{{ $img->item_id }}"> 
                             <img src="{{ asset('/images/icon/bt_mem_place_nomal.png') }}" alt="background" width="25%">
                         </a>
                     </td>

@@ -143,6 +143,13 @@ class StudyController extends Controller
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
+        // playerのgirl情報
+        $allOwnedCharId = OwnedCharacterData::where('player_id', $this->_playerId)->get();
+        $allOwnedCharInfo = array();
+        foreach ($allOwnedCharId as $key => $ownedCharId) {
+            $allOwnedCharInfo[$ownedCharId->owned_char_id] = GirlCore::girlLoad($ownedCharId->owned_char_id);
+        }
+
         return view('study.study_reward')
             ->with('player_info',           $playerInfo)
             ->with('owned_girl_info',       $ownedCharInfo)

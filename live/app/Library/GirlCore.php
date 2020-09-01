@@ -46,7 +46,7 @@ class GirlCore
 
         // img_infoの中身
         $setImgInfo = SetImg::where('owned_char_id', $ownedCharId)->first();
-        $setImgInfo['img_name'] = CharacterImg::where('img_id', $setImgInfo->avatar_form_img)->first()->name;
+        $setImgInfo['img_name'] = Item::where('item_id', $setImgInfo->avatar_form_img)->first()->name;
 
         $ownedCharInfo = $ownedChar;
         $ownedCharInfo['char_name']         = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
@@ -86,23 +86,23 @@ class GirlCore
      * set_imgを更新する
      *
      * @param int $playerId
-     * @param int $imgId
+     * @param int $itemId
      * @return array $setImgInfo
      *
      */
-    public static function setImg($playerId, $imgId)
+    public static function setImg($playerId, $itemId)
     {
         $playerInfo = Player::where('player_id', $playerId)->first();
-        $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->where('img_id', $imgId)->first();
+        $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->where('item_id', $itemId)->first();
 
         // エラー回避
         if (!$ownedCharImg || $ownedCharImg->num <= 0) return false;
 
         $setImgInfo = SetImg::where('owned_char_id', $playerInfo->owned_char_id)->first();
         if ($ownedCharImg->category == 'background') {
-            $setImgInfo->background_img = $ownedCharImg->img_id;
+            $setImgInfo->background_img = $ownedCharImg->item_id;
         } else {
-            $setImgInfo->avatar_form_img = $ownedCharImg->img_id;
+            $setImgInfo->avatar_form_img = $ownedCharImg->item_id;
         }
         $setImgInfo->save();
 
