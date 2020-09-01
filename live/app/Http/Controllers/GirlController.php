@@ -14,6 +14,7 @@ use App\EventMemory;
 
 // ライブラリの呼び出し
 use App\Library\GirlCore;
+use App\Library\ItemCore;
 use App\Library\PlayerChatCore;
 use App\MainMemory;
 use App\RewardLevel;
@@ -29,11 +30,6 @@ class GirlController extends Controller
     const MORNING  = 'morning';
     const NOON     = 'noon';
     const NIGHT    = 'night';
-
-    // 着替え用画像カテゴリー
-    const IMG_AVATER     = 'avatar_form';
-    const IMG_BACKGROUND = 'background';
-    const IMG_HAIR       = 'avatar_hair';
 
     // My page
     public function index()
@@ -298,15 +294,15 @@ class GirlController extends Controller
 
         foreach($ownedCharImg as $key => $ownedImg)
         {
-            if($ownedImg['category'] == self::IMG_AVATER)
+            if($ownedImg['category'] == ItemCore::ITEM_AVATER_FORM)
             {
                 $avaterImgs[] = $ownedImg;
             }
-            elseif($ownedImg['category'] == self::IMG_BACKGROUND)
+            elseif($ownedImg['category'] == ItemCore::ITEM_BACKGROUND)
             {
                 $bgImgs = $ownedImg;
             }
-            elseif($ownedImg['category'] == self::IMG_HAIR)
+            elseif($ownedImg['category'] == ItemCore::ITEM_AVATER_HAIR)
             {
                 $hairImgs = $ownedImg;
             }

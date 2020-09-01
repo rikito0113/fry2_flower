@@ -21,7 +21,7 @@ class CreateStudyPointRewardTable extends Migration
                 'dere',
             ]);
             $table->integer('term_id');
-            $table->integer('need_study_point');
+            $table->integer('need_score');
             $table->integer('item_id');
             $table->enum('category', ['shop', 'tool', 'scene_normal', 'scene_ero', 'bg', 'avatar_form', 'avatar_hair']);
             $table->integer('num');

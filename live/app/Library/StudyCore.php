@@ -11,10 +11,12 @@ use App\Subject;
 use App\Term;
 use App\GirlTermSubject;
 use App\GirlTermScore;
-
+use App\StudyPointReward;
+use App\GetStudyPointRewardLog;
 
 // ライブラリの呼び出し
 use App\Library\GirlCore;
+use App\Library\ItemCore;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -99,6 +101,31 @@ class StudyCore
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
         
+        $rankingData = GirlTermScore::where('char_id', $charId)->where('term_id', $term->term_id)->orderBy('score', 'desc')->get();
+        
+        // Todo:ランキングデータをソートしてランク付け 同じポイントは同じランクだが表示順は獲得勉学ポイントが多い方が上
+
+        // ランク付け
+        $rankingData = self::attachRanking($rankingData, 'sum_score');
+        
+        $myRankInfo = false;
+        foreach($rankingData as $key => $rankingChar)
+        {
+            if($playerId == $rankingChar->player_id)
+            {
+                $myRankInfo = $rankingChar;
+            }
+        }
+
+        return $myRankInfo;
+    }
+
+    // 自分の総合ランキング
+    public static function getMyRankingByCharId($playerId, $charId)
+    {
+        // 現在のtermを取得
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+        
         $rankingData = GirlTermScore::selectRaw('`player_id`, sum(score) AS sum_score')
                                         ->groupBy('player_id')
                                         ->orderBy('sum_score','desc')
@@ -149,5 +176,61 @@ class StudyCore
 
     }
 
-    
+    // 勉学pt達成報酬獲得
+    public static function getStudyPointReward($playerId, $ownedCharId, $getRewardId)
+    {
+        // 受け取っているか
+        $isGet = GetStudyPointRewardLog::where('player_id', $playerId)->where('reward_id', $getRewardId)->first();
+        if($isGet)
+        {
+            return false;
+        }
+
+        // 受け取れるか
+        $rewardInfo = StudyPointReward::where('reward_id', $getRewardId)->first();
+        $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
+
+        if($ownedCharInfo->score < $rewardInfo->need_score)
+        {
+            return false;
+        }
+
+        // 受け取る
+        $itemInfo = Item::where('item_id', $rewardInfo->item_id)->first();
+        
+        // アイテムのカテゴリごとに格納する場所変わる
+        if($itemInfo->category == ItemCore::ITEM_AVATER_FORM || $itemInfo->category == ItemCore::ITEM_AVATER_HAIR || $itemInfo->category == ItemCore::ITEM_BACKGROUND)
+        {
+            // owned_character_img
+        }
+        elseif($itemInfo->category == ItemCore::ITEM_SCENE_NORMAL)
+        {
+            // event_memory
+        }
+        elseif($itemInfo->category == ItemCore::ITEM_SCENE_ERO)
+        {
+            // main_memory
+        }
+        else
+        {
+            // owned_item or stock_item
+            // 使用期限の有無
+        }
+
+        // ログを残す
+
+        // 現在のtermを取得
+        $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
+
+        $logInstance = new GetStudyPointRewardLog;
+        $logInstance->create([
+            'player_id' => $playerId,
+            'char_id'   => $ownedCharInfo->char_id,
+            'term_id'   => $term->term_id,
+            'reward_id' => $getRewardId
+        ]);
+
+        return true;
+
+    }
 }
