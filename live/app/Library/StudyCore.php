@@ -101,8 +101,11 @@ class StudyCore
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
         
-        $rankingData = GirlTermScore::where('char_id', $charId)->where('term_id', $term->term_id)->orderBy('score', 'desc')->get();
-        
+        $rankingData = GirlTermScore::selectRaw('`player_id`, sum(score) AS sum_score')
+                                        ->groupBy('player_id')
+                                        ->orderBy('sum_score','desc')
+                                        ->get();
+                                        
         // Todo:ランキングデータをソートしてランク付け 同じポイントは同じランクだが表示順は獲得勉学ポイントが多い方が上
 
         // ランク付け
@@ -126,11 +129,8 @@ class StudyCore
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
         
-        $rankingData = GirlTermScore::selectRaw('`player_id`, sum(score) AS sum_score')
-                                        ->groupBy('player_id')
-                                        ->orderBy('sum_score','desc')
-                                        ->get();
-        
+        $rankingData = GirlTermScore::where('char_id', $charId)->where('term_id', $term->term_id)->orderBy('score', 'desc')->get();
+
         // Todo:ランキングデータをソートしてランク付け 同じポイントは同じランクだが表示順は獲得勉学ポイントが多い方が上
 
         // ランク付け
