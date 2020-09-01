@@ -47,7 +47,7 @@ class GirlCore
 
         // img_infoの中身
         $setImgInfo = SetImg::where('owned_char_id', $ownedCharId)->first();
-        $setImgInfo['img_name'] = Item::where('item_id', $setImgInfo->avatar_form_img)->first()->name;
+        $setImgInfo['img_name'] = Item::where('item_id', $setImgInfo->avatar_form_img)->first()->img_name;
 
         $ownedCharInfo = $ownedChar;
         $ownedCharInfo['char_name']         = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
