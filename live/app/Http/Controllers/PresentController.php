@@ -33,7 +33,7 @@ class PresentController extends Controller
     public function recieveMemory($memoryId)
     {
         // 受け取り処理
-        PresentCore::updateRecieved($this->_playerid, $memoryId);
+        PresentCore::updateRecieved($this->_playerId, $memoryId);
 
         return redirect()->route('present.index');
     }

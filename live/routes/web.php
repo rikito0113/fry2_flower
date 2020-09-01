@@ -63,7 +63,7 @@ Route::get('/News/detail/{newsId}',                       'NewsController@detail
 
 // present関連
 Route::get('/Present/index',                             'PresentController@index')->name('present.index');
-Route::get('/Present/recieveMemory/{$memoryId}',         'PresentController@recieveMemory');
+Route::get('/Present/recieveMemory/{memoryId}',         'PresentController@recieveMemory');
 
 
 
