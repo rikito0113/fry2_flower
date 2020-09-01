@@ -129,7 +129,7 @@ class StudyController extends Controller
         // 勉学pt達成報酬取得
         $rewardList = StudyPointReward::where('char_id', $ownedCharInfo->char_id)->where('attitude', $ownedCharInfo->attitude)->where('term_id', $term->term_id)->get();
         // 勉学pt達成報酬獲得ログ取得
-        $getRewardLogList = GetStudyPointRewardLog::where('player_id', $this->_playerId)->where('term_id', $termId)->get();
+        $getRewardLogList = GetStudyPointRewardLog::where('player_id', $this->_playerId)->where('term_id', $term->term_id)->get();
 
         $logArray = array_column('reward_id', $getRewardLogList);
         foreach($rewardList as $key => &$rewardRow)
