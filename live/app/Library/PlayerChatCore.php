@@ -17,7 +17,7 @@ use App\AdminEventChatLog;
 use App\Scenario;
 use App\RewardLevel;
 use App\MainMemory;
-use App\Memory;
+use App\Item;
 
 
 // ライブラリの呼び出し
