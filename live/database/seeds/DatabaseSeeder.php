@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ExpLookupTableSeeder::class);
         $this->call(MemoryTableSeeder::class);
         $this->call(RewardLevelTableSeeder::class);
+        $this->call(ItemTableSeeder::class);
     }
 }
