@@ -23,7 +23,7 @@
     {{-- 着替え button --}}
     <img src="{{ asset('/images/button/bt_side_cos.png') }}" alt="bt_side_costume" width="15%" style="position:absolute; top:16%; right:4%;">
     {{-- おもひで button --}}
-    <img src="{{ asset('/images/button/bt_side_memory.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;">
+    <img src="{{ asset('/images/button/bt_side_mem.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;">
 
     {{--  todo タブ切替 --}}
     <div class="bg-change-clother-items">
