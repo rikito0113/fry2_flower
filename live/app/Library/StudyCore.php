@@ -196,29 +196,9 @@ class StudyCore
         }
 
         // 受け取る
-        $itemInfo = Item::where('item_id', $rewardInfo->item_id)->first();
-        
-        // アイテムのカテゴリごとに格納する場所変わる
-        if($itemInfo->category == ItemCore::ITEM_AVATER_FORM || $itemInfo->category == ItemCore::ITEM_AVATER_HAIR || $itemInfo->category == ItemCore::ITEM_BACKGROUND)
-        {
-            // owned_character_img
-        }
-        elseif($itemInfo->category == ItemCore::ITEM_SCENE_NORMAL)
-        {
-            // event_memory
-        }
-        elseif($itemInfo->category == ItemCore::ITEM_SCENE_ERO)
-        {
-            // main_memory
-        }
-        else
-        {
-            // owned_item or stock_item
-            // 使用期限の有無
-        }
+        ItemCore::appendItem($playerId, $ownedCharId, $ownedCharInfo->attitude, $rewardInfo->item_id, $rewardInfo->num);
 
         // ログを残す
-
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
 

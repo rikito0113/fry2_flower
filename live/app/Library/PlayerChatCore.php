@@ -296,14 +296,7 @@ class PlayerChatCore
                 $ownedMemoryInfo = MainMemory::where('owned_char_id', $ownedCharId)->where('item_id', $memoryInfo->item_id)->first();
                 if (!$ownedMemoryInfo) {
                     // ない場合は、思ひ出の付与
-                    $mainMem = new MainMemory;
-                    $mainMem->create([
-                        'player_id'     => $ownedCharInfo->player_id,
-                        'item_id'       => $memoryInfo->item_id,
-                        'owned_char_id' => $ownedCharId,
-                        'attitude'      => $attitude,
-                        'is_Lv'         => true,
-                    ]);
+                    ItemCore::appendItem($ownedCharInfo->player_id,$ownedCharId,$attitude,$memoryInfo->item_id,1,true);
 
                     $result['memory_info'] = Item::where('item_id', $memoryInfo->item_id)->first();
                 }
