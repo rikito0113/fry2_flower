@@ -20,7 +20,7 @@ class CreateRewardLevelTable extends Migration
                 'tun',
                 'dere',
             ]);
-            $table->integer('memory_id');
+            $table->integer('item_id');
             $table->timestamps();
         });
     }

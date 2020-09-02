@@ -22,7 +22,7 @@
                         {{ $item->memory_name }}
                     </td>
                     <td width="30%" style="text-align: center">
-                        <a href="/Present/recieveMemory/{{ $item->memory_id }}">
+                        <a href="/Present/recieveMemory/{{ $item->item_id }}">
                             <img src="{{ asset('/images/button/bt_get.png') }}" alt="受け取る" width="60%">
                         </a>
                     </td>

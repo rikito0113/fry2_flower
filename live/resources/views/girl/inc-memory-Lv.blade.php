@@ -21,7 +21,7 @@
                     <img class="tun_lv" src="{{ asset('/images/button/bt_event_tsun2.png') }}" alt="????">
                 </div>
             @endif
-            {{ $item->memory_id }}<br>
+            {{ $item->item_id }}<br>
         @endforeach
     @else
         Lv達成<br>

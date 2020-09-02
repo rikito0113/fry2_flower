@@ -293,19 +293,19 @@ class PlayerChatCore
 
             $memoryInfo = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('level', '<=', $ownedCharInfo->level)->where('attitude', $attitude)->orderBy('level', 'desc')->first();
             if ($memoryInfo) {
-                $ownedMemoryInfo = MainMemory::where('owned_char_id', $ownedCharId)->where('memory_id', $memoryInfo->memory_id)->first();
+                $ownedMemoryInfo = MainMemory::where('owned_char_id', $ownedCharId)->where('item_id', $memoryInfo->item_id)->first();
                 if (!$ownedMemoryInfo) {
                     // ない場合は、思ひ出の付与
                     $mainMem = new MainMemory;
                     $mainMem->create([
                         'player_id'     => $ownedCharInfo->player_id,
-                        'memory_id'     => $memoryInfo->memory_id,
+                        'item_id'       => $memoryInfo->item_id,
                         'owned_char_id' => $ownedCharId,
                         'attitude'      => $attitude,
                         'is_Lv'         => true,
                     ]);
 
-                    $result['memory_info'] = Memory::where('memory_id', $memoryInfo->memory_id)->first();
+                    $result['memory_info'] = Item::where('item_id', $memoryInfo->item_id)->first();
                 }
             }
         }

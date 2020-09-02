@@ -15,6 +15,7 @@ class CreateItemTable extends Migration
     {
         Schema::create('item', function (Blueprint $table) {
             $table->increments('item_id');
+            $table->integer('char_id')->default(0);
             $table->string('item_name');
             $table->enum('category', ['shop', 'tool', 'scene_normal', 'scene_ero', 'bg', 'avatar_form', 'avatar_hair']);
             $table->string('item_img'); // パス(folder/file)

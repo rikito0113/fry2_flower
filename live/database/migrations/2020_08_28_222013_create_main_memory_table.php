@@ -16,7 +16,7 @@ class CreateMainMemoryTable extends Migration
         Schema::create('main_memory', function (Blueprint $table) {
             $table->increments('main_memory_id');
             $table->integer('player_id');
-            $table->integer('memory_id');
+            $table->integer('item_id');
             $table->integer('owned_char_id');
             $table->enum('attitude', [                        // TorN
                 'tun',
