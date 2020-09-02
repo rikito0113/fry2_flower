@@ -351,12 +351,16 @@ class GirlController extends Controller
         // $charIds             = CharacterData::get()->char_id;
         $eventMemory         = EventMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->get();
         $eventMemoryLength   = count($eventMemory);
-        $ownedMainMemoryLv   = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 1)->get();
         $mainMemoryEv        = MainMemory::where('player_id', $this->_playerId)->where('owned_char_id', $playerInfo->owned_char_id)->where('is_Lv', 0)->get();
         $mainMemoryLv        = self::_getMemoryLv($this->_playerId, $playerInfo->owned_char_id);
 
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
+
+        // 日常メモリーのtitle追加
+        foreach ($eventMemory as $key => &$memory) {
+            $memory->title = Scenario::where('scenario_id', $memory->scenario_id)->first()->title;
+        }
 
         return view('girl.memory')
             // ->with('char_ids',                $charIds)
