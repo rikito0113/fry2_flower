@@ -38,7 +38,7 @@ class GirlCore
      * girl情報をロードする
      *
      * @param int $ownedCharId
-     * @return array $ownedCharInfo
+     * @return object $ownedCharInfo
      *
      */
     public static function girlLoad($ownedCharId)

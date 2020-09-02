@@ -194,3 +194,22 @@ p.chat-text {
     left: 63%;
     top: 20%;
 }
+
+.index_morning
+{
+    position: absolute;
+    left: 60%;
+    top: 30%;
+}
+.index_noon
+{
+    position: absolute;
+    left: 60%;
+    top: 40%;
+}
+.index_night
+{
+    position: absolute;
+    left: 60%;
+    top: 50%;
+}

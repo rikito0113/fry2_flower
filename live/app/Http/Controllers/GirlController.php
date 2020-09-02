@@ -50,12 +50,24 @@ class GirlController extends Controller
             $allOwnedCharInfo[$ownedCharId->owned_char_id] = GirlCore::girlLoad($ownedCharId->owned_char_id);
         }
 
+        $scenarioInfo = array(
+            'morning' => null,
+            'noon'    => null,
+            'night'   => null,
+        );
+        $charScenario = Scenario::where('char_id', $ownedCharInfo->char_id)->get();
+        foreach ($charScenario as $key => $scenario) {
+            $scenarioInfo[$scenario->daytime] = $scenario->title;
+        }
+
+
         return view('girl.index')
             ->with('all_char_info',     $allOwnedCharInfo)
             ->with('owned_char_info',   $ownedCharInfo)
             ->with('owned_char_img',    $ownedCharImg)
             ->with('current_date',      date('m月d日 H:i'))
-            ->with('player_info',       $playerInfo);
+            ->with('player_info',       $playerInfo)
+            ->with('scenario_info',     $scenarioInfo);
     }
 
     // 登録時のgirl選択
