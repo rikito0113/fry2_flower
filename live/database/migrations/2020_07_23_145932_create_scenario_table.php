@@ -25,6 +25,7 @@ class CreateScenarioTable extends Migration
                 'night'
             ]);                                         // 出現時間
             $table->integer('char_id');
+            $table->string('title');                    // シナリオのタイトル
             $table->integer('default_background');
             $table->timestamps();
         });

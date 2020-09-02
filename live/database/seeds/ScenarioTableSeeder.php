@@ -21,6 +21,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => 'プール',
                 'daytime'             => 'morning',
                 'char_id'             => 1,
+                'title'               => '学校のぷーる',
                 'default_background'  => 12,
             ],
             [
@@ -30,6 +31,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '教室',
                 'daytime'             => 'noon',
                 'char_id'             => 1,
+                'title'               => '学校の教室',
                 'default_background'  => 12,
             ],
             [
@@ -39,6 +41,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '保健室',
                 'daytime'             => 'night',
                 'char_id'             => 1,
+                'title'               => '学校の保健室',
                 'default_background'  => 12,
             ],
             [
@@ -48,6 +51,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '部屋',
                 'daytime'             => 'morning',
                 'char_id'             => 2,
+                'title'               => '華姫寮の部屋',
                 'default_background'  => 12,
             ],
             [
@@ -57,6 +61,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => 'トイレ',
                 'daytime'             => 'noon',
                 'char_id'             => 2,
+                'title'               => '華姫寮のトイレ',
                 'default_background'  => 12,
             ],
             [
@@ -66,6 +71,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => 'お風呂',
                 'daytime'             => 'night',
                 'char_id'             => 2,
+                'title'               => '華姫寮のお風呂',
                 'default_background'  => 12,
             ],
             [
@@ -75,6 +81,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => 'ゲームセンター',
                 'daytime'             => 'morning',
                 'char_id'             => 3,
+                'title'               => '繁華街のゲームセンター',
                 'default_background'  => 12,
             ],
             [
@@ -84,6 +91,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => 'レストラン',
                 'daytime'             => 'noon',
                 'char_id'             => 3,
+                'title'               => '繁華街のレストラン',
                 'default_background'  => 12,
             ],
             [
@@ -93,6 +101,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '映画館',
                 'daytime'             => 'night',
                 'char_id'             => 3,
+                'title'               => '繁華街の映画館',
                 'default_background'  => 12,
             ],
             [
@@ -102,6 +111,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '駅',
                 'daytime'             => 'morning',
                 'char_id'             => 4,
+                'title'               => '出身地の駅',
                 'default_background'  => 12,
             ],
             [
@@ -111,6 +121,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '実家',
                 'daytime'             => 'noon',
                 'char_id'             => 4,
+                'title'               => '出身地の実家',
                 'default_background'  => 12,
             ],
             [
@@ -120,6 +131,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '海辺',
                 'daytime'             => 'night',
                 'char_id'             => 4,
+                'title'               => '出身地の海辺',
                 'default_background'  => 12,
             ],
             [
@@ -129,6 +141,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '保健室',
                 'daytime'             => 'morning',
                 'char_id'             => 5,
+                'title'               => '学校の保健室',
                 'default_background'  => 12,
             ],
             [
@@ -138,6 +151,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => 'プール',
                 'daytime'             => 'noon',
                 'char_id'             => 5,
+                'title'               => '学校のプール',
                 'default_background'  => 12,
             ],
             [
@@ -147,6 +161,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '教室',
                 'daytime'             => 'night',
                 'char_id'             => 5,
+                'title'               => '学校の教室',
                 'default_background'  => 12,
             ],
             [
@@ -156,6 +171,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => 'トイレ',
                 'daytime'             => 'morning',
                 'char_id'             => 6,
+                'title'               => '華姫寮のトイレ',
                 'default_background'  => 12,
             ],
             [
@@ -165,6 +181,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '風呂',
                 'daytime'             => 'noon',
                 'char_id'             => 6,
+                'title'               => '華姫寮の風呂',
                 'default_background'  => 12,
             ],
             [
@@ -174,6 +191,7 @@ class ScenarioTableSeeder extends Seeder
                 'place'               => '部屋',
                 'daytime'             => 'night',
                 'char_id'             => 6,
+                'title'               => '華姫寮の部屋',
                 'default_background'  => 12,
             ],
         ]);
