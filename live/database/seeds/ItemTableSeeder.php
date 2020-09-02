@@ -16,6 +16,7 @@ class ItemTableSeeder extends Seeder
             [
                 'item_name'        => '階段',
                 'category'         => 'bg',
+                'char_id'          => 0,
                 'item_img'         => 'character/11.png',
                 'item_description' => '階段で話そう',
                 'price'            => 0,
@@ -24,6 +25,7 @@ class ItemTableSeeder extends Seeder
             [
                 'item_name'       => '海',
                 'category'        => 'bg',
+                'char_id'          => 0,
                 'item_img'        => 'character/12.png',
                 'item_description' => '海で話そう',
                 'price'           => 0,
@@ -32,6 +34,7 @@ class ItemTableSeeder extends Seeder
             [
                 'item_name'       => '家',
                 'category'        => 'bg',
+                'char_id'          => 0,
                 'item_img'        => 'character/13.png',
                 'item_description' => '家で話そう',
                 'price'           => 0,
