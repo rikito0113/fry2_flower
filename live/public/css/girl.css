@@ -198,18 +198,24 @@ p.chat-text {
 .index_morning
 {
     position: absolute;
-    left: 60%;
-    top: 30%;
+    left: 35%;
+    top: 28%;
+    color: black;
+    font-weight: bold;
 }
 .index_noon
 {
     position: absolute;
-    left: 60%;
-    top: 40%;
+    left: 35%;
+    top: 48%;
+    color: black;
+    font-weight: bold;
 }
 .index_night
 {
     position: absolute;
-    left: 60%;
-    top: 50%;
+    left: 35%;
+    top: 68%;
+    color: black;
+    font-weight: bold;
 }

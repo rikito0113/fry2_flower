@@ -42,9 +42,9 @@
 <div style="text-align:center; position:relative; width:100%">
     <img src="{{ asset('/images/titlebar/obi_cap11.png') }}" alt="obi_cap11" style="width:100%; vertical-align:top;"><br>
     <img src="{{ asset('/images/bg/bg_schedule.png') }}" alt="bg_schedule" style="width:100%; vertical-align:top;"><br>
-    <span class="index_morning">朝:{{ $scenario_info->morning }}</span>
-    <span class="index_noon">昼:{{ $scenario_info->noon }}</span>
-    <span class="index_night">夜:{{ $scenario_info->night }}</span>
+    <span class="index_morning">{{ $scenario_info['morning'] }}</span>
+    <span class="index_noon">{{ $scenario_info['noon'] }}</span>
+    <span class="index_night">{{ $scenario_info['night'] }}</span>
 </div>
 
 {{-- 女性キャラクター一覧 --}}
