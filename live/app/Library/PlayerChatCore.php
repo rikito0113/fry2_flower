@@ -41,7 +41,8 @@ class PlayerChatCore
             $scopeOwnedCharInfo->prologue_index++;
 
             // チュートリアルが終了した処理
-            $nextPrologue = ProloguePhrase::where('char_id', $scopeOwnedCharInfo->char_id)->where('content_index', $scopeOwnedCharInfo->prologue_index)->first();
+            $contentIndex = $scopeOwnedCharInfo->prologue_index+1;
+            $nextPrologue = ProloguePhrase::where('char_id', $scopeOwnedCharInfo->char_id)->where('content_index', $contentIndex)->first();
             if (!$nextPrologue) {
                 $scopeOwnedCharInfo->done_prologue = true;
                 $donePrologue = true;
@@ -74,7 +75,7 @@ class PlayerChatCore
             'is_read'             => false,
         ]);
 
-        if (!$scopeOwnedCharInfo->done_prologue) {
+        if (!$ownedCharInfo->done_prologue) {
             $prologuePhrase = ProloguePhrase::where('char_id', $scopeOwnedCharInfo->char_id)->where('content_index', $scopeOwnedCharInfo->prologue_index)->first();
 
             $adminChat = new AdminChatLog;
