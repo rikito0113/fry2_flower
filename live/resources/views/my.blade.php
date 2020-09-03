@@ -55,7 +55,6 @@
     playerId :: {{$test_1}}
     </p>
 
-    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
     <script>
         var mySwiper = new Swiper('.swiper-container', {
             // Optional parameters
