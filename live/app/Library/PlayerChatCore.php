@@ -85,6 +85,12 @@ class PlayerChatCore
                 'char_id'       => $scopeOwnedCharInfo->char_id,
                 'is_player'     => false,
             ]);
+
+            // 既読と、admin側のtimestampを修正
+            $chatLog = PlayerChatLog::where('player_id', $playerId)->where('char_id', $scopeOwnedCharInfo->char_id)->orderBy('created_at', 'desc')->first();
+            $chatLog->created_at = date('Y-m-d H:i:s', strtotime('-1 second'));
+            $chatLog->is_read    = true;
+            $chatLog->save();
         }
 
         return true;

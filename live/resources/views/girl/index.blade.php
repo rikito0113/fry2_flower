@@ -23,8 +23,9 @@
     {{-- 着替え button --}}
     <a href="/Girl/changeClothers"><img src="{{ asset('/images/button/bt_side_cos.png') }}" alt="bt_side_costume" width="15%" style="position:absolute; top:16%; right:4%;"></a>
     {{-- おもひで button --}}
-    <a href="{{ route('girl.memory') }}"><img src="{{ asset('/images/button/bt_side_mem.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;"></a>
-
+    @if ($owned_char_info->done_prologue && ($owned_char_info->dere != 0 || $owned_char_info->tun != 0))
+        <a href="{{ route('girl.memory') }}"><img src="{{ asset('/images/button/bt_side_mem.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;"></a>
+    @endif
     {{-- 花嫁修行/外へ行く button --}}
     <table style="position:absolute; bottom: 5px;">
         <tr>
