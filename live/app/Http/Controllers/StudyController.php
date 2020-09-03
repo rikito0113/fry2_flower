@@ -131,7 +131,7 @@ class StudyController extends Controller
         // 勉学pt達成報酬獲得ログ取得
         $getRewardLogList = GetStudyPointRewardLog::where('player_id', $this->_playerId)->where('term_id', $term->term_id)->get();
 
-        if(!isEmpty($getRewardLogList))
+        if(!empty($getRewardLogList))
         {
             $logArray = array_column('reward_id', $getRewardLogList);
             foreach($rewardList as $key => &$rewardRow)
