@@ -9,20 +9,14 @@
     <link rel="stylesheet" href="{{ asset('css/study.css') }}">
     <script type="text/javascript" src="{{ asset('js/header.js') }}"></script>
     {{-- スライダー用 --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <title>flower girls</title>
 </head>
 <body style="margin:0px;">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
-    <script>
-        var mySwiper = new Swiper ('.swiper-container', {
-            effect: "flip",
-            loop: true,
-            pagination: '.swiper-pagination',
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
-        })
-    </script>
     <div class="flower-header-dere" >
         <a href="{{ action('MyController@my') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
