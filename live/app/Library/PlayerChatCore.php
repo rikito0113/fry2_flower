@@ -37,16 +37,17 @@ class PlayerChatCore
         // done_prologueがfalseの時は、チュートリアルの処理
         $donePrologue = false;
         if (!$ownedCharInfo->done_prologue) {
-            $ownedCharInfo->prologue_index++;
+            $scopeOwnedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharInfo->owned_char_id)->first();
+            $scopeOwnedCharInfo->prologue_index++;
 
             // チュートリアルが終了した処理
-            $nextPrologue = ProloguePhrase::where('char_id', $ownedCharInfo->char_id)->where('content_index', $ownedCharInfo->prologue_index)->first();
+            $nextPrologue = ProloguePhrase::where('char_id', $scopeOwnedCharInfo->char_id)->where('content_index', $scopeOwnedCharInfo->prologue_index)->first();
             if (!$nextPrologue) {
-                $ownedCharInfo->done_prologue = true;
+                $scopeOwnedCharInfo->done_prologue = true;
                 $donePrologue = true;
             }
 
-            $ownedCharInfo->save();
+            $scopeOwnedCharInfo->save();
         }
 
         // 経験値付与
@@ -72,6 +73,20 @@ class PlayerChatCore
             'is_player'           => true,
             'is_read'             => false,
         ]);
+
+        if (!$scopeOwnedCharInfo->done_prologue) {
+            $prologuePhrase = ProloguePhrase::where('char_id', $scopeOwnedCharInfo->char_id)->where('content_index', $scopeOwnedCharInfo->prologue_index)->first();
+
+            $adminChat = new AdminChatLog;
+            $adminChat->create([
+                'player_id'     => $scopeOwnedCharInfo->player_id,
+                'admin_id'      => 0,
+                'content'       => $prologuePhrase->content,
+                'char_id'       => $scopeOwnedCharInfo->char_id,
+                'is_player'     => false,
+            ]);
+        }
+
         return true;
     }
 
