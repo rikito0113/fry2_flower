@@ -1,18 +1,3 @@
-var appearTag = function () {
-  var tags = document.getElementsByName("tag");
-
-  for(let tag of tags)
-  {
-    if(tag.style.display=="block"){
-      // noneで非表示
-      tag.style.display ="none";
-    }else{
-      // blockで表示
-      tag.style.display ="block";
-    }
-  }
-};
-
 var mySwiper = new Swiper('.swiper-container', {
     // Optional parameters
     direction: 'vertical',
@@ -33,4 +18,19 @@ var mySwiper = new Swiper('.swiper-container', {
     scrollbar: {
       el: '.swiper-scrollbar',
     },
-  })
+})
+
+var appearTag = function () {
+  var tags = document.getElementsByName("tag");
+
+  for(let tag of tags)
+  {
+    if(tag.style.display=="block"){
+      // noneで非表示
+      tag.style.display ="none";
+    }else{
+      // blockで表示
+      tag.style.display ="block";
+    }
+  }
+};
