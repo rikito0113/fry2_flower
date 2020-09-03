@@ -17,7 +17,7 @@ class CreateStudyPointRewardTable extends Migration
             $table->increments('reward_id');
             $table->integer('char_id');
             $table->enum('attitude', [          // TorN
-                'tun',
+                'tsun',
                 'dere',
             ]);
             $table->integer('term_id');
