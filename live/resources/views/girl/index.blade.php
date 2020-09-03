@@ -23,18 +23,18 @@
     {{-- 着替え button --}}
     <a href="/Girl/changeClothers"><img src="{{ asset('/images/button/bt_side_cos.png') }}" alt="bt_side_costume" width="15%" style="position:absolute; top:16%; right:4%;"></a>
     {{-- おもひで button --}}
-    @if ($owned_char_info->done_prologue && ($owned_char_info->dere != 0 || $owned_char_info->tun != 0))
-        <a href="{{ route('girl.memory') }}"><img src="{{ asset('/images/button/bt_side_mem.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;"></a>
-    @endif
-    {{-- 花嫁修行/外へ行く button --}}
+    <a href="{{ route('girl.memory') }}"><img src="{{ asset('/images/button/bt_side_mem.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;"></a>
+
     <table style="position:absolute; bottom: 5px;">
         <tr>
             <td width="50%">
                 <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" alt="bt_menu1" width="80%" height="40%"></a>
             </td>
-            <td width="50%">
-                <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" width="80%" height="40%"></a>
-            </td>
+            @if ($owned_char_info->done_prologue && ($owned_char_info->dere != 0 || $owned_char_info->tun != 0))
+                <td width="50%">
+                    <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" width="80%" height="40%"></a>
+                </td>
+            @endif
         </tr>
     </table>
 </div>
