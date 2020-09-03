@@ -4,8 +4,20 @@
     <div style="text-align:center;">
 
         {{-- イベント情報 スライダー表示 --}}
-        <div style="text-align:center; width:100%; vertical-align:top;">
-            <img src="{{ asset('/images/banner/bt_ranking1.png') }}" alt="banner" width="100%"><br>
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner"></div>
+                <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner"></div>
+                ...
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
 
         {{-- ガールリスト表示 --}}

@@ -8,9 +8,12 @@
     <link rel="stylesheet" href="{{ asset('css/girl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/study.css') }}">
     <script type="text/javascript" src="{{ asset('js/header.js') }}"></script>
+    {{-- スライダー用 --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
     <title>flower girls</title>
 </head>
 <body style="margin:0px;">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
     <div class="flower-header-dere" >
         <a href="{{ action('MyController@my') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
