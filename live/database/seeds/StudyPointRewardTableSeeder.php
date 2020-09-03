@@ -14,7 +14,7 @@ class StudyPointRewardTableSeeder extends Seeder
         DB::table('study_point_reward')->insert([
             [
                 'char_id'             => 1,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
@@ -23,7 +23,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 1,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
@@ -32,7 +32,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 1,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
@@ -41,7 +41,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 1,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
@@ -50,7 +50,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 1,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
@@ -59,7 +59,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 1,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 30,
                 'item_id'             => 16,
@@ -122,7 +122,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 2,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
@@ -131,7 +131,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 2,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
@@ -140,7 +140,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 2,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
@@ -149,7 +149,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 2,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
@@ -158,7 +158,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 2,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
@@ -167,7 +167,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 2,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 30,
                 'item_id'             => 17,
@@ -230,7 +230,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 3,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
@@ -239,7 +239,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 3,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
@@ -248,7 +248,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 3,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
@@ -257,7 +257,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 3,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
@@ -266,7 +266,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 3,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
@@ -275,7 +275,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 3,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 30,
                 'item_id'             => 18,
@@ -338,7 +338,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 4,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
@@ -347,7 +347,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 4,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
@@ -356,7 +356,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 4,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
@@ -365,7 +365,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 4,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
@@ -374,7 +374,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 4,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
@@ -383,7 +383,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 4,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 30,
                 'item_id'             => 19,
@@ -446,7 +446,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 5,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
@@ -455,7 +455,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 5,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
@@ -464,7 +464,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 5,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
@@ -473,7 +473,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 5,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
@@ -482,7 +482,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 5,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
@@ -491,7 +491,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 5,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 30,
                 'item_id'             => 20,
@@ -554,7 +554,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 6,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
@@ -563,7 +563,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 6,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
@@ -572,7 +572,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 6,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
@@ -581,7 +581,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 6,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
@@ -590,7 +590,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 6,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
@@ -599,7 +599,7 @@ class StudyPointRewardTableSeeder extends Seeder
             ],
             [
                 'char_id'             => 6,
-                'attitude'            => 'dere’',
+                'attitude'            => 'dere',
                 'term_id'             => 1,
                 'need_score'          => 30,
                 'item_id'             => 21,
