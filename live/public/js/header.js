@@ -11,4 +11,4 @@ var appearTag = function () {
       tag.style.display ="block";
     }
   }
-}
+};

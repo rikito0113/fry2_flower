@@ -18,6 +18,7 @@ use App\Scenario;
 use App\RewardLevel;
 use App\MainMemory;
 use App\Item;
+use App\ProloguePhrase;
 
 
 // ライブラリの呼び出し
@@ -33,9 +34,26 @@ class PlayerChatCore
             return false;
         }
 
+        // done_prologueがfalseの時は、チュートリアルの処理
+        $donePrologue = false;
+        if (!$ownedCharInfo->done_prologue) {
+            $scopeOwnedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharInfo->owned_char_id)->first();
+            $scopeOwnedCharInfo->prologue_index++;
+
+            // チュートリアルが終了した処理
+            $contentIndex = $scopeOwnedCharInfo->prologue_index+1;
+            $nextPrologue = ProloguePhrase::where('char_id', $scopeOwnedCharInfo->char_id)->where('content_index', $contentIndex)->first();
+            if (!$nextPrologue) {
+                $scopeOwnedCharInfo->done_prologue = true;
+                $donePrologue = true;
+            }
+
+            $scopeOwnedCharInfo->save();
+        }
+
         // 経験値付与
         $exp = 1;
-        $appendExpResult = self::appendExp($ownedCharInfo->owned_char_id, $exp);
+        $appendExpResult = self::appendExp($ownedCharInfo->owned_char_id, $exp, $donePrologue);
         if ($appendExpResult['error_id'] != 0) {
             // エラー
             return false;
@@ -56,6 +74,26 @@ class PlayerChatCore
             'is_player'           => true,
             'is_read'             => false,
         ]);
+
+        if (!$ownedCharInfo->done_prologue) {
+            $prologuePhrase = ProloguePhrase::where('char_id', $scopeOwnedCharInfo->char_id)->where('content_index', $scopeOwnedCharInfo->prologue_index)->first();
+
+            $adminChat = new AdminChatLog;
+            $adminChat->create([
+                'player_id'     => $scopeOwnedCharInfo->player_id,
+                'admin_id'      => 0,
+                'content'       => $prologuePhrase->content,
+                'char_id'       => $scopeOwnedCharInfo->char_id,
+                'is_player'     => false,
+            ]);
+
+            // 既読と、admin側のtimestampを修正
+            $chatLog = PlayerChatLog::where('player_id', $playerId)->where('char_id', $scopeOwnedCharInfo->char_id)->orderBy('created_at', 'desc')->first();
+            $chatLog->created_at = date('Y-m-d H:i:s', strtotime('-1 second'));
+            $chatLog->is_read    = true;
+            $chatLog->save();
+        }
+
         return true;
     }
 
@@ -252,7 +290,7 @@ class PlayerChatCore
      * @return array $result
      *
      */
-    private static function appendExp($ownedCharId, $exp)
+    private static function appendExp($ownedCharId, $exp, $donePrologue = false)
     {
         $result = array(
             'is_levelup'    => false,
@@ -267,6 +305,27 @@ class PlayerChatCore
         if (!$nextLevelInfo) {
             // 次のレベルの情報がない
             $result['error_id'] = 1;
+            return $result;
+        }
+
+        // チュートリアルが終了した時
+        if ($donePrologue) {
+            // レベルアップ
+            $ownedCharInfo->level = $ownedCharInfo->level + 1;
+            // ツンデレポイント付与
+            $ownedCharInfo->remain_point = $ownedCharInfo->remain_point + 1;
+            // 勉学ポイント付与
+            $studyPoint = mt_rand(1,3);
+            $playerInfo = Player::where('player_id', $ownedCharInfo->player_id)->first();
+            $playerInfo->study_point = $playerInfo->study_point + $studyPoint;
+            $playerInfo->save();
+
+            $result['is_levelup'] = 1;
+
+            // 経験値付与、強制的に経験値を次のレベルへ
+            $ownedCharInfo->exp = $nextLevelInfo['exp'];
+            $ownedCharInfo->save();
+
             return $result;
         }
 

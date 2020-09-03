@@ -103,3 +103,8 @@
     background-size: contain;
     text-align:center;
 }
+
+.swiper-container {
+    width: 320px;
+    height: 200px;
+}

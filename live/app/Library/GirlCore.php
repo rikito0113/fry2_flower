@@ -16,9 +16,11 @@ use App\GirlTermSubject;
 use App\GirlTermScore;
 use App\PlayerScenarioData;
 use App\AdminEventChatLog;
+use App\AdminChatLog;
 use App\EventFixedPhrase;
 use App\Scenario;
 use App\EventMemory;
+use App\ProloguePhrase;
 
 class GirlCore
 {
@@ -214,5 +216,29 @@ class GirlCore
             $attitude = 'tsun';
 
         return $attitude;
+    }
+
+    /**
+     * 花嫁修行入場時に初期メッセージの送信
+     *
+     * @param int $ownedCharId
+     * @return string
+     *
+     */
+    public static function createPrologue($ownedCharId)
+    {
+        $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
+        $defaultPhrase = ProloguePhrase::where('char_id', $ownedCharInfo->char_id)->where('content_index', 0)->first();
+
+        $adminChat = new AdminChatLog;
+        $adminChat->create([
+            'player_id'     => $ownedCharInfo->player_id,
+            'admin_id'      => 0,
+            'content'       => $defaultPhrase->content,
+            'char_id'       => $ownedCharInfo->char_id,
+            'is_player'     => false,
+        ]);
+
+        return true;
     }
 }
