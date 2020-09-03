@@ -30,11 +30,11 @@
             <td width="50%">
                 <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" alt="bt_menu1" width="80%" height="40%"></a>
             </td>
-            @if ($owned_char_info->done_prologue && ($owned_char_info->dere != 0 || $owned_char_info->tun != 0))
-                <td width="50%">
+            <td width="50%">
+                @if ($owned_char_info->done_prologue && ($owned_char_info->dere != 0 || $owned_char_info->tun != 0))
                     <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" width="80%" height="40%"></a>
-                </td>
-            @endif
+                @endif
+            </td>
         </tr>
     </table>
 </div>
