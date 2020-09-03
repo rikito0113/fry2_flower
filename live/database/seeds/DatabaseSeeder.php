@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MemoryTableSeeder::class);
         $this->call(RewardLevelTableSeeder::class);
         $this->call(ItemTableSeeder::class);
+        $this->call(ProloguePhraseSeeder::class);
     }
 }
