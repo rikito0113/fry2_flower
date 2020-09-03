@@ -193,6 +193,11 @@ class GirlController extends Controller
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
         $charId = $ownedCharInfo['char_id'];
+
+        // 初めての会話の時は、prologue_index=0が送信される。
+        if (!$ownedCharInfo->done_prologue && $ownedCharInfo->prologue_index == 0)
+            GirlCore::createPrologue($ownedCharInfo->owned_char_id);
+
         // チャットログの取得
         $chatLog = PlayerChatCore::getChatLogBrGirl($this->_playerId, $charId, $ownedCharInfo);
 

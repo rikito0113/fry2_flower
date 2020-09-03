@@ -22,6 +22,8 @@ class CreateOwnedCharacterImgTable extends Migration
                 'category',
                 ['avatar_form', 'background', 'avatar_hair']
             );
+            $table->boolean('done_prologue')->default(0);       // チュートリアルが終わるとtrue
+            $table->integer('prologue_index')->default(0);      // チュートリアルの進行度
             $table->timestamps();
         });
     }

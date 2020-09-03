@@ -18,6 +18,7 @@ use App\Scenario;
 use App\RewardLevel;
 use App\MainMemory;
 use App\Item;
+use App\ProloguePhrase;
 
 
 // ライブラリの呼び出し
@@ -33,9 +34,24 @@ class PlayerChatCore
             return false;
         }
 
+        // done_prologueがfalseの時は、チュートリアルの処理
+        $donePrologue = false;
+        if (!$ownedCharInfo->done_prologue) {
+            $ownedCharInfo->prologue_index++;
+
+            // チュートリアルが終了した処理
+            $nextPrologue = ProloguePhrase::where('char_id', $ownedCharInfo->char_id)->where('content_index', $ownedCharInfo->prologue_index)->first();
+            if (!$nextPrologue) {
+                $ownedCharInfo->done_prologue = true;
+                $donePrologue = true;
+            }
+
+            $ownedCharInfo->save();
+        }
+
         // 経験値付与
         $exp = 1;
-        $appendExpResult = self::appendExp($ownedCharInfo->owned_char_id, $exp);
+        $appendExpResult = self::appendExp($ownedCharInfo->owned_char_id, $exp, $donePrologue);
         if ($appendExpResult['error_id'] != 0) {
             // エラー
             return false;
@@ -252,7 +268,7 @@ class PlayerChatCore
      * @return array $result
      *
      */
-    private static function appendExp($ownedCharId, $exp)
+    private static function appendExp($ownedCharId, $exp, $donePrologue = false)
     {
         $result = array(
             'is_levelup'    => false,
@@ -267,6 +283,27 @@ class PlayerChatCore
         if (!$nextLevelInfo) {
             // 次のレベルの情報がない
             $result['error_id'] = 1;
+            return $result;
+        }
+
+        // チュートリアルが終了した時
+        if ($donePrologue) {
+            // レベルアップ
+            $ownedCharInfo->level = $ownedCharInfo->level + 1;
+            // ツンデレポイント付与
+            $ownedCharInfo->remain_point = $ownedCharInfo->remain_point + 1;
+            // 勉学ポイント付与
+            $studyPoint = mt_rand(1,3);
+            $playerInfo = Player::where('player_id', $ownedCharInfo->player_id)->first();
+            $playerInfo->study_point = $playerInfo->study_point + $studyPoint;
+            $playerInfo->save();
+
+            $result['is_levelup'] = 1;
+
+            // 経験値付与、強制的に経験値を次のレベルへ
+            $ownedCharInfo->exp = $nextLevelInfo['exp'];
+            $ownedCharInfo->save();
+
             return $result;
         }
 
