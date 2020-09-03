@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{-- スライダー用 --}}
-    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
-    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+    <link rel="stylesheet" href="//unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="//unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/background.css') }}">

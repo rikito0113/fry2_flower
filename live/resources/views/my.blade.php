@@ -55,28 +55,21 @@
     playerId :: {{$test_1}}
     </p>
 
-    <script>
-        var mySwiper = new Swiper('.swiper-container', {
-            // Optional parameters
-            direction: 'vertical',
-            loop: true,
+<script>
+    var Swiper = new Swiper('.swiper-container', {
+    loop: true,
+    pagination: {
+        el: '.swiper-pagination',
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    scrollbar: {
+        el: '.swiper-scrollbar',
+    },
+    })
+</script>
 
-            // If we need pagination
-            pagination: {
-              el: '.swiper-pagination',
-            },
-
-            // Navigation arrows
-            navigation: {
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            },
-
-            // And if we need scrollbar
-            scrollbar: {
-              el: '.swiper-scrollbar',
-            },
-        })
-    </script>
 @include('footer')
 
