@@ -18,7 +18,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -27,7 +27,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -36,7 +36,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -45,7 +45,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -54,7 +54,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -72,7 +72,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -81,7 +81,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -90,7 +90,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -99,7 +99,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -108,7 +108,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -126,7 +126,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -135,7 +135,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -144,7 +144,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -153,7 +153,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -162,7 +162,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -180,7 +180,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -189,7 +189,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -198,7 +198,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -207,7 +207,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -216,7 +216,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -234,7 +234,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -243,7 +243,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -252,7 +252,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -261,7 +261,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -270,7 +270,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -288,7 +288,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -297,7 +297,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -306,7 +306,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -315,7 +315,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -324,7 +324,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -342,7 +342,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -351,7 +351,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -360,7 +360,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -369,7 +369,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -378,7 +378,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -396,7 +396,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -405,7 +405,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -414,7 +414,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -423,7 +423,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -432,7 +432,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -450,7 +450,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -459,7 +459,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -468,7 +468,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -477,7 +477,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -486,7 +486,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -504,7 +504,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -513,7 +513,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -522,7 +522,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -531,7 +531,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -540,7 +540,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -558,7 +558,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -567,7 +567,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -576,7 +576,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -585,7 +585,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -594,7 +594,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -612,7 +612,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 5,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -621,7 +621,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 10,
                 'item_id'             => 6,
-                'category'            => 'avater_hair',
+                'category'            => 'avatar_hair',
                 'num'                 => 1,
             ],
             [
@@ -630,7 +630,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 15,
                 'item_id'             => 9,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -639,7 +639,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 20,
                 'item_id'             => 10,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
@@ -648,7 +648,7 @@ class StudyPointRewardTableSeeder extends Seeder
                 'term_id'             => 1,
                 'need_score'          => 25,
                 'item_id'             => 3,
-                'category'            => 'avater_form',
+                'category'            => 'avatar_form',
                 'num'                 => 1,
             ],
             [
