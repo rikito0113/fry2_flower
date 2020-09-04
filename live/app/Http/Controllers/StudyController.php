@@ -90,7 +90,7 @@ class StudyController extends Controller
         {
             $rankingData = StudyCore::getRankingByAll();
         }
-        
+
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
 
@@ -104,7 +104,7 @@ class StudyController extends Controller
             ->with('player_info',           $playerInfo)
             ->with('ranking_data',          $rankingData)
             ->with('term',                  $term)
-            ->with('ranking_char_id',       $rankingCharId)  
+            ->with('ranking_char_id',       $rankingCharId)
             ->with('char_info',             $charInfo)
             ;
     }
@@ -150,7 +150,7 @@ class StudyController extends Controller
                 }
             }
         }
-    
+
         // プレイヤー情報取得
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
@@ -181,7 +181,7 @@ class StudyController extends Controller
         {
             return redirect()->route('study.studyReward');
         }
-        
+
         if($request->reward_id)
         {
             $getRewardId = $request->reward_id;
