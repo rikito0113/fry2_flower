@@ -23,13 +23,16 @@
                 <a href="/News/detail/{{ $row->news_id }}">
                     <img src="{{ asset('/images/bg/bg_news_box.png') }}" alt="bg_news_box" width="90%">
                     <div style="position: absolute; top:0%; left:10%;">
+                        {{ $row->created_at }}
+                    </div>
+                    <div style="position: absolute; top:35%; left:0%;">
                         @if (!isset($row->is_read))
                             <img src="{{ asset('/images/icon/icon_new.png') }}" alt="icon_new" width="10%">
                         @else
                             <img src="{{ asset('/images/icon/icon_read.png') }}" alt="icon_read" width="10%">
                         @endif
                     </div>
-                    <div style="position: absolute; top:0%; left:12%;">
+                    <div style="position: absolute; top:40%; left:25%;">
                         {{ $row->title }}
                     </div>
                 </a><br>
