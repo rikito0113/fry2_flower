@@ -70,8 +70,9 @@ class ItemCore
 
             if($isLv == false)
             {
-                $mainMem->is_recieved = true;
-                $mainMem->save();
+                $mainMemoryInfo = MainMemory::where('player_id', $playerId)->where('item_id', $itemId)->where('is_recieved', 0)->first();
+                $mainMemoryInfo->is_recieved = true;
+                $mainMemoryInfo->save();
             }
         }
         else
