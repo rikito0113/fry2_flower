@@ -27,9 +27,9 @@
                     </div>
                     <div style="position: absolute; top:35%; left:0%;">
                         @if (!isset($row->is_read))
-                            <img src="{{ asset('/images/icon/icon_new.png') }}" alt="icon_new" width="10%">
+                            <img src="{{ asset('/images/icon/icon_new.png') }}" alt="icon_new" width="50%">
                         @else
-                            <img src="{{ asset('/images/icon/icon_read.png') }}" alt="icon_read" width="10%">
+                            <img src="{{ asset('/images/icon/icon_read.png') }}" alt="icon_read" width="50%">
                         @endif
                     </div>
                     <div style="position: absolute; top:40%; left:25%;">
