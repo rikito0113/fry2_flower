@@ -7,9 +7,9 @@
     <div class="my-study-info">
         <img src="{{ asset('/images/bg/bg_situ' . $owned_girl_info->char_id . '.png') }}" alt="点数" style="position:relative" width="100%">
         <img src="{{ asset('/images/bg/bg_situ_point.png') }}" alt="点数UP" style="position:absolute; top:60%; margin-left:auto; margin-right:auto; left:0; right:0;" width="80%">
-        <div style="position:absolute; top:4%; right:55%; font-size:19px;" class="study-font">{{ $player_info->study_point }}</div>
-        <div style="position:absolute; top:4%; right:12%; font-size:19px;" class="study-font">{{ $ranking_data->rank }}位</div>
-        <div style="position:absolute; top:25.5%; right:42%; font-size:61px;" class="study-font">{{ $owned_girl_info->score }}</div> 
+        <div style="position:absolute; top:4%; right:51%; font-size:19px;" class="study-font">{{ $player_info->study_point }}</div>
+        <div style="position:absolute; top:4%; right:6%; font-size:19px;" class="study-font">{{ $ranking_data->rank }}位</div>
+        <div style="position:absolute; top:25.5%; right:20%; font-size:61px;" class="study-font">{{ $owned_girl_info->score }}</div> 
 
         <div style="position:absolute; top:60%; left:0; right:0; margin-right:auto; margin-left:auto;">
             <form action="/Study/upScoreExec" method="POST">
