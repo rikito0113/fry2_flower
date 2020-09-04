@@ -83,6 +83,7 @@ table div
     flex-wrap:wrap;
     text-align: center;
     list-style: none;
+    padding:0;
 }
 .reward-tab li {
 	width: calc(100%/6);/*←画像を横に4つ並べる場合*/
@@ -90,5 +91,13 @@ table div
 }
 .reward-tab li img {
 	max-width:100%; /*画像のはみだしを防ぐ*/
-	height: auto; /*画像の縦横比を維持 */
+    height: auto; /*画像の縦横比を維持 */
+    vertical-align:top;
+}
+
+.fit-img
+{
+    max-width: 100%;
+    height: auto;
+    width:auto;
 }
