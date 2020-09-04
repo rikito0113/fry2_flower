@@ -53,9 +53,10 @@ Route::post('/Profile/changeTitleExec',                   'ProfileController@cha
 Route::get('/Study/index',                                'StudyController@index')->name('study.index');
 Route::get('/Study/studyRanking',                         'StudyController@studyRanking')->name('study.studyRanking');
 Route::get('/Study/studyReward',                          'StudyController@studyReward')->name('study.studyReward');
+Route::get('/Study/getStudyRewardExec',                  'StudyController@getStudyRewardExec')->name('study.getStudyRewardExec');
 Route::post('/Study/girlScoreStatus',                     'StudyController@girlScoreStatus')->name('study.girlScoreStatus');
 Route::post('/Study/upScoreExec',                         'StudyController@upScoreExec')->name('study.upScoreExec');
-Route::post('/Study/getStudyRewardExec',                  'StudyController@getStudyRewardExec')->name('study.getStudyRewardExec');
+
 
 // 新着情報関連
 Route::get('/News/index',                                 'NewsController@index')->name('news.index');
