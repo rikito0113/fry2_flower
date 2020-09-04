@@ -109,7 +109,7 @@ table div
 	box-sizing:border-box;
 }
 .achive-img li img {
-	max-width:50%; /*画像のはみだしを防ぐ*/
+	max-width:100%; /*画像のはみだしを防ぐ*/
     height: auto; /*画像の縦横比を維持 */
     vertical-align:top;
 }
