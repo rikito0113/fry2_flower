@@ -67,6 +67,13 @@ class ItemCore
                 'attitude'      => $attitude,
                 'is_Lv'         => $isLv,
             ]);
+
+            if($isLv == false)
+            {
+                $mainMemoryInfo = MainMemory::where('player_id', $playerId)->where('item_id', $itemId)->where('is_recieved', 0)->first();
+                $mainMemoryInfo->is_recieved = true;
+                $mainMemoryInfo->save();
+            }
         }
         else
         {

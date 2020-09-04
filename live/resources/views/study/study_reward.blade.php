@@ -11,7 +11,7 @@
                 @if ($char->char_id == $owned_girl_info->char_id)
                     <li><img src="{{ asset('/images/tab/tab_big' . $char->subject_id . '.png') }}" alt="教科"></li>
                 @else
-                    <li><a href="/Study/studyReward?owned_char_id={{ $char->char_id }}"><img src="{{ asset('/images/tab/tab' . $char->subject_id . '.png') }}" alt="教科"></a></li>
+                    <li><a href="/Study/studyReward?owned_char_id={{ $char->owned_char_id }}"><img src="{{ asset('/images/tab/tab' . $char->subject_id . '.png') }}" alt="教科"></a></li>
                 @endif
             @endforeach
         </ul>
