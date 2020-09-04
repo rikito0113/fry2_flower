@@ -17,18 +17,27 @@
 </head>
 <body style="margin:0px;">
     <div class="flower-header-dere" >
+        {{-- マイページ --}}
         <a href="{{ action('MyController@my') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
         </a>
+
+        {{-- ガールページ --}}
         <a href="{{ action('GirlController@index') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_girl.png') }}" alt="girl">
         </a>
-            <img class="header-child" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
 
+        {{-- ガチャ・ショップページ --}}
+        <a href="{{ action('ShopController@index') }}">
+            <img class="header-child" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
+        </a>
+
+        {{-- プレゼントページ --}}
         <a href="{{ action('PresentController@index') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_pre.png') }}" alt="present">
         </a>
 
+        {{-- サイドバー --}}
         <img class="header-child" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
 
         <a href="{{ route('girl.memory') }}">
