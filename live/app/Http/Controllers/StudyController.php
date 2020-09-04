@@ -138,6 +138,7 @@ class StudyController extends Controller
 
         if(!empty($getRewardLogList[0]))
         {
+            $getRewardLogList->toArray();
             $logArray = array_column($getRewardLogList, 'reward_id',);
             foreach($rewardList as $key => &$rewardRow)
             {
