@@ -32,7 +32,7 @@
                         <p>{{ $reward->item_info->item_name }}</p>
                     @else
                         @if ($reward->need_score <= $owned_girl_info->score)
-                            <a href="/Study/getStudyRewardExec?owned_char_id={{ $char->owned_char_id }}&reward_id={{ $reward->reward_id }}">{{ $reward->item_info->item_name }}</a>
+                            <a href="/Study/getStudyRewardExec?owned_char_id={{ $owned_girl_info->owned_char_id }}&reward_id={{ $reward->reward_id }}">{{ $reward->item_info->item_name }}</a>
                         @else
                             <img src="{{ asset('/images/bg/bg_achieve_noclear.png') }}" alt="noclear">
                             <p>{{ $reward->item_info->item_name }}</p>
