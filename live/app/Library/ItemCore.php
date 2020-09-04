@@ -67,6 +67,12 @@ class ItemCore
                 'attitude'      => $attitude,
                 'is_Lv'         => $isLv,
             ]);
+
+            if($isLv == false)
+            {
+                $mainMem->is_recieved = true;
+                $mainMem->save();
+            }
         }
         else
         {
