@@ -128,10 +128,14 @@ class StudyController extends Controller
 
         // 勉学pt達成報酬取得
         $rewardList = StudyPointReward::where('char_id', $ownedCharInfo->char_id)->where('attitude', $ownedCharInfo->attitude)->where('term_id', $term->term_id)->get();
+        foreach($rewardList as $key => &$rewardRow)
+        {
+            $rewardRow['item_info'] = Item::where('item_id', $rewardRow->item_id)->first();
+        }
         // 勉学pt達成報酬獲得ログ取得
         $getRewardLogList = GetStudyPointRewardLog::where('player_id', $this->_playerId)->where('term_id', $term->term_id)->get();
 
-        if(!empty($getRewardLogList))
+        if(!empty($getRewardLogList[0]))
         {
             $logArray = array_column($getRewardLogList, 'reward_id',);
             foreach($rewardList as $key => &$rewardRow)
@@ -157,6 +161,7 @@ class StudyController extends Controller
             ->with('player_info',           $playerInfo)
             ->with('owned_girl_info',       $ownedCharInfo)
             ->with('reward_list',           $rewardList)
+            ->with('all_owned_char_info',   $allOwnedCharInfo)
             ->with('term',                  $term)
             ;
     }
@@ -184,6 +189,6 @@ class StudyController extends Controller
 
         $isGet = StudyCore::getStudyPointReward($ownedCharId,$getRewardId);
 
-        return redirect()->route('study.studyReward?owned_char_id='.$ownedCharId);
+        return redirect()->route('study.studyReward', ['owned_char_id' => $ownedCharId]);
     }
 }
