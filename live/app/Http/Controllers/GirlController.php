@@ -262,13 +262,13 @@ class GirlController extends Controller
             $scenarioInfo = Scenario::where('place', $place)->where('daytime', $dayTime)->where('start_datetime', '<=', date('Y-m-d H:i:s'))->where('end_datetime', '>=', date('Y-m-d H:i:s'))->first();
 
             // チュートリアル終了していなければ誰もいないへ
-            $ownedCharInfo = OwnedCharacterData::where('player_id', $this->_playerId)->where('char_id', $scenarioInfo->char_id)->first();
-            if ($ownedCharInfo->done_prologue && ($ownedCharInfo->tun != 0 || $ownedCharInfo->dere != 0)) {
-                if ($scenarioInfo) {
+            if ($scenarioInfo) {
+                $ownedCharInfo = OwnedCharacterData::where('player_id', $this->_playerId)->where('char_id', $scenarioInfo->char_id)->first();
+                if ($ownedCharInfo->done_prologue && ($ownedCharInfo->tun != 0 || $ownedCharInfo->dere != 0))
                     GirlCore::createPlayerScenarioData($this->_playerId, $scenarioInfo->scenario_id);
-                }
-            } else
-                $scenarioInfo = false;
+                else
+                    $scenarioInfo = NULL;
+            }
         }
 
         if ($scenarioInfo) {
