@@ -8,6 +8,7 @@ use App\CharacterData;
 use App\OwnedCharacterData;
 use App\StudyPointReward;
 use App\GetStudyPointRewardLog;
+use App\Item;
 
 use App\Library\ProfileCore;
 use App\Library\GirlCore;
