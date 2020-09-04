@@ -133,7 +133,7 @@ class StudyController extends Controller
 
         if(!empty($getRewardLogList))
         {
-            $logArray = array_column('reward_id', $getRewardLogList);
+            $logArray = array_column($getRewardLogList, 'reward_id',);
             foreach($rewardList as $key => &$rewardRow)
             {
                 if(in_array($rewardRow['reward_id'], $logArray))
