@@ -82,6 +82,7 @@ table div
 	display: flex;
     flex-wrap:wrap;
     text-align: center;
+    list-style: none;
 }
 .reward-tab li {
 	width: calc(100%/6);/*←画像を横に4つ並べる場合*/

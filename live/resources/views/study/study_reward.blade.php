@@ -8,9 +8,9 @@
     <ul class="reward-tab">
         @foreach ($all_owned_char_info as $index => $char)
             @if ($char->char_id == $owned_girl_info->char_id)
-                <li><img src="{{ asset('/images/tab/tab_big' . $char->subject_id . '.png') }}" alt="教科"></li>
+                <li><img src="{{ asset('/images/tab/tab_big' . $char->subject_id . '.png') }}" alt="教科" width="13.333%"></li>
             @else
-                <li><a href="/Study/studyReward?owned_char_id={{ $char->char_id }}"><img src="{{ asset('/images/tab/tab' . $char->subject_id . '.png') }}" alt="教科"></a></li>
+                <li><a href="/Study/studyReward?owned_char_id={{ $char->char_id }}"><img src="{{ asset('/images/tab/tab' . $char->subject_id . '.png') }}" alt="教科" width="13.333%"></a></li>
             @endif
         @endforeach
     </div>
