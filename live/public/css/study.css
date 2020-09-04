@@ -114,3 +114,29 @@ table div
     vertical-align:top;
 }
 
+.obi_charaname {
+    width:auto;
+    background-image: url("../images/titlebar/obi_charaname.png");
+    background-size: contain;
+}
+.high-rank-title {
+    position: absolute;
+    top: 3%;
+    left: 25%;
+    color: white;
+    font-size: 12px;
+}
+.high-rank-name {
+    position: absolute;
+    top: 55%;
+    left: 25%;
+    color: black;
+    font-size: 12px;
+}
+.high-rank-point {
+    position: absolute;
+    top: 10%;
+    left: 75%;
+    color: white;
+    font-size: 20px;
+}

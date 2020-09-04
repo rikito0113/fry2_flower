@@ -82,6 +82,7 @@ class StudyController extends Controller
     public function studyRanking(Request $request)
     {
         $rankingCharId = $request->char_id;
+        $charName      = CharacterData::where('char_id', $request->char_id)->first()->char_name;
 
         if($rankingCharId)
         {
@@ -105,6 +106,7 @@ class StudyController extends Controller
             ->with('player_info',           $playerInfo)
             ->with('ranking_data',          $rankingData)
             ->with('term',                  $term)
+            ->with('char_name',             $charName)
             ->with('ranking_char_id',       $rankingCharId)
             ->with('char_info',             $charInfo)
             ;
