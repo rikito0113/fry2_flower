@@ -57,11 +57,12 @@ class StudyController extends Controller
         $playerInfo = Player::where('player_id', $this->_playerId)->first();
 
         // ランキング取得
-        $rankingData = StudyCore::getRankingByCharId($ownedCharInfo->char_id);
+        $rankingData = StudyCore::getMyRankingByCharId($this->_playerId, $ownedCharInfo->char_id);
 
         return view('study.girl_score_status')
             ->with('player_info',           $playerInfo)
             ->with('owned_girl_info',       $ownedCharInfo)
+            ->with('ranking_data',          $rankingData)
             ->with('term',                  $term)
             ;
     }

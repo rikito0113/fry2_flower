@@ -134,7 +134,7 @@ class StudyCore
         // Todo:ランキングデータをソートしてランク付け 同じポイントは同じランクだが表示順は獲得勉学ポイントが多い方が上
 
         // ランク付け
-        $rankingData = self::attachRanking($rankingData, 'sum_score');
+        $rankingData = self::attachRanking($rankingData, 'score');
         
         $myRankInfo = false;
         foreach($rankingData as $key => $rankingChar)
