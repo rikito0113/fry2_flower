@@ -19,7 +19,7 @@ class CreateMainMemoryTable extends Migration
             $table->integer('item_id');
             $table->integer('owned_char_id');
             $table->enum('attitude', [                        // TorN
-                'tun',
+                'tsun',
                 'dere'
             ]);
             $table->boolean('is_Lv');                         // Lv達成かイベントか
