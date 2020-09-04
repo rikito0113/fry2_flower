@@ -122,20 +122,20 @@ table div
 .high-rank-title {
     position: absolute;
     top: 3%;
-    left: 25%;
+    left: 28%;
     color: white;
     font-size: 12px;
 }
 .high-rank-name {
     position: absolute;
     top: 55%;
-    left: 25%;
+    left: 28%;
     color: black;
     font-size: 12px;
 }
 .high-rank-point {
     position: absolute;
-    top: 10%;
+    top: 20%;
     left: 75%;
     color: white;
     font-size: 20px;

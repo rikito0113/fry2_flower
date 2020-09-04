@@ -7,7 +7,7 @@
 
     <div class="bg-gray-flower" style="text-align: center;">
         <img src="{{ asset('/images/banner/bt_ranking1.png') }}" alt="2020年春全国学問考査" width="90%">
-        <br><br>
+        <br>
         <a href="{{ action('StudyController@studyRanking') }}">
             <img src="{{ asset('/images/button/bt_profile4.png') }}" alt="総合ランキング" width="70%">
         </a>
@@ -17,24 +17,26 @@
         @foreach ($char_info as $index => $char)
             @if ($char->char_id == $ranking_char_id)
                 <span style="position: relative;">
-                    <img src="{{ asset('/images/icon/icon_chara'.{{ $char->char_id }}.'.png') }}" alt="icon" width="16%">
+                    <img src="{{ asset('/images/icon/icon_chara'. $char->char_id .'.png') }}" alt="icon" width="15%">
                     <span style="position: absolute; top: 70%; left: 15%; font-size: 5px;">選択中</span>
                 </span>
             @else
                 <span>
                     <a href="/Study/studyRanking?char_id={{ $char->char_id }}">
-                        <img src="{{ asset('/images/icon/icon_chara'.{{ $char->char_id }}.'.png') }}" alt="icon" width="16%">
+                        <img src="{{ asset('/images/icon/icon_chara'. $char->char_id .'.png') }}" alt="icon" width="15%">
                     </a>
                 </span>
             @endif
         @endforeach
 
-        <div class="obi_charaname" style="text-align: center">
-            {{ $char_name }}
-        </div>
+        @if ($char_name)
+            <div class="obi_charaname" style="text-align: center">
+                {{ $char_name }}
+            </div>
+        @endif
     </div>
 
-    <img src="{{ asset('/images/titlebar/obi_cap_ranking1.png') }}" alt="">
+    <img src="{{ asset('/images/titlebar/obi_cap_ranking1.png') }}" alt="総合ランキング情報" width="100%">
 
     <div class="bg-gray">
         {{-- 1位 --}}
@@ -45,9 +47,9 @@
                 <span class="high-rank-name">{{ $ranking_data[0]->player_data->name }}</span>
                 <span class="high-rank-point">
                     @if ($ranking_char_id)
-                        {{ $ranking_data[0]->score }}
+                        {{ $ranking_data[0]->score }}点
                     @else
-                        {{ $ranking_data[0]->sum_score}}
+                        {{ $ranking_data[0]->sum_score}}点
                     @endif
                 </span>
             </div>
