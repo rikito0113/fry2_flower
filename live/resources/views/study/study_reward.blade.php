@@ -24,7 +24,7 @@
             <div>
                 <ul class="achive-img">
                     <li><img src="{{ asset('/images/bg/bg_achieve_chara' . $owned_girl_info->char_id . '_' . $owned_girl_info->attitude . '.jpg') }}" alt="chara_img"></li>
-                    <li><div style="position:relative;"><img src="{{ asset('/images/bg/bg_achieve_base.jpg') }}" alt="base" style="position:absolute; height:100%;"></div></li>
+                    <li><div style="position:relative; height:100%;"><img src="{{ asset('/images/bg/bg_achieve_base.jpg') }}" alt="base" style="position:absolute; height:100%; width:100%"></div></li>
                 </ul>
                 @foreach ($reward_list as $index => $reward)
                     @if ($reward->is_get)
