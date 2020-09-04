@@ -1,6 +1,6 @@
 @include('header')
 
-<div class="bg-gray-flower">
+<div class="bg-pink-flower">
     <img src="{{ asset('/images/titlebar/obi_news1.png') }}" alt="obi_news1" width="100%"><br>
     {{-- イベント情報 スライダー表示 --}}
     <div class="swiper-container">
@@ -17,23 +17,26 @@
 
     <img src="{{ asset('/images/titlebar/obi_cap14.png') }}" alt="obi_cap14" width="100%"><br>
 
-    <div style="position: relative; text-align:center; width:90%">
     @if (isset($all_news))
         @foreach ($all_news as $row)
-            <a href="/News/detail/{{ $row->news_id }}">
-                <img src="{{ asset('/images/bg/bg_news_box.png') }}" alt="bg_news_box" width="80%">
-                <p style="position: absolute; ">
-                    @if (!isset($row->is_read))
-                        [未読]
-                    @endif
-                    {{ $row->title }}
-                </p>
-            </a><br>
+            <div style="position: relative; text-align:center; width:100%">
+                <a href="/News/detail/{{ $row->news_id }}">
+                    <img src="{{ asset('/images/bg/bg_news_box.png') }}" alt="bg_news_box" width="90%">
+                    <div style="position: absolute; top:0%; left:10%;">
+                        @if (!isset($row->is_read))
+                            <img src="{{ asset('/images/icon/icon_new.png') }}" alt="icon_new" width="10%">
+                        @else
+                            <img src="{{ asset('/images/icon/icon_read.png') }}" alt="icon_read" width="10%">
+                        @endif
+                    </div>
+                    <div style="position: absolute; top:0%; left:12%;">
+                        {{ $row->title }}
+                    </div>
+                </a><br>
+            </div>
         @endforeach
     @endif
-
 </div>
-
 <script>
     var Swiper = new Swiper('.swiper-container', {
     loop: true,
