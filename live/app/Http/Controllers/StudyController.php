@@ -188,7 +188,7 @@ class StudyController extends Controller
             return redirect()->route('study.studyReward');
         }
 
-        $isGet = StudyCore::getStudyPointReward($ownedCharId,$getRewardId);
+        $isGet = StudyCore::getStudyPointReward($this->_playerId,$ownedCharId,$getRewardId);
 
         return redirect()->route('study.studyReward', ['owned_char_id' => $ownedCharId]);
     }
