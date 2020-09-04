@@ -22,7 +22,7 @@
                 <p style="position:absolute; top:-27.5%; right:8%; font-size:30px;" class="study-font">{{ $owned_girl_info->score }}</p>
             </div>
             <div>
-                <img src="{{ asset('/images/bg/bg_achieve_chara' . $owned_girl_info->char_id . '_' . $owned_girl_info->attitude . '.png') }}" alt="chara_img">
+                <img src="{{ asset('/images/bg/bg_achieve_chara' . $owned_girl_info->char_id . '_' . $owned_girl_info->attitude . '.jpg') }}" alt="chara_img">
                 <img src="{{ asset('/images/bg/bg_achieve_base.jpg') }}" alt="base">
                 @foreach ($reward_list as $index => $reward)
                     @if ($reward->is_get)
