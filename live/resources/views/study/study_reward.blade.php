@@ -5,12 +5,12 @@
     <img src="{{ asset('/images/titlebar/obi_profile2.png') }}" alt="勉学の達成報酬" style="width:100%; vertical-align:top;"><br>
     <img src="{{ asset('/images/banner/bt_ranking' . $term->term_id . '.png') }}" alt="テスト期間" style="width:100%; vertical-align:top;"><br>
     <br>
-    <div style="text-align:center; position:relative; width:100%;">
+    <ul class="reward-tab">
         @foreach ($all_owned_char_info as $index => $char)
             @if ($char->char_id == $owned_girl_info->char_id)
-                <span><img src="{{ asset('/images/tab/tab_big' . $char->subject_id . '.png') }}" alt="教科"></span>
+                <li><img src="{{ asset('/images/tab/tab_big' . $char->subject_id . '.png') }}" alt="教科"></li>
             @else
-                <a href="/Study/studyReward?owned_char_id={{ $char->char_id }}"><img src="{{ asset('/images/tab/tab' . $char->subject_id . '.png') }}" alt="教科"></a>
+                <li><a href="/Study/studyReward?owned_char_id={{ $char->char_id }}"><img src="{{ asset('/images/tab/tab' . $char->subject_id . '.png') }}" alt="教科"></a></li>
             @endif
         @endforeach
     </div>

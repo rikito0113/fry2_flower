@@ -75,4 +75,19 @@ table div
     color: black;
     opacity: 0.4;
     font-size: small;
+
+}
+
+.reward-tab{
+	display: flex;
+    flex-wrap:wrap;
+    text-align: center;
+}
+.reward-tab li {
+	width: calc(100%/6);/*←画像を横に4つ並べる場合*/
+	box-sizing:border-box;
+}
+.reward-tab li img {
+	max-width:100%; /*画像のはみだしを防ぐ*/
+	height: auto; /*画像の縦横比を維持 */
 }
