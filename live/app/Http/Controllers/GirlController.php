@@ -10,6 +10,7 @@ use App\OwnedCharacterImg;
 use App\PlayerChatLog;
 use App\Scenario;
 use App\EventMemory;
+use App\AdminChatLog;
 
 
 // ライブラリの呼び出し
@@ -195,7 +196,8 @@ class GirlController extends Controller
         $charId = $ownedCharInfo['char_id'];
 
         // 初めての会話の時は、prologue_index=0が送信される。
-        if (!$ownedCharInfo->done_prologue && $ownedCharInfo->prologue_index == 0)
+        $hasChat = (bool)AdminChatLog::where('player_id', $this->_playerId)->where('char_id', $charId)->first();
+        if (!$ownedCharInfo->done_prologue && $ownedCharInfo->prologue_index == 0 && !$hasChat)
             GirlCore::createPrologue($ownedCharInfo->owned_char_id);
 
         // チャットログの取得

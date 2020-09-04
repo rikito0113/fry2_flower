@@ -26,7 +26,7 @@
                 <br>
                 <span class="chat-text-{{$row->side}}">
                     <p class="chat-text">
-                        {!! $row->content !!}
+                        {!! nl2br(e($row->content)) !!}
                     </p>
                 </span>
             </div>
