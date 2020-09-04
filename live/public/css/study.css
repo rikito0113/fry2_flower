@@ -95,3 +95,22 @@ table div
     height: auto; /*画像の縦横比を維持 */
     vertical-align:top;
 }
+
+.achive-img{
+	display: flex;
+    flex-wrap:wrap;
+    text-align: center;
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+.reward-tab li {
+	width: calc(100%/2);/*←画像を横に4つ並べる場合*/
+	box-sizing:border-box;
+}
+.reward-tab li img {
+	max-width:50%; /*画像のはみだしを防ぐ*/
+    height: auto; /*画像の縦横比を維持 */
+    vertical-align:top;
+}
+

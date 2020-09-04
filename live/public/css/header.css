@@ -109,7 +109,16 @@
     height: auto;
 }
 
-.fit-img
+.fit-img50
+{
+    max-width: 100%;
+    height: auto;
+    width:auto;
+    vertical-align:top;
+}
+
+
+.fit-img100
 {
     max-width: 100%;
     height: auto;

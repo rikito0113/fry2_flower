@@ -18,12 +18,14 @@
 
         <div style="text-align:center; position:relative; width:100%;">
             <div style="position:relative; height:auto; width:100%;">
-                <img src="{{ asset('/images/bg/bg_achieve_name' . $owned_girl_info->char_id . '.png') }}" alt="name" class="fit-img">
+                <img src="{{ asset('/images/bg/bg_achieve_name' . $owned_girl_info->char_id . '.png') }}" alt="name" class="fit-img100">
                 <p style="position:absolute; top:-27.5%; right:8%; font-size:30px;" class="study-font">{{ $owned_girl_info->score }}</p>
             </div>
             <div>
-                <img src="{{ asset('/images/bg/bg_achieve_chara' . $owned_girl_info->char_id . '_' . $owned_girl_info->attitude . '.jpg') }}" alt="chara_img">
-                <img src="{{ asset('/images/bg/bg_achieve_base.jpg') }}" alt="base">
+                <ul class="achive-img">
+                    <li><img src="{{ asset('/images/bg/bg_achieve_chara' . $owned_girl_info->char_id . '_' . $owned_girl_info->attitude . '.jpg') }}" alt="chara_img" class="fit-img50"></li>
+                    <li><img src="{{ asset('/images/bg/bg_achieve_base.jpg') }}" alt="base" class="fit-img50"></li>
+                </ul>
                 @foreach ($reward_list as $index => $reward)
                     @if ($reward->is_get)
                         <img src="{{ asset('/images/bg/bg_achieve_clear.png') }}" alt="clear">
@@ -39,7 +41,7 @@
                 @endforeach
             </div>
         </div>
-        <img src="{{ asset('/images/bg/bg_achieve_under' . $owned_girl_info->char_id . '.png') }}" alt="under" class="fit-img">
+        <img src="{{ asset('/images/bg/bg_achieve_under' . $owned_girl_info->char_id . '.png') }}" alt="under" class="fit-img100">
     </div>
 
     <br>
