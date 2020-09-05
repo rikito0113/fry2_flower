@@ -38,25 +38,25 @@
 
     <div class="bg-gray">
         {{-- 1位から3位 --}}
-        @for ($i = 0; $i < 2; $i++)
-            @if (isset($ranking_data[$i]))
+        @for ($i = 1; $i <= 3; $i++)
+            @if (isset($ranking_data[$i-1]))
                 <div style="position: relative;">
-                    <img src="{{ asset('/images/bg/bg_ranking'. $i+1 .'.png') }}" alt="" width="90%">
-                    <span class="high-rank-title">称号:{{ $ranking_data[$i]->player_data->title }}</span>
-                    <span class="high-rank-name">{{ $ranking_data[$i]->player_data->name }}</span>
+                    <img src="{{ asset('/images/bg/bg_ranking'. $i .'.png') }}" alt="" width="90%">
+                    <span class="high-rank-title">称号:{{ $ranking_data[$i-1]->player_data->title }}</span>
+                    <span class="high-rank-name">{{ $ranking_data[$i-1]->player_data->name }}</span>
                     <span class="high-rank-point">
                         @if ($ranking_char_id)
-                            {{ $ranking_data[$i]->score }}点
+                            {{ $ranking_data[$i-1]->score }}点
                         @else
-                            {{ $ranking_data[$i]->sum_score}}点
+                            {{ $ranking_data[$i-1]->sum_score}}点
                         @endif
                     </span>
                 </div>
             @else
                 <div style="position: relative;">
-                    <img src="{{ asset('/images/bg/bg_ranking'. $i+1 .'.png') }}" alt="" width="90%">
+                    <img src="{{ asset('/images/bg/bg_ranking'. $i .'.png') }}" alt="" width="90%">
                     <span class="high-rank-title">称号:</span>
-                    <span class="high-rank-name">{{ $i+1 }}位はいません。</span>
+                    <span class="high-rank-name">{{ $i }}位はいません。</span>
                     <span class="high-rank-point">
                         0点
                     </span>
@@ -69,58 +69,56 @@
         <table width="100%">
             <tr>
                 {{-- 4位から7位 --}}
-                <td width="50%">
-                    @for ($i = 3; $i < 6; $i++)
-                        @if (isset($ranking_data[$i]))
+                <td width="50%" valign="top">
+                    @for ($i = 4; $i <= 7; $i++)
+                        @if (isset($ranking_data[$i-1]))
                             <div style="position: relative;">
-                                <img src="{{ asset('/images/bg/bg_ranking'. $i+1 .'.png') }}" alt="" width="90%">
-                                <span class="low-rank-name">{{ $ranking_data[$i]->player_data->name }}</span>
+                                <img src="{{ asset('/images/bg/bg_ranking'. $i .'.png') }}" alt="" width="90%">
+                                <span class="low-rank-name">{{ $ranking_data[$i-1]->player_data->name }}</span>
                                 <span class="low-rank-point">
                                     @if ($ranking_char_id)
-                                        {{ $ranking_data[$i]->score }}点
+                                        {{ $ranking_data[$i-1]->score }}点
                                     @else
-                                        {{ $ranking_data[$i]->sum_score}}点
+                                        {{ $ranking_data[$i-1]->sum_score}}点
                                     @endif
                                 </span>
                             </div>
                         @else
                             <div style="position: relative;">
-                                <img src="{{ asset('/images/bg/bg_ranking'. $i+1 .'.png') }}" alt="" width="90%">
-                                <span class="low-rank-name">{{ $i+1 }}位はいません。</span>
+                                <img src="{{ asset('/images/bg/bg_ranking'. $i .'.png') }}" alt="" width="90%">
+                                <span class="low-rank-name">{{ $i }}位はいません。</span>
                                 <span class="low-rank-point">
                                     0点
                                 </span>
                             </div>
                         @endif
-                        <hr>
                     @endfor
                 </td>
 
                 {{-- 8位から10位 --}}
-                <td width="50%">
-                    @for ($i = 7; $i < 9; $i++)
-                        @if (isset($ranking_data[$i]))
+                <td width="50%" valign="top">
+                    @for ($i = 8; $i <= 10; $i++)
+                        @if (isset($ranking_data[$i-1]))
                             <div style="position: relative;">
-                                <img src="{{ asset('/images/bg/bg_ranking'. $i+1 .'.png') }}" alt="" width="90%">
-                                <span class="low-rank-name">{{ $ranking_data[$i]->player_data->name }}</span>
+                                <img src="{{ asset('/images/bg/bg_ranking'. $i .'.png') }}" alt="" width="90%">
+                                <span class="low-rank-name">{{ $ranking_data[$i-1]->player_data->name }}</span>
                                 <span class="low-rank-point">
                                     @if ($ranking_char_id)
-                                        {{ $ranking_data[$i]->score }}点
+                                        {{ $ranking_data[$i-1]->score }}点
                                     @else
-                                        {{ $ranking_data[$i]->sum_score}}点
+                                        {{ $ranking_data[$i-1]->sum_score}}点
                                     @endif
                                 </span>
                             </div>
                         @else
                             <div style="position: relative;">
-                                <img src="{{ asset('/images/bg/bg_ranking'. $i+1 .'.png') }}" alt="" width="90%">
-                                <span class="low-rank-name">{{ $i+1 }}位はいません。</span>
+                                <img src="{{ asset('/images/bg/bg_ranking'. $i .'.png') }}" alt="" width="90%">
+                                <span class="low-rank-name">{{ $i }}位はいません。</span>
                                 <span class="low-rank-point">
                                     0点
                                 </span>
                             </div>
                         @endif
-                        <hr>
                     @endfor
                 </td>
             </tr>
