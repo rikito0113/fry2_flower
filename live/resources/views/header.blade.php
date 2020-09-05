@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/background.css') }}">
     <link rel="stylesheet" href="{{ asset('css/girl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/study.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/news.css') }}">
     <script type="text/javascript" src="{{ asset('js/header.js') }}"></script>
 
     <title>flower girls</title>

@@ -1,0 +1,21 @@
+.bg-news
+{
+    width:90%;
+    background-image: url("../images/bg/bg_news_read_middle.png");
+    background-size: contain;
+    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.news-title
+{
+    background-color: pink;
+    width: 100%;
+}
+
+.news-content
+{
+    text-align:left;
+    margin: 10px;
+}
