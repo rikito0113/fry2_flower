@@ -25,3 +25,11 @@
     background-image: url("../images/bg/bg_img_purple.jpg");
     background-size: contain;
 }
+
+.bg-news
+{
+    width:90%;
+    background-image: url("../images/bg/bg_news_read_middle.png");
+    background-size: contain;
+    text-align:center;
+}
