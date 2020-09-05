@@ -140,3 +140,13 @@ table div
     color: white;
     font-size: 20px;
 }
+.low-rank-name {
+    position: absolute;
+    top: 65%;
+    left: 5%;
+}
+.low-rank-point {
+    position: absolute;
+    top: 5%;
+    left: 70%;
+}
