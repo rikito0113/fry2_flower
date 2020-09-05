@@ -166,8 +166,16 @@ class PlayerChatCore
         // $logs = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->whereBetween('created_at', [$startDate,$endDate])->get();
         $playerChats = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('player_chat_log_id', 'asc')->get();
 
+        foreach ($playerChats as &$chat) {
+            $chat->content = str_replace("<br />", "\n", $chat->content);
+        }
+
         // 管理者のログ
         $adminChat = AdminChatLog::where('player_id', $playerId)->where('char_id', $charId)->orderBy('admin_chat_log_id', 'asc')->get();
+
+        foreach ($adminChat as &$chat) {
+            $chat->content = str_replace("<br />", "\n", $chat->content);
+        }
 
         // fetch
         if (isset($adminChat) && isset($playerChats))
@@ -202,8 +210,16 @@ class PlayerChatCore
         // $logs = PlayerChatLog::where('player_id', $playerId)->where('char_id', $charId)->whereBetween('created_at', [$startDate,$endDate])->get();
         $playerChats = PlayerEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->orderBy('player_event_chat_log_id', 'asc')->get();
 
+        foreach ($playerChats as &$chat) {
+            $chat->content = str_replace("<br />", "\n", $chat->content);
+        }
+
         // 管理者のログ
         $adminChat = AdminEventChatLog::where('player_id', $playerId)->where('scenario_id', $scenarioId)->orderBy('admin_event_chat_log_id', 'asc')->get();
+
+        foreach ($adminChat as &$chat) {
+            $chat->content = str_replace("<br />", "\n", $chat->content);
+        }
 
         // fetch
         if (isset($adminChat) && isset($playerChats))

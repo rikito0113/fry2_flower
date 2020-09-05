@@ -11,24 +11,34 @@
     <link rel="stylesheet" href="{{ asset('css/background.css') }}">
     <link rel="stylesheet" href="{{ asset('css/girl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/study.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/news.css') }}">
     <script type="text/javascript" src="{{ asset('js/header.js') }}"></script>
 
     <title>flower girls</title>
 </head>
 <body style="margin:0px;">
     <div class="flower-header-dere" >
+        {{-- マイページ --}}
         <a href="{{ action('MyController@my') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
         </a>
+
+        {{-- ガールページ --}}
         <a href="{{ action('GirlController@index') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_girl.png') }}" alt="girl">
         </a>
-            <img class="header-child" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
 
+        {{-- ガチャ・ショップページ --}}
+        <a href="{{ action('ShopController@index') }}">
+            <img class="header-child" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
+        </a>
+
+        {{-- プレゼントページ --}}
         <a href="{{ action('PresentController@index') }}">
             <img class="header-child" src="{{ asset('/images/header/navi_pre.png') }}" alt="present">
         </a>
 
+        {{-- サイドバー --}}
         <img class="header-child" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
 
         <a href="{{ route('girl.memory') }}">

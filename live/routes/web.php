@@ -66,6 +66,9 @@ Route::get('/News/detail/{newsId}',                       'NewsController@detail
 Route::get('/Present/index',                             'PresentController@index')->name('present.index');
 Route::get('/Present/recieveMemory/{itemId}',            'PresentController@recieveMemory');
 
+// ガチャ・ショップ関連
+Route::get('/Shop/index',                                'ShopController@index')->name('shop.index');
+
 
 
 
