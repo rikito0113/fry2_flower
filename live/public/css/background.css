@@ -32,4 +32,6 @@
     background-image: url("../images/bg/bg_news_read_middle.png");
     background-size: contain;
     text-align:center;
+    margin-left: auto;
+    margin-right: auto;
 }
