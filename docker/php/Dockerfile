@@ -46,10 +46,16 @@ WORKDIR /work
 RUN chmod -R 777 /work/storage \
         /work/bootstrap/cache
 
+ARG DB_CONNECTION
+ARG DB_HOST
+ARG DB_DATABASE
+ARG DB_USERNAME
+ARG DB_PASSWORD
 RUN composer install
 RUN php artisan key:generate
 RUN php artisan config:clear
 RUN php artisan config:cache
+RUN composer dump-autoload
 # RUN php artisan migrate
 # RUN php artisan db:seed
 
