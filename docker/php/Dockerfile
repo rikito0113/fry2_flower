@@ -46,17 +46,17 @@ WORKDIR /work
 RUN chmod -R 777 /work/storage \
         /work/bootstrap/cache
 
-ARG DB_CONNECTION
-ARG DB_HOST
-ARG DB_DATABASE
-ARG DB_USERNAME
-ARG DB_PASSWORD
+ENV DB_CONNECTION ${DB_CONNECTION:-"mysql"} \
+    DB_HOST ${DB_HOST:-"127.0.0.1"} \
+    DB_PORT ${DB_PORT:-"3306"} \
+    DB_USERNAME ${DB_USERNAME:-"root"} \
+    DB_PASSWORD ${DB_PASSWORD:-"password"} \
+    DB_DATABASE ${DB_DATABASE:-"mysql"}
+
 RUN composer install
 RUN php artisan key:generate
 RUN php artisan config:clear
 RUN php artisan config:cache
 RUN composer dump-autoload
-# RUN php artisan migrate
-# RUN php artisan db:seed
 
 EXPOSE 9000

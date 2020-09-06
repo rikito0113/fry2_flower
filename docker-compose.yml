@@ -15,7 +15,8 @@ services:
     working_dir: /work
     environment:
       # ここは要設定
-      - DB_CONNECTION={DB_CONNECTION}
+      - DB_CONNECTION=${DB_CONNECTION}
+      - DB_PORT=${DB_PORT}
       - DB_HOST=${DB_HOST}
       - DB_DATABASE=${DB_DATABASE}
       - DB_USERNAME=${DB_USERNAME}
