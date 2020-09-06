@@ -29,16 +29,21 @@
                             <img src="{{ asset('/images/bg/bg_achieve_base.jpg') }}" alt="base" style="position:absolute; height:100%; width:100%">
                             <img src="{{ asset('/images/bg/bg_achieve_rainbow.png') }}" alt="rainbow" style="position:absolute; height:100%; width:20%">
                             @foreach ($reward_list as $index => $reward)
+                                <div class="study-font" style="position:absolute; top:{{20 * $index}}%; font-size:19px;">
+                                    <p>{{ $reward->need_score }}</p>
+                                    <p>pt</p>
+                                </div>
                                 @if ($reward->is_get)
-                                    <img src="{{ asset('/images/bg/bg_achieve_clear.png') }}" alt="clear" width="57%" style="position:absolute; left:20%; top: {{ 15 * $index }}%;">
+                                    <img src="{{ asset('/images/bg/bg_achieve_clear.png') }}" alt="clear" width="57%" style="position:absolute; left:20%; top: {{ 20 * $index }}%;">
                                     <p style="position:absolute; left:20%; top: {{ 15 * $index }}%;">{{ $reward->item_info->item_name }}</p>
                                 @else
                                     @if ($reward->need_score <= $owned_girl_info->score)
-                                        <a href="/Study/getStudyRewardExec?owned_char_id={{ $owned_girl_info->owned_char_id }}&reward_id={{ $reward->reward_id }}" style="position:absolute; left:20%; top: {{ 15 * $index }}%;">{{ $reward->item_info->item_name }}</a>
-                                    @else
-                                        <img src="{{ asset('/images/bg/bg_achieve_noclear.png') }}" alt="noclear" width="57%" style="position:absolute; left:20%; top: {{ 15 * $index }}%;">
-                                        <p style="position:absolute; left:20%; top: {{ 15 * $index }}%;">{{ $reward->item_info->item_name }}</p>
+                                        <a href="/Study/getStudyRewardExec?owned_char_id={{ $owned_girl_info->owned_char_id }}&reward_id={{ $reward->reward_id }}"">
+                                            <img src="{{ asset('/images/button/bt_get_mini1.png') }}" alt="noclear" width="57%" style="position:absolute; left:50%; top: {{ 20 * $index }}%;">
+                                        </a>
                                     @endif
+                                        <img src="{{ asset('/images/bg/bg_achieve_noclear.png') }}" alt="noclear" width="57%" style="position:absolute; left:20%; top: {{ 20 * $index }}%;">
+                                        <p style="position:absolute; left:20%; top: {{ 15 * $index }}%;">{{ $reward->item_info->item_name }}</p>
                                 @endif
                             @endforeach
                         </div>
