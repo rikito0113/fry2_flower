@@ -46,12 +46,7 @@ WORKDIR /work
 RUN chmod -R 777 /work/storage \
         /work/bootstrap/cache
 
-ENV DB_CONNECTION ${DB_CONNECTION:-"mysql"} \
-    DB_HOST ${DB_HOST:-"127.0.0.1"} \
-    DB_PORT ${DB_PORT:-"3306"} \
-    DB_USERNAME ${DB_USERNAME:-"root"} \
-    DB_PASSWORD ${DB_PASSWORD:-"password"} \
-    DB_DATABASE ${DB_DATABASE:-"mysql"}
+COPY .env .env
 
 RUN composer install
 RUN php artisan key:generate
