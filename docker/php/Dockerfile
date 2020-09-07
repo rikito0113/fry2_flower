@@ -46,7 +46,7 @@ WORKDIR /work
 RUN chmod -R 777 /work/storage \
         /work/bootstrap/cache
 
-COPY .env .env
+COPY ./live/.env /work/env
 
 RUN composer install
 RUN php artisan key:generate
