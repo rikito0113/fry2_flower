@@ -29,7 +29,7 @@
                             <img src="{{ asset('/images/bg/bg_achieve_base.jpg') }}" alt="base" style="position:absolute; height:100%; width:100%">
                             <img src="{{ asset('/images/bg/bg_achieve_rainbow.png') }}" alt="rainbow" style="position:absolute; height:100%; width:20%">
                             @foreach ($reward_list as $index => $reward)
-                                <div class="study-font" style="position:absolute; top:{{15 * $index}}%; font-size:19px;">
+                                <div class="study-font" style="position:absolute; top:{{20 * $index}}%; font-size:19px;">
                                     <p style="margin:0;">{{ $reward->need_score }}</p>
                                     <p style="margin:0;">pt</p>
                                 </div>
