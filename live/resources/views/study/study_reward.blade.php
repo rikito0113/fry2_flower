@@ -29,13 +29,13 @@
                             <img src="{{ asset('/images/bg/bg_achieve_base.jpg') }}" alt="base" style="position:absolute; height:100%; width:100%">
                             <img src="{{ asset('/images/bg/bg_achieve_rainbow.png') }}" alt="rainbow" style="position:absolute; height:100%; width:20%">
                             @foreach ($reward_list as $index => $reward)
-                                <div class="study-font" style="position:absolute; top:{{20 * $index}}%; font-size:19px;">
-                                    <p>{{ $reward->need_score }}</p>
-                                    <p>pt</p>
+                                <div class="study-font" style="position:absolute; top:{{15 * $index}}%; font-size:19px;">
+                                    <p style="margin:0;">{{ $reward->need_score }}</p>
+                                    <p style="margin:0;">pt</p>
                                 </div>
                                 @if ($reward->is_get)
                                     <img src="{{ asset('/images/bg/bg_achieve_clear.png') }}" alt="clear" width="57%" style="position:absolute; left:20%; top: {{ 20 * $index }}%;">
-                                    <p style="position:absolute; left:20%; top: {{ 15 * $index }}%;">{{ $reward->item_info->item_name }}</p>
+                                    <p style="position:absolute; left:20%; top: {{ 20 * $index }}%;">{{ $reward->item_info->item_name }}</p>
                                 @else
                                     @if ($reward->need_score <= $owned_girl_info->score)
                                         <a href="/Study/getStudyRewardExec?owned_char_id={{ $owned_girl_info->owned_char_id }}&reward_id={{ $reward->reward_id }}"">
@@ -43,7 +43,7 @@
                                         </a>
                                     @endif
                                         <img src="{{ asset('/images/bg/bg_achieve_noclear.png') }}" alt="noclear" width="57%" style="position:absolute; left:20%; top: {{ 20 * $index }}%;">
-                                        <p style="position:absolute; left:20%; top: {{ 15 * $index }}%;">{{ $reward->item_info->item_name }}</p>
+                                        <p style="position:absolute; left:20%; top: {{ 20 * $index }}%;">{{ $reward->item_info->item_name }}</p>
                                 @endif
                             @endforeach
                         </div>
