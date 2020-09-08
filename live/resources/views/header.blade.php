@@ -15,11 +15,6 @@
     <link rel="stylesheet" href="{{ asset('css/news.css') }}">
     <script type="text/javascript" src="{{ asset('js/header.js') }}"></script>
     <script type="text/javascript" src="https://spgm.nijiyome.jp/js/touch.js"></script>
-    <script>
-    nijiyome.auth({
-    state: 'd144c46760d8b0bc4c3e1a6143c744be',
-    });
-    </script>
 
     <title>flower girls</title>
 </head>
