@@ -22,7 +22,11 @@ class Controller extends BaseController
     public function __construct()
     {
         // oauth関連
-        $opensocialViewerId = $_GET['opensocial_viewer_id'];
+        if ($_GET['opensocial_viewer_id']) {
+            $opensocialViewerId = $_GET['opensocial_viewer_id'];
+        } else {
+            $opensocialViewerId = null;
+        }
         if ($opensocialViewerId) {
             echo $opensocialViewerId;
             $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
