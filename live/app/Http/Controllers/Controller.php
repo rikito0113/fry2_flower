@@ -29,16 +29,16 @@ class Controller extends BaseController
         }
         if ($opensocialViewerId) {
             echo $opensocialViewerId;
-            $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
-            $method = "POST";
+            // $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
+            // $method = "POST";
 
-            //接続
-            $client = new Client();
-            $response = $client->request($method, $url);
+            // //接続
+            // $client = new Client();
+            // $response = $client->request($method, $url);
 
-            $posts = $response->getBody();
-            $posts = json_decode($posts, true);
-            echo $posts;
+            // $posts = $response->getBody();
+            // $posts = json_decode($posts, true);
+            // echo $posts;
         }
 
         // ハッシュ値を保持している時

@@ -30,6 +30,7 @@ class TopController extends Controller
     public function loginExec(Request $request)
     {
         $playerInfo = TopCore::login($request->pf_player_id);
+        echo $playerInfo;
 
         if ($playerInfo)
             return redirect()->route('my.my');
