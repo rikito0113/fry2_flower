@@ -24,6 +24,7 @@ class Controller extends BaseController
         // oauth関連
         $opensocialViewerId = $_GET['opensocial_viewer_id'];
         if ($opensocialViewerId) {
+            echo $opensocialViewerId;
             $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
             $method = "POST";
 
