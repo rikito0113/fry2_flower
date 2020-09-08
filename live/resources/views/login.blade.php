@@ -7,7 +7,7 @@
 </head>
 <body>
     <form action="/loginExec" method="POST">
-        @csrf
+        {{-- @csrf --}}
         pf_player_id : <input type="text" name="pf_player_id" size="40" placeholder="pf_player_idを入力してください"> <br>
         <input type="submit" value="Login">
     </form>
