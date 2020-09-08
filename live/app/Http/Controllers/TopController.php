@@ -17,6 +17,15 @@ use Illuminate\Http\Request;
 class TopController extends Controller
 {
     // login
+    public function index()
+    {
+        // ログイン処理execでhashをsessionに入れる
+        if ($this->_playerId) {
+            return redirect()->route('my.my');
+        }
+        return view('index');
+    }
+
     public function login()
     {
         // ログイン処理execでhashをsessionに入れる
