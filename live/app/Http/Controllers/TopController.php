@@ -6,6 +6,9 @@ namespace App\Http\Controllers;
 // モデルの呼び出し
 use App\Player;
 
+// HTTP通信用
+use GuzzleHttp\Client;
+
 // ライブラリの呼び出し
 use App\Library\TopCore;
 

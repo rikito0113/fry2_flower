@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Player;
 
+// HTTP通信用
+use GuzzleHttp\Client;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -18,6 +21,21 @@ class Controller extends BaseController
 
     public function __construct()
     {
+        // oauth関連
+        $opensocialViewerId = $_GET['opensocial_viewer_id'];
+        if ($opensocialViewerId) {
+            $url = "/v2/api/oauth2/token";
+            $method = "POST";
+
+            //接続
+            $client = new Client();
+            $response = $client->request($method, $url);
+
+            $posts = $response->getBody();
+            $posts = json_decode($posts, true);
+            echo $posts;
+        }
+
         // ハッシュ値を保持している時
         if (session()->has('hash')) {
             $hash = session('hash');
