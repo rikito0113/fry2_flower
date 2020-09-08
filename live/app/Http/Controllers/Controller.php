@@ -29,7 +29,7 @@ class Controller extends BaseController
         }
         if ($opensocialViewerId) {
             echo $opensocialViewerId;
-            $url = "/v2/api/oauth2/token";
+            $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
             $method = "POST";
 
             //接続
