@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs title="フラワーガールズ開発" bgcolor="#ffffff">
-    <Link rel="event.addapp" href="http://flower-dev-80928142.ap-northeast-1.elb.amazonaws.com/event/add" method="GET" />
-    <Link rel="event.removeapp" href="http://flower-dev-80928142.ap-northeast-1.elb.amazonaws.com/event/remove" method="GET" />
+    <Link rel="event.addapp" href="http://ec2-54-168-163-241.ap-northeast-1.compute.amazonaws.com/event/add" method="GET" />
+    <Link rel="event.removeapp" href="http://ec2-54-168-163-241.ap-northeast-1.compute.amazonaws.com/event/remove" method="GET" />
   </ModulePrefs>
   <!-- スマートフォン用スタートURL -->
-  <Content view="touch" type="url" href="http://flower-dev-80928142.ap-northeast-1.elb.amazonaws.com/"
+  <Content view="touch" type="url" href="http://ec2-54-168-163-241.ap-northeast-1.compute.amazonaws.com/"
   allow_domains="www.developer-sama.com,smart.developer-sama.com" />
   <!-- PC用スタートURL -->
-  <Content view="canvas" type="url" href="http://flower-dev-80928142.ap-northeast-1.elb.amazonaws.com/"
+  <Content view="canvas" type="url" href="http://ec2-54-168-163-241.ap-northeast-1.compute.amazonaws.com/"
   allow_domains="www.developer-sama.com,asset.developer-sama.com" padding_top="0" padding_bottom="0" />
 </Module>
