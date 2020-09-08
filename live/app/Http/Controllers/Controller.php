@@ -22,7 +22,7 @@ class Controller extends BaseController
     public function __construct()
     {
         // oauth関連
-        if ($_GET['opensocial_viewer_id']) {
+        if (isset($_GET['opensocial_viewer_id'])) {
             $opensocialViewerId = $_GET['opensocial_viewer_id'];
         } else {
             $opensocialViewerId = null;
