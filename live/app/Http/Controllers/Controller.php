@@ -48,6 +48,8 @@ class Controller extends BaseController
             $this->_playerId = $player->player_id;
         }
 
+        echo $this->_playerId;
+
         // もしplayerIdが取れなかった場合はloginへ
         // if (!$this->_playerId)
         //     session()->flush();
