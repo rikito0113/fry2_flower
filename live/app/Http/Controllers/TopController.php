@@ -20,7 +20,7 @@ class TopController extends Controller
     public function index()
     {
         // ログイン処理execでhashをsessionに入れる
-        if ($this->_playerId) {
+        if (isset($this->_playerId)) {
             return redirect()->route('my.my');
         }
         return view('index');
@@ -29,7 +29,7 @@ class TopController extends Controller
     public function login()
     {
         // ログイン処理execでhashをsessionに入れる
-        if ($this->_playerId) {
+        if (isset($this->_playerId)) {
             return redirect()->route('my.my');
         }
         return view('login');
@@ -50,7 +50,7 @@ class TopController extends Controller
     public function register()
     {
         // sessionの確認 未実装
-        if ($this->_playerId)
+        if (isset($this->_playerId))
             return redirect()->route('my.my');
         else
             return view('register');
