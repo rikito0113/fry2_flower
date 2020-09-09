@@ -21,6 +21,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
+        echo 'aaaa';
         // oauth関連
         if (isset($_GET['opensocial_viewer_id'])) {
             $opensocialViewerId = $_GET['opensocial_viewer_id'];
