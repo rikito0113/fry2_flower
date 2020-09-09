@@ -20,7 +20,7 @@
     <br><br>
 
     {{-- 今までの新着情報 --}}
-    @if (isset($all_news))
+    @if (isset($all_event_info))
         <table border="1" bordercolor="red" width="60%">
             <tr>
                 <td>news_id</td>
@@ -28,7 +28,7 @@
                 <td>タイトル</td>
                 <td>内容</td>
             </tr>
-            @foreach ($all_news as $row)
+            @foreach ($all_event_info as $row)
                 <tr>
                     <td>{{$row->news_id}}</td>
                     <td>{{ $row->created_at }}</td>
