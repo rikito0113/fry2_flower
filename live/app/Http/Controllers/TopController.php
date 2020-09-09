@@ -38,6 +38,7 @@ class TopController extends Controller
     // login処理実行
     public function loginExec(Request $request)
     {
+        echo $request->pf_player_id;
         $playerInfo = TopCore::login($request->pf_player_id);
 
         if (isset($playerInfo) && $playerInfo != false)
