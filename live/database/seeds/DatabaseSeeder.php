@@ -25,6 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ItemTableSeeder::class);
         $this->call(ProloguePhraseSeeder::class);
         $this->call(StudyPointRewardTableSeeder::class);
-        $this->call(EventTableSeeder::class);
+        $this->call(EventInfoTableSeeder::class);
     }
 }
