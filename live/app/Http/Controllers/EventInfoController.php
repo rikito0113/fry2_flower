@@ -14,9 +14,17 @@ class EventInfoController extends Controller
     public function index()
     {
         $allEventInfo = EventInfo::orderby('event_info_id', 'desc')->get();
+        $today = date('Y-m-d');
+        $eventInfo = NULL;
+
+        foreach ($allEventInfo as $key => $row) {
+            if (strtotime($today) >= strtotime($row->start_time) && strtotime($today) <= strtotime($row->end_time)) {
+                $eventInfo[] = $row;
+            }
+        }
 
         return view('event_info.index')
-        ->with('all_event_info', $allEventInfo);
+        ->with('event_info', $eventInfo);
     }
 
     // イベント情報 詳細
