@@ -11,9 +11,9 @@
             {{ $event_info->title}}<br>
             <div class="news_title_icon">
                 @if ($event_info->is_read)
-                    <img src="{{ asset('/images/icon/icon_read.png') }}" alt="bg_news_read_upper" width="10%">
+                    <img src="{{ asset('/images/icon/icon_read.png') }}" alt="bg_news_read_upper" width="35%">
                 @else
-                    <img src="{{ asset('/images/icon/icon_new.png') }}" alt="bg_news_read_upper" width="10%">
+                    <img src="{{ asset('/images/icon/icon_new.png') }}" alt="bg_news_read_upper" width="35%">
                 @endif
             </div>
         </div>
