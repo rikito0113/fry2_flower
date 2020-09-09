@@ -4,6 +4,7 @@
     <Link rel="event.addapp" href="http://ec2-54-168-163-241.ap-northeast-1.compute.amazonaws.com/event/add" method="GET" />
     <Link rel="event.removeapp" href="http://ec2-54-168-163-241.ap-northeast-1.compute.amazonaws.com/event/remove" method="GET" />
   </ModulePrefs>
+    <script type="text/javascript" src="https://spgm.nijiyome.jp/js/touch.js"></script>
     <script>
         nijiyome.auth({
         state: 'd144c46760d8b0bc4c3e1a6143c744be',
