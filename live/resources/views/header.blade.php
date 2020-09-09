@@ -48,7 +48,9 @@
         <a href="{{ action('StudyController@index') }}">
             <img class="other-header-child3" name="tag" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
         </a>
-        <img class="other-header-child4" name="tag" src="{{ asset('/images/button/bt_side_event.png') }}" alt="イベント">
+        <a href="{{ action('EventController@index') }}">
+            <img class="other-header-child4" name="tag" src="{{ asset('/images/button/bt_side_event.png') }}" alt="イベント">
+        </a>
         <a href="{{ action('ProfileController@profile') }}">
             <img class="other-header-child5" name="tag" src="{{ asset('/images/button/bt_side_profile.png') }}" alt="プロフィール">
         </a>

@@ -70,6 +70,8 @@ Route::get('/Present/recieveMemory/{itemId}',            'PresentController@reci
 // ガチャ・ショップ関連
 Route::get('/Shop/index',                                'ShopController@index')->name('shop.index');
 
+// イベント情報関連
+Route::get('/Event/index',                               'EventController@index')->name('event.index');
 
 
 
