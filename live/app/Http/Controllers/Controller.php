@@ -22,13 +22,21 @@ class Controller extends BaseController
     public function __construct()
     {
         // oauth関連
-        if (isset($_GET['opensocial_viewer_id'])) {
+        // opensocial_viewer_id = 現在アクセスしてるuserのpf_player_id
+        // opensocial_owner_id  = アクセスされてるgreeアプリをインストールしたuserのpf_player_id
+        // opensocial_viewer_id = opensocial_owner_id が正常
+        if (isset($_GET['opensocial_viewer_id']) && isset($_GET['opensocial_owner_id'])) {
             $opensocialViewerId = $_GET['opensocial_viewer_id'];
+            $opensocialOwnerId  = $_GET['opensocial_owner_id'];
+            if ($opensocialViewerId != $opensocialOwnerId) {
+                // 不正:エラーもしくはトップページに飛ばす
+            }
         } else {
             $opensocialViewerId = null;
         }
         if ($opensocialViewerId) {
-            echo $opensocialViewerId;
+            echo 'viewer:'.$opensocialViewerId.' and owner:'.$opensocialOwnerId;
+
             // $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
             // $method = "POST";
 
