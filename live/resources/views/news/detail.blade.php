@@ -6,7 +6,7 @@
         <img src="{{ asset('/images/bg/bg_news_read_upper.png') }}" alt="bg_news_read_upper" width="100%">
         <div style="text-align: right; font-size:small;">{{ $news->created_at}}</div>
         <div class="news-title">
-            title:: {{ $news->title}}<br>
+            {{ $news->title}}<br>
         </div>
         <div class="news-content">
             content:: {!! nl2br(e($news->content)) !!}<br>

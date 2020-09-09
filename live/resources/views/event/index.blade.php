@@ -20,12 +20,12 @@
     <img src="{{ asset('/images/titlebar/obi_cap14.png') }}" alt="obi_cap14" width="100%"><br>
 
     <div style="text-align: center;">
-        @if (isset($all_event))
-            @foreach ($all_event as $event)
-                    <a href="/Event/detail/{{ $event->event_id }}">
-                    <img src="{{ asset('/images/banner/'. $event->banner_img .'.png') }}" alt="banner_img" width="85%"><br />
+        @if (isset($all_event_info))
+            @foreach ($all_event_info as $event_info)
+                <a href="/EventInfo/detail/{{ $event_info->event_info_id }}">
+                    <img src="{{ asset('/images/banner/'. $event_info->banner_img .'.png') }}" alt="banner_img" width="85%"><br />
                 </a>
-                開催期間:{{ $event->start_time }}〜{{ $event->end_time }}<br />
+                開催期間:{{ $event_info->start_time }}〜{{ $event_info->end_time }}<br />
             @endforeach
         @endif
         <br><br>

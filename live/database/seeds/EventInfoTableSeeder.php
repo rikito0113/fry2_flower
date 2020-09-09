@@ -12,7 +12,7 @@ class EventTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('event')->insert([
+        DB::table('event_info')->insert([
             [
                 'title'             => 'イベント情報No.1',
                 'content'           => 'demodemodemodemodemo111111111',

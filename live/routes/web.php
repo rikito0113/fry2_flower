@@ -71,8 +71,8 @@ Route::get('/Present/recieveMemory/{itemId}',            'PresentController@reci
 Route::get('/Shop/index',                                'ShopController@index')->name('shop.index');
 
 // イベント情報関連
-Route::get('/Event/index',                               'EventController@index')->name('event.index');
-Route::get('/Event/detail/{eventId}',                     'EventController@detail')->name('event.detail');
+Route::get('/EventInfo/index',                           'EventInfoController@index')->name('eventInfo.index');
+Route::get('/EventInfo/detail/{eventId}',                'EventInfoController@detail')->name('eventInfo.detail');
 
 
 
