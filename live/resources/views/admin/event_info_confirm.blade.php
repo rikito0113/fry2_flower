@@ -15,6 +15,7 @@
         @csrf
         <textarea readonly name="title" cols="50" rows="4">{{ $title }}</textarea>
         <textarea readonly name="content" cols="50" rows="4">{{ $content }}</textarea>
+        <br />
         <input type="text" name="start_time" value="{{ $start_time }}">
         <input type="text" name="end_time" value="{{ $end_time }}">
         <input type="text" name="banner_img" value="{{ $banner_img }}">

@@ -15,6 +15,7 @@
         @csrf
         <textarea name="title" cols="50" rows="4" placeholder="タイトルを入力"></textarea>
         <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
+        <br />
         <input type="text" name="start_time" placeholder="開始時間">
         <input type="text" name="end_time" placeholder="終了時間">
         <input type="text" name="banner_img" placeholder="バナーファイル名">
