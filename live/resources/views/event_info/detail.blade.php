@@ -9,6 +9,13 @@
         <div style="text-align: right; font-size:small;">{{ $event_info->created_at}}</div>
         <div class="news-title">
             {{ $event_info->title}}<br>
+            <div class="news_title_icon">
+                @if ($event_info->is_read)
+                    <img src="{{ asset('/images/icon/icon_read.png') }}" alt="bg_news_read_upper" width="10%">
+                @else
+                    <img src="{{ asset('/images/icon/icon_new.png') }}" alt="bg_news_read_upper" width="10%">
+                @endif
+            </div>
         </div>
         <div class="news-content">
             content:: {!! nl2br(e($event_info->content)) !!}<br>
@@ -17,7 +24,7 @@
             <img src="{{ asset('/images/news/'. $event_info->content_img .'.png') }}" alt="event_info_info_img" width="100%">
         </div>
         <br>
-        <a href="{{ action('event_infoController@index') }}"><img src="{{ asset('/images/button/bt_news_back.png') }}" alt="bt_news_back" width="33%"></a>
+        <a href="{{ action('EventInfoController@index') }}"><img src="{{ asset('/images/button/bt_news_back.png') }}" alt="bt_news_back" width="33%"></a>
         <br>
         <img src="{{ asset('/images/bg/bg_news_read_under.png') }}" alt="bg_news_read_under" width="100%">
     </div>

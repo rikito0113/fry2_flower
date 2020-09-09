@@ -23,8 +23,8 @@
         @if (isset($all_event_info))
             @foreach ($all_event_info as $event_info)
                 <a href="/EventInfo/detail/{{ $event_info->event_info_id }}">
-                    <img src="{{ asset('/images/banner/'. $event_info->banner_img .'.png') }}" alt="banner_img" width="85%"><br />
-                </a>
+                    <img src="{{ asset('/images/banner/'. $event_info->banner_img .'.png') }}" alt="banner_img" width="85%">
+                </a><br />
                 開催期間:{{ $event_info->start_time }}〜{{ $event_info->end_time }}<br />
             @endforeach
         @endif

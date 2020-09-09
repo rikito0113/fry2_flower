@@ -10,9 +10,16 @@
 
 .news-title
 {
+    position: relative;
     background-color: #FFEEFF;
     width: 99%;
     margin: 0.5%;
+}
+.news_title_icon
+{
+    position: absolute;
+    top: 10%;
+    left: 2%;
 }
 
 .news-content
