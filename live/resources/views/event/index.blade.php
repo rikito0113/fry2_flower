@@ -22,10 +22,13 @@
     <div style="text-align: center;">
         @if (isset($all_event))
             @foreach ($all_event as $event)
-                <img src="{{ asset('/images/banner/'. $event->banner_img .'.png') }}" alt="obi_cap14" width="85%"><br />
+                    <a href="/Event/detail/{{ $event->event_id }}">
+                    <img src="{{ asset('/images/banner/'. $event->banner_img .'.png') }}" alt="banner_img" width="85%"><br />
+                </a>
                 開催期間:{{ $event->start_time }}〜{{ $event->end_time }}<br />
             @endforeach
         @endif
+        <br><br>
     </div>
 </div>
 <script>

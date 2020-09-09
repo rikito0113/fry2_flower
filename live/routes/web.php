@@ -72,6 +72,7 @@ Route::get('/Shop/index',                                'ShopController@index')
 
 // イベント情報関連
 Route::get('/Event/index',                               'EventController@index')->name('event.index');
+Route::get('/Event/detail/{eventId}',                     'EventController@detail')->name('event.detail');
 
 
 

@@ -41,6 +41,9 @@ class NewsController extends Controller
             ]);
         }
 
+        // ないと思うがXSS対策
+        $news->content = str_replace("<br />", "\n", $news->content);
+
         return view('news.detail')
             ->with('news', $news);
     }
