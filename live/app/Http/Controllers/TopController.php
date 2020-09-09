@@ -40,7 +40,7 @@ class TopController extends Controller
     {
         $playerInfo = TopCore::login($request->pf_player_id);
 
-        if ($playerInfo)
+        if (isset($playerInfo))
             return redirect()->route('my.my');
         else
             return view('register');
