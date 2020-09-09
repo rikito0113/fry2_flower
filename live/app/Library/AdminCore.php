@@ -377,10 +377,14 @@ class AdminCore {
      *
      * @param string $title
      * @param string $content
+     * @param string $startTime
+     * @param string $endTime
+     * @param string $bannerImg
+     * @param string $contentImg
      * @return bool
      *
      */
-    public static function eventInfoSend($title, $content)
+    public static function eventInfoSend($title, $content, $startTime, $endTime, $bannerImg, $contentImg)
     {
         // 改行を<br />に変換
         $content = nl2br($content);
@@ -388,8 +392,12 @@ class AdminCore {
 
         $eventInfoInstance = new EventInfo;
         $eventInfoInstance->create([
-            'title'      => $title,
-            'content'    => $content,
+            'title'         => $title,
+            'content'       => $content,
+            'banner_img'    => $bannerImg,
+            'start_time'    => $startTime,
+            'end_time'      => $endTime,
+            'content_img'   => $contentImg,
         ]);
 
         return true;

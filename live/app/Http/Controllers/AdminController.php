@@ -310,10 +310,20 @@ class AdminController extends Controller
     // イベント情報入力確認
     public function eventInfoConfirm(Request $request)
     {
-        if (isset($request->content) && isset($request->title)) {
+        if (isset($request->content) && isset($request->title) && isset($request->start_time) && isset($request->end_time) && isset($request->banner_img)) {
+            if (isset($request->content_img)) {
+                $contentImg = $request->content_img;
+            } else {
+                $contentImg = false;
+            }
+
             return view('admin.event_info_confirm')
-                ->with('content',   $request->content)
-                ->with('title',     $request->title);
+                ->with('content',      $request->content)
+                ->with('title',        $request->title)
+                ->with('start_time',   $request->start_time)
+                ->with('end_time',     $request->end_time)
+                ->with('banner_img',   $request->banner_img)
+                ->with('content_img',  $contentImg);
         }
 
         // 入力不足
@@ -323,10 +333,20 @@ class AdminController extends Controller
     // イベント情報送信
     public function eventInfoSend(Request $request)
     {
-        if (isset($request->content) && isset($request->title)) {
-            $sendResult = EventInfo::newsSend(
+        if (isset($request->content) && isset($request->title) && isset($request->start_time) && isset($request->end_time) && isset($request->banner_img)) {
+            if (isset($request->content_img)) {
+                $contentImg = $request->content_img;
+            } else {
+                $contentImg = false;
+            }
+
+            $sendResult = AdminCore::eventInfoSend(
                 $request->title,
-                $request->content
+                $request->content,
+                $request->start_time,
+                $request->end_time,
+                $request->banner_img,
+                $contentImg
             );
         }
         return redirect()->route('admin.event_info');
