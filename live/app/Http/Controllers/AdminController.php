@@ -11,6 +11,7 @@ use App\AdminEventChatLog;
 use App\Scenario;
 use App\EventFixedPhrase;
 use App\News;
+use App\EventInfo;
 
 // ライブラリの呼び出し
 use App\Library\AdminCore;
@@ -296,5 +297,38 @@ class AdminController extends Controller
             );
         }
         return redirect()->route('admin.news');
+    }
+
+    // イベント情報
+    public function eventInfo()
+    {
+        $allEventInfo = EventInfo::orderby('event_info_id', 'desc')->get();
+        return view('admin.event_info')
+            ->with('all_event_info', $allEventInfo);
+    }
+
+    // イベント情報入力確認
+    public function eventInfoConfirm(Request $request)
+    {
+        if (isset($request->content) && isset($request->title)) {
+            return view('admin.event_info_confirm')
+                ->with('content',   $request->content)
+                ->with('title',     $request->title);
+        }
+
+        // 入力不足
+        return redirect()->route('admin.event_info');
+    }
+
+    // イベント情報送信
+    public function eventInfoSend(Request $request)
+    {
+        if (isset($request->content) && isset($request->title)) {
+            $sendResult = EventInfo::newsSend(
+                $request->title,
+                $request->content
+            );
+        }
+        return redirect()->route('admin.event_info');
     }
 }

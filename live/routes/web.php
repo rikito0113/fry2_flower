@@ -103,6 +103,10 @@ Route::group(['middleware' => 'admin', 'prefix' => 'Admin'], function () {
     Route::get('news',                                          'AdminController@news')->name('admin.news');
     Route::post('newsConfirm',                                  'AdminController@newsConfirm');
     Route::post('newsSend',                                     'AdminController@newsSend');
+    Route::get('eventInfo',                                     'AdminController@eventInfo')->name('admin.event_info');
+    Route::post('eventInfoConfirm',                             'AdminController@eventInfoConfirm');
+    Route::post('eventInfoSend',                                'AdminController@eventInfoSend');
+
 
     Route::view('should_reply',                             'admin.should_reply');
     Route::view('should_reply_normal',                      'admin.should_reply_normal');

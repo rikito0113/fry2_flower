@@ -13,6 +13,7 @@ use App\Scenario;
 use App\PlayerEventChatLog;
 use App\AdminEventChatLog;
 use App\News;
+use App\EventInfo;
 
 
 class AdminCore {
@@ -364,6 +365,29 @@ class AdminCore {
 
         $newsInstance = new News;
         $newsInstance->create([
+            'title'      => $title,
+            'content'    => $content,
+        ]);
+
+        return true;
+    }
+
+    /**
+     * 管理画面からイベント情報をinsertする
+     *
+     * @param string $title
+     * @param string $content
+     * @return bool
+     *
+     */
+    public static function eventInfoSend($title, $content)
+    {
+        // 改行を<br />に変換
+        $content = nl2br($content);
+        $content = str_replace(array("\r\n", "\r", "\n"), "", $content);
+
+        $eventInfoInstance = new EventInfo;
+        $eventInfoInstance->create([
             'title'      => $title,
             'content'    => $content,
         ]);

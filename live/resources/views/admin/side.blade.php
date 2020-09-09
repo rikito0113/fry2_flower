@@ -8,5 +8,6 @@
         <li @if($menu == 'find_girl')class="active"@endif><a href="{{ route('admin.findGirl') }}">ガール検索(未実装)</a></li>
         <li @if($menu == 'regist_title')class="active"@endif><a href="{{ action('AdminController@registerTitle') }}">称号登録(未実装)</a></li>
         <li @if($menu == 'news')class="active"@endif><a href="{{ action('AdminController@news') }}">お知らせ(新着情報)</a></li>
+        <li @if($menu == 'event_info')class="active"@endif><a href="{{ action('AdminController@eventInfo') }}">イベント情報</a></li>
     </ul>
 </div>
