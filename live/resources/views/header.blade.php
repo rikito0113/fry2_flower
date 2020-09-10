@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="{{ asset('css/news.css') }}">
     <script type="text/javascript" src="{{ asset('js/header.js') }}"></script>
 
+    <script type="text/javascript" src="https://spgm.nijiyome.jp/js/touch.js"></script>
+
     <title>flower girls</title>
 </head>
 <body style="margin:0px;">
