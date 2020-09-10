@@ -8,7 +8,7 @@
 <body>
     <form action="/registerExec" method="POST">
         @csrf
-        pf_player_id : <input type="text" name="pf_player_id" size="40" placeholder="pf_player_idを入力してください"> <br>
+        <input type="hidden" value="{{ $pf_player_id }}" name="pf_player_id">
         name : <input type="text" name="name" size="40" placeholder="nameを入力してください"> <br>
         <input type="submit" value="Login">
     </form>

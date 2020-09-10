@@ -18,6 +18,9 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     protected $_playerId;
+    protected $goTop;
+    protected $goRegist;
+    protected $_pfPlayerId;
 
     public function __construct()
     {
@@ -26,15 +29,39 @@ class Controller extends BaseController
         // opensocial_owner_id  = アクセスされてるgreeアプリをインストールしたuserのpf_player_id
         // opensocial_viewer_id = opensocial_owner_id が正常
 
-        if (isset($_GET['opensocial_viewer_id']) && isset($_GET['opensocial_owner_id'])) {
-            $opensocialViewerId = $_GET['opensocial_viewer_id'];
-            $opensocialOwnerId  = $_GET['opensocial_owner_id'];
-            if ($opensocialViewerId != $opensocialOwnerId) {
-                // 不正:エラーもしくはトップページに飛ばす
+        // session確認
+        if (session()->has('opensocial_viewer_id')) {
+            $pfPlayerId = session('opensocial_viewer_id');
+            $player = Player::where('pf_player_id', $pfPlayerId)->first();
+            if (isset($player)) {
+                $this->_playerId = $player->player_id;
+            } else {
+                // エラー
             }
         } else {
-            $opensocialViewerId = null;
+            // session切れ
+            if (isset($_GET['opensocial_viewer_id']) && isset($_GET['opensocial_owner_id'])) {
+                $opensocialViewerId = $_GET['opensocial_viewer_id'];
+                $opensocialOwnerId  = $_GET['opensocial_owner_id'];
+                if ($opensocialViewerId != $opensocialOwnerId) {
+                    // 不正:エラーもしくはトップページに飛ばす
+                } else {
+                    $player = Player::where('pf_player_id', $opensocialViewerId)->first();
+                    if (isset($player)) {
+                        $this->_playerId = $player->player_id;
+                        session(['opensocial_viewer_id' => $opensocialViewerId]);
+                    } else {
+                        // 登録
+                        $this->_pfPlayerId = $opensocialViewerId;
+                        $this->goRegist = true;
+                    }
+                }
+            } else {
+                $opensocialViewerId = null;
+                $this->goTop = true;
+            }
         }
+
         if ($opensocialViewerId) {
             echo 'viewer:'.$opensocialViewerId.' and owner:'.$opensocialOwnerId;
 
@@ -51,14 +78,10 @@ class Controller extends BaseController
         }
 
         // ハッシュ値を保持している時
-        if (session()->has('hash')) {
-            $hash = session('hash');
-            $player = Player::where('hash', $hash)->first();
-            $this->_playerId = $player->player_id;
-        }
-
-        // もしplayerIdが取れなかった場合はloginへ
-        // if (!$this->_playerId)
-        //     session()->flush();
+        // if (session()->has('hash')) {
+        //     $hash = session('hash');
+        //     $player = Player::where('hash', $hash)->first();
+        //     $this->_playerId = $player->player_id;
+        // }
     }
 }

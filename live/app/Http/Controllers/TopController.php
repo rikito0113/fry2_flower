@@ -32,6 +32,10 @@ class TopController extends Controller
         if (isset($this->_playerId)) {
             return redirect()->route('my.my');
         }
+
+        if (isset($this->goRegist)) {
+            return redirect()->route('register');
+        }
         return view('login');
     }
 
@@ -54,7 +58,8 @@ class TopController extends Controller
         if (isset($this->_playerId))
             return redirect()->route('my.my');
         else
-            return view('register');
+            return view('register')
+            ->with('pf_player_id', $this->_pfPlayerId);
     }
 
     // 会員登録実行処理
