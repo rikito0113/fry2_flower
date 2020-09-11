@@ -69,6 +69,11 @@ class TopController extends Controller
     // 会員登録実行処理
     public function registerExec(Request $request)
     {
+        if (!isset($request->pf_player_id)) {
+            // FIXME:エラーに飛ばす
+            return view('index')
+            ->with('player_id', $this->_playerId);
+        }
         $playerInfo = Player::where('pf_player_id', $request->pf_player_id)->first();
         if ($playerInfo) {
             TopCore::updateHash($playerInfo->player_id);
