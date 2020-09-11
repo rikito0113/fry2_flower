@@ -37,6 +37,7 @@ class Controller extends BaseController
                 $this->_playerId = $player->player_id;
             } else {
                 // エラー
+                $this->goRegist = true;
             }
         } else {
             // session切れ
@@ -49,13 +50,12 @@ class Controller extends BaseController
                     $player = Player::where('pf_player_id', $opensocialViewerId)->first();
                     if (isset($player)) {
                         $this->_playerId = $player->player_id;
-                        session(['opensocial_viewer_id' => $opensocialViewerId]);
                     } else {
                         // 登録
-                        echo '登録いく';
                         $this->_pfPlayerId = $opensocialViewerId;
                         $this->goRegist = true;
                     }
+                    session(['opensocial_viewer_id' => $opensocialViewerId]);
                 }
             } else {
                 $opensocialViewerId = null;
