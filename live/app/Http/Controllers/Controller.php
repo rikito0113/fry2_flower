@@ -30,6 +30,7 @@ class Controller extends BaseController
         // opensocial_viewer_id = opensocial_owner_id が正常
 
         // session確認
+        $opensocialViewerId = null;
         if (session()->has('opensocial_viewer_id')) {
             $pfPlayerId = session('opensocial_viewer_id');
             $player = Player::where('pf_player_id', $pfPlayerId)->first();
