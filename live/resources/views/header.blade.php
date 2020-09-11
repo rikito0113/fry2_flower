@@ -14,12 +14,16 @@
     <link rel="stylesheet" href="{{ asset('css/girl.css') }}">
     <link rel="stylesheet" href="{{ asset('css/study.css') }}">
     <link rel="stylesheet" href="{{ asset('css/news.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script type="text/javascript" src="{{ asset('js/header.js') }}"></script>
 
     <script type="text/javascript" src="https://spgm.nijiyome.jp/js/touch.js"></script>
 
     <title>flower girls</title>
 </head>
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="#">Fixed top</a>
+</nav>
 <body style="margin:0px;">
     <div class="flower-header-dere" >
         {{-- マイページ --}}
