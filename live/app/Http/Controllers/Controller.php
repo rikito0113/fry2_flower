@@ -35,7 +35,9 @@ class Controller extends BaseController
         if (session()->has('opensocial_viewer_id')) {
             $this->_pfPlayerId = session('opensocial_viewer_id');
             $player = Player::where('pf_player_id', $this->_pfPlayerId)->first();
+            echo 'ここ１';
             if (isset($player)) {
+                echo 'ここ2';
                 $this->_playerId = $player->player_id;
             } else {
                 // エラー
@@ -43,22 +45,26 @@ class Controller extends BaseController
             }
         } else {
             // session切れ
+            echo 'ここ3';
             if (isset($_GET['opensocial_viewer_id']) && isset($_GET['opensocial_owner_id'])) {
                 $this->_pfPlayerId = $_GET['opensocial_viewer_id'];
                 $opensocialOwnerId  = $_GET['opensocial_owner_id'];
                 if ($this->_pfPlayerId != $opensocialOwnerId) {
                     // 不正:エラーもしくはトップページに飛ばす
                 } else {
+                    echo 'ここ4';
                     $player = Player::where('pf_player_id', $this->_pfPlayerId)->first();
                     if (isset($player)) {
                         $this->_playerId = $player->player_id;
                     } else {
+                        echo 'ここ5';
                         // 登録
                         $this->goRegist = true;
                     }
                     session(['opensocial_viewer_id' => $this->_pfPlayerId]);
                 }
             } else {
+                echo 'ここ6';
                 $this->_pfPlayerId = null;
                 $this->goTop = true;
             }
