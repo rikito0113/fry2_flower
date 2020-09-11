@@ -38,6 +38,7 @@ class Controller extends BaseController
             echo 'ここ１';
             if (isset($player)) {
                 echo 'ここ2';
+                echo 'player_id:'. $player->player_id;
                 $this->_playerId = $player->player_id;
             } else {
                 // エラー
@@ -50,14 +51,15 @@ class Controller extends BaseController
                 $this->_pfPlayerId = $_GET['opensocial_viewer_id'];
                 $opensocialOwnerId  = $_GET['opensocial_owner_id'];
                 if ($this->_pfPlayerId != $opensocialOwnerId) {
-                    // 不正:エラーもしくはトップページに飛ばす
+                    // 不正:エラーもしくはトップページに飛ばす（ありえないはず）
                 } else {
-                    echo 'ここ4';
                     $player = Player::where('pf_player_id', $this->_pfPlayerId)->first();
                     if (isset($player)) {
+                        echo 'ここ4';
+                        echo 'player_id:'.$player->player_id;
                         $this->_playerId = $player->player_id;
                     } else {
-                        echo 'ここ5';
+                        echo 'ここ5:登録に飛ぶ';
                         // 登録
                         $this->goRegist = true;
                     }
