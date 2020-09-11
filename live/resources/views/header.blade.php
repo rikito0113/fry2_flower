@@ -21,9 +21,7 @@
 
     <title>flower girls</title>
 </head>
-<nav class="navbar fixed-top navbar-light bg-light">
-  <a class="navbar-brand" href="#">Fixed top</a>
-</nav>
+
 <body style="margin:0px;">
     <div class="flower-header-dere" >
         {{-- マイページ --}}
