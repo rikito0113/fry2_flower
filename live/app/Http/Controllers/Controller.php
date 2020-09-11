@@ -32,8 +32,8 @@ class Controller extends BaseController
         // session確認
         $opensocialViewerId = null;
         if (session()->has('opensocial_viewer_id')) {
-            $pfPlayerId = session('opensocial_viewer_id');
-            $player = Player::where('pf_player_id', $pfPlayerId)->first();
+            $this->_pfPlayerId = session('opensocial_viewer_id');
+            $player = Player::where('pf_player_id', $this->_pfPlayerId)->first();
             if (isset($player)) {
                 $this->_playerId = $player->player_id;
             } else {
@@ -43,29 +43,28 @@ class Controller extends BaseController
         } else {
             // session切れ
             if (isset($_GET['opensocial_viewer_id']) && isset($_GET['opensocial_owner_id'])) {
-                $opensocialViewerId = $_GET['opensocial_viewer_id'];
+                $this->_pfPlayerId = $_GET['opensocial_viewer_id'];
                 $opensocialOwnerId  = $_GET['opensocial_owner_id'];
-                if ($opensocialViewerId != $opensocialOwnerId) {
+                if ($this->_pfPlayerId != $opensocialOwnerId) {
                     // 不正:エラーもしくはトップページに飛ばす
                 } else {
-                    $player = Player::where('pf_player_id', $opensocialViewerId)->first();
+                    $player = Player::where('pf_player_id', $this->_pfPlayerId)->first();
                     if (isset($player)) {
                         $this->_playerId = $player->player_id;
                     } else {
                         // 登録
-                        $this->_pfPlayerId = $opensocialViewerId;
                         $this->goRegist = true;
                     }
-                    session(['opensocial_viewer_id' => $opensocialViewerId]);
+                    session(['opensocial_viewer_id' => $this->_pfPlayerId]);
                 }
             } else {
-                $opensocialViewerId = null;
+                $this->_pfPlayerId = null;
                 $this->goTop = true;
             }
         }
 
-        if ($opensocialViewerId) {
-            echo 'viewer:'.$opensocialViewerId.' and owner:'.$opensocialOwnerId;
+        if ($this->_pfPlayerId) {
+            echo 'viewer:'.$this->_pfPlayerId.' and owner:'.$opensocialOwnerId;
 
             // $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
             // $method = "POST";
