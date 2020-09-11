@@ -33,7 +33,7 @@ class TopController extends Controller
             return redirect()->route('my.my');
         }
 
-        if (isset($this->goRegist)) {
+        if ($this->goRegist == true) {
             return redirect()->route('register');
         }
         return view('login');
