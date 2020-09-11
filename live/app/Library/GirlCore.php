@@ -22,6 +22,9 @@ use App\Scenario;
 use App\EventMemory;
 use App\ProloguePhrase;
 
+// コンスタントの呼び出し
+use App\Library\Constant;
+
 class GirlCore
 {
     // girl選択 仮 もしかしたらいらないかも
@@ -49,13 +52,12 @@ class GirlCore
 
         // img_infoの中身
         $setImgInfo = SetImg::where('owned_char_id', $ownedCharId)->first();
-        //$setImgInfo['img_name'] = Item::where('item_id', $setImgInfo->avatar_form_img)->first()->img_name;
+        //$setImgInfo['img_name'] = Item::where('item_id', $setImgInfo->avatar_img)->first()->img_name;
 
         $ownedCharInfo = $ownedChar;
-        $ownedCharInfo['char_name']         = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
-        $ownedCharInfo['avatar_form_img']   = $setImgInfo->avatar_form_img;
-        $ownedCharInfo['background_img']    = $setImgInfo->background_img;
-        //$ownedCharInfo['img_name']          = $setImgInfo->img_name;
+        $ownedCharInfo['char_name']  = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
+        $ownedCharInfo['avatar_img'] = $setImgInfo->avatar_img;
+        $ownedCharInfo['bg_img']     = $setImgInfo->bg_img;
 
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
@@ -102,10 +104,10 @@ class GirlCore
         if (!$ownedCharImg || $ownedCharImg->num <= 0) return false;
 
         $setImgInfo = SetImg::where('owned_char_id', $playerInfo->owned_char_id)->first();
-        if ($ownedCharImg->category == 'background') {
-            $setImgInfo->background_img = $ownedCharImg->item_id;
+        if ($ownedCharImg->category == Constant::ITEM_BG) {
+            $setImgInfo->bg_img = $ownedCharImg->item_id;
         } else {
-            $setImgInfo->avatar_form_img = $ownedCharImg->item_id;
+            $setImgInfo->avatar_img = $ownedCharImg->item_id;
         }
         $setImgInfo->save();
 
@@ -113,10 +115,10 @@ class GirlCore
     }
 
     /**
-     * tun・dereポイントの更新、remain_pointの更新
+     * tsun・dereポイントの更新、remain_pointの更新
      *
      * @param int $ownedCharId
-     * @param int $type  1:tun 2:dere
+     * @param int $type  1:tsun 2:dere
      * @param int $point
      * @return array $setImgInfo
      *
@@ -133,7 +135,7 @@ class GirlCore
         if ($type == 1)
         {
             // ツン
-            $ownedChar->tun = $ownedChar->tun + $point;
+            $ownedChar->tsun = $ownedChar->tsun + $point;
         } elseif ($type == 2)
         {
             // デレ
@@ -210,10 +212,10 @@ class GirlCore
         $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
 
         $attitude = null;
-        if ($ownedCharInfo->dere > $ownedCharInfo->tun)
-            $attitude = 'dere';
+        if ($ownedCharInfo->dere > $ownedCharInfo->tsun)
+            $attitude = Constant::ATTITUDE_DERE;
         else
-            $attitude = 'tsun';
+            $attitude = Constant::ATTITUDE_TSUN;
 
         return $attitude;
     }

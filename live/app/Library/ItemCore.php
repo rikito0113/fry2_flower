@@ -7,15 +7,6 @@ use App\MainMemory;
 
 class ItemCore
 {
-    // アイテムカテゴリー
-    const ITEM_AVATER_FORM     = 'avatar_form';
-    const ITEM_BACKGROUND      = 'bg';
-    const ITEM_AVATER_HAIR     = 'avatar_hair';
-    const ITEM_SHOP            = 'shop';
-    const ITEM_TOOL            = 'tool';
-    const ITEM_SCENE_NORMAL    = 'scene_normal';
-    const ITEM_SCENE_ERO       = 'scene_ero';
-
     public static function getItem($itemId)
     {
         return Item::where('item_id', $itemId)->first();
@@ -29,7 +20,6 @@ class ItemCore
      * @param int    $itemId
      * @param int    $num
      * @param bool   $isLv         true:level reward, false:study point reward or gacha
-     * 
      * @return bool
      */
     public static function appendItem($playerId, $ownedCharId, $attitude, $itemId, $num, $isLv = false)
@@ -38,7 +28,7 @@ class ItemCore
         $itemInfo = Item::where('item_id', $itemId)->first();
 
         // アイテムのカテゴリごとに格納する場所変わる
-        if($itemInfo->category == ItemCore::ITEM_AVATER_FORM || $itemInfo->category == ItemCore::ITEM_AVATER_HAIR || $itemInfo->category == ItemCore::ITEM_BACKGROUND)
+        if($itemInfo->category == Constant::ITEM_AVATAR || $itemInfo->category == Constant::ITEM_EFFECT || $itemInfo->category == Constant::ITEM_BG)
         {
             // owned_character_img
             $imgInstance = new OwnedCharacterImg;
@@ -49,13 +39,13 @@ class ItemCore
                 'num'           => $num,
                 'category'      => $itemInfo->category,
             ]);
-            
+
         }
-        elseif($itemInfo->category == ItemCore::ITEM_SCENE_NORMAL)
+        elseif($itemInfo->category == Constant::ITEM_SCENE_NORMAL)
         {
             // event_memory
         }
-        elseif($itemInfo->category == ItemCore::ITEM_SCENE_ERO)
+        elseif($itemInfo->category == Constant::ITEM_SCENE_ERO)
         {
             // main_memory
             // 思ひ出の付与

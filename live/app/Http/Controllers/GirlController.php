@@ -11,8 +11,7 @@ use App\PlayerChatLog;
 use App\Scenario;
 use App\EventMemory;
 use App\AdminChatLog;
-
-
+use App\Library\Constant;
 // ライブラリの呼び出し
 use App\Library\GirlCore;
 use App\Library\ItemCore;
@@ -115,10 +114,10 @@ class GirlController extends Controller
         // 1：ツン、2：デレ
         $type = 0;
         $point = 0;
-        if (isset($request->add_tun))
+        if (isset($request->add_tsun))
         {
             $type = 1;
-            $point = $request->add_tun;
+            $point = $request->add_tsun;
         } elseif (isset($request->add_dere))
         {
             $type = 2;
@@ -249,14 +248,14 @@ class GirlController extends Controller
         $scenarioInfo = false;
         $eventChatLog = false;
 
-        if (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_NIGHT)) {
-            $dayTime = self::NIGHT;
-        } elseif (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_NOON)) {
-            $dayTime = self::NOON;
-        } elseif (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_MORNING)) {
-            $dayTime = self::MORNING;
+        if (strtotime(date('H:i:s')) > strtotime(Constant::DAY_TIME_NIGHT)) {
+            $dayTime = Constant::NIGHT;
+        } elseif (strtotime(date('H:i:s')) > strtotime(Constant::DAY_TIME_NOON)) {
+            $dayTime = Constant::NOON;
+        } elseif (strtotime(date('H:i:s')) > strtotime(Constant::DAY_TIME_MORNING)) {
+            $dayTime = Constant::MORNING;
         } else {
-            $dayTime = self::NIGHT;             // 深夜帯 開発用
+            $dayTime = Constant::NIGHT;             // 深夜帯 開発用
         }
 
         // eventChat送信後のリダイレクトの際はplaceを付属すること
@@ -266,7 +265,7 @@ class GirlController extends Controller
             // チュートリアル終了していなければ誰もいないへ
             if ($scenarioInfo) {
                 $ownedCharInfo = OwnedCharacterData::where('player_id', $this->_playerId)->where('char_id', $scenarioInfo->char_id)->first();
-                if ($ownedCharInfo->done_prologue && ($ownedCharInfo->tun != 0 || $ownedCharInfo->dere != 0))
+                if ($ownedCharInfo->done_prologue && ($ownedCharInfo->tsun != 0 || $ownedCharInfo->dere != 0))
                     GirlCore::createPlayerScenarioData($this->_playerId, $scenarioInfo->scenario_id);
                 else
                     $scenarioInfo = NULL;
@@ -312,23 +311,23 @@ class GirlController extends Controller
         $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
 
         // 画像をカテゴリーに分ける
-        $avaterImgs = false;
+        $avatarImgs = false;
         $bgImgs = false;
-        $hairImgs = false;
+        $effectImgs = false;
 
         foreach($ownedCharImg as $key => $ownedImg)
         {
-            if($ownedImg['category'] == ItemCore::ITEM_AVATER_FORM)
+            if($ownedImg['category'] == Constant::ITEM_AVATER_FORM)
             {
-                $avaterImgs[] = $ownedImg;
+                $avatarImgs[] = $ownedImg;
             }
-            elseif($ownedImg['category'] == ItemCore::ITEM_BACKGROUND)
+            elseif($ownedImg['category'] == Constant::ITEM_BG)
             {
                 $bgImgs = $ownedImg;
             }
-            elseif($ownedImg['category'] == ItemCore::ITEM_AVATER_HAIR)
+            elseif($ownedImg['category'] == Constant::ITEM_AVATER_HAIR)
             {
-                $hairImgs = $ownedImg;
+                $effectImgs = $ownedImg;
             }
         }
 
@@ -336,9 +335,9 @@ class GirlController extends Controller
             ->with('owned_char_info',   $ownedCharInfo)
             ->with('owned_char_img',    $ownedCharImg)
             ->with('current_date',      date('m月d日 H:i'))
-            ->with('avater_imgs',       $avaterImgs)
+            ->with('avatar_imgs',       $avatarImgs)
             ->with('bd_imgs',           $bgImgs)
-            ->with('hair_imgs',         $hairImgs)
+            ->with('effect_imgs',       $effectImgs)
             ->with('player_info',       $playerInfo);
     }
 
@@ -390,12 +389,12 @@ class GirlController extends Controller
         $scenarioInfo = Scenario::where('scenario_id', $scenarioId)->where('start_datetime', '<=', date('Y-m-d H:i:s'))->where('end_datetime', '>=', date('Y-m-d H:i:s'))->first();
         if ($scenarioInfo) {
             $dayTime = null;
-            if (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_NIGHT)) {
-                $dayTime = self::NIGHT;
-            } elseif (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_NOON)) {
-                $dayTime = self::NOON;
-            } elseif (strtotime(date('H:i:s')) > strtotime(self::DAY_TIME_MORNING)) {
-                $dayTime = self::MORNING;
+            if (strtotime(date('H:i:s')) > strtotime(Constant::DAY_TIME_NIGHT)) {
+                $dayTime = Constant::NIGHT;
+            } elseif (strtotime(date('H:i:s')) > strtotime(Constant::DAY_TIME_NOON)) {
+                $dayTime = Constant::NOON;
+            } elseif (strtotime(date('H:i:s')) > strtotime(Constant::DAY_TIME_MORNING)) {
+                $dayTime = Constant::MORNING;
             }
 
             if ($dayTime == $scenarioInfo->daytime)
@@ -431,10 +430,10 @@ class GirlController extends Controller
     {
         $ownedCharInfo = OwnedCharacterData::where('owned_char_id', $ownedCharId)->first();
         $attitude = null;
-        if ($ownedCharInfo->dere > $ownedCharInfo->tun)
-            $attitude = 'dere';
+        if ($ownedCharInfo->dere > $ownedCharInfo->tsun)
+            $attitude = Constant::ATTITUDE_DERE;
         else
-            $attitude = 'tun';
+            $attitude = Constant::ATTITUDE_TSUN;
 
         $ownedMainMemoryLv   = MainMemory::where('player_id', $playerId)->where('owned_char_id', $ownedCharId)->where('is_Lv', 1)->where('is_recieved', 1)->get();
         $mainMemoryLv        = null;

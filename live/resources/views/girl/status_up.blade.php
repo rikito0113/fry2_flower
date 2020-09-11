@@ -8,12 +8,12 @@
 <div style="text-align:center;">
     残りパラ：{{$owned_char_info->remain_point}}<br>
     デレ度：{{$owned_char_info->dere}}<br>
-    ツン度：{{$owned_char_info->tun}} <br>
+    ツン度：{{$owned_char_info->tsun}} <br>
     デレアップ<br>
     <form action="/Girl/statusUpConfirm" method="POST">
         @csrf
         <select name="add_dere">
-            @if ($owned_char_info->tun == 0 && $owned_char_info->dere == 0 && $owned_char_info->done_prologue)
+            @if ($owned_char_info->tsun == 0 && $owned_char_info->dere == 0 && $owned_char_info->done_prologue)
                 <option value="1">1</option>
             @elseif ($owned_char_info->remain_point >= 2)
                 @for ($i = 0; $i <= $owned_char_info->remain_point; $i+=2)
@@ -28,8 +28,8 @@
     ツンアップ<br>
     <form action="/Girl/statusUpConfirm" method="POST">
         @csrf
-        <select name="add_tun">
-            @if ($owned_char_info->tun == 0 && $owned_char_info->dere == 0 && $owned_char_info->done_prologue)
+        <select name="add_tsun">
+            @if ($owned_char_info->tsun == 0 && $owned_char_info->dere == 0 && $owned_char_info->done_prologue)
                 <option value="1">1</option>
             @elseif ($owned_char_info->remain_point >= 2)
                 @for ($i = 0; $i <= $owned_char_info->remain_point; $i+=2)

@@ -20,7 +20,7 @@ class CreateOwnedCharacterDataTable extends Migration
             $table->integer('level')->default(1);
             $table->integer('exp')->default(0);
             $table->integer('dere')->default(0);
-            $table->integer('tun')->default(0);
+            $table->integer('tsun')->default(0);
             $table->integer('remain_point')->default(0);
             $table->boolean('done_prologue')->default(0);       // チュートリアルが終わるとtrue
             $table->integer('prologue_index')->default(0);      // チュートリアルの進行度

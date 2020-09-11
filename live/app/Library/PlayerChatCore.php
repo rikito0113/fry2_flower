@@ -68,9 +68,9 @@ class PlayerChatCore
             'player_id'           => $playerId,
             'content'             => $content,
             'char_id'             => $charId,
-            'char_avatar_form_id' => $ownedCharInfo->avatar_form_img,
-            'char_avatar_hair_id' => 1, // 仮
-            'char_background_id'  => $ownedCharInfo->background_img,
+            'char_avatar_id' => $ownedCharInfo->avatar_img,
+            'char_effect_id' => 1, // 仮
+            'char_bg_id'  => $ownedCharInfo->bg_img,
             'is_player'           => true,
             'is_read'             => false,
         ]);
@@ -361,10 +361,10 @@ class PlayerChatCore
 
             // メモリーの判定
             $attitude = null;
-            if ($ownedCharInfo->dere > $ownedCharInfo->tun)
+            if ($ownedCharInfo->dere > $ownedCharInfo->tsun)
                 $attitude = 'dere';
             else
-                $attitude = 'tun';
+                $attitude = 'tsun';
 
             $memoryInfo = RewardLevel::where('char_id', $ownedCharInfo->char_id)->where('level', '<=', $ownedCharInfo->level)->where('attitude', $attitude)->orderBy('level', 'desc')->first();
             if ($memoryInfo) {

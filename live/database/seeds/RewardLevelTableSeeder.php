@@ -16,7 +16,7 @@ class RewardLevelTableSeeder extends Seeder
             [
                 'level'         => 5,
                 'char_id'       => 1,
-                'attitude'      => 'tun',
+                'attitude'      => 'tsun',
                 'item_id'     => 4,
             ],
             [
@@ -28,7 +28,7 @@ class RewardLevelTableSeeder extends Seeder
             [
                 'level'         => 5,
                 'char_id'       => 2,
-                'attitude'      => 'tun',
+                'attitude'      => 'tsun',
                 'item_id'     => 5,
             ],
             [
@@ -40,7 +40,7 @@ class RewardLevelTableSeeder extends Seeder
             [
                 'level'         => 5,
                 'char_id'       => 3,
-                'attitude'      => 'tun',
+                'attitude'      => 'tsun',
                 'item_id'     => 6,
             ],
             [
@@ -52,7 +52,7 @@ class RewardLevelTableSeeder extends Seeder
             [
                 'level'         => 5,
                 'char_id'       => 4,
-                'attitude'      => 'tun',
+                'attitude'      => 'tsun',
                 'item_id'     => 7,
             ],
             [
@@ -64,7 +64,7 @@ class RewardLevelTableSeeder extends Seeder
             [
                 'level'         => 5,
                 'char_id'       => 5,
-                'attitude'      => 'tun',
+                'attitude'      => 'tsun',
                 'item_id'     => 8,
             ],
             [
@@ -76,7 +76,7 @@ class RewardLevelTableSeeder extends Seeder
             [
                 'level'         => 5,
                 'char_id'       => 6,
-                'attitude'      => 'tun',
+                'attitude'      => 'tsun',
                 'item_id'     => 9,
             ],
             [

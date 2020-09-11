@@ -8,17 +8,17 @@
                 <div class="main_mem_lv">
                     @if ($item->atiitude == 'dere')
                         <img class="dere_lv" src="{{ asset('/images/button/bt_event_dere1.png') }}" alt="デレ">
-                        <img class="tun_lv" src="{{ asset('/images/button/bt_event_tsun2.png') }}" alt="????">
+                        <img class="tsun_lv" src="{{ asset('/images/button/bt_event_tsun2.png') }}" alt="????">
                     @else
                         <img class="dere_lv" src="{{ asset('/images/button/bt_event_dere2.png') }}" alt="????">
-                        <img class="tun_lv" src="{{ asset('/images/button/bt_event_tsun1.png') }}" alt="ツン">
+                        <img class="tsun_lv" src="{{ asset('/images/button/bt_event_tsun1.png') }}" alt="ツン">
                     @endif
                 </div>
             @else
                 未取得<br>
                 <div class="main_mem_lv">
                     <img class="dere_lv" src="{{ asset('/images/button/bt_event_dere2.png') }}" alt="????">
-                    <img class="tun_lv" src="{{ asset('/images/button/bt_event_tsun2.png') }}" alt="????">
+                    <img class="tsun_lv" src="{{ asset('/images/button/bt_event_tsun2.png') }}" alt="????">
                 </div>
             @endif
             {{ $item->item_id }}<br>

@@ -34,7 +34,7 @@
     <img src="{{ asset('/images/status/status_para_frame_dere.png') }}" alt="status_para_frame_dere" style="position:absolute; bottom:5%; left: 5%;" width="44%">
     <img src="{{ asset('/images/status/status_para_frame_tsun.png') }}" alt="status_para_frame_tsun" style="position:absolute; bottom:5%; right: 5%;" width="44%">
     <p class="status_dere_point">{{$owned_char_info->dere}}</p>
-    <p class="status_tun_point">{{$owned_char_info->tun}}</p>
+    <p class="status_tsun_point">{{$owned_char_info->tsun}}</p>
 </div>
 
 

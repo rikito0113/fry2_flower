@@ -20,7 +20,7 @@ class CreateOwnedCharacterImgTable extends Migration
             $table->integer('num')->default(0);
             $table->enum(
                 'category',
-                ['avatar_form', 'bg', 'avatar_hair']
+                ['avatar', 'bg', 'effect']
             );
             $table->timestamps();
         });

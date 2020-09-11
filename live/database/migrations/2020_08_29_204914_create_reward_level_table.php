@@ -17,7 +17,7 @@ class CreateRewardLevelTable extends Migration
             $table->integer('level');           // 閾値
             $table->integer('char_id');
             $table->enum('attitude', [          // TorN
-                'tun',
+                'tsun',
                 'dere',
             ]);
             $table->integer('item_id');

@@ -14,13 +14,13 @@ use App\OwnedTitle;
 // ライブラリの呼び出し
 use App\Library\GirlCore;
 
+// コンスタントの呼び出し
+use App\Library\Constant;
+
 use Illuminate\Support\Facades\Hash;
 
 class TopCore
 {
-    // デフォルトの背景id
-    const DEFAULT_BACKGOUND_ID = 11;
-
     // ログイン
     public static function login($PFPlayerId)
     {
@@ -74,24 +74,31 @@ class TopCore
             ]);
             $charInstance = OwnedCharacterData::where('player_id', $playerInfo->player_id)->where('char_id', $girl->char_id)->first();
 
-            // ここでchar_imgからデフォルトを取得し、owned_character_imgを登録 girls×row
-            $defaultImg = CharacterImg::where('char_id', $girl->char_id)->orderBy('item_id', 'asc')->first();
-            $imgInstance = new OwnedCharacterImg;
-            $imgInstance->create([
-                'owned_char_id' => $charInstance->owned_char_id,
-                'player_id'     => $playerInfo->player_id,
-                'item_id'        => $defaultImg->item_id,
-                'num'           => 1,
-                'category'    => $defaultImg->category,
-            ]);
+            // ここでchar_imgからデフォルトを取得しowned_character_imgを登録 avatar, bg, effect
+            $defaultImg = CharacterImg::where('char_id', $girl->char_id)->orderBy('item_id', 'asc')->get()->take(Constant::DEFAULT_CHARACTER_IMG);
+            foreach ($defaultImg as $key => $img) {
+                $imgInstance = new OwnedCharacterImg;
+                $imgInstance->create([
+                    'owned_char_id' => $charInstance->owned_char_id,
+                    'player_id'     => $playerInfo->player_id,
+                    'item_id'       => $img->item_id,
+                    'num'           => 1,
+                    'category'      => $img->category,
+                ]);
+                if ($img->category == Constant::ITEM_AVATAR) {
+                    $avatarImg = $img->item_id;
+                } elseif ($img->category == Constant::ITEM_BG) {
+                    $bgImg = $img->item_id;
+                }
+            }
 
             // 同じくset_imgも登録
             $setImgInstance = new SetImg;
             $setImgInstance->create([
-                'owned_char_id' => $charInstance->owned_char_id,
-                'char_id'       => $girl->char_id,
-                'background_img'=> self::DEFAULT_BACKGOUND_ID,
-                'avatar_form_img'    => $defaultImg->item_id,
+                'owned_char_id'      => $charInstance->owned_char_id,
+                'char_id'            => $girl->char_id,
+                'avatar_img'         => $avatarImg,
+                'bg_img'             => $bgImg,
             ]);
 
         }
@@ -103,7 +110,7 @@ class TopCore
             'title_id'  => 1,
         ]);
 
-        // defaultのowned_char_idをupdate のちにconstant.phpとか制御
-        GirlCore::girlSelect($playerInfo->player_id, 1);
+        // defaultのowned_char_idをupdate
+        GirlCore::girlSelect($playerInfo->player_id, Constant::DEFAULT_CHARACTER_ID);
     }
 }

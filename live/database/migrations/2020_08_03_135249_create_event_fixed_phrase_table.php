@@ -20,7 +20,7 @@ class CreateEventFixedPhraseTable extends Migration
             $table->integer('content_index');                 // シナリオ中で何番目か
             $table->enum('attitude', [                        // TorN
                 'neutral',
-                'tun',
+                'tsun',
                 'dere'
             ]);
             $table->boolean('is_auto');                       // entry時、自動挿入フラグ enty=true or それ以外 = false
