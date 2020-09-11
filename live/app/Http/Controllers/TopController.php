@@ -39,7 +39,8 @@ class TopController extends Controller
         if ($this->goRegist == true) {
             return redirect()->route('register');
         }
-        return view('index');
+        return view('index')
+        ->with('player_id', $this->_playerId);
     }
 
     // login処理実行
