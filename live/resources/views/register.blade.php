@@ -6,6 +6,7 @@
     <title>flower girls login</title>
 </head>
 <body>
+    登録画面、name入れてね。<br>
     <form action="/registerExec" method="POST">
         @csrf
         <input type="hidden" value="{{ $pf_player_id }}" name="pf_player_id">
