@@ -20,9 +20,9 @@ class TopController extends Controller
     public function index()
     {
         // ログイン処理execでhashをsessionに入れる
-        if (isset($this->_playerId)) {
-            return redirect()->route('my.my');
-        }
+        // if (isset($this->_playerId)) {
+        //     return redirect()->route('my.my');
+        // }
         return view('index');
     }
 
