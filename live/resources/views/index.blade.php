@@ -8,9 +8,15 @@
 </head>
 <body style="margin:0px;">
     <div>
-        <a href="{{ route('login') }}">
-            <img src="{{ asset('/images/title_logo.png') }}" alt="title_logo" width="100%">
-        </a>
+        @if ($player_id != 0)
+            <a href="{{ route('login') }}">
+                <img src="{{ asset('/images/title_logo.png') }}" alt="title_logo" width="100%">
+            </a>
+        @else
+            <a href="{{ route('regist') }}">
+                <img src="{{ asset('/images/title_logo.png') }}" alt="title_logo" width="100%">
+            </a>
+        @endif
     </div>
 </body>
 </html>
