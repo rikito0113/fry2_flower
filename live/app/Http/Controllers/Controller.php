@@ -52,6 +52,7 @@ class Controller extends BaseController
                         session(['opensocial_viewer_id' => $opensocialViewerId]);
                     } else {
                         // 登録
+                        echo '登録いく';
                         $this->_pfPlayerId = $opensocialViewerId;
                         $this->goRegist = true;
                     }
