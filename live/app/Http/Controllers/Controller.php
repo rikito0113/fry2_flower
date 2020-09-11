@@ -31,6 +31,7 @@ class Controller extends BaseController
 
         // session確認
         $opensocialViewerId = null;
+        $opensocialOwnerId = null;
         if (session()->has('opensocial_viewer_id')) {
             $this->_pfPlayerId = session('opensocial_viewer_id');
             $player = Player::where('pf_player_id', $this->_pfPlayerId)->first();
@@ -64,7 +65,7 @@ class Controller extends BaseController
         }
 
         if ($this->_pfPlayerId) {
-            echo 'viewer:'.$this->_pfPlayerId.' and owner:'.$opensocialOwnerId;
+            echo 'viewer:'.$this->_pfPlayerId;
 
             // $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
             // $method = "POST";
