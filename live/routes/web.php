@@ -18,7 +18,7 @@ Route::get('/login',                                     'TopController@login')-
 Route::post('/loginExec',                                'TopController@loginExec')->name('top.loginExec');
 Route::get('/register',                                  'TopController@register')->name('register');
 Route::post('/registerExec',                             'TopController@registerExec');
-Route::get('/tutorial/{$playerId}',                      'TopController@tutorial')->name('tutorial');
+Route::get('/tutorial/{playerId}',                       'TopController@tutorial')->name('tutorial');
 Route::get('/My/my',                                     'MyController@my')->name('my.my');
 
 // girl関連
