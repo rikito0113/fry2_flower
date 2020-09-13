@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 // モデルの呼び出し
 use App\Player;
+use App\TutorialPhrase;
 
 // HTTP通信用
 use GuzzleHttp\Client;
@@ -109,9 +110,17 @@ class TopController extends Controller
         $playerInfo = Player::where('player_id', $playerId)->first();
         if ($playerInfo) {
             // マスタ取得
+            $tutorialPhrase = TutorialPhrase::orderBy('tutorial_id', 'asc')->get();
+            foreach ($tutorialPhrase as &$phrase) {
+                if ($phrase->is_player)
+                    $phrase->side = 'right';
+                else
+                    $phrase->side = 'left';
+            }
 
             return view('tutorial')
-                ->with('player_info', $playerInfo);
+                ->with('tutorial_phrase',   $tutorialPhrase)
+                ->with('player_info',       $playerInfo);
         } else {
             return redirect()->route('login');
         }
