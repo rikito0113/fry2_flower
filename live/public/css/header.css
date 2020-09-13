@@ -16,7 +16,9 @@
 
 .other-header-child
 {
-    padding:1px 1px;
+    padding:1px;
+    padding-right: 1px;
+    padding-left: 1px;
     z-index: 10;
     display: none;
 }
