@@ -23,43 +23,45 @@
 </head>
 
 <body style="margin:0px;">
-    <div class="flower-header-dere" >
-        {{-- マイページ --}}
-        <a href="{{ action('MyController@my') }}">
-            <img class="header-child" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
-        </a>
+    <div class="flower-header-dere container-fluid" >
+        <div class="row">
+            {{-- マイページ --}}
+            <a href="{{ action('MyController@my') }}">
+                <img class="col-xs-1-5" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
+            </a>
 
-        {{-- ガールページ --}}
-        <a href="{{ action('GirlController@index') }}">
-            <img class="header-child" src="{{ asset('/images/header/navi_girl.png') }}" alt="girl">
-        </a>
+            {{-- ガールページ --}}
+            <a href="{{ action('GirlController@index') }}">
+                <img class="col-xs-2-5" src="{{ asset('/images/header/navi_girl.png') }}" alt="girl">
+            </a>
 
-        {{-- ガチャ・ショップページ --}}
-        <a href="{{ action('ShopController@index') }}">
-            <img class="header-child" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
-        </a>
+            {{-- ガチャ・ショップページ --}}
+            <a href="{{ action('ShopController@index') }}">
+                <img class="col-xs-3-5" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
+            </a>
 
-        {{-- プレゼントページ --}}
-        <a href="{{ action('PresentController@index') }}">
-            <img class="header-child" src="{{ asset('/images/header/navi_pre.png') }}" alt="present">
-        </a>
+            {{-- プレゼントページ --}}
+            <a href="{{ action('PresentController@index') }}">
+                <img class="col-xs-4-5" src="{{ asset('/images/header/navi_pre.png') }}" alt="present">
+            </a>
 
-        {{-- サイドバー --}}
-        <img class="header-child" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
+            {{-- サイドバー --}}
+            <img class="col-xs-5-5" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
 
-        <a href="{{ route('girl.memory') }}">
-            <img class="other-header-child2" name="tag" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
-        </a>
-        <a href="{{ action('StudyController@index') }}">
-            <img class="other-header-child3" name="tag" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
-        </a>
-        <a href="{{ action('EventInfoController@index') }}">
-            <img class="other-header-child4" name="tag" src="{{ asset('/images/button/bt_side_event.png') }}" alt="イベント">
-        </a>
-        <a href="{{ action('ProfileController@profile') }}">
-            <img class="other-header-child5" name="tag" src="{{ asset('/images/button/bt_side_profile.png') }}" alt="プロフィール">
-        </a>
-        <a href="{{ action('NewsController@index') }}">
-            <img class="other-header-child6" name="tag" src="{{ asset('/images/button/bt_side_news.png') }}" alt="新着情報">
-        </a>
+            <a href="{{ route('girl.memory') }}">
+                <img class="other-header-child2" name="tag" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
+            </a>
+            <a href="{{ action('StudyController@index') }}">
+                <img class="other-header-child3" name="tag" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
+            </a>
+            <a href="{{ action('EventInfoController@index') }}">
+                <img class="other-header-child4" name="tag" src="{{ asset('/images/button/bt_side_event.png') }}" alt="イベント">
+            </a>
+            <a href="{{ action('ProfileController@profile') }}">
+                <img class="other-header-child5" name="tag" src="{{ asset('/images/button/bt_side_profile.png') }}" alt="プロフィール">
+            </a>
+            <a href="{{ action('NewsController@index') }}">
+                <img class="other-header-child6" name="tag" src="{{ asset('/images/button/bt_side_news.png') }}" alt="新着情報">
+            </a>
+        </div>
     </div>
