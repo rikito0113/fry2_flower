@@ -4,18 +4,23 @@
 
 <div class="bg-pink-flower container-fluid" style="text-align:center; padding:0px;">
 <img src="{{ asset('/images/titlebar/obi_news1.png') }}" alt="obi_news1" class="fit-img100">
-    <div class="row" style="margin:0px;">
-        <div class="col-xs-12 col-sm-12 col-md-12" style="padding:1px;">
-            {{-- イベント情報 スライダー表示 --}}
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner" class="fit-img100"></div>
-                    <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner" class="fit-img100"></div>
-                </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+    {{-- イベント情報 スライダー表示 --}}
+    <div id="slider" class="carousel slide col-xs-12 col-sm-12 col-md-12" data-ride="carousel" style="padding:0px;">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner" class="fit-img100">
             </div>
+            <div class="carousel-item">
+                <img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner" class="fit-img100">
+            </div>
+            <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
     <br>
