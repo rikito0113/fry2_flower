@@ -28,12 +28,9 @@
             @foreach ($owned_char_info as $index => $char)
                 <div class="col-xs-4 col-sm-4 col-md-4" style="padding:1px;">
                     <img src="{{ asset('/images/icon/bt_girl_' . $char->attitude . $char->char_id . '.png') }}" alt="girl" class="fit-img100"><br>
-                    <img src="{{ asset('/images/button/bt_top_profile_purple.png') }}" alt="profile" style="position:absolute; bottom:30px; right:3px;" width="50%">
-                    <p style="position:absolute; bottom:14px; left:4px; font-size: 6px; color: purple; font-weight: bold;">Lv.{{$char->level}}</p>
+                    <!-- <img src="{{ asset('/images/button/bt_top_profile_purple.png') }}" alt="profile" style="position:absolute; bottom:30px; right:3px;" width="50%">
+                    <p style="position:absolute; bottom:14px; left:4px; font-size: 6px; color: purple; font-weight: bold;">Lv.{{$char->level}}</p> -->
                 </div>
-                @if ($index % 3 == 0)
-                    <br>
-                @endif
             @endforeach
         </div>
 
