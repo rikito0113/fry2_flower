@@ -1,7 +1,7 @@
 @include('header')
 
     {{-- body --}}
-    <div class="container-fluid" style="text-align:center; padding:0px;">
+    <div class="bg-pink-flower container-fluid" style="text-align:center; padding:0px;">
 
         {{-- イベント情報 スライダー表示 --}}
         <div class="row">
@@ -24,10 +24,10 @@
         </div>
 
         {{-- ガールリスト表示 --}}
-        <div style="background:url('../images/bg/bg_img_pink.jpg'); background-size:contain; width:100%;">
+        <div class="row">
             @foreach ($owned_char_info as $index => $char)
-                <div class="girl-img" style="width:30%; position:relative;">
-                    <img src="{{ asset('/images/icon/bt_girl_' . $char->attitude . $char->char_id . '.png') }}" alt="girl" width="100%"><br>
+                <div class="col-xs-4 col-sm-4 col-md-4" style="padding:1px;">
+                    <img src="{{ asset('/images/icon/bt_girl_' . $char->attitude . $char->char_id . '.png') }}" alt="girl" class="fit-img100"><br>
                     <img src="{{ asset('/images/button/bt_top_profile_purple.png') }}" alt="profile" style="position:absolute; bottom:30px; right:3px;" width="50%">
                     <p style="position:absolute; bottom:14px; left:4px; font-size: 6px; color: purple; font-weight: bold;">Lv.{{$char->level}}</p>
                 </div>
@@ -35,12 +35,14 @@
                     <br>
                 @endif
             @endforeach
-            <br>
-            <div style="text-align:center; width:100%">
-                <img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="50%"><br>
-            </div>
-            <br>
         </div>
+
+        <br>
+
+        <div style="text-align:center; width:100%">
+            <img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="50%"><br>
+        </div>
+        <br>
 
         {{-- キャンペーン関連 --}}
         <img src="{{ asset('/images/titlebar/obi_campain.png') }}" alt="obi_campaign" width="100%" style="width:100%; vertical-align:top;"><br>
