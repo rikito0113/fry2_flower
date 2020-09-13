@@ -29,14 +29,14 @@
             {{-- マイページ --}}
             <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
                 <a href="{{ action('MyController@my') }}">
-                    <img class="fit-img100"" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
+                    <img class="fit-img100" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
                 </a>
             </div>
 
             {{-- ガールページ --}}
             <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
                 <a href="{{ action('GirlController@index') }}">
-                    <img class="fit-img100"" src="{{ asset('/images/header/navi_girl.png') }}" alt="girl">
+                    <img class="fit-img100" src="{{ asset('/images/header/navi_girl.png') }}" alt="girl">
                 </a>
             </div>
 
@@ -50,7 +50,7 @@
             {{-- プレゼントページ --}}
             <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
                 <a href="{{ action('PresentController@index') }}">
-                    <img class="fit-img100"" src="{{ asset('/images/header/navi_pre.png') }}" alt="present">
+                    <img class="fit-img100" src="{{ asset('/images/header/navi_pre.png') }}" alt="present">
                 </a>
             </div>
             <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
@@ -64,6 +64,7 @@
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
                         </a>
                     </div>
+
                     <div class="other-header-child" name="tag" style="padding:1px;">
                         <a href="{{ action('StudyController@index') }}">
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
