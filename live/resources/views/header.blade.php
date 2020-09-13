@@ -25,29 +25,38 @@
 <body style="margin:0px;">
     <div class="flower-header-dere container-fluid" >
         <div class="row">
+            
             {{-- マイページ --}}
-            <a href="{{ action('MyController@my') }}">
-                <img class="col-xs-1-5" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
-            </a>
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
+                <a href="{{ action('MyController@my') }}">
+                    <img class="col-xs-12 col-sm-12 col-md-12" src="{{ asset('/images/header/navi_top.png') }}" alt="TOP">
+                </a>
+            </div>
 
             {{-- ガールページ --}}
-            <a href="{{ action('GirlController@index') }}">
-                <img class="col-xs-2-5" src="{{ asset('/images/header/navi_girl.png') }}" alt="girl">
-            </a>
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
+                <a href="{{ action('GirlController@index') }}">
+                    <img class="col-xs-12 col-sm-12 col-md-12" src="{{ asset('/images/header/navi_girl.png') }}" alt="girl">
+                </a>
+            </div>
 
             {{-- ガチャ・ショップページ --}}
-            <a href="{{ action('ShopController@index') }}">
-                <img class="col-xs-3-5" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
-            </a>
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
+                <a href="{{ action('ShopController@index') }}">
+                    <img class="col-xs-1-5 col-sm-1-5 col-md-1-5" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
+                </a>
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
 
             {{-- プレゼントページ --}}
-            <a href="{{ action('PresentController@index') }}">
-                <img class="col-xs-4-5" src="{{ asset('/images/header/navi_pre.png') }}" alt="present">
-            </a>
-
-            {{-- サイドバー --}}
-            <img class="col-xs-5-5" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
-
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
+                <a href="{{ action('PresentController@index') }}">
+                    <img class="col-xs-1-5 col-sm-1-5 col-md-1-5" src="{{ asset('/images/header/navi_pre.png') }}" alt="present">
+                </a>
+            </div>
+            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
+                {{-- サイドバー --}}
+                <img class="col-xs-12 col-sm-12 col-md-12" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
+            </div>
             <a href="{{ route('girl.memory') }}">
                 <img class="other-header-child2" name="tag" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
             </a>
