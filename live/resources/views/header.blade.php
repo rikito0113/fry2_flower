@@ -45,7 +45,7 @@
                 <a href="{{ action('ShopController@index') }}">
                     <img class="col-xs-1-5 col-sm-1-5 col-md-1-5" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
                 </a>
-            <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
+            </div>
 
             {{-- プレゼントページ --}}
             <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
