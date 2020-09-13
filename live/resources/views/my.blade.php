@@ -14,7 +14,7 @@
                         <div class="swiper-slide col-xs-12 col-sm-12 col-md-12" style="padding:0px;"><img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner" class="fit-img100"></div>
                     </div>
                     <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination col-xs-12 col-sm-12 col-md-12" style="padding:0px;"></div>
 
                     <!-- If we need navigation buttons -->
                     <div class="swiper-button-prev"></div>
