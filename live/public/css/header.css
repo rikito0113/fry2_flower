@@ -17,67 +17,9 @@
     font-weight: bold; */
 }
 
-.other-header-child1
+.other-header-child
 {
-    width:20%;
-    height:auto;
-    right:8px;
-    top:8px;
-    display: none;
-    z-index: 10;
-}
-
-.other-header-child2
-{
-    width:20%;
-    height:auto;
-    position: absolute;
-    right:1px;
-    top:5%;
-    display: none;
-    z-index: 10;
-}
-
-.other-header-child3
-{
-    width:20%;
-    height:auto;
-    position: absolute;
-    right:1px;
-    top:15%;
-    display: none;
-    z-index: 10;
-}
-
-.other-header-child4
-{
-    width:20%;
-    height:auto;
-    position: absolute;
-    right:1px;
-    top:25%;
-    display: none;
-    z-index: 10;
-}
-
-.other-header-child5
-{
-    width:20%;
-    height:auto;
-    position: absolute;
-    right:1px;
-    top:35%;
-    display: none;
-    z-index: 10;
-}
-
-.other-header-child6
-{
-    width:20%;
-    height:auto;
-    position: absolute;
-    right:1px;
-    top:45%;
+    padding:1px;
     display: none;
     z-index: 10;
 }
