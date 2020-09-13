@@ -59,7 +59,7 @@
                     <img class="fit-img100" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
                 </div>
                 
-                <div style="position:absolute">
+                <div style="position:absolute; z-index:9">
                     <div class="other-header-child" name="tag" style="padding:1px;">
                         <a href="{{ route('girl.memory') }}">
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
