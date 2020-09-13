@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>flower girls login</title>
+    <link rel="stylesheet" href="{{ asset('css/girl.css') }}">
 </head>
 <body>
     <div style="text-align: center;">チュートリアル</div>
