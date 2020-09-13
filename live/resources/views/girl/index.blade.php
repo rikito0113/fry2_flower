@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
     {{-- ガール情報 includeしてきてもいいかもしれない --}}
-    @include('inc-girl-status')
+    @include('girl.inc-girl-status')
 
 {{-- ガール立ち絵 --}}
 <div style="text-align:center; position:relative;">
