@@ -30,8 +30,8 @@
             @foreach ($owned_char_info as $index => $char)
                 <div class="col-4 col-sm-4 col-md-4" style="padding:2px;">
                     <img src="{{ asset('/images/icon/bt_girl_' . $char->attitude . $char->char_id . '.png') }}" alt="girl" class="fit-img100"><br>
-                    <img src="{{ asset('/images/button/bt_top_profile_purple.png') }}" alt="profile" style="position:absolute; bottom:13%; right:5%;" width="50%">
-                    <p style="position:absolute; bottom:1%; left:6%; font-size: 6px; color: purple; font-weight: bold;">Lv.{{$char->level}}</p>
+                    <img src="{{ asset('/images/button/bt_top_profile_purple.png') }}" alt="profile" class="girl-list-pf-button">
+                    <p class="girl-list-lv">Lv.{{$char->level}}</p>
                 </div>
             @endforeach
         </div>
