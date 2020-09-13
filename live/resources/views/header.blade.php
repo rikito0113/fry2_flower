@@ -55,7 +55,7 @@
             </div>
             <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
                 {{-- サイドバー --}}
-                <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0px;">
+                <div class="col-xs-12 col-sm-12 col-md-12" style="padding:1px;">
                     <img class="fit-img100" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
                 </div>
                 
