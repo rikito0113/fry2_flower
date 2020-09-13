@@ -10,6 +10,149 @@
     /* left: 5%; */
 }
 
+/************ inc-girl-status ************/
+.girl-status-date
+{
+    position:absolute; 
+    top:10%; 
+    left:5%; 
+    font-size: 12px; 
+    color: white; 
+    font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-status-date
+    {
+        position:absolute; 
+        top:10%; 
+        left:5%; 
+        font-size: 12px; 
+        color: white; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-status-date
+    {
+        position:absolute; 
+        top:10%; 
+        left:5%; 
+        font-size: 12px; 
+        color: white; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-status-date
+    {
+        position:absolute; 
+        top:10%; 
+        left:5%; 
+        font-size: 12px; 
+        color: white; 
+        font-weight: bold;
+    }
+} 
+
+.girl-status-name
+{
+    position:absolute; 
+    bottom:5%; 
+    left:44%; 
+    font-size: 15px; 
+    color: pink; 
+    font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-status-name
+    {
+        position:absolute; 
+        bottom:5%; 
+        left:44%; 
+        font-size: 15px; 
+        color: pink; 
+        font-weight: bold;
+    }
+
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-status-name
+    {
+        position:absolute; 
+        bottom:5%; 
+        left:44%; 
+        font-size: 15px; 
+        color: pink; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-status-name
+    {
+        position:absolute; 
+        bottom:5%; 
+        left:44%; 
+        font-size: 15px; 
+        color: pink; 
+        font-weight: bold;
+    }
+} 
+
+.girl-status-name-purple
+{
+    position:absolute; 
+    bottom:-5px; 
+    left:44%; 
+    font-size: 14px; 
+    color: purple; 
+    font-weight: 300;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-status-name-purple
+    {
+        position:absolute; 
+        bottom:-5px; 
+        left:44%; 
+        font-size: 14px; 
+        color: purple; 
+        font-weight: 300;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-status-name-purple
+    {
+        position:absolute; 
+        bottom:-5px; 
+        left:44%; 
+        font-size: 14px; 
+        color: purple; 
+        font-weight: 300;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-status-name-purple
+    {
+        position:absolute; 
+        bottom:-5px; 
+        left:44%; 
+        font-size: 14px; 
+        color: purple; 
+        font-weight: 300;
+    }
+} 
+
 
 /************ ここからチャット部分CSS ************/
 .chat {
