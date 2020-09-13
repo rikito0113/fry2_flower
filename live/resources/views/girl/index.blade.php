@@ -13,10 +13,14 @@
 {{-- ガール立ち絵 --}}
 <div style="text-align:center; position:relative;">
     <div class="girl-img" style="width: 100%">
-        <img src="{{ asset('/images/character/'.$owned_char_info->bg_img.'.png') }}" alt="background" width="100%"><br>
+        <img src="{{ asset('/images/character/1.png') }}" alt="background" width="100%"><br>
+        <div class="avatar">
+            <img src="{{ asset('/images/character/11.png') }}" alt="avatar" width="100%"><br>
+        </div>
+        {{-- <img src="{{ asset('/images/character/'.$owned_char_info->bg_img.'.png') }}" alt="background" width="100%"><br>
         <div class="avatar">
             <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
-        </div>
+        </div> --}}
     </div>
     {{-- ツンデレステータス icon --}}
     <img src="{{ asset('/images/icon/icon_dere.png') }}" alt="icon_dere" width="20%" style="position:absolute; top:0%; right:2%;">
