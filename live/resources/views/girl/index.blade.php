@@ -4,33 +4,17 @@
     {{-- ガール情報 includeしてきてもいいかもしれない --}}
     @include('inc-girl-status')
 
-    {{-- ガール立ち絵 --}}
-    <div style="text-align:center; position:relative;">
-        <div class="girl-img" style="width: 100%">
-            <img src="{{ asset('/images/character/'.$owned_char_info->bg_img.'.png') }}" alt="background" width="100%"><br>
-            <div class="avatar">
-                <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
-            </div>
+{{-- ガール立ち絵 --}}
+<div style="text-align:center; position:relative;">
+    <div class="girl-img" style="width: 100%">
+        <img src="{{ asset('/images/character/11.png') }}" alt="background" width="100%"><br>
+        <div class="avatar">
+            <img src="{{ asset('/images/character/1.png') }}" alt="avatar" width="100%"><br>
         </div>
-        {{-- ツンデレステータス icon --}}
-        <img src="{{ asset('/images/icon/icon_dere.png') }}" alt="icon_dere" width="20%" style="position:absolute; top:0%; right:2%;">
-        {{-- 着替え button --}}
-        <a href="/Girl/changeClothers"><img src="{{ asset('/images/button/bt_side_cos.png') }}" alt="bt_side_costume" width="15%" style="position:absolute; top:16%; right:4%;"></a>
-        {{-- おもひで button --}}
-        <a href="{{ route('girl.memory') }}"><img src="{{ asset('/images/button/bt_side_mem.png') }}" alt="bt_side_memory" width="15%" style="position:absolute; top:28%; right:4%;"></a>
-
-        <table style="position:absolute; bottom: 5px;">
-            <tr>
-                <td width="50%">
-                    <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" alt="bt_menu1" width="80%" height="40%"></a>
-                </td>
-                <td width="50%">
-                    @if ($owned_char_info->done_prologue && ($owned_char_info->dere != 0 || $owned_char_info->tsun != 0))
-                        <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" width="80%" height="40%"></a>
-                    @endif
-                </td>
-            </tr>
-        </table>
+        {{-- <img src="{{ asset('/images/character/'.$owned_char_info->bg_img.'.png') }}" alt="background" width="100%"><br>
+        <div class="avatar">
+            <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
+        </div> --}}
     </div>
 
     {{-- 開催中のイベント --}}
