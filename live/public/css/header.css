@@ -12,16 +12,13 @@
     width:20%;
     height:auto;
     float:left;
-    /* border: solid 1px red;
-    box-sizing: border-box;
-    font-weight: bold; */
 }
 
 .other-header-child
 {
     padding:1px;
-    display: none;
     z-index: 10;
+    display: none;
 }
 
 .headline-dere
