@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{-- スライダー用 --}}
-    <link rel="stylesheet" href="//unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="//unpkg.com/swiper/swiper-bundle.min.js"></script>
-
     <link rel="stylesheet" href="{{ asset('css/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/background.css') }}">
     <link rel="stylesheet" href="{{ asset('css/girl.css') }}">
