@@ -59,28 +59,27 @@
                     <img class="fit-img100" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
                 </div>
                 
-                <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0px; float:right">
-                    <div  name="tag" style="padding:1px;">
+                    <div class="other-header-child" name="tag" style="padding:1px;">
                         <a href="{{ route('girl.memory') }}">
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
                         </a>
                     </div>
-                    <div  name="tag" style="padding:1px;">
+                    <div class="other-header-child" name="tag" style="padding:1px;">
                         <a href="{{ action('StudyController@index') }}">
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
                         </a>
                     </div>
-                    <div  name="tag" style="padding:1px;">
+                    <div class="other-header-child" name="tag" style="padding:1px;">
                         <a href="{{ action('EventInfoController@index') }}">
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_event.png') }}" alt="イベント">
                         </a>
                     </div>
-                    <div  name="tag" style="padding:1px;">
+                    <div class="other-header-child" name="tag" style="padding:1px;">
                         <a href="{{ action('ProfileController@profile') }}"> 
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_profile.png') }}" alt="プロフィール">
                         </a>
                     </div>
-                    <div  name="tag" style="padding:1px;">
+                    <div class="other-header-child" name="tag" style="padding:1px;">
                         <a href="{{ action('NewsController@index') }}">
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_news.png') }}" alt="新着情報">
                         </a>
@@ -110,8 +109,7 @@
                         <a href="{{ action('NewsController@index') }}">
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_news.png') }}" alt="新着情報">
                         </a>
-                    </div> -->
-                </div>               
+                    </div> -->            
             </div>
         </div>
     </div>
