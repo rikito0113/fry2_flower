@@ -43,7 +43,7 @@
             {{-- ガチャ・ショップページ --}}
             <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
                 <a href="{{ action('ShopController@index') }}">
-                    <img class="fit-img100"" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
+                    <img class="fit-img100" src="{{ asset('/images/header/navi_gacha.png') }}" alt="gacha&shop">
                 </a>
             </div>
 
@@ -59,6 +59,7 @@
                     <img class="fit-img100" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
                 </div>
                 
+                <div style="position:absolute">
                     <div class="other-header-child" name="tag" style="padding:1px;">
                         <a href="{{ route('girl.memory') }}">
                             <img class="fit-img100" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
@@ -86,31 +87,7 @@
                         </a>
                     </div>
 
-                    <!-- <div class="other-header-child col-xs-12 col-sm-12 col-md-12" name="tag" style="padding:1px;">
-                        <a href="{{ route('girl.memory') }}">
-                            <img class="fit-img100" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
-                        </a>
-                    </div>
-                    <div class="other-header-child col-xs-12 col-sm-12 col-md-12" name="tag" style="padding:1px;">
-                        <a href="{{ action('StudyController@index') }}">
-                            <img class="fit-img100" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
-                        </a>
-                    </div>
-                    <div class="other-header-child col-xs-12 col-sm-12 col-md-12" name="tag" style="padding:1px;">
-                        <a href="{{ action('EventInfoController@index') }}">
-                            <img class="fit-img100" src="{{ asset('/images/button/bt_side_event.png') }}" alt="イベント">
-                        </a>
-                    </div>
-                    <div class="other-header-child col-xs-12 col-sm-12 col-md-12" name="tag" style="padding:1px;">
-                        <a href="{{ action('ProfileController@profile') }}"> 
-                            <img class="fit-img100" src="{{ asset('/images/button/bt_side_profile.png') }}" alt="プロフィール">
-                        </a>
-                    </div>
-                    <div class="other-header-child col-xs-12 col-sm-12 col-md-12" name="tag" style="padding:1px;">
-                        <a href="{{ action('NewsController@index') }}">
-                            <img class="fit-img100" src="{{ asset('/images/button/bt_side_news.png') }}" alt="新着情報">
-                        </a>
-                    </div> -->            
+                </div>          
             </div>
         </div>
     </div>
