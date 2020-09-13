@@ -4,7 +4,7 @@
     <div class="bg-pink-flower container-fluid" style="text-align:center; padding:0px;">
 
         {{-- イベント情報 スライダー表示 --}}
-        <div id="slider-1" class="carousel slide col-xs-12 col-sm-12 col-md-12" data-ride="carousel" style="padding:0px;">
+        <div id="slider-1" class="carousel slide" data-ride="carousel" style="padding:0px;">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner" class="fit-img100">
