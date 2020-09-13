@@ -55,22 +55,35 @@
             </div>
             <div class="col-xs-1-5 col-sm-1-5 col-md-1-5">
                 {{-- サイドバー --}}
-                <img class="fit-img100"" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
+                <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0px;">
+                    <img class="fit-img100" src="{{ asset('/images/header/navi_other.png') }}" alt="+" onclick="appearTag()">
+                </div>
+                
+                <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0px;">
+                    <a href="{{ route('girl.memory') }}">
+                        <img class="fit-img100" name="tag" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0px;">
+                    <a href="{{ action('StudyController@index') }}">
+                        <img class="fit-img100" name="tag" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0px;">
+                    <a href="{{ action('EventInfoController@index') }}">
+                        <img class="fit-img100" name="tag" src="{{ asset('/images/button/bt_side_event.png') }}" alt="イベント">
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0px;">
+                    <a href="{{ action('ProfileController@profile') }}">
+                        <img class="fit-img100" name="tag" src="{{ asset('/images/button/bt_side_profile.png') }}" alt="プロフィール">
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0px;">
+                    <a href="{{ action('NewsController@index') }}">
+                        <img class="fit-img100" name="tag" src="{{ asset('/images/button/bt_side_news.png') }}" alt="新着情報">
+                    </a>
+                </div>                    
             </div>
-            <a href="{{ route('girl.memory') }}">
-                <img class="other-header-child2" name="tag" src="{{ asset('/images/button/bt_side_mem.png') }}" alt="思い出">
-            </a>
-            <a href="{{ action('StudyController@index') }}">
-                <img class="other-header-child3" name="tag" src="{{ asset('/images/button/bt_side_study.png') }}" alt="育成">
-            </a>
-            <a href="{{ action('EventInfoController@index') }}">
-                <img class="other-header-child4" name="tag" src="{{ asset('/images/button/bt_side_event.png') }}" alt="イベント">
-            </a>
-            <a href="{{ action('ProfileController@profile') }}">
-                <img class="other-header-child5" name="tag" src="{{ asset('/images/button/bt_side_profile.png') }}" alt="プロフィール">
-            </a>
-            <a href="{{ action('NewsController@index') }}">
-                <img class="other-header-child6" name="tag" src="{{ asset('/images/button/bt_side_news.png') }}" alt="新着情報">
-            </a>
         </div>
     </div>
