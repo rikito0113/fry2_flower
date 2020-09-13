@@ -1,7 +1,7 @@
 var appearTag = function () {
   var tags = document.getElementsByName("tag");
 
-  console.log("click")
+  console.log("click");
 
   for(let tag of tags)
   {
