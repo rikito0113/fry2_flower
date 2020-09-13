@@ -1,6 +1,8 @@
 
 <div class="row" style="background-image: url('../images/bg/bg_header_' . $owned_char_info->attitude . 'png'); background-size: contain; vertical-align:top;">
-    <img src="{{ asset('/images/bg/bg_header_clock_dere.png') }}" alt="bg_header_clock_dere" class="col-4;">
+    <div class="col-4;">
+        <img src="{{ asset('/images/bg/bg_header_clock_dere.png') }}" alt="bg_header_clock_dere" class="fit-img100;">
+    </div>
     <p class="girl-status-date">{{ $current_date }}</p>
     <p class="girl-status-name">{{ $owned_char_info->char_name }}</p>
     <p class="girl-status-name-purple">{{ $owned_char_info->char_name }}</p>
