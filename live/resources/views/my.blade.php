@@ -5,13 +5,13 @@
 
         {{-- イベント情報 スライダー表示 --}}
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12" style="padding:1px;">
+            <div class="col-xs-12 col-sm-12 col-md-12" style="padding:0px;">
                 <div class="swiper-container">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper col-xs-12 col-sm-12 col-md-12" style="padding:0px;">
                         <!-- Slides -->
-                        <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner" class="fit-img100"></div>
-                        <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner" class="fit-img100"></div>
+                        <div class="swiper-slide col-xs-12 col-sm-12 col-md-12" style="padding:0px;"><img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner" class="fit-img100"></div>
+                        <div class="swiper-slide col-xs-12 col-sm-12 col-md-12" style="padding:0px;"><img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner" class="fit-img100"></div>
                     </div>
                     <!-- If we need pagination -->
                     <div class="swiper-pagination"></div>

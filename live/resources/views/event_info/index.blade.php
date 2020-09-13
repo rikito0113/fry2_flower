@@ -5,7 +5,7 @@
 <div class="bg-pink-flower container-fluid" style="text-align:center; padding:0px;">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12" style="padding:1px;">
-            <img src="{{ asset('/images/titlebar/obi_news1.png') }}" alt="obi_news1" width="100%"><br>
+            <img src="{{ asset('/images/titlebar/obi_news1.png') }}" alt="obi_news1" class="fit-img100"><br>
             {{-- イベント情報 スライダー表示 --}}
             <div class="swiper-container">
                 <div class="swiper-wrapper">
