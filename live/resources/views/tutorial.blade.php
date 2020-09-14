@@ -13,13 +13,7 @@
 <body>
     <div style="text-align: center;">チュートリアル</div>
     <div id="wrapper-scene" style="overflow:scroll; width:100%; height:300px">
-        <div class="chat">
-            {{-- <span class="chat-text-{{$row->side}}">
-                <p class="chat-text">
-                    {{ $tutorialPhrase[0]->content }}
-                </p>
-            </span> --}}
-        </div>
+        <div class="chat"></div>
     </div>
 
     <div style="text-align: center;">

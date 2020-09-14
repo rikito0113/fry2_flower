@@ -24,6 +24,7 @@ window.addEventListener('load', function() {
     createPlayerChat(tutorialPhrase[count]['content']);
 })
 
+
 /*
  * div要素作成(girl)
  *
@@ -68,6 +69,8 @@ function createPlayerChat(phrase) {
     wrapperElement.appendChild(document.createElement("br"));
 }
 
+
+// クリックした時に発火する
 function nextClick() {
     count++;
     if (tutorialPhrase[count]) {
