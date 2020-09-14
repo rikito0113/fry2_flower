@@ -25,10 +25,10 @@
 
         <table class="chat-bt-table">
             <tr>
-                <td width="50%">
+                <td width="50%" style="text-align:center;">
                     <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" alt="bt_menu1" class="bt-main-chat"></a>
                 </td>
-                <td width="50%">
+                <td width="50%" style="text-align:center;">
                     @if ($owned_char_info->done_prologue && ($owned_char_info->dere != 0 || $owned_char_info->tsun != 0))
                         <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/button/bt_menu2.png') }}" alt="bt_menu2" class="bt-main-chat"></a>
                     @endif
