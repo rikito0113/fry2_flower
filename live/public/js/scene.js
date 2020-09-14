@@ -20,19 +20,6 @@ window.addEventListener('load', function() {
     createPlayerChat(tutorialPhrase[count]['content']);
 })
 
-function nextClick() {
-    count++;
-    createGirlChat(tutorialPhrase[count]['content']);
-
-    count++;
-    createPlayerChat(tutorialPhrase[count]['content']);
-
-    ////// 背景画像の切り替え //////
-    var imgId = tutorialPhrase[count]['img_id'];
-    wrapperElement.style.backgroundImage = "url('./images/tutorial/${imgId}.png')";
-}
-
-
 /*
  * div要素作成(girl)
  *
@@ -48,6 +35,10 @@ function createGirlChat(phrase) {
     newGirlElement.appendChild(newGirlContent);
 
     wrapperElement.appendChild(newGirlElement);
+
+    // 改行
+    wrapperElement.appendChild(document.createElement("br"));
+    wrapperElement.appendChild(document.createElement("br"));
 }
 
 
@@ -66,4 +57,27 @@ function createPlayerChat(phrase) {
     newPlayerElement.appendChild(newPlayerContent);
 
     wrapperElement.appendChild(newPlayerElement);
+
+    // 改行
+    wrapperElement.appendChild(document.createElement("br"));
+    wrapperElement.appendChild(document.createElement("br"));
+    wrapperElement.appendChild(document.createElement("br"));
+}
+
+function nextClick() {
+    count++;
+    if (tutorialPhrase[count]['content']) {
+        createGirlChat(tutorialPhrase[count]['content']);
+
+        count++;
+        createPlayerChat(tutorialPhrase[count]['content']);
+
+        ////// 背景画像の切り替え //////
+        var imgId = tutorialPhrase[count]['img_id'];
+        wrapperElement.style.backgroundImage = "url('../images/tutorial/"+imgId+".png')";
+        wrapperElement.style.backgroundSize = "contain";
+        wrapperElement.style.backgroundRepeat = "no-repeat";
+        wrapperElement.style.backgroundPosition = "center";
+        wrapperElement.style.width = "100%";
+    }
 }
