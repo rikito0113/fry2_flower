@@ -55,10 +55,10 @@
             <div class="row">
                 <div class="col-10 col-sm-10 col-md-10 offset-1 offset-sm-1 offset-md-1">
                     <a href="/Girl/girlSelect/{{ $char->char_id }}"><img src="{{ asset('/images/button/bt_place_girl_'. $char->attitude .'.png') }}" alt="bt_place_girl" class="fit-img100"></a>
+                    <img src="{{ asset('/images/icon/icon_chara' . $char->char_id . '.png') }}" alt="icon_chara1" class="icon-girl-select">
+                    <p class="girl-select-name">{{ $char->char_name }}</p>
+                    <p class="girl-select-lv">Lv.{{ $char->level }}</p>
                 </div>
-                <img src="{{ asset('/images/icon/icon_chara' . $char->char_id . '.png') }}" alt="icon_chara1" class="icon-girl-select">
-                <p class="girl-select-name">{{ $char->char_name }}</p>
-                <p class="girl-select-lv">Lv.{{ $char->level }}</p>
             </div>
         @endforeach
     </div>
