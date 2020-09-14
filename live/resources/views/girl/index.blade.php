@@ -23,7 +23,7 @@
         {{-- おもひで button --}}
         <a href="{{ route('girl.memory') }}"><img src="{{ asset('/images/button/bt_side_mem.png') }}" alt="bt_side_memory" class="bt-mem"></a>
 
-        <table class="chat-icon-table">
+        <table class="chat-bt-table">
             <tr>
                 <td width="50%">
                     <a href="/Girl/mainChat"><img src="{{ asset('/images/button/bt_menu1.png') }}" alt="bt_menu1" class="bt-main-chat"></a>
@@ -60,7 +60,6 @@
                 <p class="girl-select-name">{{ $char->char_name }}</p>
                 <p class="girl-select-lv">Lv.{{ $char->level }}</p>
             </div>
-            <br><br><br><br>
         @endforeach
     </div>
 
