@@ -21,7 +21,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => '....オレ？？？',
                 'img_id'    => 1,
-                'is_player' => false,
+                'is_player' => true,
             ],
             [
                 'content'   => '私は〇〇よ',
@@ -31,7 +31,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => 'そうなんだ。僕は〇〇',
                 'img_id'    => 2,
-                'is_player' => false,
+                'is_player' => true,
             ],
             [
                 'content'   => 'そうなのね、転校生？',
@@ -41,7 +41,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => 'そうだよ',
                 'img_id'    => 3,
-                'is_player' => false,
+                'is_player' => true,
             ],
             [
                 'content'   => 'そうなんだ1',
@@ -51,7 +51,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => 'そうだよ1',
                 'img_id'    => 4,
-                'is_player' => false,
+                'is_player' => true,
             ],
             [
                 'content'   => 'そうなんだ2',
@@ -61,7 +61,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => 'そうだよ2',
                 'img_id'    => 5,
-                'is_player' => false,
+                'is_player' => true,
             ],
             [
                 'content'   => 'そうなんだ3',
@@ -71,7 +71,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => 'そうだよ3',
                 'img_id'    => 6,
-                'is_player' => false,
+                'is_player' => true,
             ],
             [
                 'content'   => 'そうなんだ4',
@@ -81,7 +81,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => 'そうだよ4',
                 'img_id'    => 7,
-                'is_player' => false,
+                'is_player' => true,
             ],
             [
                 'content'   => 'そうなんだ5',
@@ -91,7 +91,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => 'そうだよ5',
                 'img_id'    => 8,
-                'is_player' => false,
+                'is_player' => true,
             ],
             [
                 'content'   => 'そうなんだ6',
@@ -101,7 +101,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => 'そうだよ6',
                 'img_id'    => 9,
-                'is_player' => false,
+                'is_player' => true,
             ],
             [
                 'content'   => 'そうなんだ7',
@@ -111,7 +111,7 @@ class TutorialPhraseSeeder extends Seeder
             [
                 'content'   => 'そうだよ7',
                 'img_id'    => 10,
-                'is_player' => false,
+                'is_player' => true,
             ],
         ]);
     }

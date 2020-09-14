@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>flower girls login</title>
     <link rel="stylesheet" href="{{ asset('css/girl.css') }}">
+    <script>
+        var tutorialPhrase = @json($tutorial_phrase);
+    </script>
+    <script src="{{ asset('js/scene.js') }}"></script>
 </head>
 <body>
     <div style="text-align: center;">チュートリアル</div>
-    @foreach ($tutorial_phrase as $key => $row)
+    <div class="wrapper-scene">
         <div class="chat">
-            <span class="chat-text-{{$row->side}}">
+            {{-- <span class="chat-text-{{$row->side}}">
                 <p class="chat-text">
-                    {{-- {!! nl2br(e($row->content)) !!} --}}
-                    {{ $row->content }}
+                    {{ $tutorialPhrase[0]->content }}
                 </p>
-            </span>
+            </span> --}}
         </div>
-    @endforeach
+    </div>
+    <div style="text-align: center;">
+        <img src="{{ asset('/images/button/bt_talk_send.png') }}" alt="送信する" width="20%" onclick="nextClick()">
+    </div>
     <br><br>
     <div style="text-align: center"><a href="{{ route('my.my') }}">スキップする</a></div>
 </html>
