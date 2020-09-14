@@ -38,4 +38,6 @@
 
     @include('girl.inc-memory-Lv')
 </div>
+
+</div>
 @include('footer')
