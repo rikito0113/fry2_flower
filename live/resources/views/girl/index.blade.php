@@ -53,7 +53,7 @@
     <div style="width:100%; background-image: url('../images/bg/bg_img_pink.jpg'); background-size: contain">
         @foreach ($all_char_info as $char)
             <div class="row">
-                <div class="col-8 col-sm-8 col-md-8 offset-2 offset-sm-2 offset-md-2">
+                <div class="col-10 col-sm-10 col-md-10 offset-1 offset-sm-1 offset-md-1">
                     <a href="/Girl/girlSelect/{{ $char->char_id }}"><img src="{{ asset('/images/button/bt_place_girl_'. $char->attitude .'.png') }}" alt="bt_place_girl" class="fit-img100"></a>
                 </div>
                 <img src="{{ asset('/images/icon/icon_chara' . $char->char_id . '.png') }}" alt="icon_chara1" class="icon-girl-select">
