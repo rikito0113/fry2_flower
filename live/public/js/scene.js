@@ -66,7 +66,7 @@ function createPlayerChat(phrase) {
 
 function nextClick() {
     count++;
-    if (tutorialPhrase[count]['content']) {
+    if (tutorialPhrase[count]) {
         createGirlChat(tutorialPhrase[count]['content']);
 
         count++;
