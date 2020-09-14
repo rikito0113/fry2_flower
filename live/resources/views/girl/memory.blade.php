@@ -1,6 +1,7 @@
 {{-- 思ひ出画面 --}}
 
 @include('header')
+<div class="container-fluid" style="padding:0px 0px;">
 @include('girl.inc-girl-status')
 
 <div width="100%">
