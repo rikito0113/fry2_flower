@@ -6,6 +6,10 @@
  * チュートリアルとメモリー時に使用
  *
  * あらかじめbladeファイルでグローバル変数として宣言しておく
+ * (ex)
+ * <script>
+ *     let tutorialPhrase = @json($tutorial_phrase);
+ * </script>
  *
 */
 
@@ -79,5 +83,6 @@ function nextClick() {
         wrapperElement.style.backgroundRepeat = "no-repeat";
         wrapperElement.style.backgroundPosition = "center";
         wrapperElement.style.width = "100%";
+        wrapperElement.scrollIntoView(false);
     }
 }
