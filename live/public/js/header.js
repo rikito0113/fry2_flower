@@ -1,6 +1,6 @@
 var appearTag = function () {
   var tags = document.getElementsByName("tag");
-
+  
   for(let tag of tags)
   {
     if(tag.style.display=="block"){

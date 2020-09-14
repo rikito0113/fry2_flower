@@ -1,43 +1,47 @@
 @include('header')
 
     {{-- body --}}
-    <div style="text-align:center;">
+    <div class="bg-pink-flower container-fluid" style="text-align:center; padding:0px;">
 
         {{-- イベント情報 スライダー表示 --}}
-        <div class="swiper-container">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner" style="width:100%;"></div>
-                <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner" style="width:100%;"></div>
+        <div id="slider-1" class="carousel slide" data-ride="carousel" style="padding:0px;">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner" class="fit-img100">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner" class="fit-img100">
+                </div>
             </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-
+            <a class="carousel-control-prev" href="#slider-1" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#slider-1" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
+
+        <br>
 
         {{-- ガールリスト表示 --}}
-        <div style="background:url('../images/bg/bg_img_pink.jpg'); background-size:contain; width:100%;">
+        <div class="row" style="margin:0px;">
             @foreach ($owned_char_info as $index => $char)
-                <div class="girl-img" style="width:30%; position:relative;">
-                    <img src="{{ asset('/images/icon/bt_girl_' . $char->attitude . $char->char_id . '.png') }}" alt="girl" width="100%"><br>
-                    <img src="{{ asset('/images/button/bt_top_profile_purple.png') }}" alt="profile" style="position:absolute; bottom:30px; right:3px;" width="50%">
-                    <p style="position:absolute; bottom:14px; left:4px; font-size: 6px; color: purple; font-weight: bold;">Lv.{{$char->level}}</p>
+                <div class="col-4 col-sm-4 col-md-4" style="padding:2px;">
+                    <img src="{{ asset('/images/icon/bt_girl_' . $char->attitude . $char->char_id . '.png') }}" alt="girl" class="fit-img100"><br>
+                    <img src="{{ asset('/images/button/bt_top_profile_purple.png') }}" alt="profile" class="girl-list-pf-button">
+                    <p class="girl-list-lv">Lv.{{$char->level}}</p>
                 </div>
-                @if ($index % 3 == 0)
-                    <br>
-                @endif
             @endforeach
-            <br>
-            <div style="text-align:center; width:100%">
-                <img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="50%"><br>
-            </div>
-            <br>
         </div>
+
+        <br>
+
+        <div style="text-align:center; width:100%">
+            <img src="{{ asset('/images/button/bt_sotohe.png') }}" alt="sotohe" width="50%"><br>
+        </div>
+        <br>
 
         {{-- キャンペーン関連 --}}
         <img src="{{ asset('/images/titlebar/obi_campain.png') }}" alt="obi_campaign" width="100%" style="width:100%; vertical-align:top;"><br>
@@ -52,22 +56,6 @@
     <p>
     playerId :: {{$test_1}}
     </p>
-
-<script>
-    var Swiper = new Swiper('.swiper-container', {
-    loop: true,
-    pagination: {
-        el: '.swiper-pagination',
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    scrollbar: {
-        el: '.swiper-scrollbar',
-    },
-    })
-</script>
 
 @include('footer')
 

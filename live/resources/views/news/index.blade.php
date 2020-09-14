@@ -2,15 +2,25 @@
 
 <div class="bg-pink-flower">
     <img src="{{ asset('/images/titlebar/obi_news1.png') }}" alt="obi_news1" width="100%"><br>
+   
     {{-- イベント情報 スライダー表示 --}}
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner" style="width:100%;"></div>
-            <div class="swiper-slide"><img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner" style="width:100%;"></div>
+    <div id="slider-1" class="carousel slide" data-ride="carousel" style="padding:0px;">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('/images/banner/bn_top001.jpg') }}" alt="banner" class="fit-img100">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('/images/banner/bn_top002.jpg') }}" alt="banner" class="fit-img100">
+            </div>
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <a class="carousel-control-prev" href="#slider-1" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#slider-1" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 
     <br>
@@ -40,20 +50,5 @@
         @endforeach
     @endif
 </div>
-<script>
-    var Swiper = new Swiper('.swiper-container', {
-    loop: true,
-    pagination: {
-        el: '.swiper-pagination',
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    scrollbar: {
-        el: '.swiper-scrollbar',
-    },
-    })
-</script>
 
 @include('footer')

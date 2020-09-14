@@ -10,6 +10,460 @@
     /* left: 5%; */
 }
 
+/************ inc-girl-status ************/
+.girl-status-date
+{
+    position:absolute; 
+    top:5.1%; 
+    left:3%; 
+    font-size: 12px; 
+    color: white; 
+    font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-status-date
+    {
+        position:absolute; 
+        top:5.1%; 
+        left:3%; 
+        font-size: 12px; 
+        color: white; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-status-date
+    {
+        position:absolute; 
+        top:5.1%; 
+        left:3%; 
+        font-size: 12px; 
+        color: white; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-status-date
+    {
+        position:absolute; 
+        top:5.1%; 
+        left:3%;  
+        font-size: 12px; 
+        color: white; 
+        font-weight: bold;
+    }
+} 
+
+.girl-status-name
+{
+    position:absolute; 
+    top: 6%; 
+    left:46%; 
+    font-size: 15px; 
+    color: pink; 
+    font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-status-name
+    {
+        position:absolute; 
+        top: 6%;
+        left:46%; 
+        font-size: 15px; 
+        color: pink; 
+        font-weight: bold;
+    }
+
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-status-name
+    {
+        position:absolute; 
+        top: 6%;
+        left:46%; 
+        font-size: 15px; 
+        color: pink; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-status-name
+    {
+        position:absolute; 
+        top: 6%; 
+        left:46%; 
+        font-size: 15px; 
+        color: pink; 
+        font-weight: bold;
+    }
+} 
+
+.girl-status-name-purple
+{
+    position:absolute; 
+    top: 6%; 
+    left:47%; 
+    font-size: 14px; 
+    color: purple; 
+    font-weight: 300;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-status-name-purple
+    {
+        position:absolute; 
+        top: 6%; 
+        left:47%; 
+        font-size: 14px; 
+        color: purple; 
+        font-weight: 300;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-status-name-purple
+    {
+        position:absolute; 
+        top: 6%; 
+        left:47%; 
+        font-size: 14px; 
+        color: purple; 
+        font-weight: 300;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-status-name-purple
+    {
+        position:absolute; 
+        top: 6%; 
+        left:47%; 
+        font-size: 14px; 
+        color: purple; 
+        font-weight: 300;
+    }
+} 
+
+
+/************ 女の子立ち絵と周りのアイコン CSS ************/
+
+.icon-dere
+{
+    width:20%;
+    position:absolute;
+    top:0%;
+    right:2%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .icon-dere
+    {
+        width:20%;
+        position:absolute;
+        top:0%;
+        right:2%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .icon-dere
+    {
+        width:20%;
+        position:absolute;
+        top:0%;
+        right:2%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .icon-dere
+    {
+        width:20%;
+        position:absolute;
+        top:0%;
+        right:2%;
+    }
+} 
+
+.bt-cos
+{
+    width:15%;
+    position:absolute; 
+    top:16%; 
+    right:4%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .bt-cos
+    {
+        width:15%;
+        position:absolute; 
+        top:16%; 
+        right:4%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .bt-cos
+    {
+        width:15%;
+        position:absolute; 
+        top:16%; 
+        right:4%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .bt-cos
+    {
+        width:15%;
+        position:absolute; 
+        top:16%; 
+        right:4%;
+    }
+} 
+
+.bt-mem
+{
+    width:15%; 
+    position:absolute; 
+    top:28%; 
+    right:4%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .bt-mem
+    {
+        width:15%; 
+        position:absolute; 
+        top:28%; 
+        right:4%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .bt-mem
+    {
+        width:15%; 
+        position:absolute; 
+        top:28%; 
+        right:4%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .bt-mem
+    {
+        width:15%; 
+        position:absolute; 
+        top:28%; 
+        right:4%;
+    }
+} 
+
+.chat-bt-table
+{
+    position:absolute; 
+    bottom: 1%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .chat-bt-table
+    {
+        position:absolute; 
+        bottom: 1%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .chat-bt-table
+    {
+        position:absolute; 
+        bottom: 1%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .chat-bt-table
+    {
+        position:absolute; 
+        bottom: 1%;
+    }
+} 
+
+.bt-main-chat
+{
+    width:80%; 
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .bt-main-chat
+    {
+        width:80%; 
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .bt-main-chat
+    {
+        width:80%; 
+    }
+}
+@media (min-width: 1200px) 
+{
+    .bt-main-chat
+    {
+        width:80%; 
+    }
+} 
+
+
+.icon-girl-select
+{
+    width:20%;
+    position:absolute; 
+    top:9.2%; 
+    left:10.2%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .icon-girl-select
+    {
+        width:20%;
+        position:absolute; 
+        top:9.2%; 
+        left:10.2%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .icon-girl-select
+    {
+        width:20%;
+        position:absolute; 
+        top:9.2%; 
+        left:10.2%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .icon-girl-select
+    {
+        width:20%;
+        position:absolute; 
+        top:9.2%; 
+        left:10.2%;
+    }
+} 
+
+.girl-select-name
+{
+    position:absolute; 
+    bottom:-3%; 
+    left:35%; 
+    font-size: 13px; 
+    color: black; 
+    font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-select-name
+    {
+        position:absolute; 
+        bottom:-3%; 
+        left:35%;
+        font-size: 13px; 
+        color: black; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-select-name
+    {
+        position:absolute; 
+        bottom:-3%; 
+        left:35%;
+        font-size: 13px; 
+        color: black; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-select-name
+    {
+        position:absolute; 
+        bottom:-3%; 
+        left:35%;
+        font-size: 13px; 
+        color: black; 
+        font-weight: bold;
+    }
+} 
+
+.girl-select-lv
+{
+    position:absolute; 
+    top:10%; 
+    left:37%; 
+    font-size: 14px; 
+    color: white; 
+    font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-select-lv
+    {
+        position:absolute; 
+        top:10%; 
+        left:37%; 
+        font-size: 14px; 
+        color: white; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-select-lv
+    {
+        position:absolute; 
+        top:10%; 
+        left:37%;  
+        font-size: 14px; 
+        color: white; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-select-lv
+    {
+        position:absolute; 
+        top:10%; 
+        left:37%;  
+        font-size: 14px; 
+        color: white; 
+        font-weight: bold;
+    }
+} 
 
 /************ ここからチャット部分CSS ************/
 .chat {
@@ -219,3 +673,91 @@ p.chat-text {
     color: black;
     font-weight: bold;
 }
+
+/************ my.blade.php girl-list ************/
+
+.girl-list-lv
+{
+    position:absolute; 
+    bottom:1%; 
+    left:6%; 
+    font-size: 6px; 
+    color: purple; 
+    font-weight: bold;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-list-lv
+    {
+        position:absolute; 
+        bottom:5%; 
+        left:6%; 
+        font-size: 20px; 
+        color: purple; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-list-lv
+    {
+        position:absolute; 
+        bottom:6%; 
+        left:10%; 
+        font-size: 22px; 
+        color: purple; 
+        font-weight: bold;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-list-lv
+    {
+        position:absolute; 
+        bottom:1%; 
+        left:6%; 
+        font-size: 6px; 
+        color: purple; 
+        font-weight: bold;
+    }
+}   
+
+.girl-list-pf-button
+{
+    position:absolute; 
+    bottom:13%; 
+    right:5%;
+    width:50%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .girl-list-pf-button
+    {
+        position:absolute; 
+        bottom:13%; 
+        right:5%;
+        width:50%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .girl-list-pf-button
+    {
+        position:absolute; 
+        bottom:12%; 
+        right:9%;
+        width:50%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .girl-list-pf-button
+    {
+        position:absolute; 
+        bottom:13%; 
+        right:5%;
+        width:50%;
+    }
+} 
