@@ -20,23 +20,11 @@ class TopController extends Controller
     // login
     public function index()
     {
-        // ログイン処理execでhashをsessionに入れる
-        if (isset($this->_playerId)) {
-            $playerId = $this->_playerId;
-        } else {
-            $playerId = 0;
-        }
-        return view('index')
-        ->with('player_id', $playerId);
-    }
-
-    public function login()
-    {
         // test
         try {
             $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
             $params =  ['grant_type' => "authorization_code",
-                        // 'code' => "005818d6cb8930e9be712537ea5b644ec619b599",
+                        'code' => "005818d6cb8930e9be712537ea5b644ec619b599",
                         'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e", // sandbox用
                         'client_secret' => "f9485395fd",                 // sandbox用
                         'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
@@ -58,20 +46,31 @@ class TopController extends Controller
             echo $e;
             report($e);
         }
-
         // ログイン処理execでhashをsessionに入れる
-        // if (isset($this->_playerId)) {
-        //     // // return redirect()->route('my.my');
-        //     return redirect()->route('tutorial',[
-        //         'playerId' => $this->_playerId
-        //     ]);
-        // }
+        if (isset($this->_playerId)) {
+            $playerId = $this->_playerId;
+        } else {
+            $playerId = 0;
+        }
+        return view('index')
+        ->with('player_id', $playerId);
+    }
 
-        // if ($this->goRegist == true) {
-        //     return redirect()->route('register');
-        // }
-        // return view('index')
-        // ->with('player_id', $this->_playerId);
+    public function login()
+    {
+        // ログイン処理execでhashをsessionに入れる
+        if (isset($this->_playerId)) {
+            // // return redirect()->route('my.my');
+            return redirect()->route('tutorial',[
+                'playerId' => $this->_playerId
+            ]);
+        }
+
+        if ($this->goRegist == true) {
+            return redirect()->route('register');
+        }
+        return view('index')
+        ->with('player_id', $this->_playerId);
     }
 
     // login処理実行
