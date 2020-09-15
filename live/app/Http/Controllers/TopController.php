@@ -20,23 +20,39 @@ class TopController extends Controller
     // login
     public function index()
     {
-        // authリダイレクト防止?
-        // if (session()->has('first')) {
-        //     $first = 2;
-        // } else {
-        //     session(['first' => 1]);
-        //     $first = 1;
-        // }
+        // authリダイレクト対策
+        // 一回目はfirst=1 ⇨ bladeでauth関数走る ⇨ ここにリダイレクト
+        // 2回目以降は GETで取得し、authが回らないように
         $first = 1;
-
-        if (isset($_POST['code'])) {
-            $first = 2;
-            echo 'postで取れました！'.$_POST['code'];
-        }
-
         if (isset($_GET['code'])) {
             $first = 2;
-            echo 'getで取れました！'.$_GET['code'];
+
+            // auth認証
+            try {
+                $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
+                $params =  ['grant_type' => "authorization_code",
+                            'code' => $_GET['code'],
+                            'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e", // sandbox用
+                            'client_secret' => "f9485395fd",                 // sandbox用
+                            'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
+                            ];
+                $client = new Client();
+                $response = $client->request(
+                    'POST',
+                    $url, // URLを設定
+                    ['data' => $params] //'header' => ['content-type' => 'application/x-www-form-urlencoded'],
+                );
+                echo 'oauth用:';
+                echo $response->getStatusCode();   // 200が正解?
+                echo $response->getReasonPhrase(); // OKが正解
+
+                $responseBody = $response->getBody()->getContents();
+                echo $responseBody;
+
+            } catch (\Exception $e) {
+                echo $e;
+                report($e);
+            }
         }
 
         // ログイン処理execでhashをsessionに入れる
@@ -52,35 +68,6 @@ class TopController extends Controller
 
     public function login()
     {
-        if (isset($_POST['code']) || isset($_GET['code'])) {
-            echo "持ってる";
-        }
-        try {
-            $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
-            $params =  ['grant_type' => "authorization_code",
-                        //'code' => "",
-                        'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e", // sandbox用
-                        'client_secret' => "f9485395fd",                 // sandbox用
-                        'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
-                        ];
-            $client = new Client();
-            $response = $client->request(
-                'POST',
-                $url, // URLを設定
-                ['data' => $params] //'header' => ['content-type' => 'application/x-www-form-urlencoded'],
-            );
-            echo 'oauth用:';
-            echo $response->getStatusCode();   // 200が正解?
-            echo $response->getReasonPhrase(); // OKが正解
-
-            $responseBody = $response->getBody()->getContents();
-            echo $responseBody;
-
-        } catch (\Exception $e) {
-            echo $e;
-            report($e);
-        }
-
         // ログイン処理execでhashをsessionに入れる
         if (isset($this->_playerId)) {
             // // return redirect()->route('my.my');
