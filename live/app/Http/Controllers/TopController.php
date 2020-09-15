@@ -21,11 +21,22 @@ class TopController extends Controller
     public function index()
     {
         // authリダイレクト防止?
-        if (session()->has('first')) {
-            $first = 2;
-        } else {
-            session(['first' => 1]);
+        // if (session()->has('first')) {
+        //     $first = 2;
+        // } else {
+        //     session(['first' => 1]);
+        //     $first = 1;
+        // }
+        $first = 2;
+
+        if ($_POST['code']) {
             $first = 1;
+            echo 'postで取れました！'.$_POST['code'];
+        }
+
+        if ($_GET['code']) {
+            $first = 1;
+            echo 'getで取れました！'.$_GET['code'];
         }
 
         // ログイン処理execでhashをsessionに入れる
