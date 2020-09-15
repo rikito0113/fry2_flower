@@ -34,11 +34,11 @@ class Controller extends BaseController
         $opensocialOwnerId = null;
         if (session()->has('opensocial_viewer_id')) {
 
-            $url = "https://flower-dev.maaaaakoto35.com/v2/spapi/oauth2/token";
+            $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
             $params =  ['grant_type' => "authorization_code",
                         'code' => "005818d6cb8930e9be712537ea5b644ec619b599",
-                        'client_id' => "3e2172d39f0d4c3253460ac53b9fcf",
-                        'client_secret' => "e50b435d86",
+                        'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e",
+                        'client_secret' => "f9485395fd",
                         'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
                         ];
             $client = new Client();
