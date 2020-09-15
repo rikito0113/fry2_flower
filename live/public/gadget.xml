@@ -4,16 +4,16 @@
     <Link rel="event.addapp" href="https://flower-dev.maaaaakoto35.com/event/add" method="GET" />
     <Link rel="event.removeapp" href="https://flower-dev.maaaaakoto35.comm/event/remove" method="GET" />
   </ModulePrefs>
-    <script type="text/javascript" src="https://spgm.nijiyome.jp/js/touch.js"></script>
-    <script>
-        nijiyome.auth({
-        state: 'd144c46760d8b0bc4c3e1a6143c744be',
-        });
-    </script>
   <!-- スマートフォン用スタートURL -->
   <Content view="touch" type="url" href="https://flower-dev.maaaaakoto35.com/"
   allow_domains="www.developer-sama.com,smart.developer-sama.com" />
   <!-- PC用スタートURL -->
   <Content view="canvas" type="url" href="https://flower-dev.maaaaakoto35.com/"
   allow_domains="www.developer-sama.com,asset.developer-sama.com" padding_top="0" padding_bottom="0" />
+    <script type="text/javascript" src="https://spgm.nijiyome.jp/js/touch.js"></script>
+    <script>
+        nijiyome.auth({
+        state: 'd144c46760d8b0bc4c3e1a6143c744be',
+        });
+    </script>
 </Module>
