@@ -12,7 +12,7 @@ use GuzzleHttp\Client;
 class ShopCore
 {
     public static function buyItem($playerInfo, $itemId) {
-        $url = "https://api.nijiyome.jp/v2/api/rest/payment/@me/@self/@app";
+        $url = "https://api.nijiyome.jp/api/rest/payment/@me/@self/@app";
         $params =  ['callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
                     'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
                     'paymentItems' => ["itemId" => 1, "itemName" => "test", "unitPrice" => 100, "quantity" => 1, "imageUrl" => "https://flower-dev.maaaaakoto35.com/ex101.jpg", "description" => "test"]];
