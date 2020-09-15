@@ -36,7 +36,7 @@ class TopController extends Controller
             $response = $client->request(
                 'POST',
                 $url, // URLを設定
-                ['header' => ['Content-Type' => 'application/x-www-form-urlencoded'], 'data' => $params]
+                ['data' => $params] //'header' => ['content-type' => 'application/x-www-form-urlencoded'],
             );
             echo 'oauth用:';
             echo $response->getStatusCode();   // 200が正解?
