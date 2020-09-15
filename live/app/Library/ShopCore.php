@@ -25,6 +25,7 @@ class ShopCore
             $url, // URLを設定
             ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
         );
+        echo '決済処理用:';
         echo $response->getStatusCode();
         echo $response->getReasonPhrase(); // OK
         echo $response->getProtocolVersion(); // 1.1
