@@ -86,6 +86,8 @@ function nextClick() {
         wrapperElement.style.backgroundRepeat = "no-repeat";
         wrapperElement.style.backgroundPosition = "center";
         wrapperElement.style.width = "100%";
-        wrapperElement.scrollIntoView(false);
+
+        // スクロールを下まで
+        wrapperElement.scrollTop = wrapperElement.scrollHeight;
     }
 }
