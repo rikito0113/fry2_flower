@@ -10,6 +10,9 @@ use App\Library\ShopCore;
 
 use Illuminate\Http\Request;
 
+// HTTP通信用
+use GuzzleHttp\Client;
+
 class ShopController extends Controller
 {
     public function index()
@@ -32,6 +35,32 @@ class ShopController extends Controller
     public function callback(Request $request)
     {
         // callback用
-        return true;
+        echo $request->paymentId;
+        echo $request->status;
+        echo $request->transactionUrl;
+
+        // コイン消費処理
+        $url = "https://api.nijiyome.jp/v2/api/rest/payment/@me/@self/@app/".$request->transactionUrl;
+        $params =  ["_status" => 1];
+        $client = new Client();
+        $response = $client->request(
+            'POST',
+            $url, // URLを設定
+            ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
+        );
+
+        echo $response->status;
+
+        // status=2を返して完了させる
+        $params2 =  ["_status" => 2];
+        $response2 = $client->request(
+            'POST',
+            $url, // URLを設定
+            ['headers' => ['Content-Type' => 'application/json'], 'query' => $params2],
+        );
+
+        if ($response2->status == 2) {
+            // アイテム付与
+        }
     }
 }

@@ -12,7 +12,7 @@ use GuzzleHttp\Client;
 class ShopCore
 {
     public static function buyItem($playerInfo, $itemId) {
-        $url = "https://api.nijiyome.jp/api/rest/payment/@me/@self/@app";
+        $url = "https://api.nijiyome.jp/v2/api/rest/payment/@me/@self/@app";
         $params =  ['paymentId' => 1,
                     'appId' => 785,
                     'userid' => $playerInfo->player_id,
@@ -23,7 +23,7 @@ class ShopCore
         $response = $client->request(
             'POST',
             $url, // URLを設定
-            ['headers' => ['Content-Type' => 'application/json'], 'query' => $params] // パラメーターがあれば設定 ?foo=barの場合は $params = ['foo' => 'bar']
+            ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
         );
         echo $response->getStatusCode();
         echo $response->getReasonPhrase(); // OK
