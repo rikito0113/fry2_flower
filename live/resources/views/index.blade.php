@@ -7,7 +7,7 @@
     <title>flower girls</title>
     <script type="text/javascript" src="https://spgm.nijiyome.jp/js/touch.js"></script>
     <script>
-        nijiyome.auth({
+        window.onload = nijiyome.auth({
         state: 'd144c46760d8b0bc4c3e1a6143c744be',
         });
     </script>
