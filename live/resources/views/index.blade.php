@@ -13,7 +13,7 @@
                 <img src="{{ asset('/images/title_logo.png') }}" alt="title_logo" width="100%">
             </a>
         @else
-            <a href="{{ route('login') }}">
+            <a href="{{ route('register') }}">
                 <img src="{{ asset('/images/title_logo.png') }}" alt="title_logo" width="100%">
             </a>
         @endif
