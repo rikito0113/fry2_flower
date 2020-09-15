@@ -21,6 +21,9 @@ class TopController extends Controller
     public function index()
     {
         // test
+        if (isset($_POST['code']) || isset($_GET['code'])) {
+            echo "持ってる";
+        }
         try {
             $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
             $params =  ['grant_type' => "authorization_code",
