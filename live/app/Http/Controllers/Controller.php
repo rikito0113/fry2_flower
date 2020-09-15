@@ -33,6 +33,28 @@ class Controller extends BaseController
         $opensocialViewerId = null;
         $opensocialOwnerId = null;
         if (session()->has('opensocial_viewer_id')) {
+
+            $url = "https://api.nijiyome.jp/v2/api/oauth2/token";
+            $params =  ['grant_type' => "authorization_code",
+                        'code' => "005818d6cb8930e9be712537ea5b644ec619b599",
+                        'client_id' => "3e2172d39f0d4c3253460ac53b9fcf",
+                        'client_secret' => "e50b435d86",
+                        'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
+                        ];
+            $client = new Client();
+            $response = $client->request(
+                'POST',
+                $url, // URLを設定
+                ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
+            );
+            echo 'oauth用:';
+            echo $response->getStatusCode();   // 200が正解?
+            echo $response->getReasonPhrase(); // OKが正解
+
+            $responseBody = $response->getBody()->getContents();
+            echo $responseBody;
+
+
             $this->_pfPlayerId = session('opensocial_viewer_id');
             $player = Player::where('pf_player_id', $this->_pfPlayerId)->first();
             echo 'ここ１';
