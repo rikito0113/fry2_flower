@@ -20,7 +20,27 @@ class TopController extends Controller
     // login
     public function index()
     {
-        // test
+        // authリダイレクト防止?
+        if (session()->has('opensocial_viewer_id')) {
+            $first = 2;
+        } else {
+            session(['first' => 1]);
+            $first = 1;
+        }
+
+        // ログイン処理execでhashをsessionに入れる
+        if (isset($this->_playerId)) {
+            $playerId = $this->_playerId;
+        } else {
+            $playerId = 0;
+        }
+        return view('index')
+        ->with('player_id', $playerId)
+        ->with('first', $first);
+    }
+
+    public function login()
+    {
         if (isset($_POST['code']) || isset($_GET['code'])) {
             echo "持ってる";
         }
@@ -49,18 +69,7 @@ class TopController extends Controller
             echo $e;
             report($e);
         }
-        // ログイン処理execでhashをsessionに入れる
-        if (isset($this->_playerId)) {
-            $playerId = $this->_playerId;
-        } else {
-            $playerId = 0;
-        }
-        return view('index')
-        ->with('player_id', $playerId);
-    }
 
-    public function login()
-    {
         // ログイン処理execでhashをsessionに入れる
         if (isset($this->_playerId)) {
             // // return redirect()->route('my.my');

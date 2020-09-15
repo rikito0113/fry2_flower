@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="https://spgm.nijiyome.jp/js/touch.js"></script>
     <title>flower girls</title>
     <script type="text/javascript" src="https://spgm.nijiyome.jp/js/touch.js"></script>
-    <script>
-        document.addEventListener = nijiyome.auth({
-        state: 'd144c46760d8b0bc4c3e1a6143c744be',
-        });
-    </script>
+    @if ($first == 1)
+        <script>
+            document.addEventListener = nijiyome.auth({
+            state: 'd144c46760d8b0bc4c3e1a6143c744be',
+            });
+        </script>
+    @endif
 </head>
 <body style="margin:0px;">
     <div>
