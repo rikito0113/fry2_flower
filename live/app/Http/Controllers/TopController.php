@@ -32,12 +32,32 @@ class TopController extends Controller
 
     public function login()
     {
+        // test
+
+        $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
+        $params =  ['grant_type' => "authorization_code",
+                    'code' => "",
+                    'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e", // sandbox用
+                    'client_secret' => "f9485395fd",                 // sandbox用
+                    'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
+                    ];
+        $client = new Client();
+        $response = $client->request(
+            'POST',
+            $url, // URLを設定
+            ['query' => $params],
+        );
+        echo 'oauth用:';
+        echo $response->getStatusCode();   // 200が正解?
+        echo $response->getReasonPhrase(); // OKが正解
+
+        $responseBody = $response->getBody()->getContents();
+        echo $responseBody;
+
+
         // ログイン処理execでhashをsessionに入れる
         if (isset($this->_playerId)) {
             // // return redirect()->route('my.my');
-            return redirect()->route('tutorial',[
-                'playerId' => $this->_playerId
-            ]);
             return redirect()->route('tutorial',[
                 'playerId' => $this->_playerId
             ]);
