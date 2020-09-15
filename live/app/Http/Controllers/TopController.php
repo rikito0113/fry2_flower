@@ -21,7 +21,7 @@ class TopController extends Controller
     public function index()
     {
         // authリダイレクト防止?
-        if (session()->has('opensocial_viewer_id')) {
+        if (session()->has('first')) {
             $first = 2;
         } else {
             session(['first' => 1]);
