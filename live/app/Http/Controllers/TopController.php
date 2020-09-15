@@ -29,12 +29,12 @@ class TopController extends Controller
         // }
         $first = 2;
 
-        if ($_POST['code']) {
+        if (isset($_POST['code'])) {
             $first = 1;
             echo 'postで取れました！'.$_POST['code'];
         }
 
-        if ($_GET['code']) {
+        if (isset($_GET['code'])) {
             $first = 1;
             echo 'getで取れました！'.$_GET['code'];
         }
