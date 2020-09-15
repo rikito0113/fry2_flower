@@ -17,7 +17,7 @@ class ShopCore
                     'appId' => 785,
                     'userid' => $playerInfo->player_id,
                     'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
-                    'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
+                    'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Girl/index",
                     'paymentItems' => ["itemId" => 1, "itemName" => "test", "unitPrice" => 100, "quantity" => 1, "imageUrl" => "https://flower-dev.maaaaakoto35.com/ex101.jpg", "description" => "test"]];
         $client = new Client();
         $response = $client->request(
@@ -26,9 +26,9 @@ class ShopCore
             ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
         );
         echo '決済処理用:';
-        echo $response->getStatusCode();
-        echo $response->getReasonPhrase(); // OK
-        echo $response->getProtocolVersion(); // 1.1
+        echo $response->getStatusCode();   // 200が正解?
+        echo $response->getReasonPhrase(); // OKが正解
+        echo $response->getProtocolVersion();
 
         $responseBody = $response->getBody()->getContents();
         echo $responseBody;
