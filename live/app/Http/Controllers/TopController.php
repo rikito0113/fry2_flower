@@ -12,7 +12,7 @@ use GuzzleHttp\Client;
 
 // ライブラリの呼び出し
 use App\Library\TopCore;
-
+use Exception;
 use Illuminate\Http\Request;
 
 class TopController extends Controller
@@ -33,27 +33,30 @@ class TopController extends Controller
     public function login()
     {
         // test
+        try {
+            $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
+            $params =  ['grant_type' => "authorization_code",
+                        // 'code' => "005818d6cb8930e9be712537ea5b644ec619b599",
+                        'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e", // sandbox用
+                        'client_secret' => "f9485395fd",                 // sandbox用
+                        'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
+                        ];
+            $client = new Client();
+            $response = $client->request(
+                'POST',
+                $url, // URLを設定
+                $params,
+            );
+            echo 'oauth用:';
+            echo $response->getStatusCode();   // 200が正解?
+            echo $response->getReasonPhrase(); // OKが正解
 
-        $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
-        $params =  ['grant_type' => "authorization_code",
-                    // 'code' => "005818d6cb8930e9be712537ea5b644ec619b599",
-                    'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e", // sandbox用
-                    'client_secret' => "f9485395fd",                 // sandbox用
-                    'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
-                    ];
-        $client = new Client();
-        $response = $client->request(
-            'POST',
-            $url, // URLを設定
-            $params,
-        );
-        echo 'oauth用:';
-        echo $response->getStatusCode();   // 200が正解?
-        echo $response->getReasonPhrase(); // OKが正解
+            $responseBody = $response->getBody()->getContents();
+            echo $responseBody;
 
-        $responseBody = $response->getBody()->getContents();
-        echo $responseBody;
-
+        } catch (\Exception $e) {
+            report($e);
+        }
 
         // ログイン処理execでhashをsessionに入れる
         if (isset($this->_playerId)) {
