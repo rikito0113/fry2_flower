@@ -13,8 +13,7 @@ class ShopCore
 {
     public static function buyItem($playerInfo, $itemId) {
         $url = "https://api.nijiyome.jp/v2/api/rest/payment/@me/@self/@app";
-        $params =  ['paymentId' => 1,
-                    'appId' => 785,
+        $params =  ['appId' => 785,
                     'userid' => $playerInfo->pf_player_id,
                     'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
                     'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
@@ -23,7 +22,7 @@ class ShopCore
         $response = $client->request(
             'POST',
             $url, // URLを設定
-            ['headers' => ['Content-Type' => 'application/json'], $params],
+            ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
         );
         echo '決済処理用:';
         echo $response->getStatusCode();   // 200が正解?
