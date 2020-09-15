@@ -36,18 +36,28 @@ class TopController extends Controller
                             'client_secret' => "f9485395fd",                 // sandbox用
                             'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
                             ];
-                $client = new Client();
-                $response = $client->request(
-                    'POST',
-                    $url, // URLを設定
-                    ['data' => $params] //'header' => ['content-type' => 'application/x-www-form-urlencoded'],
-                );
-                echo 'oauth用:';
-                echo $response->getStatusCode();   // 200が正解?
-                echo $response->getReasonPhrase(); // OKが正解
+                // $client = new Client();
+                // $response = $client->request(
+                //     'POST',
+                //     $url, // URLを設定
+                //     ['data' => $params] //'header' => ['content-type' => 'application/x-www-form-urlencoded'],
+                // );
 
-                $responseBody = $response->getBody()->getContents();
-                echo $responseBody;
+                // echo $response->getStatusCode();   // 200が正解?
+                // echo $response->getReasonPhrase(); // OKが正解
+
+                // $responseBody = $response->getBody()->getContents();
+
+                // echo $responseBody;
+
+                $curl = curl_init($url);
+                curl_setopt($curl, CURLOPT_POST, TRUE);
+                curl_setopt($curl, CURLOPT_POSTFIELDS, $params); // パラメータをセット
+                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                $response = curl_exec($curl);
+                echo $response;
+                curl_close($curl);
 
             } catch (\Exception $e) {
                 echo $e;
