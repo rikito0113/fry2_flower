@@ -112,5 +112,7 @@ class TopCore
 
         // defaultのowned_char_idをupdate
         GirlCore::girlSelect($playerInfo->player_id, Constant::DEFAULT_CHARACTER_ID);
+
+        return $playerInfo->player_id;
     }
 }

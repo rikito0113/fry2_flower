@@ -127,10 +127,10 @@ class TopController extends Controller
             ]);
         } else {
             // 会員登録
-            TopCore::register($request);
+            $playerId = TopCore::register($request);
             // return redirect()->route('my.my');
             return redirect()->route('tutorial',[
-                'playerId' => $this->_playerId
+                'playerId' => $playerId
             ]);
         }
     }
