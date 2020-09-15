@@ -23,12 +23,11 @@ class ShopCore
         $response = $client->request(
             'POST',
             $url, // URLを設定
-            ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
+            ['headers' => ['Content-Type' => 'application/json'], $params],
         );
         echo '決済処理用:';
         echo $response->getStatusCode();   // 200が正解?
         echo $response->getReasonPhrase(); // OKが正解
-        echo $response->getProtocolVersion();
 
         $responseBody = $response->getBody()->getContents();
         echo $responseBody;
