@@ -28,4 +28,10 @@ class ShopController extends Controller
 
         return view('shop.index');
     }
+
+    public function callback(Request $request)
+    {
+        // callback用
+        return true;
+    }
 }

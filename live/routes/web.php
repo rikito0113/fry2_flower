@@ -71,6 +71,7 @@ Route::get('/Present/recieveMemory/{itemId}',            'PresentController@reci
 // ガチャ・ショップ関連
 Route::get('/Shop/index',                                'ShopController@index')->name('shop.index');
 Route::post('/Shop/buyItem',                             'ShopController@buyItem');
+Route::post('/Shop/callback',                            'ShopController@callack');
 
 // イベント情報関連
 Route::get('/EventInfo/index',                           'EventInfoController@index')->name('eventInfo.index');
