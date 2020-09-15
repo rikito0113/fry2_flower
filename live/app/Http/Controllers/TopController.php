@@ -36,19 +36,6 @@ class TopController extends Controller
                             'client_secret' => "f9485395fd",                 // sandbox用
                             'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
                             ];
-                // $client = new Client();
-                // $response = $client->request(
-                //     'POST',
-                //     $url, // URLを設定
-                //     ['data' => $params] //'header' => ['content-type' => 'application/x-www-form-urlencoded'],
-                // );
-
-                // echo $response->getStatusCode();   // 200が正解?
-                // echo $response->getReasonPhrase(); // OKが正解
-
-                // $responseBody = $response->getBody()->getContents();
-
-                // echo $responseBody;
 
                 $curl = curl_init($url);
                 curl_setopt($curl, CURLOPT_POST, TRUE);
