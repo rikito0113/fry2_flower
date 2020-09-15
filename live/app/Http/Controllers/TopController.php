@@ -56,7 +56,7 @@ class TopController extends Controller
                 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                 $response = curl_exec($curl);
-                echo $response;
+                echo $response['access_token'];
                 curl_close($curl);
 
             } catch (\Exception $e) {
