@@ -45,7 +45,7 @@ class Controller extends BaseController
             $response = $client->request(
                 'POST',
                 $url, // URLを設定
-                ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
+                ['query' => $params],
             );
             echo 'oauth用:';
             echo $response->getStatusCode();   // 200が正解?
