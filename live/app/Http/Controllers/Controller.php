@@ -34,7 +34,7 @@ class Controller extends BaseController
         $opensocialOwnerId = null;
         if (session()->has('opensocial_viewer_id')) {
 
-            $url = "https://api.nijiyome.jp/v2/api/oauth2/token";
+            $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
             $params =  ['grant_type' => "authorization_code",
                         'code' => "005818d6cb8930e9be712537ea5b644ec619b599",
                         'client_id' => "3e2172d39f0d4c3253460ac53b9fcf",
