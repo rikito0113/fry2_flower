@@ -56,9 +56,9 @@ class TopController extends Controller
                 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                 $response = curl_exec($curl);
-                $json = json_decode($response);
-                echo $json;
+                // $json = json_decode($response);
                 curl_close($curl);
+                echo $response;
 
             } catch (\Exception $e) {
                 echo $e;
