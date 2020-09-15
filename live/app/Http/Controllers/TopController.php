@@ -22,7 +22,7 @@ class TopController extends Controller
     {
         // test
         try {
-            $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
+            $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token/v2/api/oauth2/token";
             $params =  ['grant_type' => "authorization_code",
                         'code' => "",
                         'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e", // sandbox用
