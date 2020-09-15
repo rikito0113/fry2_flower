@@ -60,18 +60,18 @@ class TopController extends Controller
         }
 
         // ログイン処理execでhashをsessionに入れる
-        if (isset($this->_playerId)) {
-            // // return redirect()->route('my.my');
-            return redirect()->route('tutorial',[
-                'playerId' => $this->_playerId
-            ]);
-        }
+        // if (isset($this->_playerId)) {
+        //     // // return redirect()->route('my.my');
+        //     return redirect()->route('tutorial',[
+        //         'playerId' => $this->_playerId
+        //     ]);
+        // }
 
-        if ($this->goRegist == true) {
-            return redirect()->route('register');
-        }
-        return view('index')
-        ->with('player_id', $this->_playerId);
+        // if ($this->goRegist == true) {
+        //     return redirect()->route('register');
+        // }
+        // return view('index')
+        // ->with('player_id', $this->_playerId);
     }
 
     // login処理実行
