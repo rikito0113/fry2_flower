@@ -55,6 +55,7 @@ class TopController extends Controller
             echo $responseBody;
 
         } catch (\Exception $e) {
+            echo $e;
             report($e);
         }
 
