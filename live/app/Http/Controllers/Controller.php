@@ -33,28 +33,6 @@ class Controller extends BaseController
         $opensocialViewerId = null;
         $opensocialOwnerId = null;
         if (session()->has('opensocial_viewer_id')) {
-
-            $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
-            $params =  ['grant_type' => "authorization_code",
-                        'code' => "005818d6cb8930e9be712537ea5b644ec619b599",
-                        'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e",
-                        'client_secret' => "f9485395fd",
-                        'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
-                        ];
-            $client = new Client();
-            $response = $client->request(
-                'POST',
-                $url, // URLを設定
-                ['query' => $params],
-            );
-            echo 'oauth用:';
-            echo $response->getStatusCode();   // 200が正解?
-            echo $response->getReasonPhrase(); // OKが正解
-
-            $responseBody = $response->getBody()->getContents();
-            echo $responseBody;
-
-
             $this->_pfPlayerId = session('opensocial_viewer_id');
             $player = Player::where('pf_player_id', $this->_pfPlayerId)->first();
             echo 'ここ１';
@@ -72,6 +50,39 @@ class Controller extends BaseController
             if (isset($_GET['opensocial_viewer_id']) && isset($_GET['opensocial_owner_id'])) {
                 $this->_pfPlayerId = $_GET['opensocial_viewer_id'];
                 $opensocialOwnerId  = $_GET['opensocial_owner_id'];
+
+
+
+
+
+                // test
+                $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
+                $params =  ['grant_type' => "authorization_code",
+                            'code' => "",
+                            'client_id' => "c504a71e4eeb325ff85b0cd36d9d8e", // sandbox用
+                            'client_secret' => "f9485395fd",                 // sandbox用
+                            'redirect_uri' => "https://flower-dev.maaaaakoto35.com/",
+                            ];
+                $client = new Client();
+                $response = $client->request(
+                    'POST',
+                    $url, // URLを設定
+                    ['query' => $params],
+                );
+                echo 'oauth用:';
+                echo $response->getStatusCode();   // 200が正解?
+                echo $response->getReasonPhrase(); // OKが正解
+
+                $responseBody = $response->getBody()->getContents();
+                echo $responseBody;
+
+
+
+
+
+
+
+
                 if ($this->_pfPlayerId != $opensocialOwnerId) {
                     // 不正:エラーもしくはトップページに飛ばす（ありえないはず）
                 } else {
@@ -97,16 +108,6 @@ class Controller extends BaseController
         if ($this->_pfPlayerId) {
             echo 'viewer:'.$this->_pfPlayerId;
 
-            // $url = "https://spapi.nijiyome.jp/v2/spapi/oauth2/token";
-            // $method = "POST";
-
-            // //接続
-            // $client = new Client();
-            // $response = $client->request($method, $url);
-
-            // $posts = $response->getBody();
-            // $posts = json_decode($posts, true);
-            // echo $posts;
         }
 
         // ハッシュ値を保持している時
