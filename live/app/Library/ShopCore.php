@@ -15,9 +15,9 @@ class ShopCore
         $url = "https://api.nijiyome.jp/v2/api/rest/payment/@me/@self/@app";
         $params =  ['paymentId' => 1,
                     'appId' => 785,
-                    'userid' => $playerInfo->player_id,
+                    'userid' => $playerInfo->pf_player_id,
                     'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
-                    'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Girl/index",
+                    'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
                     'paymentItems' => ["itemId" => 1, "itemName" => "test", "unitPrice" => 100, "quantity" => 1, "imageUrl" => "https://flower-dev.maaaaakoto35.com/ex101.jpg", "description" => "test"]];
         $client = new Client();
         $response = $client->request(
