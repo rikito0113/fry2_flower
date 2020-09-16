@@ -5,7 +5,7 @@
 <div class="row" style="background-image: url('../images/bg/bg_header_dere.png'); background-size: contain; vertical-align:top; margin:0px;">
     <div class="col-6 col-sm-6 col-md-6" style="padding:0px;">
         <img src="{{ asset('/images/titlebar/obi_memory.png') }}" alt="obi_memory" class="fit-img100">
-        <p class="memory-select-girl-name">選択：</p>
+        <p class="memory-select-girl-name">選択：{{ $owned_char_info->char_name }}</p>
     </div>
     {{-- ステータスへ --}}
     <div class="col-2 col-sm-2 col-md-2 offset-2 offset-sm-2 offset-md-2" style="padding:7px;">
@@ -33,7 +33,7 @@
     <div class="col-12 col-sm-12 col-md-12" style="padding:0px 0px;">
         <img src="{{ asset('/images/titlebar/obi_cap3.png') }}" alt="日常メモリー" class="fit-img100">
     </div>
-    <div style="text-align: center;">2020年7月->夏</div>
+    <div class="col align-self-center">2020年7月->夏</div>
     <ul class="event_mem">
         @for ($i = 0; $i < 12; $i++)
             @if ($i + 1 > $event_memory_length)
