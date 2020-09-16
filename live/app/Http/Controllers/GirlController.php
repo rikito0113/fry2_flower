@@ -373,6 +373,13 @@ class GirlController extends Controller
             $memory->title = Scenario::where('scenario_id', $memory->scenario_id)->first()->title;
         }
 
+        // 全ガール情報
+        $allOwnedCharId = OwnedCharacterData::where('player_id', $this->_playerId)->get();
+        $allOwnedCharInfo = array();
+        foreach ($allOwnedCharId as $key => $ownedCharId) {
+            $allOwnedCharInfo[$ownedCharId->owned_char_id] = GirlCore::girlLoad($ownedCharId->owned_char_id);
+        }
+
         return view('girl.memory')
             // ->with('char_ids',                $charIds)
             ->with('event_memory',            $eventMemory)
@@ -380,6 +387,7 @@ class GirlController extends Controller
             ->with('main_memory_ev',          $mainMemoryEv)
             ->with('event_memory_length',     $eventMemoryLength)
             ->with('owned_char_info',         $ownedCharInfo)
+            ->with('all_char_info',           $allOwnedCharInfo)
             ->with('current_date',            date('m月d日 H:i'));
     }
 
