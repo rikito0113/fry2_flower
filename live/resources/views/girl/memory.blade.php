@@ -16,9 +16,9 @@
     </div>
 </div>
 
-<div class="row" style="background-image: url('../images/bg/bg_header_dere.png'); background-size: contain; vertical-align:top; margin:0px;">
+<div class="row" style="margin:0px;">
     @foreach ($all_char_info as $char)
-        <div class="col-1 col-sm-1 col-md-1" style="padding:1px;">
+        <div class="col-2 col-sm-2 col-md-2" style="padding:1px;">
             <a href="{{ route('girl.memory') }}">
                 <img src="{{ asset('/images/icon/icon_chara' . $char->char_id . '.png') }}" alt="icon_chara1" class="fit-img100">
             </a>
