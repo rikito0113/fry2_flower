@@ -17,14 +17,14 @@ return [
 
     'paths' => ['*'],
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['GET', 'POST'],
 
     // 'allowed_origins' => [env('REQUIRE_DMAIN', NULL)],
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['https://sb.nijiyome.jp'],
 
     'allowed_origins_patterns' => [],
 
-    'allowed_headers' => ['*'],
+    'allowed_headers' => ['X-CSRF-TOKEN', 'Content-Type', 'Origin', 'Authorization', 'Accept', 'X-Requested-With'],
 
     'exposed_headers' => [],
 
