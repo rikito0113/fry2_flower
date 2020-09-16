@@ -197,79 +197,79 @@
 
 .bt-cos
 {
-    width:15%;
+    width:18%;
     position:absolute; 
-    top:16%; 
-    right:4%;
+    top:15%; 
+    right:2%;
 }
 
 @media (min-width: 768px) and (max-width:992px)
 {
     .bt-cos
     {
-        width:15%;
+        width:18%;
         position:absolute; 
-        top:16%; 
-        right:4%;
+        top:15%; 
+        right:2%;
     }
 }
 @media (min-width: 992px) and (max-width: 1200px)
 {
     .bt-cos
     {
-        width:15%;
+        width:18%;
         position:absolute; 
-        top:16%; 
-        right:4%;
+        top:15%; 
+        right:2%;
     }
 }
 @media (min-width: 1200px) 
 {
     .bt-cos
     {
-        width:15%;
+        width:18%;
         position:absolute; 
-        top:16%; 
-        right:4%;
+        top:15%; 
+        right:2%;
     }
 } 
 
 .bt-mem
 {
-    width:15%; 
+    width:18%; 
     position:absolute; 
     top:28%; 
-    right:4%;
+    right:2%;
 }
 
 @media (min-width: 768px) and (max-width:992px)
 {
     .bt-mem
     {
-        width:15%; 
+        width:18%; 
         position:absolute; 
         top:28%; 
-        right:4%;
+        right:2%;
     }
 }
 @media (min-width: 992px) and (max-width: 1200px)
 {
     .bt-mem
     {
-        width:15%; 
+        width:18%; 
         position:absolute; 
         top:28%; 
-        right:4%;
+        right:2%;
     }
 }
 @media (min-width: 1200px) 
 {
     .bt-mem
     {
-        width:15%; 
+        width:18%; 
         position:absolute; 
         top:28%; 
-        right:4%;
+        right:2%;
     }
 } 
 
