@@ -767,10 +767,10 @@ p.chat-text {
 .memory-select-girl-name
 {
     position:absolute; 
-    top:8%; 
+    top:51%; 
     left:2%; 
     font-size: 12px; 
-    color: pink; 
+    color: deeppink; 
     font-weight: bold;
 }
 
@@ -779,10 +779,10 @@ p.chat-text {
     .memory-select-girl-name
     {
         position:absolute; 
-        top:8%; 
+        top:51%; 
         left:2%; 
         font-size: 12px; 
-        color: pink; 
+        color: deeppink; 
         font-weight: bold;
     }
 }
@@ -791,10 +791,10 @@ p.chat-text {
     .memory-select-girl-name
     {
         position:absolute; 
-        top:8%; 
+        top:51%; 
         left:2%; 
         font-size: 12px; 
-        color: pink; 
+        color: deeppink; 
         font-weight: bold;
     }
 }
@@ -803,10 +803,10 @@ p.chat-text {
     .memory-select-girl-name
     {
         position:absolute; 
-        top:8%; 
+        top:51%; 
         left:2%; 
         font-size: 12px; 
-        color: pink; 
+        color: deeppink; 
         font-weight: bold;
     }
 } 

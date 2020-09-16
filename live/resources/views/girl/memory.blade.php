@@ -8,10 +8,10 @@
         <p class="memory-select-girl-name">選択：</p>
     </div>
     {{-- ステータスへ --}}
-    <div class="col-2 col-sm-2 col-md-2 offset-3 offset-sm-3 offset-md-3" style="padding:7px;">
+    <div class="col-2 col-sm-2 col-md-2 offset-2 offset-sm-2 offset-md-2" style="padding:7px;">
         <a href="/Girl/mainChat"><img src="{{ asset('/images/icon/icon_sotohe.png') }}" alt="bg_header_clock_dere" class="fit-img100"></a>
     </div>
-    <div class="col-1 col-sm-1 col-md-1" style="padding:7px;">
+    <div class="col-2 col-sm-2 col-md-2" style="padding:7px;">
         <a href="{{ route('girl.eventField') }}"><img src="{{ asset('/images/icon/icon_yome.png') }}" alt="bg_header_clock_dere" class="fit-img100"></a>
     </div>
 </div>
