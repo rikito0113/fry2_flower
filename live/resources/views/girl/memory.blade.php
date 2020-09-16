@@ -35,7 +35,6 @@
     </div>
 </div>
 <div class="row justify-content-center" style="margin:0px;">
-    <>
     <div class="col">2020年7月->夏</div>
 </div>
 <div class="row" style="margin:0px;">
