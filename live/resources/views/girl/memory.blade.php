@@ -23,7 +23,7 @@
                 <img src="{{ asset('/images/icon/icon_chara' . $char->char_id . '.png') }}" alt="icon_chara1" class="fit-img100">
             </a>
             @if ($char->char_id == $owned_char_info->char_id)
-                <!-- <img src="{{ asset('/images/icon/icon_chara' . $char->char_id . '.png') }}" alt="icon_chara1" class="icon-girl-select"> -->
+                <img src="{{ asset('/images/icon/icon_chara_heart.png') }}" alt="icon_chara_heart" class="icon-girl-select-heart">
             @endif
         </div>
     @endforeach
@@ -33,7 +33,12 @@
     <div class="col-12 col-sm-12 col-md-12" style="padding:0px 0px;">
         <img src="{{ asset('/images/titlebar/obi_cap3.png') }}" alt="日常メモリー" class="fit-img100">
     </div>
-    <div class="col align-self-center">2020年7月->夏</div>
+</div>
+<div class="row justify-content-center" style="margin:0px;">
+    <>
+    <div class="col">2020年7月->夏</div>
+</div>
+<div class="row" style="margin:0px;">
     <ul class="event_mem">
         @for ($i = 0; $i < 12; $i++)
             @if ($i + 1 > $event_memory_length)

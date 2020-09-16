@@ -810,3 +810,42 @@ p.chat-text {
         font-weight: bold;
     }
 } 
+
+.icon-girl-select-heart
+{
+    width:20%;
+    position:absolute; 
+    top:0%; 
+    right:0%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .icon-girl-select-heart
+    {
+        width:20%;
+        position:absolute; 
+        top:0%; 
+        right:0%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .icon-girl-select-heart
+    {
+        width:20%;
+        position:absolute; 
+        top:0%; 
+        right:0%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .icon-girl-select-heart
+    {
+        width:20%;
+        position:absolute; 
+        top:0%; 
+        right:0%;
+    }
+} 
