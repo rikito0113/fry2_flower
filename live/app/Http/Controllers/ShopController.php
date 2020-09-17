@@ -29,7 +29,7 @@ class ShopController extends Controller
             // こけてる
         }
 
-        // return view('shop.index');
+        return view('shop.index');
     }
 
     public function callback(Request $request)

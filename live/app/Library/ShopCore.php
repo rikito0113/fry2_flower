@@ -17,8 +17,8 @@ class ShopCore
             //$url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment/@me/@self/@app";
             $url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment";
             $data = array(
-                //'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
-                //'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
+                'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
+                'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
                 'paymentItems' => array('itemId' => 1, 'itemName' => "test", 'unitPrice' => 100, 'quantity' => 1, 'imageUrl' => "https://flower-dev.maaaaakoto35.com/ex101.jpg", 'description' => "testです."),
             );
             // $data = array(
@@ -49,7 +49,10 @@ class ShopCore
         } catch(Exception $e) {
             echo $e;
             report($e);
+            return false;
         }
+
+        return true;
 
     }
 
