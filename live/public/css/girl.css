@@ -591,20 +591,20 @@ p.chat-text {
 
 .mem_frame
 {
-    width: 29%;
-    text-align: center;
-    background: url(../images/icon/bt_mem_frame.png);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    position:absolute;
     font-family: 'Hiragino Kaku Gothic Pro','ヒラギノ角ゴ Pro W3','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
     font-size: 60%;
-    padding: 1% 15% 1% 15%;
     color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .event_mem
 {
     background: url(../images/bg/bg_img_pink.jpg);
+    background-size: contain;
     display: -webkit-box;
     display: -ms-flexbox;/* IE10用 */
     display: flex;

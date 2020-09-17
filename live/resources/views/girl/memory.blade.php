@@ -38,20 +38,26 @@
     <div class="col">2020年7月->夏</div>
 </div>
 <div class="row" style="margin:0px;">
-    <ul class="event_mem">
+    <div class="col-3 col-sm-3 col-md-3" style="padding:2px;">
         @for ($i = 0; $i < 12; $i++)
             @if ($i + 1 > $event_memory_length)
-                <li>
-                    <img src="{{ asset('/images/icon/bt_mem_place_seacret.png') }}" alt="シークレット" width="100%">
+                <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
+                    <img src="{{ asset('/images/icon/bt_mem_place_seacret.png') }}" alt="シークレット" class="fit-img100">
+                </div>
+                <div class="col-12 col-sm-12 col-md-12" style="padding:3px;">
+                    <img src="{{ asset('/images/icon/bt_mem_frame.png') }}" class="fit-img100">
                     <span class="mem_frame">?????</span>
-                </li>
+                </div>
             @else
-                <li>
-                    <a href="/Girl/eventMemory/{{ $event_memory[$i]->scenario_id }}">
-                        <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" width="100%">
+                <a href="/Girl/eventMemory/{{ $event_memory[$i]->scenario_id }}">
+                    <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
+                        <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" class="fit-img100">
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12" style="padding:3px;">
+                        <img src="{{ asset('/images/icon/bt_mem_place'.$event_memory[$i]->scenario_id.'.png') }}" alt="開放済み" class="fit-img100">
                         <span class="mem_frame">{{ $event_memory[$i]->title }}</span>
-                    </a>
-                </li>
+                    </div>
+                </a>
             @endif
         @endfor
     </ul>
