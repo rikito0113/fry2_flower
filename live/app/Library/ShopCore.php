@@ -13,9 +13,11 @@ class ShopCore
 {
     public static function buyItem($playerInfo, $itemId) {
         $url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment/@me/@self/@app";
-        $params =  ['callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
-                    'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
-                    'paymentItems' => ["itemId" => 1, "itemName" => "test", "unitPrice" => 100, "quantity" => 1, "imageUrl" => "https://flower-dev.maaaaakoto35.com/ex101.jpg", "description" => "test"]];
+        $params = array(
+            'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
+            'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
+            'paymentItems' => array("itemId" => 1, "itemName" => "test", "unitPrice" => 100, "quantity" => 1, "imageUrl" => "https://flower-dev.maaaaakoto35.com/ex101.jpg", "description" => "test"),
+        );
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_POST, TRUE);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $params); // パラメータをセット
