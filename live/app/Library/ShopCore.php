@@ -31,7 +31,8 @@ class ShopCore
         $response = curl_exec($curl);
         $json = json_decode($response, true);
         echo '決済処理用:';
-
+        echo $json;
+        var_dump($json);
 
     }
 
