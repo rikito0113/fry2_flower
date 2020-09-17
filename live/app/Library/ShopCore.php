@@ -13,21 +13,18 @@ class ShopCore
 {
     public static function buyItem($playerInfo, $itemId) {
         $url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment/@me/@self/@app";
-        $params = array(
+        $data = array(
             'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
             'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
-            'paymentItems["itemId"]' => 1,
-            'paymentItems["itemName"]' => "test",
-            'paymentItems["unitPrice"]' => 100,
-            'paymentItems["quantity"]' => 1,
-            'paymentItems["imageUrl"]' => "https://flower-dev.maaaaakoto35.com/ex101.jpg",
-            'paymentItems["description"]' => "testだよ。",
+            'paymentItems' => array('itemId' => 1, 'itemName' => "test", 'unitPrice' => 100, 'quantity' => 1, 'imageUrl' => "https://flower-dev.maaaaakoto35.com/ex101.jpg", 'description' => "testです."),
         );
+        $params = json_encode($data);
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_POST, TRUE);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $params); // パラメータをセット
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
         $response = curl_exec($curl);
         $json = json_decode($response, true);
         echo '決済処理用:';
