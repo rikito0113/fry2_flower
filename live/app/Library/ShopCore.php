@@ -14,7 +14,8 @@ class ShopCore
     public static function buyItem($playerInfo, $itemId) {
 
         try {
-            $url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment/@me/@self/@app";
+            //$url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment/@me/@self/@app";
+            $url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment";
             $data = array(
                 //'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
                 //'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
