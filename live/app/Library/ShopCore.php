@@ -15,14 +15,14 @@ class ShopCore
 
         try {
             $url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment/@me/@self/@app";
-            // $data = array(
-            //     'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
-            //     'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
-            //     'paymentItems' => array('itemId' => 1, 'itemName' => "test", 'unitPrice' => 100, 'quantity' => 1, 'imageUrl' => "https://flower-dev.maaaaakoto35.com/ex101.jpg", 'description' => "testです."),
-            // );
             $data = array(
-                'itemId' => 1, 'itemName' => "test", 'unitPrice' => 100, 'quantity' => 1, 'imageUrl' => "https://flower-dev.maaaaakoto35.com/ex101.jpg", 'description' => "testです.",
+                //'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
+                //'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
+                'paymentItems' => array('itemId' => 1, 'itemName' => "test", 'unitPrice' => 100, 'quantity' => 1, 'imageUrl' => "https://flower-dev.maaaaakoto35.com/ex101.jpg", 'description' => "testです."),
             );
+            // $data = array(
+            //     'itemId' => 1, 'itemName' => "test", 'unitPrice' => 100, 'quantity' => 1, 'imageUrl' => "https://flower-dev.maaaaakoto35.com/ex101.jpg", 'description' => "testです.",
+            // );
             $params = json_encode($data);
             $curl = curl_init($url);
             curl_setopt($curl, CURLOPT_POST, TRUE);
@@ -35,6 +35,8 @@ class ShopCore
             echo '決済処理用:';
             echo $json;
             var_dump($json);
+
+            curl_close($curl);
         } catch(Exception $e) {
             echo $e;
             report($e);
