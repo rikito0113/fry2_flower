@@ -16,7 +16,12 @@ class ShopCore
         $params = array(
             'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
             'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
-            'paymentItems' => array("itemId" => 1, "itemName" => "test", "unitPrice" => 100, "quantity" => 1, "imageUrl" => "https://flower-dev.maaaaakoto35.com/ex101.jpg", "description" => "test"),
+            'paymentItems["itemId"]' => 1,
+            'paymentItems["itemName"]' => "test",
+            'paymentItems["unitPrice"]' => 100,
+            'paymentItems["quantity"]' => 1,
+            'paymentItems["imageUrl"]' => "https://flower-dev.maaaaakoto35.com/ex101.jpg",
+            'paymentItems["description"]' => "testだよ。",
         );
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_POST, TRUE);
