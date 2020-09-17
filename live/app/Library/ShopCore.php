@@ -25,11 +25,19 @@ class ShopCore
             // );
             $params = json_encode($data);
             $curl = curl_init($url);
-            curl_setopt($curl, CURLOPT_POST, TRUE);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $params); // パラメータをセット
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            // curl_setopt($curl, CURLOPT_POST, TRUE);
+            // curl_setopt($curl, CURLOPT_POSTFIELDS, $params); // パラメータをセット
+            // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            // curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
+
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/json",
+            "Content-Length: " . strlen($params))
+            );
             $response = curl_exec($curl);
             $json = json_decode($response, true);
             echo '決済処理用:';
