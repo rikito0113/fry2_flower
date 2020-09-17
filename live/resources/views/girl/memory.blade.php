@@ -39,7 +39,7 @@
 </div>
 <div class="row event_mem" style="margin:0px;">
         @for ($i = 0; $i < 12; $i++)
-            <div class="col-3 col-sm-3 col-md-3" style="padding:2px;">
+            <div class="col-3 col-sm-3 col-md-3" style="padding:4px;">
             @if ($i + 1 > $event_memory_length)
                 <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
                     <img src="{{ asset('/images/icon/bt_mem_place_seacret.png') }}" alt="シークレット" class="fit-img100">
