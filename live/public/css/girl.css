@@ -611,9 +611,6 @@ p.chat-text {
     -ms-flex-wrap: wrap;
     -webkit-flex-wrap : wrap;
     flex-wrap: wrap;
-    width: 100%;
-    padding-left: 0px;
-    margin: 0px 0px;
 }
 
 .event_mem li

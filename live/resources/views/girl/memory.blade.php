@@ -37,7 +37,7 @@
 <div class="row justify-content-center" style="margin:0px;">
     <div class="col">2020年7月->夏</div>
 </div>
-<div class="row" style="margin:0px;">
+<div class="row event_mem" style="margin:0px;">
         @for ($i = 0; $i < 12; $i++)
             <div class="col-3 col-sm-3 col-md-3" style="padding:2px;">
             @if ($i + 1 > $event_memory_length)
