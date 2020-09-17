@@ -28,6 +28,7 @@ class ShopCore
                 $paymentItems,
             ];
             $params = json_encode($data);
+            echo $params;
             $curl = curl_init($url);
             // curl_setopt($curl, CURLOPT_POST, TRUE);
             // curl_setopt($curl, CURLOPT_POSTFIELDS, $params); // パラメータをセット
