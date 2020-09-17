@@ -38,8 +38,8 @@
     <div class="col">2020年7月->夏</div>
 </div>
 <div class="row" style="margin:0px;">
-    <div class="col-3 col-sm-3 col-md-3" style="padding:2px;">
         @for ($i = 0; $i < 12; $i++)
+            <div class="col-3 col-sm-3 col-md-3" style="padding:2px;">
             @if ($i + 1 > $event_memory_length)
                 <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
                     <img src="{{ asset('/images/icon/bt_mem_place_seacret.png') }}" alt="シークレット" class="fit-img100">
@@ -59,7 +59,8 @@
                     </div>
                 </a>
             @endif
-        @endfor
+            </div>
+       @endfor
     </ul>
 </div>
 
