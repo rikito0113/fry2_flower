@@ -14,6 +14,28 @@
         <div class="avatar">
             <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
         </div> --}}
+
+
+        <div class="bg-change-clother-items">
+            @if (isset($chat_log))
+                @foreach ($chat_log as $char_name => $row)
+                    <div class="chat">
+                        <span style="font-size: small; float: {{$row->side}};">
+                            @if ($row->is_read)
+                            既読　　
+                            @endif
+                            {{$row->created_at}}
+                        </span>
+                        <br>
+                        <span class="chat-text-{{$row->side}}">
+                            <p class="chat-text">
+                                {!! nl2br(e($row->content)) !!}
+                            </p>
+                        </span>
+                    </div>
+                @endforeach
+            @endif
+        </div>
     </div>
 
     @if (isset($chat_log))
