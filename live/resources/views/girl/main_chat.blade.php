@@ -39,7 +39,7 @@
     </div>
     <form action="/Girl/mainChatSend" method="POST" class="row bg-chat-send" style="margin:0px;">
         @csrf
-        <div class="col-9 col-sm-9 col-md-9 chat-send-textbox">
+        <div class="chat-send-textbox col-9 col-sm-9 col-md-9">
             <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
                 <input name="content" placeholder="文字を入力してください(80文字以内)" style="border: none;border-radius: 5px; width:100%;"></input>
             </div>
@@ -48,7 +48,7 @@
             </div>
         </div>
         <input type="hidden" value="{{ $owned_char_info->char_id }}" name="char_id">
-        <div class="col-3 col-sm-3 col-md-3 chat-send-button">
+        <div class="chat-send-button col-3 col-sm-3 col-md-3">
             <button type="submit" onclick="submit();" style="-webkit-appearance: none;appearance: none;"><img src="{{ asset('/images/talk/bt_talk_send.png') }}" alt="送信" class="fit-img100"></button>
         </div>
     </form>
