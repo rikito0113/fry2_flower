@@ -40,15 +40,15 @@
     <form action="/Girl/mainChatSend" method="POST" class="row bg-chat-send" style="margin:0px;">
         @csrf
         <div class="col-9 col-sm-9 col-md-9 chat-send-textbox">
-            <div class="col-12 col-sm-12 col-md-12">
-                <input name="content" placeholder="文字を入力してください(80文字以内)"></input>
+            <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
+                <input name="content" placeholder="文字を入力してください(80文字以内)" class="fit-img100" style="border: none;border-radius: 5px;"></input>
             </div>
-            <div class="col-12 col-sm-12 col-md-12">
+            <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
                 残り文字数
             </div>
         </div>
         <input type="hidden" value="{{ $owned_char_info->char_id }}" name="char_id">
-        <div class="col-3 col-sm-3 col-md-3 chat-send-button">
+        <div class="col-3 col-sm-3 col-md-3 chat-send-button" style="padding:0px;">
             <button type="submit" onclick="submit();" style="-webkit-appearance: none;appearance: none;"><img src="{{ asset('/images/talk/bt_talk_send.png') }}" alt="送信" class="fit-img100"></button>
         </div>
     </form>

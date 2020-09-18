@@ -747,8 +747,6 @@ p.chat-text {
 .chat-send-textbox
 {
     padding: 3px 0px 6px 2px;
-    border: none;
-    border-radius: 5px;
 }
 
 @media (min-width: 768px) and (max-width:992px)
