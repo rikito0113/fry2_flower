@@ -43,12 +43,12 @@
             <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
                 <input name="content" placeholder="文字を入力してください(80文字以内)" style="border: none;border-radius: 5px; width:100%;"></input>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 chat-send-remain-text" style="padding:0px;">
+            <!-- <div class="col-12 col-sm-12 col-md-12 chat-send-remain-text" style="padding:0px;">
                 残り文字数
-            </div>
+            </div> -->
         </div>
         <input type="hidden" value="{{ $owned_char_info->char_id }}" name="char_id">
-        <div class="chat-send-button col-3 col-sm-3 col-md-3">
+        <div class="chat-send-button col-3 col-sm-3 col-md-3" style="padding-left:8px; padding-right:8px;">
             <button type="submit" onclick="submit();" style="-webkit-appearance: none;appearance: none;"><img src="{{ asset('/images/talk/bt_talk_send.png') }}" alt="送信" class="fit-img100"></button>
         </div>
     </form>
