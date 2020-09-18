@@ -44,9 +44,14 @@ class TopController extends Controller
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
                 $response = curl_exec($curl);
                 $json = json_decode($response, true);
-                var_dump($json);
+
+                $accessToken = $json['access_token'];
+                session(['access_token' => $accessToken]);
+
+                $refreshToken = $json['refresh_token'];
+                session(['refresh_token' => $refreshToken]);
+                // var_dump($json);
                 curl_close($curl);
-                echo $response;
 
             } catch (\Exception $e) {
                 echo $e;

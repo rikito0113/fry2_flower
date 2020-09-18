@@ -29,38 +29,39 @@ class ShopController extends Controller
             // こけてる
         }
 
-        // return view('shop.index');
+        return view('shop.index');
     }
 
     public function callback(Request $request)
     {
         // callback用
+        var_dump($request);
         echo $request->paymentId;
         echo $request->status;
         echo $request->transactionUrl;
 
         // コイン消費処理
-        $url = "https://api.nijiyome.jp/v2/api/rest/payment/@me/@self/@app/".$request->transactionUrl;
-        $params =  ["_status" => 1];
-        $client = new Client();
-        $response = $client->request(
-            'POST',
-            $url, // URLを設定
-            ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
-        );
+        // $url = "https://api.nijiyome.jp/v2/api/rest/payment/@me/@self/@app/".$request->transactionUrl;
+        // $params =  ["_status" => 1];
+        // $client = new Client();
+        // $response = $client->request(
+        //     'POST',
+        //     $url, // URLを設定
+        //     ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
+        // );
 
-        echo $response->status;
+        // echo $response->status;
 
-        // status=2を返して完了させる
-        $params2 =  ["_status" => 2];
-        $response2 = $client->request(
-            'POST',
-            $url, // URLを設定
-            ['headers' => ['Content-Type' => 'application/json'], 'query' => $params2],
-        );
+        // // status=2を返して完了させる
+        // $params2 =  ["_status" => 2];
+        // $response2 = $client->request(
+        //     'POST',
+        //     $url, // URLを設定
+        //     ['headers' => ['Content-Type' => 'application/json'], 'query' => $params2],
+        // );
 
-        if ($response2->status == 2) {
-            // アイテム付与
-        }
+        // if ($response2->status == 2) {
+        //     // アイテム付与
+        // }
     }
 }

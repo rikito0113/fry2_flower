@@ -5,29 +5,59 @@ namespace App\Library;
 // モデルの呼び出し
 use App\CharacterData;
 use App\OwnedCharacterData;
-
+use Exception;
 // HTTP通信用
 use GuzzleHttp\Client;
 
 class ShopCore
 {
     public static function buyItem($playerInfo, $itemId) {
-        $url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment/@me/@self/@app";
-        $params =  ['callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
-                    'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
-                    'paymentItems' => ["itemId" => 1, "itemName" => "test", "unitPrice" => 100, "quantity" => 1, "imageUrl" => "https://flower-dev.maaaaakoto35.com/ex101.jpg", "description" => "test"]];
-        $client = new Client();
-        $response = $client->request(
-            'POST',
-            $url, // URLを設定
-            ['headers' => ['Content-Type' => 'application/json'], 'query' => $params],
-        );
-        echo '決済処理用:';
-        echo $response->getStatusCode();   // 200が正解?
-        echo $response->getReasonPhrase(); // OKが正解
 
-        $responseBody = $response->getBody()->getContents();
-        echo $responseBody;
+        try {
+            //$url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment/@me/@self/@app";
+            $url = "https://spapi.nijiyome.jp/v2/spapi/rest/payment";
+            // $data = array(
+            //     'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
+            //     'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
+            //     'paymentItems' => array('itemId' => 1, 'itemName' => "test", 'unitPrice' => 100, 'quantity' => 1, 'imageUrl' => "https://flower-dev.maaaaakoto35.com/ex101.jpg", 'description' => "testです."),
+            // );
+            $paymentItems = ['itemId' => 1, 'itemName' => "test", 'unitPrice' => 100, 'quantity' => 1, 'imageUrl' => "https://flower-dev.maaaaakoto35.com/ex101.jpg", 'description' => "testです."];
+            $data =  [
+                'callbackUrl' => "https://flower-dev.maaaaakoto35.com/Shop/callback",
+                'finishPageUrl' => "https://flower-dev.maaaaakoto35.com/Shop/index",
+                $paymentItems,
+            ];
+            $params = json_encode($data);
+            echo $params;
+            $curl = curl_init($url);
+            // curl_setopt($curl, CURLOPT_POST, TRUE);
+            // curl_setopt($curl, CURLOPT_POSTFIELDS, $params); // パラメータをセット
+            // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+            // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            // curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type: application/json"));
+
+            curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/json",
+            "Content-Length: " . strlen($params))
+            );
+            $response = curl_exec($curl);
+            $json = json_decode($response, true);
+            echo '決済処理用:';
+            echo $json;
+            var_dump($json);
+
+            curl_close($curl);
+        } catch(Exception $e) {
+            echo $e;
+            report($e);
+            return false;
+        }
+
+        return true;
+
     }
 
 }

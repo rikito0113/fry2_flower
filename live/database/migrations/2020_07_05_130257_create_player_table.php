@@ -21,6 +21,7 @@ class CreatePlayerTable extends Migration
             $table->integer('study_point')->default(0);
             $table->integer('owned_char_id')->nullable()->default(0);
             $table->string('hash')->nullable();
+            // $table->string('refresh_token');  // 後々入れるかも
             $table->timestamps();
         });
     }
