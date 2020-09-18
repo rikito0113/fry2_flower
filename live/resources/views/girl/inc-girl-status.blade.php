@@ -1,8 +1,8 @@
 
 @if ($owned_char_info->attitude == 'dere')
-<div class="row" class="girl-status-bg-dere">
+<div class="row girl-status-bg-dere">
 @else
-<div class="row" class="girl-status-bg-tsun">
+<div class="row girl-status-bg-tsun">
 @endif
     <div class="col-6 col-sm-6 col-md-6" style="padding:0px;">
         <img src="{{ asset('/images/bg/bg_header_clock_dere.png') }}" alt="bg_header_clock_dere" class="fit-img100">
