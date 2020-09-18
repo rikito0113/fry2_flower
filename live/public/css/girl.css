@@ -738,6 +738,12 @@ p.chat-text {
     }
 }   
 
+.bg-chat-send
+{
+    background-image: url("../images/bg/bg_navi.png");
+    background-size: contain;
+}
+
 
 /************ ここまでチャット部分CSS ************/
 

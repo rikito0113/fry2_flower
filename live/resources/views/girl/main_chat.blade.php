@@ -37,9 +37,9 @@
             @endif
         </div>
     </div>
-    <form action="/Girl/mainChatSend" method="POST">
+    <form action="/Girl/mainChatSend" method="POST" class="form-inline bg-chat-send">
         @csrf
-        <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
+        <textarea name="content" cols="50" rows="1" placeholder="文字を入力してください(80文字以内)"></textarea>
         <input type="hidden" value="{{ $owned_char_info->char_id }}" name="char_id">
         <button type="submit" onclick="submit();">送信</button>
     </form>
