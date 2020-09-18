@@ -205,7 +205,8 @@ class GirlController extends Controller
         return view('girl.main_chat')
             ->with('chat_log',          $chatLog)
             ->with('owned_char_info',   $ownedCharInfo)
-            ->with('player_info',       $playerInfo);
+            ->with('player_info',       $playerInfo)
+            ->with('current_date',      date('m月d日 H:i'));
     }
 
     public function mainChatSend(Request $request)
