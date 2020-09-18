@@ -11,6 +11,22 @@
 }
 
 /************ inc-girl-status ************/
+.girl-status-bg-dere
+{
+   background-image: url('../images/bg/bg_header_dere.png');
+    background-size: contain; 
+    vertical-align:top; 
+    margin:0px;
+}
+
+.girl-status-bg-tsun
+{
+   background-image: url('../images/bg/bg_header_tsun.png');
+    background-size: contain; 
+    vertical-align:top; 
+    margin:0px;
+}
+
 .girl-status-date
 {
     position:absolute; 

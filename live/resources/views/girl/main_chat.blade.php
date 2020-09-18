@@ -1,30 +1,20 @@
 @include('header')
 
-<div style="text-align:center;">
-[チャット表示]<br>
-
-{{-- @foreach ($chat_log as $item)
-    <span>
-        ：{{ $item->content }}<br>
-    </span>
-@endforeach --}}
-
-@if (isset($owned_char_info))
+<div class="container-fluid" style="padding:0px 0px; text-align:center;">
 
     {{-- ガール情報 includeしてきてもいいかもしれない --}}
-    <div style="color: white; background-color: gray; text-align:center;">女性キャラクタ:{{ $owned_char_info->char_name }}</div>
-    <div style="text-align:center;">
-        Lv.{{$owned_char_info->level}}<br>
-        <div class="girl-img" style="width: 40%">
-            <img src="{{ asset('/images/character/'.$owned_char_info->bg_img.'.png') }}" alt="background" width="100%"><br>
-            <div class="avatar">
-                <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
-            </div>
-        </div><br>
-        {{$owned_char_info->img_name}}<br>
-    </div>
+    @include('girl.inc-girl-status' , ['page' => 'main_cha'])
 
-    <br><br>
+    <div class="girl-img" style="width: 100%">
+        <img src="{{ asset('/images/character/11.png') }}" alt="background" width="100%"><br>
+        <div class="avatar">
+            <img src="{{ asset('/images/character/1.png') }}" alt="avatar" width="100%"><br>
+        </div>
+        {{-- <img src="{{ asset('/images/character/'.$owned_char_info->bg_img.'.png') }}" alt="background" width="100%"><br>
+        <div class="avatar">
+            <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
+        </div> --}}
+    </div>
 
     @if (isset($chat_log))
         @foreach ($chat_log as $char_name => $row)
@@ -44,15 +34,14 @@
             </div>
         @endforeach
     @endif
-@endif
 
-<br>
-<form action="/Girl/mainChatSend" method="POST">
-    @csrf
-    <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
-    <input type="hidden" value="{{ $owned_char_info->char_id }}" name="char_id">
-    <button type="submit" onclick="submit();">送信</button>
-</form>
+    <br>
+    <form action="/Girl/mainChatSend" method="POST">
+        @csrf
+        <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
+        <input type="hidden" value="{{ $owned_char_info->char_id }}" name="char_id">
+        <button type="submit" onclick="submit();">送信</button>
+    </form>
 </div>
 
 @include('footer')
