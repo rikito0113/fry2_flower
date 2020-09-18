@@ -3,7 +3,7 @@
 <div class="container-fluid" style="padding:0px 0px; text-align:center;">
 
     {{-- ガール情報 includeしてきてもいいかもしれない --}}
-    @include('girl.inc-girl-status' , ['page' => 'main_cha'])
+    @include('girl.inc-girl-status' , ['page' => 'main_chat'])
 
     <div class="girl-img" style="width: 100%">
         <img src="{{ asset('/images/character/11.png') }}" alt="background" width="100%"><br>
