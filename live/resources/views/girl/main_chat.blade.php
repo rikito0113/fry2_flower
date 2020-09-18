@@ -41,7 +41,7 @@
         @csrf
         <div class="col-9 col-sm-9 col-md-9 chat-send-textbox">
             <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
-                <input name="content" placeholder="文字を入力してください(80文字以内)" class="fit-img100" style="border: none;border-radius: 5px;"></input>
+                <input name="content" placeholder="文字を入力してください(80文字以内)" style="border: none;border-radius: 5px; width:100%;"></input>
             </div>
             <div class="col-12 col-sm-12 col-md-12 chat-send-remain-text" style="padding:0px;">
                 残り文字数

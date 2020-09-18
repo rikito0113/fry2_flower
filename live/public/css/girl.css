@@ -816,28 +816,40 @@ p.chat-text {
 
 .chat-send-button
 {
-    padding: 3px 3px 2px 2px;
+    padding-top: 6px;
+    padding-bottom: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
 }
 
 @media (min-width: 768px) and (max-width:992px)
 {
     .chat-send-button
     {
-        padding: 3px 3px 2px 2px;
+        padding-top: 6px;
+        padding-bottom: 0px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 }
 @media (min-width: 992px) and (max-width: 1200px)
 {
     .chat-send-button
     {
-        padding: 3px 3px 2px 2px;
+        padding-top: 6px;
+        padding-bottom: 0px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 }
 @media (min-width: 1200px) 
 {
     .chat-send-button
     {
-        padding: 3px 3px 2px 2px;
+        padding-top: 6px;
+        padding-bottom: 0px;
+        padding-left: 3px;
+        padding-right: 3px;
     }
 } 
 
