@@ -48,7 +48,7 @@
             </div>
         </div>
         <input type="hidden" value="{{ $owned_char_info->char_id }}" name="char_id">
-        <div class="col-3 col-sm-3 col-md-3 chat-send-button" style="padding:0px;">
+        <div class="col-3 col-sm-3 col-md-3 chat-send-button">
             <button type="submit" onclick="submit();" style="-webkit-appearance: none;appearance: none;"><img src="{{ asset('/images/talk/bt_talk_send.png') }}" alt="送信" class="fit-img100"></button>
         </div>
     </form>
