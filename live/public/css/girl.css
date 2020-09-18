@@ -1,5 +1,15 @@
 /* girlの組み合わせ画像用のcss */
 
+button {
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+button img {
+    display: block;
+}
+
 .girl-img {
     position: relative;
     display: inline-block;
