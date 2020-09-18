@@ -740,9 +740,72 @@ p.chat-text {
 
 .bg-chat-send
 {
-    background-image: url("../images/bg/bg_navi.png");
+    background-image: url("../images/talk/bg_talk2.png");
     background-size: contain;
 }
+
+.chat-send-textbox
+{
+    padding: 3px 0px 6px 2px;
+    border: none;
+    border-radius: 5px;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .chat-send-textbox
+    {
+        padding: 3px 0px 6px 2px;
+        border: none;
+        border-radius: 5px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .chat-send-textbox
+    {
+        padding: 3px 0px 6px 2px;
+        border: none;
+        border-radius: 5px;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .chat-send-textbox
+    {
+        padding: 3px 0px 6px 2px;
+        border: none;
+        border-radius: 5px;
+    }
+} 
+
+.chat-send-button
+{
+    padding: 3px 3px 2px 2px;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .chat-send-button
+    {
+        padding: 3px 3px 2px 2px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .chat-send-button
+    {
+        padding: 3px 3px 2px 2px;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .chat-send-button
+    {
+        padding: 3px 3px 2px 2px;
+    }
+} 
+
 
 
 /************ ここまでチャット部分CSS ************/
