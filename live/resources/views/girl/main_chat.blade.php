@@ -41,15 +41,15 @@
         @csrf
         <div class="col-9 col-sm-9 col-md-9 chat-send-textbox">
             <div class="col-12 col-sm-12 col-md-12">
-                <textarea name="content" cols="80" rows="1" placeholder="文字を入力してください(80文字以内)"></textarea>
+                <input name="content" placeholder="文字を入力してください(80文字以内)"></input>
             </div>
             <div class="col-12 col-sm-12 col-md-12">
-                <p>残り文字数</p>
+                残り文字数
             </div>
         </div>
         <input type="hidden" value="{{ $owned_char_info->char_id }}" name="char_id">
         <div class="col-3 col-sm-3 col-md-3 chat-send-button">
-            <button type="submit" onclick="submit();"><img src="{{ asset('/images/talk/bt_talk_send.png') }}" alt="送信" class="fit-img100"></button>
+            <button type="submit" onclick="submit();" style="-webkit-appearance: none;appearance: none;"><img src="{{ asset('/images/talk/bt_talk_send.png') }}" alt="送信" class="fit-img100"></button>
         </div>
     </form>
 </div>
