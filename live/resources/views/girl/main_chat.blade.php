@@ -43,7 +43,7 @@
             <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
                 <input name="content" placeholder="文字を入力してください(80文字以内)" class="fit-img100" style="border: none;border-radius: 5px;"></input>
             </div>
-            <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
+            <div class="col-12 col-sm-12 col-md-12 chat-send-remain-text" style="padding:0px;">
                 残り文字数
             </div>
         </div>

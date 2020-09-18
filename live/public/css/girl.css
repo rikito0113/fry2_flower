@@ -777,6 +777,33 @@ p.chat-text {
     }
 } 
 
+.chat-send-remain-text
+{
+    font-size:16px;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .chat-send-remain-text
+    {
+        font-size:16px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .chat-send-remain-text
+    {
+        font-size:16px;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .chat-send-remain-text
+    {
+        font-size:16px;
+    }
+} 
+
 .chat-send-button
 {
     padding: 3px 3px 2px 2px;
