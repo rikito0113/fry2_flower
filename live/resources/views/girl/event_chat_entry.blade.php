@@ -8,29 +8,29 @@
         @foreach ($field_list as $key => $field)
             <div class="row">
                 @if ($field == '華姫寮')
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <a href="/Girl/eventPlace/華姫寮">
                             <img class="img-fluid" src="{{ asset('/images/button/bt_place1.png') }}" alt="">
                         </a>
                     </div>
                 @elseif ($field == '繁華街')
-                    <div class="col-sm-10">
+                    <div class="col-12">
                         <a href="/Girl/eventPlace/繁華街">
                             <img class="img-fluid" src="{{ asset('/images/button/bt_place2.png') }}" alt="">
                         </a>
                     </div>
                 @elseif ($field == '学校')
-                <div class="col-sm-10">
-                    <a href="/Girl/eventPlace/学校">
-                        <img class="img-fluid" src="{{ asset('/images/button/bt_place3.png') }}" alt="">
-                    </a>
-                </div>
+                    <div class="col-12">
+                        <a href="/Girl/eventPlace/学校">
+                            <img class="img-fluid" src="{{ asset('/images/button/bt_place3.png') }}" alt="">
+                        </a>
+                    </div>
                 @elseif ($field == '出身地')
-                <div class="col-sm-10">
-                    <a href="/Girl/eventPlace/出身地">
-                        <img class="img-fluid" src="{{ asset('/images/button/bt_place4.png') }}" alt="">
-                    </a>
-                </div>
+                    <div class="col-12">
+                        <a href="/Girl/eventPlace/出身地">
+                            <img class="img-fluid" src="{{ asset('/images/button/bt_place4.png') }}" alt="">
+                        </a>
+                    </div>
                 @endif
             </div><br>
         @endforeach
