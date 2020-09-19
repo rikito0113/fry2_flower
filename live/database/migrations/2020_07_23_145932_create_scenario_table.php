@@ -17,8 +17,8 @@ class CreateScenarioTable extends Migration
             $table->increments('scenario_id');          // primary_id
             $table->string('start_datetime');
             $table->string('end_datetime');
-            $table->string('field');                    // 場所A
-            $table->string('place');                    // 場所B
+            $table->integer('field');                   // 場所A
+            $table->integer('place');                   // 場所B
             $table->enum('daytime', [
                 'morning',
                 'noon',
