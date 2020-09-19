@@ -6,9 +6,9 @@
     <div style="color: white; background-color: gray; text-align:center;">場所:{{ $scenario_info->field }}</div>
     <div style="text-align:center;">
         <div class="girl-img" style="width: 40%">
-            <img src="{{ asset('/images/'.$owned_char_info->bg_img) }}" alt="background" width="100%"><br>
+            <img src="{{ asset('/images/character/'.$scenario_info->default_background.'.png') }}" alt="background" width="100%"><br>
             <div class="avatar">
-                <img src="{{ asset('/images/'.$owned_char_info->avatar_img) }}" alt="avatar" width="100%"><br>
+                <img src="{{ asset('/images/character/'.$scenario_info->char_id.'.png') }}" alt="avatar" width="100%"><br>
             </div>
         </div><br>
         {{$scenario_info->place}}<br>

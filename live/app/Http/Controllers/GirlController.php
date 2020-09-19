@@ -233,6 +233,8 @@ class GirlController extends Controller
     // 外へ行く Place選択画面
     public function eventPlace($field)
     {
+        // $scenarioInfo = Scenario::where('field', $field)->groupBy('place')->get();
+
         $placeList = Scenario::select('place')->where('field', $field)->groupBy('place')->get()->pluck('place');
         return view('girl.event_chat_entry')
             ->with('field_list',    false)
