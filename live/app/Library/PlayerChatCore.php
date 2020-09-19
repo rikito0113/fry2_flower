@@ -66,9 +66,9 @@ class PlayerChatCore
             'player_id'           => $playerId,
             'content'             => $content,
             'char_id'             => $charId,
-            'char_avatar_id' => $ownedCharInfo->avatar_img,
-            'char_effect_id' => 1, // 仮
-            'char_bg_id'  => $ownedCharInfo->bg_img,
+            'char_avatar_img'     => $ownedCharInfo->avatar_img,
+            'char_effect_img'     => $ownedCharInfo->effect_img,
+            'char_bg_img'         => $ownedCharInfo->bg_img,
             'is_player'           => true,
             'is_read'             => false,
         ]);
