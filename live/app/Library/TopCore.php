@@ -96,9 +96,9 @@ class TopCore
                 // ]);
 
                 if ($img->category == Constant::ITEM_AVATAR) {
-                    $avatarImg = $img->item_id;
+                    $avatarImg = $imgItem->item_img;
                 } elseif ($img->category == Constant::ITEM_BG) {
-                    $bgImg = $img->item_id;
+                    $bgImg = $imgItem->item_img;
                 }
             }
 
