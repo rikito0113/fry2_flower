@@ -16,9 +16,9 @@ class CreateSetImgTable extends Migration
         Schema::create('set_img', function (Blueprint $table) {
             $table->integer('owned_char_id');
             $table->integer('char_id');
-            $table->integer('avatar_img')->nullable();
-            $table->integer('bg_img')->nullable();
-            $table->integer('effect_img')->nullable();
+            $table->string('avatar_img')->nullable();
+            $table->string('bg_img')->nullable();
+            $table->string('effect_img')->nullable();
             $table->timestamps();
         });
     }
