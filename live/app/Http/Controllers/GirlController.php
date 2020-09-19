@@ -6,7 +6,8 @@ namespace App\Http\Controllers;
 use App\CharacterData;
 use App\OwnedCharacterData;
 use App\Player;
-use App\OwnedCharacterImg;
+use App\Item;
+use App\OwnedItem;
 use App\PlayerChatLog;
 use App\Scenario;
 use App\EventMemory;
@@ -40,9 +41,6 @@ class GirlController extends Controller
         // 選択中のgirl情報
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
 
-        // 所持中のimg情報
-        $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
-
         // 全ガール情報
         $allOwnedCharId = OwnedCharacterData::where('player_id', $this->_playerId)->get();
         $allOwnedCharInfo = array();
@@ -64,7 +62,6 @@ class GirlController extends Controller
         return view('girl.index')
             ->with('all_char_info',     $allOwnedCharInfo)
             ->with('owned_char_info',   $ownedCharInfo)
-            ->with('owned_char_img',    $ownedCharImg)
             ->with('current_date',      date('m月d日 H:i'))
             ->with('player_info',       $playerInfo)
             ->with('scenario_info',     $scenarioInfo);
@@ -309,26 +306,28 @@ class GirlController extends Controller
         $ownedCharInfo = GirlCore::girlLoad($playerInfo->owned_char_id);
 
         // 所持中のimg情報
-        $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->get();
+        $ownedCharImg = OwnedItem::where('owned_char_id', $playerInfo->owned_char_id)->get();
 
         // 画像をカテゴリーに分ける
         $avatarImgs = false;
         $bgImgs = false;
         $effectImgs = false;
 
-        foreach($ownedCharImg as $key => $ownedImg)
+        foreach($ownedCharImg as $key => &$ownedImg)
         {
-            if($ownedImg['category'] == Constant::ITEM_AVATER_FORM)
+            $ownedImg['item_info'] = OwnedItem::where('item_id', $ownedImg->item_id);
+
+            if($ownedImg['item_info']['category'] == Constant::ITEM_AVATAR)
             {
-                $avatarImgs[] = $ownedImg;
+                $avatarImgs[] = $ownedImg['item_info'];
             }
-            elseif($ownedImg['category'] == Constant::ITEM_BG)
+            elseif($ownedImg['item_info']['category'] == Constant::ITEM_BG)
             {
-                $bgImgs = $ownedImg;
+                $bgImgs = $ownedImg['item_info'];
             }
-            elseif($ownedImg['category'] == Constant::ITEM_AVATER_HAIR)
+            elseif($ownedImg['item_info']['category'] == Constant::ITEM_EFFECT)
             {
-                $effectImgs = $ownedImg;
+                $effectImgs = $ownedImg['item_info'];
             }
         }
 

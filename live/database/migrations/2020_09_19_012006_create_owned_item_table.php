@@ -17,7 +17,8 @@ class CreateOwnedItemTable extends Migration
             $table->increments('owned_item_id');
             $table->integer('player_id');
             $table->integer('item_id');
-            $table->integer('num');
+            $table->integer('owned_char_id');
+            $table->integer('num')->default(1);
             $table->dateTime('expire_time')->nullable();    // 有効期限 NULL時は無期限
             $table->timestamps();
         });

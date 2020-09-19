@@ -8,7 +8,7 @@ class OwnedItem extends Model
 {
     protected $table = 'owned_item';
 
-    protected $fillable = ['player_id', 'item_id', 'num', 'expire_time'];
+    protected $fillable = ['player_id', 'item_id', 'owned_char_id', 'num', 'expire_time'];
 
     protected $primaryKey = 'owned_item_id';
 }

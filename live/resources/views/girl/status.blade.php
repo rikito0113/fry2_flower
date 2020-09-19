@@ -2,7 +2,7 @@
 
 <div class="container-fluid" style="padding:0px 0px;">
 {{-- ガール情報 includeしてきてもいいかもしれない --}}
-@include('girl.inc-girl-status')
+@include('girl.inc-girl-status' , ['page' => 'else'])
 
 {{-- 天秤情報 --}}
 <div style="text-align:center; position:relative; width:100%;">

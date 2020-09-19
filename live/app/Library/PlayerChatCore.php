@@ -7,8 +7,6 @@ use App\CharacterData;
 use App\OwnedCharacterData;
 use App\ExpLookup;
 use App\Player;
-use App\CharacterImg;
-use App\OwnedCharacterImg;
 use App\SetImg;
 use App\PlayerChatLog;
 use App\AdminChatLog;

@@ -1,14 +1,14 @@
 @include('header')
 <div class="container-fluid" style="padding:0px 0px;">
 {{-- ガール情報 includeしてきてもいいかもしれない --}}
-@include('girl.inc-girl-status')
+@include('girl.inc-girl-status' , ['page' => 'else'])
 
 {{-- ガール立ち絵 --}}
 <div style="text-align:center; position:relative;">
     <div class="girl-img" style="width: 100%">
-        <img src="{{ asset('/images/character/'.$owned_char_info->bg_img.'.png') }}" alt="background" width="100%"><br>
+        <img src="{{ asset('/images/'.$owned_char_info->bg_img) }}" alt="background" width="100%"><br>
         <div class="avatar">
-            <img src="{{ asset('/images/character/'.$owned_char_info->avatar_img.'.png') }}" alt="avatar" width="100%"><br>
+            <img src="{{ asset('/images/'.$owned_char_info->avatar_img) }}" alt="avatar" width="100%"><br>
         </div>
     </div>
     {{-- ツンデレステータス icon --}}

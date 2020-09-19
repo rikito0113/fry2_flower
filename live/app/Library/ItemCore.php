@@ -2,7 +2,7 @@
 
 namespace App\Library;
 use App\Item;
-use App\OwnedCharacterImg;
+use App\OwnedItem;
 use App\MainMemory;
 
 class ItemCore
@@ -27,21 +27,50 @@ class ItemCore
         // アイテム情報取得
         $itemInfo = Item::where('item_id', $itemId)->first();
 
-        // アイテムのカテゴリごとに格納する場所変わる
-        if($itemInfo->category == Constant::ITEM_AVATAR || $itemInfo->category == Constant::ITEM_EFFECT || $itemInfo->category == Constant::ITEM_BG)
-        {
-            // owned_character_img
-            $imgInstance = new OwnedCharacterImg;
-            $imgInstance->create([
-                'owned_char_id' => $ownedCharId,
-                'player_id'     => $playerId,
-                'item_id'       => $playerId,
-                'num'           => $num,
-                'category'      => $itemInfo->category,
+        // owned_itemを更新
+        if (!$itemInfo->expiration_date) {
+            // 期限がないitemの時
+            $ownedItem = OwnedItem::where('item_id', $itemId)->where('player_id', $playerId)->where('owned_char_id', $ownedCharId)->first();
+            if ($ownedItem) {
+                // あるとき
+                $ownedItem->num += $num;
+                $ownedItem->save();
+            } else {
+                // ないとき
+                $ownedItemInstance = new OwnedItem;
+                $ownedItemInstance->create([
+                    'player_id'      => $playerId,
+                    'item_id'        => $itemId,
+                    'owned_char_id'  => $ownedCharId,
+                    'num'            => $num,
+                ]);
+            }
+        } elseif ($itemInfo->expiration_date == 1) {
+            // 当日に消えるitemの時
+            $date = date('Y-m-d 00:00:00');
+            $ownedItemInstance = new OwnedItem;
+            $ownedItemInstance->create([
+                'player_id'      => $playerId,
+                'item_id'        => $itemId,
+                'owned_char_id'  => $ownedCharId,
+                'num'            => $num,
+                'expire_time'    => $date,
             ]);
-
+        } elseif ($itemInfo->expiration_date == 2) {
+            // 次の日に消えるitemの時
+            $date = date('Y-m-d H:i:s', strtotime('+1 day'));
+            $ownedItemInstance = new OwnedItem;
+            $ownedItemInstance->create([
+                'player_id'      => $playerId,
+                'item_id'        => $itemId,
+                'owned_char_id'  => $ownedCharId,
+                'num'            => $num,
+                'expire_time'    => $date,
+            ]);
         }
-        elseif($itemInfo->category == Constant::ITEM_SCENE_NORMAL)
+
+        // アイテムのカテゴリごとに格納する場所変わる
+        if($itemInfo->category == Constant::ITEM_SCENE_NORMAL)
         {
             // event_memory
         }

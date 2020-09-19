@@ -14,10 +14,10 @@ class Constant
     const ITEM_SCENE_ERO        = 'scene_ero';
 
     // キャラ関連
-    const DEFAULT_CHARACTER_IMG = 2;                // bg, avatarの2個のみdefaultで付与(3個目はeffect)
-    const DEFAULT_CHARACTER_ID  = 1;
-    const ATTITUDE_DERE         = 'dere';
-    const ATTITUDE_TSUN         = 'tsun';
+    const DEFAULT_CHARACTER_IMG_NUM = 2;                // bg, avatarの2個のみdefaultで付与(3個目はeffect)
+    const DEFAULT_CHARACTER_ID      = 1;
+    const ATTITUDE_DERE             = 'dere';
+    const ATTITUDE_TSUN             = 'tsun';
 
     // 外へ行く関連
     const DAY_TIME_MORNING   = '10:00:00';

@@ -14,7 +14,7 @@ class CreateItemTable extends Migration
     public function up()
     {
         Schema::create('item', function (Blueprint $table) {
-            $table->integer('item_id');
+            $table->integer('item_id')->unique();
             $table->integer('char_id')->default(0);
             $table->string('item_name');
             $table->enum('category', ['shop', 'tool', 'scene_normal', 'scene_ero', 'bg', 'avatar', 'effect']);

@@ -7,9 +7,10 @@ use App\CharacterData;
 use App\OwnedCharacterData;
 use App\Player;
 use App\CharacterImg;
-use App\OwnedCharacterImg;
+use App\Item;
 use App\SetImg;
 use App\OwnedTitle;
+use App\OwnedItem;
 
 // ライブラリの呼び出し
 use App\Library\GirlCore;
@@ -75,16 +76,25 @@ class TopCore
             $charInstance = OwnedCharacterData::where('player_id', $playerInfo->player_id)->where('char_id', $girl->char_id)->first();
 
             // ここでchar_imgからデフォルトを取得しowned_character_imgを登録 avatar, bg, effect
-            $defaultImg = CharacterImg::where('char_id', $girl->char_id)->orderBy('item_id', 'asc')->get()->take(Constant::DEFAULT_CHARACTER_IMG);
+            $defaultImg = CharacterImg::where('char_id', $girl->char_id)->orderBy('item_id', 'asc')->get()->take(Constant::DEFAULT_CHARACTER_IMG_NUM);
             foreach ($defaultImg as $key => $img) {
-                $imgInstance = new OwnedCharacterImg;
-                $imgInstance->create([
-                    'owned_char_id' => $charInstance->owned_char_id,
+                $imgItem = Item::where('item_id', $img->item_id)->first();
+                $ownedItemInstance = new OwnedItem;
+                $ownedItemInstance->create([
                     'player_id'     => $playerInfo->player_id,
                     'item_id'       => $img->item_id,
-                    'num'           => 1,
-                    'category'      => $img->category,
+                    'owned_char_id' => $charInstance->owned_char_id,
                 ]);
+
+                // $imgInstance = new OwnedCharacterImg;
+                // $imgInstance->create([
+                //     'owned_char_id' => $charInstance->owned_char_id,
+                //     'player_id'     => $playerInfo->player_id,
+                //     'item_id'       => $img->item_id,
+                //     'num'           => 1,
+                //     'category'      => $img->category,
+                // ]);
+
                 if ($img->category == Constant::ITEM_AVATAR) {
                     $avatarImg = $img->item_id;
                 } elseif ($img->category == Constant::ITEM_BG) {

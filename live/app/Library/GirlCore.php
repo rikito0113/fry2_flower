@@ -7,10 +7,9 @@ use App\CharacterData;
 use App\OwnedCharacterData;
 use App\Player;
 use App\SetImg;
-use App\CharacterImg;
-use App\OwnedCharacterImg;
 use App\Term;
 use App\Item;
+use App\OwnedItem;
 use App\Subject;
 use App\GirlTermSubject;
 use App\GirlTermScore;
@@ -58,6 +57,7 @@ class GirlCore
         $ownedCharInfo['char_name']  = CharacterData::where('char_id', $ownedChar->char_id)->first()->char_name;
         $ownedCharInfo['avatar_img'] = $setImgInfo->avatar_img;
         $ownedCharInfo['bg_img']     = $setImgInfo->bg_img;
+        $ownedCHarInfo['effect_img'] = is_null($setImgInfo->effect_img) ? false : $setImgInfo->effect_img;
 
         // 現在のtermを取得
         $term = Term::where('term_start', '<=', date("Y-m-d"))->where('term_end', '>=', date("Y-m-d"))->first();
@@ -98,16 +98,19 @@ class GirlCore
     public static function setImg($playerId, $itemId)
     {
         $playerInfo = Player::where('player_id', $playerId)->first();
-        $ownedCharImg = OwnedCharacterImg::where('owned_char_id', $playerInfo->owned_char_id)->where('item_id', $itemId)->first();
+        $ownedCharImg = OwnedItem::where('owned_char_id', $playerInfo->owned_char_id)->where('item_id', $itemId)->first();
+        $itemInfo = Item::where('item_id', $itemId)->first();
 
         // エラー回避
         if (!$ownedCharImg || $ownedCharImg->num <= 0) return false;
 
         $setImgInfo = SetImg::where('owned_char_id', $playerInfo->owned_char_id)->first();
-        if ($ownedCharImg->category == Constant::ITEM_BG) {
-            $setImgInfo->bg_img = $ownedCharImg->item_id;
-        } else {
-            $setImgInfo->avatar_img = $ownedCharImg->item_id;
+        if ($itemInfo->category == Constant::ITEM_BG) {
+            $setImgInfo->bg_img = $itemInfo->item_img;
+        } elseif ($itemInfo->category == Constant::ITEM_AVATAR) {
+            $setImgInfo->avatar_img = $itemInfo->item_img;
+        } elseif ($itemInfo->category == Constant::ITEM_EFFECT) {
+            $setImgInfo->avatar_img = $itemInfo->item_img;
         }
         $setImgInfo->save();
 
