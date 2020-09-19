@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-12">
                     <a href="/Girl/eventChat/{{ $scenario->place }}">
-                        <img class="img-fluid" src="{{ asset('/images/button/place/bt'. $field .'_place'. $scenario->place .'.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('/images/button/place/bt_bg'. $field .'_place'. $scenario->place .'.png') }}" alt="">
                     </a>
                 </div>
             </div><br>
