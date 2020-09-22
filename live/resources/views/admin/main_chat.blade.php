@@ -40,19 +40,21 @@
                     {{$char_name}}
                 </span>
                 <br>
-                @foreach ($chats as $row)
-                    <div class="chat admin_chat">
-                        <span style="font-size: small; float: {{$row->side}};">
-                            {{$row->created_at}}
-                        </span>
-                        <br>
-                        <div class="chat-text-{{$row->side}}">
-                            <p class="chat-text">
-                                {!! $row->content !!}
-                            </p>
+                <div class="chat_scroll">
+                    @foreach ($chats as $row)
+                        <div class="chat">
+                            <span style="font-size: small; float: {{$row->side}};">
+                                {{$row->created_at}}
+                            </span>
+                            <br>
+                            <div class="chat-text-{{$row->side}}">
+                                <p class="chat-text">
+                                    {!! $row->content !!}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
 
                 @if ($is_read)
                     <form action="/Admin/mainChatConfirm" method="POST">
