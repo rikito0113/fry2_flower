@@ -19,7 +19,6 @@
         @endif
     </div>
 
-    </div>
     @if (isset($chat_info))
         {{-- ガール立ち絵 --}}
         <div class="wrapper-girl">
