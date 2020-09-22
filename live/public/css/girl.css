@@ -823,7 +823,7 @@ p.chat-text {
 .chat-send-button
 {
     padding-top: 6px;
-    padding-bottom: 0px;
+    padding-bottom: 8px;
     padding-left: 3px;
     padding-right: 3px;
 }
@@ -833,7 +833,7 @@ p.chat-text {
     .chat-send-button
     {
         padding-top: 6px;
-        padding-bottom: 0px;
+        padding-bottom: 8px;
         padding-left: 3px;
         padding-right: 3px;
     }
@@ -843,7 +843,7 @@ p.chat-text {
     .chat-send-button
     {
         padding-top: 6px;
-        padding-bottom: 0px;
+        padding-bottom: 8px;
         padding-left: 3px;
         padding-right: 3px;
     }
@@ -853,7 +853,7 @@ p.chat-text {
     .chat-send-button
     {
         padding-top: 6px;
-        padding-bottom: 0px;
+        padding-bottom: 8px;
         padding-left: 3px;
         padding-right: 3px;
     }
