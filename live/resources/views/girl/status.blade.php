@@ -7,15 +7,20 @@
     {{-- 天秤情報 --}}
     <div class = "row" style="margin:0px;">
         <div class="col12" style="padding:0px 0px;">
-            <img src="{{ asset('/images/status/bg_status_' . $owned_char_info->attitude . '.png') }}" alt="tenbin1" class="fit-img100">
-            <img src="{{ asset('/images/status/tenbin3.png') }}" alt="tenbin1" style="position:absolute; top:20%; left: 5%;" width="23%" height="23%">
-            <img src="{{ asset('/images/status/tenbin3.png') }}" alt="tenbin1" style="position:absolute; top:20%; right: 5%;" width="23%" height="23%">
-            <img src="{{ asset('/images/status/tenbin2.png') }}" alt="tenbin1" style="position:absolute; top:10%; left: 10%;" width="80%">
-            <img src="{{ asset('/images/status/tenbin1.png') }}" alt="tenbin1" style="position:absolute; top:10%; left: 25%;" width="50%">
+            <img src="{{ asset('/images/status/bg_status_' . $owned_char_info->attitude . '.png') }}" alt="bg" class="fit-img100">
+            <img src="{{ asset('/images/status/tenbin3.png') }}" alt="tenbin3" class="tenbin-left-plate">
+            <img src="{{ asset('/images/status/tenbin3.png') }}" alt="tenbin3" class="tenbin-right-plate">
+            <img src="{{ asset('/images/status/tenbin2.png') }}" alt="tenbin2" class="position-horizonーcenter tenbin-body" >
+            <img src="{{ asset('/images/status/tenbin1.png') }}" alt="tenbin1" class="position-horizonーcenter tenbin-arm">
 
             {{-- ハート --}}
-            <img src="{{ asset('/images/status/para_heart_dere1.png') }}" alt="para_heart_dere1" style="position:absolute; top:22%; left: 1%;" width="30%" height="20%">
-            <img src="{{ asset('/images/status/para_heart_tsun1.png') }}" alt="para_heart_tsun1" style="position:absolute; top:22%; right: 1%;" width="30%" height="20%">
+            @if ($owned_char_info->attitude == 'dere')
+                <img src="{{ asset('/images/status/para_heart_dere2.png') }}" alt="para_heart_dere2" class="para_heart_dere">
+                <img src="{{ asset('/images/status/para_heart_tsun1.png') }}" alt="para_heart_tsun1" class="para_heart_tsun">
+            @else
+                <img src="{{ asset('/images/status/para_heart_dere1.png') }}" alt="para_heart_dere1" class="para_heart_dere">
+                <img src="{{ asset('/images/status/para_heart_tsun2.png') }}" alt="para_heart_tsun2" class="para_heart_tsun">
+            @endif
 
             {{-- 残パラ --}}
             <img src="{{ asset('/images/status/status_heart_box1.png') }}" alt="status_heart_box1" style="position:absolute; bottom:25%; left: 5%;" width="90%">

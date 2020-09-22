@@ -1133,3 +1133,216 @@ p.chat-text {
     overflow:scroll;
     bottom:0%;
 }
+
+/************ 着替え ************/
+.tenbin-arm
+{ 
+    top:20%; 
+    width: 50%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .tenbin-arm
+    {
+        top:20%; 
+        width: 50%;
+    }
+
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .tenbin-arm
+    {
+        top:20%; 
+        width: 50%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .tenbin-arm
+    {
+        top:20%; 
+        width: 50%;
+    }
+} 
+
+.tenbin-body
+{
+    top:20%;
+    width: 80%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .tenbin-body
+    {
+        top:20%;
+        width: 80%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .tenbin-body
+    {
+        top:20%;
+        width: 80%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .tenbin-body
+    {
+        top:20%;
+        width: 80%;
+    }
+} 
+
+
+.tenbin-left-plate
+{
+    position:absolute; 
+    top:20%; 
+    left: 5%;
+    width: 23%;
+}
+
+.tenbin-right-plate
+    {
+        position:absolute; 
+        top:20%; 
+        right: 5%;
+        width: 23%;
+    }
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .tenbin-left-plate
+    {
+        position:absolute; 
+        top:20%; 
+        left: 5%;
+        width: 23%;
+    }
+
+    .tenbin-right-plate
+    {
+        position:absolute; 
+        top:20%; 
+        right: 5%;
+        width: 23%;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .tenbin-left-plate
+    {
+        position:absolute; 
+        top:20%; 
+        left: 5%;
+        width: 23%;
+    }
+
+    .tenbin-right-plate
+    {
+        position:absolute; 
+        top:20%; 
+        right: 5%;
+        width: 23%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .tenbin-left-plate
+    {
+        position:absolute; 
+        top:20%; 
+        left: 5%;
+        width: 23%;
+    }
+
+    .tenbin-right-plate
+    {
+        position:absolute; 
+        top:20%; 
+        right: 5%;
+        width: 23%;
+    }
+} 
+
+.para_heart_dere
+{
+    position:absolute; 
+    top:26.5%; 
+    left: 3%;
+    width:27%;
+}
+
+
+.para_heart_tsun
+{
+    position:absolute; 
+    top:26.5%; 
+    right: 3%;
+    width: 27%;
+}
+
+@media (min-width: 768px) and (max-width:992px)
+{
+    .para_heart_dere
+    {
+        position:absolute; 
+        top:26.5%; 
+        left: 3%;
+        width:27%;
+    }
+
+
+    .para_heart_tsun
+    {
+        position:absolute; 
+        top:26.5%; 
+        right: 3%;
+        width: 27%;
+    }
+
+}
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    .para_heart_dere
+    {
+        position:absolute; 
+        top:26.5%; 
+        left: 3%;
+        width:27%;
+    }
+
+    .para_heart_tsun
+    {
+        position:absolute; 
+        top:26.5%; 
+        right: 3%;
+        width: 27%;
+    }
+}
+@media (min-width: 1200px) 
+{
+    .para_heart_dere
+    {
+        position:absolute; 
+        top:26.5%; 
+        left: 3%;
+        width:27%;
+    }
+
+    .para_heart_tsun
+    {
+        position:absolute; 
+        top:26.5%; 
+        right: 3%;
+        width: 27%;
+    }
+} 
+
+
+

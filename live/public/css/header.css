@@ -140,3 +140,13 @@
         float: left;
     }
 }   
+
+/***** 水平方向の中央寄せ　上下を別で自由に揃えてね　 *******/
+.position-horizonーcenter
+{
+    position:absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
