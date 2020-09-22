@@ -11,7 +11,15 @@
 @include('admin.side', ['menu' => 'should_reply'])
 
 <div id="Contents">
-    既読 : {{$is_read}}
+    <div style="width: 100%; color: white; background-color: gray; text-align:center;">
+        @if ($is_read)
+            既読しました。
+        @else
+            閲覧のみです。既読はつけていません。
+        @endif
+    </div>
+
+    </div>
     @if (isset($chat_info))
         {{-- ガール立ち絵 --}}
         <div class="wrapper-girl">

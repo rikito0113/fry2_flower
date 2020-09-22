@@ -284,7 +284,7 @@ class GirlController extends Controller
         return view('girl.event_chat')
             ->with('owned_char_info',  $ownedCharInfo)
             ->with('scenario_info',    $scenarioInfo)
-            ->with('current_date',      date('m月d日 H:i'))
+            ->with('current_date',     date('m月d日 H:i'))
             ->with('event_chat_log',   $eventChatLog);
     }
 
