@@ -13,8 +13,22 @@
 <div id="Contents">
     既読 : {{$is_read}}
     @if (isset($chat_info))
+        {{-- ガール立ち絵 --}}
+        <div class="wrapper-girl">
+            <div class="girl-img" style="width: 100%">
+                {{-- <img src="{{ asset('/images/character/11.png') }}" alt="background" width="100%"><br>
+                <div class="avatar">
+                    <img src="{{ asset('/images/character/1.png') }}" alt="avatar" width="100%"><br>
+                </div> --}}
+                <img src="{{ asset('/images/'.$owned_char_info->bg_img) }}" alt="background" width="100%"><br>
+                <div class="avatar">
+                    <img src="{{ asset('/images/'.$owned_char_info->avatar_img) }}" alt="avatar" width="100%"><br>
+                </div>
+            </div>
+        </div>
+
         @foreach ($chat_info as $char_name => $chats)
-            <div  style="text-align: center;">
+            <div class="wrapper-chat">
                 <span style="color: red">
                     {{$char_name}}
                 </span>

@@ -15,8 +15,9 @@ use App\EventInfo;
 
 // ライブラリの呼び出し
 use App\Library\AdminCore;
+use App\Library\GirlCore;
 use App\Library\PlayerChatCore;
-
+use App\OwnedCharacterData;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -109,16 +110,19 @@ class AdminController extends Controller
     {
         $playerInfo = Player::where('player_id', $playerId)->first();
         $chatInfo = AdminCore::getChatByPlayerAndChar($playerId, $charId);
+        $ownedCharId = OwnedCharacterData::where('char_id', $charId)->where('player_id', $playerId)->first()->owned_char_id;
+        $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
 
         // if ($isRead) {
         //     AdminCore::changeMainChatRead($charId, $playerId);
         // }
 
         return view('admin.main_chat')
-            ->with('char_id',     $charId)
-            ->with('player_info', $playerInfo)
-            ->with('is_read',     $isRead)
-            ->with('chat_info',   $chatInfo);
+            ->with('owned_char_info',   $ownedCharInfo)
+            ->with('char_id',           $charId)
+            ->with('player_info',       $playerInfo)
+            ->with('is_read',           $isRead)
+            ->with('chat_info',         $chatInfo);
     }
 
     // プレイヤー検索からの返信
