@@ -154,6 +154,7 @@ table.chat_row {
     padding-right: 10%;
     text-align:center;
     position:relative;
+    vertical-align: top;
 }
 .girl-img {
     position: relative;

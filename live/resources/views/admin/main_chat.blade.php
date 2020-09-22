@@ -22,7 +22,7 @@
     @if (isset($chat_info))
         {{-- ガール立ち絵 --}}
         <div class="wrapper_girl">
-            <div class="girl-img" style="width: 100%">
+            <div class="girl-img" style="width: 60%">
                 {{-- <img src="{{ asset('/images/character/11.png') }}" alt="background" width="100%"><br>
                 <div class="avatar">
                     <img src="{{ asset('/images/character/1.png') }}" alt="avatar" width="100%"><br>
