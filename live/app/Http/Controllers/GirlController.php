@@ -245,9 +245,10 @@ class GirlController extends Controller
     // 外へ行く eventChat画面
     public function eventChat($place = false)
     {
-        $dayTime      = null;
-        $scenarioInfo = false;
-        $eventChatLog = false;
+        $dayTime        = null;
+        $scenarioInfo   = false;
+        $eventChatLog   = false;
+        $ownedCharInfo  = array();
 
         if (strtotime(date('H:i:s')) > strtotime(Constant::DAY_TIME_NIGHT)) {
             $dayTime = Constant::NIGHT;
@@ -275,11 +276,15 @@ class GirlController extends Controller
 
         if ($scenarioInfo) {
             $eventChatLog = PlayerChatCore::getEventChatLogByScenario($this->_playerId, $scenarioInfo->scenario_id);
+            $ownedCharId = OwnedCharacterData::where('char_id', $scenarioInfo->char_id)->where('player_id', $this->_playerId)->first()->owned_char_id;
+            $ownedCharInfo = GirlCore::girlLoad($ownedCharId);
         }
 
 
         return view('girl.event_chat')
+            ->with('owned_char_info',  $ownedCharInfo)
             ->with('scenario_info',    $scenarioInfo)
+            ->with('current_date',      date('m月d日 H:i'))
             ->with('event_chat_log',   $eventChatLog);
     }
 

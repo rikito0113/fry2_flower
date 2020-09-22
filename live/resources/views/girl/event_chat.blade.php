@@ -1,50 +1,61 @@
 
 @include('header')
 
-{{-- ガール情報 --}}
-@if (isset($scenario_info))
-    <div style="color: white; background-color: gray; text-align:center;">場所:{{ $scenario_info->field }}</div>
-    <div style="text-align:center;">
-        <div class="girl-img" style="width: 40%">
+<div class="container-fluid" style="padding:0px 0px; text-align:center;">
+    @include('girl.inc-girl-status' , ['page' => 'main_chat'])
+
+    {{-- ガール情報 --}}
+    @if (isset($scenario_info))
+        <div style="color: white; background-color: gray; text-align:center;">{{ $scenario_info->title }}</div>
+        <div class="girl-img" style="width: 100%">
             <img src="{{ asset('/images/character/'.$scenario_info->default_background.'.png') }}" alt="background" width="100%"><br>
             <div class="avatar">
                 <img src="{{ asset('/images/character/'.$scenario_info->char_id.'.png') }}" alt="avatar" width="100%"><br>
             </div>
-        </div><br>
-        {{$scenario_info->place}}<br>
-    </div>
 
-    @if (isset($event_chat_log))
-        @foreach ($event_chat_log as $char_name => $row)
-            <div class="chat">
-                <span style="font-size: small; float: {{$row->side}};">
-                    @if ($row->is_read)
-                    既読　　
-                    @endif
-                    {{$row->created_at}}
-                </span>
-                <br>
-                <span class="chat-text-{{$row->side}}">
-                    <p class="chat-text">
-                        {!! nl2br(e($row->content)) !!}
-                    </p>
-                </span>
+
+            <div class="bg-chat">
+                @if (isset($event_chat_log))
+                    @foreach ($event_chat_log as $char_name => $row)
+                        <div class="chat">
+                            <span style="font-size: small; float: {{$row->side}};">
+                                @if ($row->is_read)
+                                既読　　
+                                @endif
+                                {{$row->created_at}}
+                            </span>
+                            <br>
+                            <span class="chat-text-{{$row->side}}">
+                                <p class="chat-text">
+                                    {!! nl2br(e($row->content)) !!}
+                                </p>
+                            </span>
+                        </div>
+                    @endforeach
+                @endif
             </div>
-        @endforeach
+        </div>
+        <form action="/Girl/eventChatSend" method="POST" class="row bg-chat-send" style="margin:0px;">
+            @csrf
+            <div class="chat-send-textbox col-9 col-sm-9 col-md-9">
+                <div class="col-12 col-sm-12 col-md-12" style="padding:0px;">
+                    <input name="content" placeholder="文字を入力してください(80文字以内)" style="border: none;border-radius: 5px; width:100%;"></input>
+                </div>
+                <!-- <div class="col-12 col-sm-12 col-md-12 chat-send-remain-text" style="padding:0px;">
+                    残り文字数
+                </div> -->
+            </div>
+            <input type="hidden" value="{{ $scenario_info->scenario_id }}" name="scenario_id">
+            <div class="chat-send-button col-3 col-sm-3 col-md-3" style="padding-left:8px; padding-right:8px;">
+                <button type="submit" onclick="submit();" style="-webkit-appearance: none;appearance: none;"><img src="{{ asset('/images/talk/bt_talk_send.png') }}" alt="送信" class="fit-img100"></button>
+            </div>
+        </form>
+        </div>
+    @else
+        <div style="text-align: center;">
+            誰もいなかった.....
+        </div>
     @endif
-
-    <br>
-    <form action="/Girl/eventChatSend" method="POST" style="text-align: center;">
-        @csrf
-        <textarea name="content" cols="50" rows="4" placeholder="メッセージを入力"></textarea>
-        <input type="hidden" value="{{ $scenario_info->scenario_id }}" name="scenario_id">
-        <button type="submit" onclick="submit();">送信</button>
-    </form>
-@else
-    <div style="text-align: center;">
-        誰もいなかった.....
-    </div>
-@endif
-
+</div>
 
 @include('footer')
