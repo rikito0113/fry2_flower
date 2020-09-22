@@ -136,13 +136,18 @@ table.chat_row {
 }
 
 /* adminチャット用 */
-.wrapper-chat {
+.wrapper_chat {
     display: inline-block;
     text-align: center;
     width: 40%;
 }
+.admin_chat {
+    overflow: scroll;
+    width: 100%;
+    height: 150px;
+}
 
-.wrapper-girl {
+.wrapper_girl {
     display: inline-block;
     width: 30%;
     padding-right: 10%;

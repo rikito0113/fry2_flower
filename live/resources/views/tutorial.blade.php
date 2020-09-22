@@ -12,7 +12,7 @@
 </head>
 <body>
     <div style="text-align: center;">チュートリアル</div>
-    <div id="wrapper-scene" style="overflow:scroll; width:100%; height:300px">
+    <div id="wrapper-scene" style="overflow:scroll; width:100%; height:300px;">
         <div class="chat"></div>
     </div>
 

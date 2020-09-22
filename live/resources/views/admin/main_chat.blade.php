@@ -21,7 +21,7 @@
 
     @if (isset($chat_info))
         {{-- ガール立ち絵 --}}
-        <div class="wrapper-girl">
+        <div class="wrapper_girl">
             <div class="girl-img" style="width: 100%">
                 {{-- <img src="{{ asset('/images/character/11.png') }}" alt="background" width="100%"><br>
                 <div class="avatar">
@@ -35,13 +35,13 @@
         </div>
 
         @foreach ($chat_info as $char_name => $chats)
-            <div class="wrapper-chat">
+            <div class="wrapper_chat">
                 <span style="color: red">
                     {{$char_name}}
                 </span>
                 <br>
                 @foreach ($chats as $row)
-                    <div class="chat">
+                    <div class="chat admin_chat">
                         <span style="font-size: small; float: {{$row->side}};">
                             {{$row->created_at}}
                         </span>
