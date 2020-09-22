@@ -11,27 +11,46 @@
 @include('admin.side', ['menu' => 'should_reply'])
 
 <div id="Contents">
-    既読 : {{$is_read}}
+    <div style="width: 100%; color: white; background-color: gray; text-align:center;">
+        @if ($is_read)
+            既読しました。
+        @else
+            閲覧のみです。既読はつけていません。
+        @endif
+    </div>
+
     @if (isset($chat_info))
+        {{-- ガール立ち絵 --}}
+        <div class="wrapper_girl">
+            <div class="girl-img" style="width: 60%">
+                <img src="{{ asset('/images/character/'.$scenario_info->default_background.'.png') }}" alt="background" width="100%"><br>
+                <div class="avatar">
+                    <img src="{{ asset('/images/character/'.$scenario_info->char_id.'.png') }}" alt="avatar" width="100%"><br>
+                </div>
+            </div>
+        </div>
+
         @foreach ($chat_info as $char_name => $chats)
-            <div  style="text-align: center;">
+            <div class="wrapper_chat">
                 <span style="color: red">
                     {{$char_name}}
                 </span>
                 <br>
-                @foreach ($chats as $row)
-                    <div class="chat">
-                        <span style="font-size: small; float: {{$row->side}};">
-                            {{$row->created_at}}
-                        </span>
-                        <br>
-                        <div class="chat-text-{{$row->side}}">
-                            <p class="chat-text">
-                                {!! $row->content !!}
-                            </p>
+                <div class="chat_scroll">
+                    @foreach ($chats as $row)
+                        <div class="chat">
+                            <span style="font-size: small; float: {{$row->side}};">
+                                {{$row->created_at}}
+                            </span>
+                            <br>
+                            <div class="chat-text-{{$row->side}}">
+                                <p class="chat-text">
+                                    {!! $row->content !!}
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
 
                 @if ($is_read)
                     <form action="/Admin/eventChatConfirm" method="POST">
