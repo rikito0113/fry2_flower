@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
   <ModulePrefs title="フラワーガールズ開発" bgcolor="#ffffff">
-    <Link rel="event.addapp" href="https://flower-dev.maaaaakoto35.com/event/add" method="GET" />
-    <Link rel="event.removeapp" href="https://flower-dev.maaaaakoto35.comm/event/remove" method="GET" />
+    <Link rel="event.addapp" href="https://develop.f-girls.com/event/add" method="GET" />
+    <Link rel="event.removeapp" href="https://develop.f-girls.com/event/remove" method="GET" />
   </ModulePrefs>
   <!-- スマートフォン用スタートURL -->
-  <Content view="touch" type="url" href="https://flower-dev.maaaaakoto35.com/"
+  <Content view="touch" type="url" href="https://develop.f-girls.com/"
   allow_domains="www.developer-sama.com,smart.developer-sama.com" />
   <!-- PC用スタートURL -->
-  <Content view="canvas" type="url" href="https://flower-dev.maaaaakoto35.com/"
+  <Content view="canvas" type="url" href="https://develop.f-girls.com/"
   allow_domains="www.developer-sama.com,asset.developer-sama.com" padding_top="0" padding_bottom="0" />
 </Module>
